@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Managers.Audio
+{
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
@@ -60,4 +62,5 @@ public class AudioManager : MonoBehaviour
         audioSource.pitch = Random.Range(.9f, 1.1f);
         audioSource.PlayOneShot(clip, volumeScale);
     }
+}
 }
