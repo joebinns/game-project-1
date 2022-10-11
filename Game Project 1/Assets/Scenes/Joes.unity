@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7587936239807992493, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7587936239807992493, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
       propertyPath: m_LocalPosition.y
@@ -493,7 +493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435588620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.53, y: 5.17, z: 5}
+  m_LocalPosition: {x: -1, y: 3, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -769,14 +769,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0, y: 0.96018237, z: -0.279374, w: 0}
+  m_LocalRotation: {x: 0, y: 0.97629607, z: -0.2164396, w: 0}
   m_LocalPosition: {x: 0, y: 7.3, z: 23.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 32.446, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 25, y: 180, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,18 +879,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generationMode: 0
-  roadSpeed: 0.03
-  tilesUntilEnd: 25
+  roadSpeed: 0.01
+  tilesUntilEnd: 100
   shouldGenerate: 0
   tilesToGenerate:
-  - {fileID: 6839452690270763697, guid: 89a3cca2c00d80946b19c02ef8b792e8, type: 3}
-  - {fileID: 6839452690270763697, guid: 6b1b98b0dc399a944a29baa2acdac117, type: 3}
-  - {fileID: 6839452690270763697, guid: e55430dcac3810144804fab52cfbfcf8, type: 3}
+  - {fileID: 133372203712121623, guid: bdc562e42bbce524bbe419c97ca92e9d, type: 3}
+  - {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
+  - {fileID: 133372203712121623, guid: a51e7b2c87b6f3b4e92e5cfd3ed36c54, type: 3}
   mainCam: {fileID: 963194227}
-  startTile: {fileID: 6839452690270763697, guid: ddf763b0c5fced8498d748bda878f9bf, type: 3}
-  endTile: {fileID: 6839452690270763697, guid: 64169a846e77d9346bdf86e512de760a, type: 3}
+  startTile: {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
+  endTile: {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
   indefiniteTiles:
-  - {fileID: 6839452690270763697, guid: 6d09a476dcb3c194ba0d5d1cb43b9a73, type: 3}
+  - {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
 --- !u!114 &1545997433 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7587936239807992481, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
@@ -909,6 +909,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2155554750914792583, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7587936239807992482, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -927,7 +931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7587936239807992493, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.75
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7587936239807992493, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
       propertyPath: m_LocalPosition.y
