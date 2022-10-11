@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6555252920298765723
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 441779549673202177, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: _trigger
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 441779549673202177, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: _endTrigger
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 441779549673202177, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: TileSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a377c22cefb0734bb7a54b366440d72, type: 2}
+    - target: {fileID: 441779549673202177, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: _startTrigger
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 441779549673202177, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: _tileSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a377c22cefb0734bb7a54b366440d72, type: 2}
+    - target: {fileID: 3489615781138877148, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653188365802670737, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719545303519722357, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+      propertyPath: m_Name
+      value: Rapid Tap Tile
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9042681615546978643, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6cf27235361d00546aaa7ca61aa5fa2f, type: 3}
