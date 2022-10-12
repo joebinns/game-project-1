@@ -973,22 +973,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5619355270754009675, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
-      propertyPath: LocalEquilibriumPosition.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619355270754009675, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
-      propertyPath: LocalEquilibriumPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619355270754009675, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
-      propertyPath: LocalEquilibriumPositionDefault.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619355270754009675, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
-      propertyPath: LocalEquilibriumPositionDefault.y
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7587936239807992482, guid: 4710f202e9baa01479b9b78f667e0839, type: 3}
       propertyPath: m_UseGravity
       value: 1

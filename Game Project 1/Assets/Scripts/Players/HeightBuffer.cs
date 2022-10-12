@@ -19,16 +19,28 @@ namespace Players
         [SerializeField] private float _jumpForceFactor = 15f;
         [SerializeField] private float _approxJumpDuration = 0.5f;
 
-        private float _timeSinceJump;
+        [SerializeField] private float _riseGravityFactor = 3f;
+        [SerializeField] private float _fallGravityFactor = 8f;
+
+        
+        private bool _grounded = true;
+        private float _timeSinceUngrounded = 0f;
+        private float _timeSinceJump = 0f;
+        private bool _isJumping = false;
+        private bool _shouldMaintainHeight = true;
+        private bool _jumpReady = true;
+        private Vector3 _gravitationalForce;
+        
+        
 
         /// <summary>
         /// Get the rigidbody.
         /// </summary>
         private void Awake()
         {
-            _timeSinceJump = _approxJumpDuration;
             _rb = GetComponent<Rigidbody>();
             _oscillator = GetComponent<Oscillator>();
+            _gravitationalForce = Physics.gravity * _rb.mass;
         }
 
         /// <summary>
@@ -36,26 +48,42 @@ namespace Players
         /// </summary>
         private void FixedUpdate()
         {
-            _timeSinceJump += Time.fixedDeltaTime;
+            _timeSinceUngrounded += Time.fixedDeltaTime;
             (bool didRayHit, RaycastHit rayHit) = RaycastToGround();
             _rayHit = rayHit;
-            if (didRayHit == false)
+            _grounded = CheckIfGrounded(didRayHit, _rayHit);
+            if (_grounded)
             {
-                // then there are no forces to be apply
-                return;
+                _timeSinceUngrounded = 0f;
+
+                if (_timeSinceUngrounded > 0.2f)
+                {
+                    _isJumping = false;
+                }
             }
-            //Vector3 displacement = new Vector3(0f, _rayHit.distance - _desiredHeight, 0f);
+            else
+            {
+                _timeSinceUngrounded += Time.fixedDeltaTime;
+            }
+            
+            if (didRayHit && _shouldMaintainHeight)
+            {
+                _oscillator.ForceScale = _oscillator.ForceScaleDefault;
+                MaintainHeight();
+            }
+            else
+            {
+                _oscillator.ForceScale = Vector3.zero;
+            }
+            
+            _timeSinceJump += Time.fixedDeltaTime;
+            Jump();
+        }
 
-            /*
-            var localEquilibriumPosition = _oscillator.LocalEquilibriumPosition;
-            localEquilibriumPosition.y = transform.InverseTransformPoint(_rayHit.point).y + _desiredHeight;
-            Debug.Log(localEquilibriumPosition);
-            _oscillator.LocalEquilibriumPosition = localEquilibriumPosition;
-            */
-
+        private void MaintainHeight()
+        {
             _oscillator.LocalEquilibriumPosition = _oscillator.LocalEquilibriumPositionDefault +
                                                    transform.InverseTransformPoint(_rayHit.point);
-
         }
 
         /// <summary>
@@ -70,21 +98,62 @@ namespace Players
             return (didRayHit, rayHit);
         }
 
-        /*
-        public void Jump()
+        /// <summary>
+        /// Use the result of a Raycast to determine if the capsules distance from the ground is sufficiently close to the desired ride height such that the character can be considered 'grounded'.
+        /// </summary>
+        /// <param name="rayHitGround">Whether or not the Raycast hit anything.</param>
+        /// <param name="rayHit">Information about the ray.</param>
+        /// <returns>Whether or not the player is considered grounded.</returns>
+        private bool CheckIfGrounded(bool rayHitGround, RaycastHit rayHit)
         {
-            while (_timeSinceJump >= _approxJumpDuration)
+            bool grounded;
+            if (rayHitGround == true)
             {
-                _rb.velocity = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z);
+                grounded = rayHit.distance <= _oscillator.LocalEquilibriumPositionDefault.y * 1.3f; // 1.3f allows for greater leniancy (as the value will oscillate about the rideHeight).
+            }
+            else
+            {
+                grounded = false;
+            }
+            return grounded;
+        }
+
+        private void Jump()
+        {
+            if (_rb.velocity.y < 0)
+            {
+                _shouldMaintainHeight = true;
+                _jumpReady = true;
+                if (!_grounded)
+                {
+                    // Increase downforce for a sudden plummet.
+                    _rb.AddForce(_gravitationalForce * (_fallGravityFactor - 1f)); // Hmm... this feels a bit weird. I want a reactive jump, but I don't want it to dive all the time...
+                }
+            }
+            else if (_rb.velocity.y > 0)
+            {
+                if (!_grounded)
+                {
+                    if (_isJumping)
+                    {
+                        _rb.AddForce(_gravitationalForce * (_riseGravityFactor - 1f));
+                    }
+                }
+            }
+            
+            if (_jumpReady)
+            {
+                _jumpReady = false;
+                _shouldMaintainHeight = false;
+                _isJumping = true;
+                _rb.velocity = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z); // Cheat fix... (see comment below when adding force to rigidbody).
                 if (_rayHit.distance != 0) // i.e. if the ray has hit
                 {
-                    _rb.position = new Vector3(_rb.position.x, _rb.position.y - (_rayHit.distance - _desiredHeight),
-                        _rb.position.z);
+                    _rb.position = new Vector3(_rb.position.x, _rb.position.y - (_rayHit.distance - _oscillator.LocalEquilibriumPositionDefault.y), _rb.position.z);
                 }
-                _rb.AddForce(Vector3.up * _jumpForceFactor, ForceMode.Impulse);
+                _rb.AddForce(Vector3.up * _jumpForceFactor, ForceMode.Impulse); // This does not work very consistently... Jump height is affected by initial y velocity and y position relative to RideHeight... Want to adopt a fancier approach (more like PlayerMovement). A cheat fix to ensure consistency has been issued above...
                 _timeSinceJump = 0f;
             }
         }
-        */
     }
 }

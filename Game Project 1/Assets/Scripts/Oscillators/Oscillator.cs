@@ -18,7 +18,8 @@ namespace Oscillators
         public Vector3 LocalEquilibriumPositionDefault = Vector3.zero;
         [HideInInspector] public Vector3 LocalEquilibriumPosition;
         [Tooltip("The axes over which the oscillator applies force. Within range [0, 1].")]
-        public Vector3 ForceScale = Vector3.one;
+        public Vector3 ForceScaleDefault = Vector3.one;
+        [HideInInspector] public Vector3 ForceScale;
         [Tooltip("The greater the stiffness constant, the lesser the amplitude of oscillations.")]
         [SerializeField] private float _stiffness = 100f;
         [Tooltip("The greater the damper constant, the faster that oscillations will dissapear.")]
@@ -29,6 +30,7 @@ namespace Oscillators
         private void Awake()
         {
             LocalEquilibriumPosition = LocalEquilibriumPositionDefault;
+            ForceScale = ForceScaleDefault;
             _rb = GetComponent<Rigidbody>();
         }
 
