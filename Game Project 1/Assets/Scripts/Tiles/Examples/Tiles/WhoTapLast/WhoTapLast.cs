@@ -31,11 +31,11 @@ namespace Tiles.Examples
         {
             if (_player0Time < _player1Time)
             {
-                PointsManager.GainPoints(1, 100);
+                PointsManager.GainPoints(0, 100);
             }
             else
             {
-                PointsManager.GainPoints(2, 100);
+                PointsManager.GainPoints(1, 100);
             }
 
             // Call this method as the tile's last piece of logic!

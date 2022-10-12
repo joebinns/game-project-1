@@ -22,7 +22,7 @@ namespace Tiles.Examples
             // Play HandleInputAudio
             base.HandleInput(playerId);
             
-            PointsManager.GainPoints(playerId+1, 1000);
+            PointsManager.GainPoints(playerId, 1000);
         }
     }
 }
