@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -19,10 +21,24 @@ namespace Tiles
 
         public virtual void EndEffect()
         {
-            // Subscribe inputs to this tile's effect
+            // Subscribe inputs back to player
             OnEndEffect?.Invoke(null);
+            
+            //Destroy tiles if indefinite
+            if (TileSettings.isIndefinite)
+            {
+                StartCoroutine(WaitToDestroy());
+            }
         }
 
+        IEnumerator WaitToDestroy()
+        {
+            yield return new WaitForSeconds(3f);
+            
+            FindObjectOfType<RoadGenerator>().RemoveActiveTile(this.gameObject);
+            Destroy(this.gameObject);
+        }
+        
         private void Awake()
         {
             if (TileSettings.isIndefinite)

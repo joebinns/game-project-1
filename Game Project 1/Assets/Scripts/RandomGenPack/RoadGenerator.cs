@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tiles;
 using UnityEngine;
 
 public class RoadGenerator : MonoBehaviour
@@ -44,6 +45,11 @@ public class RoadGenerator : MonoBehaviour
         }
     }
 
+    public void RemoveActiveTile(GameObject tileToRemove)
+    {
+        _activeTileList.Remove(tileToRemove);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
@@ -62,7 +68,19 @@ public class RoadGenerator : MonoBehaviour
 
             if (tile.GetComponent<TileInfo>().endPoint.position.z > mainCam.transform.position.z)
             {
-                _destroyQueue.Enqueue(tile);
+                if (tile.GetComponent<Tile>() != null)
+                {
+                    if(tile.GetComponent<Tile>().TileSettings.isIndefinite == false)
+                    {
+                        _destroyQueue.Enqueue(tile);
+                    }
+                }
+
+                else
+                {
+                    _destroyQueue.Enqueue(tile);
+                }
+                
             }
         }
 

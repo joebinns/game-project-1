@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3121a083ac70f4b886f3e5e13e96a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isIndefinite: 1
   endPoint: {fileID: 3860318728794601407}
 --- !u!114 &7473053611728416882
 MonoBehaviour:
@@ -63,7 +64,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileSettings: {fileID: 11400000, guid: ab76e4d40b46b0c40b6ff8c23397e935, type: 2}
-  cooldownFinished: 0
 --- !u!1 &3949422825787498805
 GameObject:
   m_ObjectHideFlags: 0
