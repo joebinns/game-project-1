@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Don't Tap Tile Settings
   m_EditorClassIdentifier: 
   _description: 
-  audioClips:
-  - {fileID: 8300000, guid: 0ce496f75b9330c4d9cd4e8ee42ad7ed, type: 3}
-  - {fileID: 8300000, guid: cf54b862f90fba44d8a515a88df2f46b, type: 3}
-  sprite: {fileID: 0}
-  isIndefinite: 0
+  BeginEffectAudio: {fileID: 0}
+  EndEffectAudio: {fileID: 0}
+  HandleInputAudio: {fileID: 0}
+  BeginEffectSprite: {fileID: 0}
+  IsIndefinite: 1
+  MiscellaneousAudioClips: []
+  MiscellaneousSprites: []
+  DeactivateCanvasDelay: 0
