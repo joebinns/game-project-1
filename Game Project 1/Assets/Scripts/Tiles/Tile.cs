@@ -42,15 +42,19 @@ namespace Tiles
             {
                 AudioManager.PlaySound(TileSettings.EndEffectAudio);
             }
-            var uIHandler = FindObjectOfType<UIHandler>();
-            uIHandler.DeactivateEffectCanvas();
-            FindObjectOfType<UIHandler>().DeactivateEffectCanvas();
             
+            Invoke("DeactivateCanvas", TileSettings.DeactivateCanvasDelay);
+
             // Destroy tiles if indefinite
             if (TileSettings.IsIndefinite)
             {
                 StartCoroutine(WaitToDestroy());
             }
+        }
+
+        private void DeactivateCanvas()
+        {
+            FindObjectOfType<UIHandler>().DeactivateEffectCanvas();
         }
 
         IEnumerator WaitToDestroy()
@@ -61,9 +65,7 @@ namespace Tiles
             
             roadGen.RemoveActiveTile(this.gameObject);
             roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
-            roadGen.GenerateNextTile();
-            Destroy(this.gameObject);
-            
+            roadGen.DestroyQueue.Enqueue(this.gameObject);
         }
         
         private void Awake()
