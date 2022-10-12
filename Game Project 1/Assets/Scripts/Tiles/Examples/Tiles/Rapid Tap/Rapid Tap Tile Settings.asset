@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a05e5f39a2ba00469071b489d782266, type: 3}
   m_Name: Rapid Tap Tile Settings
   m_EditorClassIdentifier: 
-  _description: 
-  audioClips:
-  - {fileID: 8300000, guid: 0ce496f75b9330c4d9cd4e8ee42ad7ed, type: 3}
-  - {fileID: 8300000, guid: cf54b862f90fba44d8a515a88df2f46b, type: 3}
-  sprite: {fileID: 0}
-  isIndefinite: 0
+  _description: Tap fast, gain points
+  BeginEffectAudio: {fileID: 8300000, guid: 0ce496f75b9330c4d9cd4e8ee42ad7ed, type: 3}
+  EndEffectAudio: {fileID: 8300000, guid: 0ce496f75b9330c4d9cd4e8ee42ad7ed, type: 3}
+  HandleInputAudio: {fileID: 8300000, guid: cf54b862f90fba44d8a515a88df2f46b, type: 3}
+  BeginEffectSprite: {fileID: 21300000, guid: 59afc836e36d1f84f97af97f93247bfc, type: 3}
+  IsIndefinite: 0
+  MiscellaneousAudioClips: []
+  MiscellaneousSprites: []

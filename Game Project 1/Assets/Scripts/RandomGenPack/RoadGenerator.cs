@@ -70,7 +70,7 @@ public class RoadGenerator : MonoBehaviour
             {
                 if (tile.GetComponent<Tile>() != null)
                 {
-                    if(tile.GetComponent<Tile>().TileSettings.isIndefinite == false)
+                    if(tile.GetComponent<Tile>().TileSettings.IsIndefinite == false)
                     {
                         _destroyQueue.Enqueue(tile);
                     }
