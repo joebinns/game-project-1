@@ -58,7 +58,7 @@ public class RoadGenerator : MonoBehaviour
         foreach (GameObject tile in _activeTileList)
         {
             tile.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y,
-                tile.transform.position.z + roadSpeed);
+                tile.transform.position.z + (roadSpeed * Time.deltaTime));
 
             if (tile.GetComponent<TileInfo>().endPoint.position.z > mainCam.transform.position.z)
             {
