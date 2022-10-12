@@ -2,6 +2,7 @@ using System.Collections;
 using Managers.Points;
 using UnityEngine;
 using UI;
+using Unity.VisualScripting;
 
 namespace Tiles.Examples
 {
@@ -9,6 +10,7 @@ namespace Tiles.Examples
     {
         private bool _cooldownFinished = false;
         private bool _eventFinished = false;
+        float t;
 
         public override void BeginEffect()
         {
@@ -26,29 +28,16 @@ namespace Tiles.Examples
 
         private IEnumerator Cooldown(float duration)
         {
-            float t = duration;
+            t = duration;
             while (t > 0)
             {
                 t -= Time.deltaTime;
-                FindObjectOfType<UIHandler>().SetEffectText(t.ToString("0.0#"));  
             }
             
             _cooldownFinished = true;
             yield return null;
         }
 
-        private IEnumerator EventCooldown(float duration)
-        {
-            float t = duration;
-            while (t > 0)
-            {
-                t -= Time.deltaTime;
-            }
-            
-            _eventFinished = true;
-            yield return null;
-        }
-        
         public override void HandleInput(int playerId)
         {
             if (_cooldownFinished)
@@ -57,6 +46,7 @@ namespace Tiles.Examples
                 base.HandleInput(playerId);
 
                 PointsManager.GainPoints(playerId, 1000);
+                FindObjectOfType<UIHandler>().SetEffectText((3f-t).ToString("0.0#"));
                 EndEffect();
             }
         }

@@ -29,7 +29,7 @@ public class RoadGenerator : MonoBehaviour
     private GameObject _lastGeneratedTile;
 
     private List<GameObject> _activeTileList = new List<GameObject>();
-    private Queue<GameObject> _destroyQueue = new Queue<GameObject>();
+    public Queue<GameObject> DestroyQueue = new Queue<GameObject>();
 
     void Start()
     {
@@ -72,21 +72,21 @@ public class RoadGenerator : MonoBehaviour
                 {
                     if(tile.GetComponent<Tile>().TileSettings.IsIndefinite == false)
                     {
-                        _destroyQueue.Enqueue(tile);
+                        DestroyQueue.Enqueue(tile);
                     }
                 }
 
                 else
                 {
-                    _destroyQueue.Enqueue(tile);
+                    DestroyQueue.Enqueue(tile);
                 }
                 
             }
         }
 
-        if (_destroyQueue.Count > 0 && shouldGenerate)
+        if (DestroyQueue.Count > 0 && shouldGenerate)
         {
-            GameObject toDestroy = _destroyQueue.Dequeue();
+            GameObject toDestroy = DestroyQueue.Dequeue();
 
             _activeTileList.Remove(toDestroy);
             GenerateNextTile();

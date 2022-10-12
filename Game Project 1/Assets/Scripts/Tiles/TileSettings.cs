@@ -21,5 +21,6 @@ namespace Tiles
         [Header("Advanced")]
         public List<AudioClip> MiscellaneousAudioClips;
         public List<Sprite> MiscellaneousSprites;
+        public float DeactivateCanvasDelay = 0f;
     }
 }
