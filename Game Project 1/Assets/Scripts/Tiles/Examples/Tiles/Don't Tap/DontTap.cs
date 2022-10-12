@@ -26,6 +26,8 @@ namespace Tiles
             // Redirect inputs to this tile
             base.BeginEffect();
 
+            _playerPressed = new[] { false, false };
+
             // UI Manager change sprite to _sprite
 
             StartCoroutine(Cooldown(3f));
@@ -47,7 +49,7 @@ namespace Tiles
         {
             if (!_cooldownFinished && !_playerPressed[playerId])
             {
-                Debug.Log("Player"+playerId+"tapped! You lost 100 points!");
+                Debug.Log("Player"+playerId+" tapped! You lost 100 points!");
                 //Remove points from playerId
                 _playerPressed[playerId] = true;
             }
@@ -59,7 +61,7 @@ namespace Tiles
             while (t > 0)
             {
                 t -= Time.deltaTime;
-                Debug.Log(t);
+                //Debug.Log(t);
                 //Update UI
                 yield return null;
             }
