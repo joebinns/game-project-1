@@ -8,6 +8,7 @@ namespace Tiles
     public class WhoTapFirstTile : Tile
     {
         private bool _cooldownFinished = false;
+        private bool _eventFinished = false;
 
         public override void BeginEffect()
         {
@@ -18,6 +19,7 @@ namespace Tiles
             // UI Manager change sprite to _sprite
 
             Debug.Log("Who Tap First Tile in effect");
+            
             
             StartCoroutine(Cooldown(3f));
         }
@@ -45,6 +47,18 @@ namespace Tiles
             }
             
             _cooldownFinished = true;
+            yield return null;
+        }
+
+        private IEnumerator EventCooldown(float duration)
+        {
+            float t = duration;
+            while (t > 0)
+            {
+                t -= Time.deltaTime;
+            }
+            
+            _eventFinished = true;
             yield return null;
         }
         
