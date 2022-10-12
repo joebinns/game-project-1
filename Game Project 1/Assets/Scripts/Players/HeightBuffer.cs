@@ -1,19 +1,17 @@
-using System;
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using Oscillators;
 
 namespace Players
 {
+    [RequireComponent(typeof(Oscillator))]
     public class HeightBuffer : MonoBehaviour
     {
         private Rigidbody _rb;
+        private Oscillator _oscillator;
 
         [Header("Hover")]
-        [SerializeField] private float _desiredHeight = 2f;
+        //[SerializeField] private float _desiredHeight = 2f;
         [SerializeField] private float _maxRaycastDist = 3f;
-        [SerializeField] private float _springStrength = 100f;
-        [SerializeField] private float _springDamper = 10f;
 
         private RaycastHit _rayHit;
 
@@ -23,17 +21,14 @@ namespace Players
 
         private float _timeSinceJump;
 
-        private void Awake()
-        {
-            _timeSinceJump = _approxJumpDuration;
-        }
-
         /// <summary>
         /// Get the rigidbody.
         /// </summary>
-        private void Start()
+        private void Awake()
         {
+            _timeSinceJump = _approxJumpDuration;
             _rb = GetComponent<Rigidbody>();
+            _oscillator = GetComponent<Oscillator>();
         }
 
         /// <summary>
@@ -49,25 +44,18 @@ namespace Players
                 // then there are no forces to be apply
                 return;
             }
-            Vector3 displacement = new Vector3(0f, _rayHit.distance - _desiredHeight, 0f);
-            Vector3 restorativeForce = DampedHookesLaw(_springStrength, displacement, _springDamper, _rb.velocity);
-            Debug.DrawLine(transform.position, transform.position + restorativeForce, Color.red);
-            if (_rb.useGravity == true)
-            {
-                // then negate the force of gravity whilst the spring is above a surface
-                Vector3 gravitationalForce = _rb.mass * Physics.gravity;
-                restorativeForce -= gravitationalForce;
-            }
-            _rb.AddForce(restorativeForce);
-        }
+            //Vector3 displacement = new Vector3(0f, _rayHit.distance - _desiredHeight, 0f);
 
-        /// <summary>
-        /// Calculate the restorative force of a spring.
-        /// </summary>
-        private Vector3 DampedHookesLaw(float springStrength, Vector3 displacement, float springDamper, Vector3 relativeVelocity)
-        {
-            Vector3 restorativeForce = - springStrength * displacement - springDamper * relativeVelocity;
-            return restorativeForce;
+            /*
+            var localEquilibriumPosition = _oscillator.LocalEquilibriumPosition;
+            localEquilibriumPosition.y = transform.InverseTransformPoint(_rayHit.point).y + _desiredHeight;
+            Debug.Log(localEquilibriumPosition);
+            _oscillator.LocalEquilibriumPosition = localEquilibriumPosition;
+            */
+
+            _oscillator.LocalEquilibriumPosition = _oscillator.LocalEquilibriumPositionDefault +
+                                                   transform.InverseTransformPoint(_rayHit.point);
+
         }
 
         /// <summary>
@@ -78,9 +66,11 @@ namespace Players
             RaycastHit rayHit;
             Ray rayToGround = new Ray(transform.position, Vector3.down);
             bool didRayHit = Physics.Raycast(rayToGround, out rayHit, _maxRaycastDist);
+            Debug.DrawLine(transform.position, _rayHit.point, Color.green);
             return (didRayHit, rayHit);
         }
 
+        /*
         public void Jump()
         {
             while (_timeSinceJump >= _approxJumpDuration)
@@ -95,5 +85,6 @@ namespace Players
                 _timeSinceJump = 0f;
             }
         }
+        */
     }
 }
