@@ -53,8 +53,6 @@ public class WhoTapLast : Tile
         // UI Manager change sprite to null
             
         RoadGenerator roadGen = FindObjectOfType<RoadGenerator>();
-        
-        roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
 
         Debug.Log("Who Tap Last Tile no longer in effect");
         

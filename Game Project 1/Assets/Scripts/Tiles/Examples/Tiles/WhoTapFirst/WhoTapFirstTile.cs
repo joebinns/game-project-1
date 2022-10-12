@@ -26,8 +26,6 @@ namespace Tiles
         {
             AudioManager.PlaySound(TileSettings.audioClips[0]); // Play Demo Sound
             // UI Manager change sprite to null
-            
-            FindObjectOfType<RoadGenerator>().generationMode = RoadGenerator.GenerationModes.Normal;
 
             Debug.Log("Who Tap First Tile no longer in effect");
             

@@ -32,7 +32,7 @@ namespace Tiles
         {
             AudioManager.PlaySound(TileSettings.audioClips[1]); // Play Demo Sound 2
 
-            PointsManager.GainPoints(playerId+1, 1000);
+            PointsManager.GainPoints(playerId, 1000);
             // Add points to player
             Debug.Log("Player " + playerId + " gains 10 points!");
         }

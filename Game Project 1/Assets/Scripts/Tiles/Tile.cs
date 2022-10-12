@@ -33,10 +33,15 @@ namespace Tiles
 
         IEnumerator WaitToDestroy()
         {
-            yield return new WaitForSeconds(3f);
+            RoadGenerator roadGen = FindObjectOfType<RoadGenerator>();
             
-            FindObjectOfType<RoadGenerator>().RemoveActiveTile(this.gameObject);
+            yield return new WaitForSeconds(1.5f);
+            
+            roadGen.RemoveActiveTile(this.gameObject);
+            roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
+            roadGen.GenerateNextTile();
             Destroy(this.gameObject);
+            
         }
         
         private void Awake()
