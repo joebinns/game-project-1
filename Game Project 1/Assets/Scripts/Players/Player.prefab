@@ -108,8 +108,8 @@ MonoBehaviour:
   _maxRaycastDist: 4
   _springStrength: 100
   _springDamper: 4
-  _jumpForceFactor: 15
-  _approxJumpDuration: 1
+  _jumpForceFactor: 12.5
+  _approxJumpDuration: 0.75
 --- !u!1 &7587936240134998982
 GameObject:
   m_ObjectHideFlags: 0
