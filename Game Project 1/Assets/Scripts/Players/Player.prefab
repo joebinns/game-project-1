@@ -104,10 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50710507c832b48468d2eaf2a33ab85f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _desiredHeight: 1.5
+  _desiredHeight: 2
   _maxRaycastDist: 4
   _springStrength: 100
-  _springDamper: 2
+  _springDamper: 4
+  _jumpForceFactor: 15
+  _approxJumpDuration: 1
 --- !u!1 &7587936240134998982
 GameObject:
   m_ObjectHideFlags: 0

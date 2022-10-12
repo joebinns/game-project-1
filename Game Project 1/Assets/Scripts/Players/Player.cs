@@ -1,3 +1,4 @@
+using System;
 using Tiles;
 using UnityEngine;
 
@@ -6,7 +7,13 @@ namespace Players
     public class Player : MonoBehaviour
     {
         public int ID;
-        
+        private HeightBuffer _heightBuffer;
+
+        private void Awake()
+        {
+            _heightBuffer = GetComponent<HeightBuffer>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             var trigger = other.transform.GetComponent<TileTrigger>();
@@ -33,7 +40,7 @@ namespace Players
 
         public void HandleInput()
         {
-            Debug.Log("Player " + ID + " does default player movement thing!");
+            _heightBuffer.Jump();
         }
     }
 }
