@@ -10,26 +10,27 @@ namespace Players
         private Oscillator _oscillator;
 
         [Header("Hover")]
-        //[SerializeField] private float _desiredHeight = 2f;
         [SerializeField] private float _maxRaycastDist = 3f;
 
         private RaycastHit _rayHit;
+        private Vector3 _gravitationalForce;
+        private bool _shouldMaintainHeight = true;
 
         [Header("Jump")]
         [SerializeField] private float _jumpForceFactor = 15f;
-        [SerializeField] private float _approxJumpDuration = 0.5f;
-
         [SerializeField] private float _riseGravityFactor = 3f;
         [SerializeField] private float _fallGravityFactor = 8f;
-
+        [SerializeField] private float _jumpBuffer = 0.15f; // Note, jumpBuffer shouldn't really exceed the time of the jump.
+        [SerializeField] private float _coyoteTime = 0.25f;
         
-        private bool _grounded = true;
+        private float _timeSinceJumpPressed = 0f;
         private float _timeSinceUngrounded = 0f;
         private float _timeSinceJump = 0f;
-        private bool _isJumping = false;
-        private bool _shouldMaintainHeight = true;
         private bool _jumpReady = true;
-        private Vector3 _gravitationalForce;
+        private bool _isJumping = false;
+        private bool _grounded = true;
+        
+        
         
         
 
@@ -48,7 +49,6 @@ namespace Players
         /// </summary>
         private void FixedUpdate()
         {
-            _timeSinceUngrounded += Time.fixedDeltaTime;
             (bool didRayHit, RaycastHit rayHit) = RaycastToGround();
             _rayHit = rayHit;
             _grounded = CheckIfGrounded(didRayHit, _rayHit);
@@ -56,7 +56,7 @@ namespace Players
             {
                 _timeSinceUngrounded = 0f;
 
-                if (_timeSinceUngrounded > 0.2f)
+                if (_timeSinceJump > 0.2f)
                 {
                     _isJumping = false;
                 }
@@ -68,15 +68,14 @@ namespace Players
             
             if (didRayHit && _shouldMaintainHeight)
             {
-                _oscillator.ForceScale = _oscillator.ForceScaleDefault;
+                //_oscillator.ForceScale = _oscillator.ForceScaleDefault;
                 MaintainHeight();
             }
             else
             {
-                _oscillator.ForceScale = Vector3.zero;
+                //_oscillator.ForceScale = Vector3.zero;
             }
             
-            _timeSinceJump += Time.fixedDeltaTime;
             Jump();
         }
 
@@ -118,8 +117,16 @@ namespace Players
             return grounded;
         }
 
+        public void JumpPressed()
+        {
+            _timeSinceJumpPressed = 0f;
+        }
+
         private void Jump()
         {
+            _timeSinceJumpPressed += Time.fixedDeltaTime;
+            _timeSinceJump += Time.fixedDeltaTime;
+            
             if (_rb.velocity.y < 0)
             {
                 _shouldMaintainHeight = true;
@@ -140,19 +147,33 @@ namespace Players
                     }
                 }
             }
-            
-            if (_jumpReady)
+
+            if (_timeSinceJumpPressed < _jumpBuffer)
             {
-                _jumpReady = false;
-                _shouldMaintainHeight = false;
-                _isJumping = true;
-                _rb.velocity = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z); // Cheat fix... (see comment below when adding force to rigidbody).
-                if (_rayHit.distance != 0) // i.e. if the ray has hit
+                if (_timeSinceUngrounded < _coyoteTime)
                 {
-                    _rb.position = new Vector3(_rb.position.x, _rb.position.y - (_rayHit.distance - _oscillator.LocalEquilibriumPositionDefault.y), _rb.position.z);
+                    if (_jumpReady)
+                    {
+                        _jumpReady = false;
+                        _shouldMaintainHeight = false;
+                        _isJumping = true;
+                        _rb.velocity =
+                            new Vector3(_rb.velocity.x, 0f,
+                                _rb.velocity.z); // Cheat fix... (see comment below when adding force to rigidbody).
+                        if (_rayHit.distance != 0) // i.e. if the ray has hit
+                        {
+                            _rb.position = new Vector3(_rb.position.x,
+                                _rb.position.y - (_rayHit.distance - _oscillator.LocalEquilibriumPositionDefault.y),
+                                _rb.position.z);
+                        }
+
+                        _rb.AddForce(Vector3.up * _jumpForceFactor,
+                            ForceMode
+                                .Impulse); // This does not work very consistently... Jump height is affected by initial y velocity and y position relative to RideHeight... Want to adopt a fancier approach (more like PlayerMovement). A cheat fix to ensure consistency has been issued above...
+                        _timeSinceJumpPressed = _jumpBuffer;
+                        _timeSinceJump = 0f;
+                    }
                 }
-                _rb.AddForce(Vector3.up * _jumpForceFactor, ForceMode.Impulse); // This does not work very consistently... Jump height is affected by initial y velocity and y position relative to RideHeight... Want to adopt a fancier approach (more like PlayerMovement). A cheat fix to ensure consistency has been issued above...
-                _timeSinceJump = 0f;
             }
         }
     }

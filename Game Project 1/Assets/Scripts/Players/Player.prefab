@@ -108,7 +108,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxRaycastDist: 12
   _jumpForceFactor: 12.5
-  _approxJumpDuration: 0.75
+  _riseGravityFactor: 3
+  _fallGravityFactor: 8
+  _jumpBuffer: 0.15
+  _coyoteTime: 0.25
 --- !u!114 &5619355270754009675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LocalEquilibriumPositionDefault: {x: -2, y: 6, z: 0}
   LocalEquilibriumPosition: {x: -2, y: 2, z: 0}
+  ForceScaleDefault: {x: 1, y: 1, z: 1}
   ForceScale: {x: 1, y: 1, z: 1}
   _stiffness: 100
   _damper: 4
@@ -134,7 +138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7587936239807992492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b134582c92d9fef468ec98cd74fa15b3, type: 3}
   m_Name: 

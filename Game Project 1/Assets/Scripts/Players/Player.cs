@@ -40,7 +40,7 @@ namespace Players
 
         public void HandleInput()
         {
-            //_heightBuffer.Jump();
+            _heightBuffer.JumpPressed();
         }
     }
 }
