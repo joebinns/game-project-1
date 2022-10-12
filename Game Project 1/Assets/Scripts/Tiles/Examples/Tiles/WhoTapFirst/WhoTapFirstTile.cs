@@ -1,24 +1,38 @@
 using System.Collections;
-using System.Collections.Generic;
-using Tiles.Examples;
+using Managers.Audio;
+using Managers.Points;
 using UnityEngine;
 
 namespace Tiles
 {
     public class WhoTapFirstTile : Tile
     {
-        private WhoTapFirstTileSettings _whoTapFirstTileSettings
-        {
-            get { return TileSettings as WhoTapFirstTileSettings; }
-        }
+        private bool _cooldownFinished = false;
 
-        protected override void BeginEffect()
+        public override void BeginEffect()
         {
+            // Redirect inputs to this tile
+            base.BeginEffect();
+
+            AudioManager.PlaySound(TileSettings.audioClips[0]); // Play Demo Sound
+            // UI Manager change sprite to _sprite
+
+            Debug.Log("Who Tap First Tile in effect");
+            
             StartCoroutine(Cooldown(3f));
         }
         
-        protected override void EndEffect()
+        public override void EndEffect()
         {
+            // Redirect inputs back to player
+            base.EndEffect();
+            
+            AudioManager.PlaySound(TileSettings.audioClips[0]); // Play Demo Sound
+            // UI Manager change sprite to null
+            
+            FindObjectOfType<RoadGenerator>().generationMode = RoadGenerator.GenerationModes.Normal;
+
+            Debug.Log("Who Tap First Tile no longer in effect");
         }
 
         private IEnumerator Cooldown(float duration)
@@ -30,8 +44,20 @@ namespace Tiles
                 //Update UI                
             }
             
-            _whoTapFirstTileSettings.cooldownFinished = true;
+            _cooldownFinished = true;
             yield return null;
+        }
+        
+        public override void HandleInput(int playerId)
+        {
+            if (_cooldownFinished)
+            {
+                AudioManager.PlaySound(TileSettings.audioClips[1]); // Play Demo Sound 2
+                PointsManager.GainPoints(playerId+1, 1000);
+                // Add points to player
+                Debug.Log("Player " + playerId + " gains 100 points!");
+                EndEffect();
+            }
         }
     }
 }

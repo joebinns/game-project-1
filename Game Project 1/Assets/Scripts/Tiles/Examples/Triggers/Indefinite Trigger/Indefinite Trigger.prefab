@@ -11,6 +11,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Indefinite Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 3415901493194096011, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415901493194096011, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
+      propertyPath: m_Size.y
+      value: 4.0301585
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415901493194096011, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
+      propertyPath: m_Size.z
+      value: 8.513933
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415901493194096011, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
+      propertyPath: m_Center.y
+      value: -2.6949184
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415901493194096011, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
+      propertyPath: m_Center.z
+      value: -6.396261
+      objectReference: {fileID: 0}
     - target: {fileID: 7182111668813064804, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_RootOrder
       value: 0

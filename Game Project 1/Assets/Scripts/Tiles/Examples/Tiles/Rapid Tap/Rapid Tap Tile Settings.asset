@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1df8b4e5fa8e942ab812ebc02b65db, type: 3}
-  m_Name: Rapid Tap Tile
+  m_Script: {fileID: 11500000, guid: 8a05e5f39a2ba00469071b489d782266, type: 3}
+  m_Name: Rapid Tap Tile Settings
   m_EditorClassIdentifier: 
-  _description: This tile plays a sound when the button is rapidly tapped.
-  _audioClips:
+  _description: 
+  audioClips:
   - {fileID: 8300000, guid: 0ce496f75b9330c4d9cd4e8ee42ad7ed, type: 3}
   - {fileID: 8300000, guid: cf54b862f90fba44d8a515a88df2f46b, type: 3}
-  _sprite: {fileID: 21300000, guid: 59afc836e36d1f84f97af97f93247bfc, type: 3}
+  sprite: {fileID: 0}
+  isIndefinite: 0

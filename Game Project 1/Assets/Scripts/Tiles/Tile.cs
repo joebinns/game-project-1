@@ -8,27 +8,29 @@ namespace Tiles
     {
         public TileSettings TileSettings;
 
-        protected abstract void BeginEffect();
-        protected abstract void EndEffect();
+        public static event Action<Tile> OnBeginEffect;
+        public static event Action<Tile> OnEndEffect;
+
+        public virtual void BeginEffect()
+        {
+            // Subscribe inputs to this tile's effect
+            OnBeginEffect?.Invoke(this);
+        }
+
+        public virtual void EndEffect()
+        {
+            // Subscribe inputs to this tile's effect
+            OnEndEffect?.Invoke(null);
+        }
 
         private void Awake()
         {
-            if (TileSettings._isIndefinite)
+            if (TileSettings.isIndefinite)
             {
                 FindObjectOfType<RoadGenerator>().generationMode = RoadGenerator.GenerationModes.Indefinite;
             }
         }
 
-        private void OnEnable()
-        {
-            TileSettings.OnBeginEffect += BeginEffect;
-            TileSettings.OnBeginEffect += EndEffect;
-        }
-        
-        private void OnDisable()
-        {
-            TileSettings.OnBeginEffect -= BeginEffect;
-            TileSettings.OnBeginEffect -= EndEffect;
-        }
+        public abstract void HandleInput(int playerId);
     }
 }

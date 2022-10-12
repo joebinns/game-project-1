@@ -8,7 +8,7 @@ namespace Inputs
     public class PlayerInput : MonoBehaviour
     {
         private Player _player;
-        private TileSettings _currentTileSettings;
+        private Tile _currentTile;
         
         private void Awake()
         {
@@ -17,22 +17,24 @@ namespace Inputs
         
         private void OnEnable()
         {
-            TileSettings.OnTileChanged += SetRecipient;
+            Tile.OnBeginEffect += SetRecipient;
+            Tile.OnEndEffect += SetRecipient;
         }
         
         private void OnDisable()
         {
-            TileSettings.OnTileChanged -= SetRecipient;
+            Tile.OnBeginEffect += SetRecipient;
+            Tile.OnEndEffect += SetRecipient;
         }
 
-        private void SetRecipient(TileSettings tileSettings)
+        private void SetRecipient(Tile tile)
         {
-            _currentTileSettings = tileSettings;
+            _currentTile = tile;
         }
 
         public void RedirectInput()
         {
-            switch (_currentTileSettings)
+            switch (_currentTile)
             {
                 case null:
                     // Go ahead with regular player inputs
@@ -40,7 +42,7 @@ namespace Inputs
                     break;
                 default:
                     // Redirect inputs to current tiles effect
-                    _currentTileSettings.HandleInput(_player.ID);
+                    _currentTile.HandleInput(_player.ID);
                     break;
             }
         }

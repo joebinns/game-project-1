@@ -11,7 +11,7 @@ namespace Examples.Triggers
         {
             base.TriggerEntered();
         
-            transform.parent.GetComponent<Tile>().TileSettings.BeginEffect();
+            transform.parent.GetComponent<Tile>().BeginEffect();
         }
     
         public override void TriggerExited()
