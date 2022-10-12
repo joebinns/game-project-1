@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7785475729723094001}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -24.567934, y: 27.70756, z: -2.097234}
-  m_LocalScale: {x: 11.377, y: 11.377, z: 11.377}
+  m_LocalScale: {x: 2.275527, y: 2.275527, z: 2.275527}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -550,7 +550,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5707963
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1419,7 +1419,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7853982
+      scalar: 0.2094395
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -1496,7 +1496,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 4048
+        atime1: 10601
         atime2: 65535
         atime3: 65535
         atime4: 0
@@ -4967,7 +4967,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 1
+  m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 1
