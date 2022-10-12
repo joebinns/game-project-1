@@ -774,8 +774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generationMode: 0
-  roadSpeed: 20
-  tilesUntilEnd: 100
+  roadSpeed: 15
+  tilesUntilEnd: 50
   shouldGenerate: 0
   tilesToGenerate:
   - {fileID: 133372203712121623, guid: bdc562e42bbce524bbe419c97ca92e9d, type: 3}

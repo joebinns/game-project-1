@@ -37,11 +37,7 @@ namespace Tiles.Examples
             {
                 PointsManager.GainPoints(2, 100);
             }
-                
-            RoadGenerator roadGen = FindObjectOfType<RoadGenerator>();
-            
-            roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
-            
+
             // Call this method as the tile's last piece of logic!
             base.EndEffect(); // Redirect inputs back to player, play EndEffectAudio and deactivate effect sprite.
         }

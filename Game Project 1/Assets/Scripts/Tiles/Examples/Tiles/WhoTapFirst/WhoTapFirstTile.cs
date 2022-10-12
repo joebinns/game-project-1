@@ -18,8 +18,6 @@ namespace Tiles.Examples
         
         public override void EndEffect()
         {
-            FindObjectOfType<RoadGenerator>().generationMode = RoadGenerator.GenerationModes.Normal;
-
             // Call this method as the tile's last piece of logic!
             base.EndEffect(); // Redirect inputs back to player, play EndEffectAudio and deactivate effect sprite.
         }

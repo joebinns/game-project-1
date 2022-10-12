@@ -15,11 +15,11 @@ namespace Managers.Points
         {
             switch (playerIndex)
             {
-                case 1:
+                case 0:
                     p1Points += points;
                     break;
 
-                case 2:
+                case 1:
                     p2Points += points;
                     break;
 
