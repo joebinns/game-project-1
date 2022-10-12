@@ -1,97 +1,80 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Managers.Audio;
 using Managers.Points;
-using Tiles;
 using UnityEngine;
+using UI;
 
-public class WhoTapLast : Tile
+namespace Tiles.Examples
 {
-    private float t = 3f;
+    public class WhoTapLast : Tile
+    {
+        private float t = 3f;
+        
+        private float _player0Time, _player1Time;
     
-    private float _player0Time, _player1Time;
-
-    private void Update()
-    {
-        if (t <= 0)
+        private void Update()
         {
-            EndEffect();
-        }
-
-        Debug.Log(t);
-    }
-
-    public override void BeginEffect()
-    {
-        // Redirect inputs to this tile
-        base.BeginEffect();
-
-        AudioManager.PlaySound(TileSettings.audioClips[0]); // Play Demo Sound
-        // UI Manager change sprite to _sprite
-
-        Debug.Log("Who Tap Last Tile in effect");
-            
-        StartCoroutine(Cooldown());
-    }
-        
-    public override void EndEffect()
-    {
-        if (_player0Time < _player1Time)
-        {
-            PointsManager.GainPoints(0, 100);
-            Debug.Log("Player 1 got 100 Points");
-        }
-
-        else
-        {
-            PointsManager.GainPoints(1, 100);
-            Debug.Log("Player 2 got 100 Points");
-        }
-        
-        AudioManager.PlaySound(TileSettings.audioClips[0]); // Play Demo Sound
-        // UI Manager change sprite to null
-            
-        RoadGenerator roadGen = FindObjectOfType<RoadGenerator>();
-        
-        roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
-
-        Debug.Log("Who Tap Last Tile no longer in effect");
-        
-        // Redirect inputs back to player
-        //ALWAYS CALL THIS AT THE END OF EndEffect() !!!!!!!
-        base.EndEffect();
-    }
-
-    private IEnumerator Cooldown()
-    {
-        while (t >= 0)
-        {
-            t -= Time.deltaTime;
-            //Update UI     
-            yield return null;
-        }
-
-        yield return null;
-    }
-        
-    public override void HandleInput(int playerId)
-    {
-        AudioManager.PlaySound(TileSettings.audioClips[1]); // Play Demo Sound 2
-
-        if (t > 0)
-        {
-            switch (playerId)
+            if (t <= 0)
             {
-                case 0:
-                    _player0Time = t;
-                    break;
-                
-                case 1:
-                    _player1Time = t;
-                    break;
+                EndEffect();
             }
         }
-    }
     
+        public override void BeginEffect()
+        {
+            base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudion and activate BeginEffectSprite.
+                
+            StartCoroutine(Cooldown());
+        }
+            
+        public override void EndEffect()
+        {
+            if (_player0Time < _player1Time)
+            {
+                PointsManager.GainPoints(1, 100);
+            }
+            else
+            {
+                PointsManager.GainPoints(2, 100);
+            }
+                
+            RoadGenerator roadGen = FindObjectOfType<RoadGenerator>();
+            
+            roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
+            
+            // Call this method as the tile's last piece of logic!
+            base.EndEffect(); // Redirect inputs back to player, play EndEffectAudio and deactivate effect sprite.
+        }
+    
+        private IEnumerator Cooldown()
+        {
+            while (t >= 0)
+            {
+                t -= Time.deltaTime;
+                FindObjectOfType<UIHandler>().SetEffectText(t.ToString("0.0#"));  
+                yield return null;
+            }
+    
+            yield return null;
+        }
+            
+        public override void HandleInput(int playerId)
+        {
+            if (t > 0)
+            {
+                switch (playerId)
+                {
+                    case 0:
+                        _player0Time = t;
+                        break;
+                    
+                    case 1:
+                        _player1Time = t;
+                        break;
+                }
+            }
+        }
+        
+    }
 }
+

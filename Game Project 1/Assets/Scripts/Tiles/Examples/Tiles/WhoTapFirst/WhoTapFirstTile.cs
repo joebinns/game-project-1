@@ -1,9 +1,9 @@
 using System.Collections;
-using Managers.Audio;
 using Managers.Points;
 using UnityEngine;
+using UI;
 
-namespace Tiles
+namespace Tiles.Examples
 {
     public class WhoTapFirstTile : Tile
     {
@@ -11,29 +11,17 @@ namespace Tiles
 
         public override void BeginEffect()
         {
-            // Redirect inputs to this tile
-            base.BeginEffect();
-
-            AudioManager.PlaySound(TileSettings.audioClips[0]); // Play Demo Sound
-            // UI Manager change sprite to _sprite
-
-            Debug.Log("Who Tap First Tile in effect");
+            base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudion and activate BeginEffectSprite.
             
             StartCoroutine(Cooldown(3f));
         }
         
         public override void EndEffect()
         {
-            AudioManager.PlaySound(TileSettings.audioClips[0]); // Play Demo Sound
-            // UI Manager change sprite to null
-            
             FindObjectOfType<RoadGenerator>().generationMode = RoadGenerator.GenerationModes.Normal;
 
-            Debug.Log("Who Tap First Tile no longer in effect");
-            
-            // Redirect inputs back to player
-            //ALWAYS CALL THIS AT THE END OF EndEffect() !!!!!!!
-            base.EndEffect();
+            // Call this method as the tile's last piece of logic!
+            base.EndEffect(); // Redirect inputs back to player, play EndEffectAudio and deactivate effect sprite.
         }
 
         private IEnumerator Cooldown(float duration)
@@ -42,7 +30,7 @@ namespace Tiles
             while (t > 0)
             {
                 t -= Time.deltaTime;
-                //Update UI                
+                FindObjectOfType<UIHandler>().SetEffectText(t.ToString("0.0#"));  
             }
             
             _cooldownFinished = true;
@@ -53,10 +41,10 @@ namespace Tiles
         {
             if (_cooldownFinished)
             {
-                AudioManager.PlaySound(TileSettings.audioClips[1]); // Play Demo Sound 2
+                // Play HandleInputAudio
+                base.HandleInput(playerId);
+
                 PointsManager.GainPoints(playerId+1, 1000);
-                // Add points to player
-                Debug.Log("Player " + playerId + " gains 100 points!");
                 EndEffect();
             }
         }

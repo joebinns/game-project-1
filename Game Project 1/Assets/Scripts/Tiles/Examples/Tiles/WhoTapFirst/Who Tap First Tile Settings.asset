@@ -16,5 +16,5 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 0ce496f75b9330c4d9cd4e8ee42ad7ed, type: 3}
   - {fileID: 8300000, guid: cf54b862f90fba44d8a515a88df2f46b, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 59afc836e36d1f84f97af97f93247bfc, type: 3}
   isIndefinite: 1
