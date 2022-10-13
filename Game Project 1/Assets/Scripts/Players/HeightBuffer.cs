@@ -6,6 +6,9 @@ namespace Players
     [RequireComponent(typeof(Oscillator))]
     public class HeightBuffer : MonoBehaviour
     {
+        // TODO: Try moving oscillator to an empty child or something, in order to make local equilibrium position easier?
+        // TODO: Fix jump... wth?!
+
         private Rigidbody _rb;
         private Oscillator _oscillator;
 
@@ -81,8 +84,7 @@ namespace Players
 
         private void MaintainHeight()
         {
-            _oscillator.LocalEquilibriumPosition = _oscillator.LocalEquilibriumPositionDefault +
-                                                   transform.InverseTransformPoint(_rayHit.point);
+            _oscillator.LocalEquilibriumPosition = _oscillator.LocalEquilibriumPositionDefault + _rayHit.point;
         }
 
         /// <summary>

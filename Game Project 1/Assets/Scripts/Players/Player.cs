@@ -1,4 +1,5 @@
 using System;
+using Players.Physics_Based_Character_Controller;
 using Tiles;
 using UnityEngine;
 
@@ -7,11 +8,13 @@ namespace Players
     public class Player : MonoBehaviour
     {
         public int ID;
-        private HeightBuffer _heightBuffer;
+        //private HeightBuffer _heightBuffer;
+        private PhysicsBasedCharacterController _physicsBasedCharacterController;
 
         private void Awake()
         {
-            _heightBuffer = GetComponent<HeightBuffer>();
+            //_heightBuffer = GetComponent<HeightBuffer>();
+            _physicsBasedCharacterController = GetComponent<PhysicsBasedCharacterController>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -40,7 +43,8 @@ namespace Players
 
         public void HandleInput()
         {
-            _heightBuffer.JumpPressed();
+            //_heightBuffer.JumpPressed();
+            _physicsBasedCharacterController.JumpPressed();
         }
     }
 }
