@@ -39,6 +39,9 @@ namespace UI
                 case EffectAnimation.None:
                     _effectImage.GetComponent<Animator>().Play("None");
                     break;
+                case EffectAnimation.DontLeftButtonClick:
+                    _effectImage.GetComponent<Animator>().Play("Dont Left Button Click");
+                    break;
                 case EffectAnimation.SlowLeftButtonClick:
                     _effectImage.GetComponent<Animator>().Play("Slow Left Button Click");
                     break;
@@ -70,6 +73,7 @@ namespace UI
     public enum EffectAnimation
     {
         None,
+        DontLeftButtonClick,
         SlowLeftButtonClick,
         FastLeftButtonClickLooped
     }

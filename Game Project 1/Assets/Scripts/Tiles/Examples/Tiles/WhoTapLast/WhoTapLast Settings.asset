@@ -16,7 +16,7 @@ MonoBehaviour:
   BeginEffectAudio: {fileID: 8300000, guid: 948c36a47463a9344820f6b508a5f3dc, type: 3}
   EndEffectAudio: {fileID: 0}
   HandleInputAudio: {fileID: 8300000, guid: 0ce496f75b9330c4d9cd4e8ee42ad7ed, type: 3}
-  EffectAnimation: 1
+  EffectAnimation: 2
   BeginEffectText: 
   IsIndefinite: 1
   MiscellaneousAudioClips: []
