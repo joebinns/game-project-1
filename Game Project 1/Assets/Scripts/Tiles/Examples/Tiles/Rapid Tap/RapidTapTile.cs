@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Managers.Audio;
+using Managers.Camera;
 using Managers.Points;
 using UI;
 
@@ -69,6 +70,7 @@ namespace Tiles.Examples
             {
                 Debug.Log("Player"+playerId+" gained " + pointsPerTap + " points!");
                 PointsManager.GainPoints(playerId, pointsPerTap);
+                CameraManager.Main.Shake(5f, 0.35f);
             }
             
             
