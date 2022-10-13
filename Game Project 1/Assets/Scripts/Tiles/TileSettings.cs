@@ -22,5 +22,6 @@ namespace Tiles
         public List<AudioClip> MiscellaneousAudioClips;
         public List<Sprite> MiscellaneousSprites;
         public float DeactivateCanvasDelay = 0f;
+        public Color EffectColor = Color.white;
     }
 }

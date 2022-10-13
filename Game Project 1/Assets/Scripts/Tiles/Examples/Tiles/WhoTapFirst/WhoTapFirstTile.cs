@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Managers.Camera;
 using Managers.Points;
 using UnityEngine;
 using UI;
@@ -57,7 +58,7 @@ namespace Tiles.Examples
                 base.HandleInput(playerId);
 
                 PointsManager.GainPoints(playerId, pointsToWinner);
-                
+
                 Debug.Log("Player" + playerId + " gained" + pointsToWinner + " points!");
                 
                 FindObjectOfType<UIHandler>().SetEffectText((_countdownTime-_cooldownTimer).ToString("0.0#"));

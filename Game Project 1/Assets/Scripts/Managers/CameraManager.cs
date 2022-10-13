@@ -31,7 +31,6 @@ namespace Managers.Camera
         /// <param name="curve"></param>
         public void Shake(AnimationCurve curve)
         {
-            Debug.Log("yesy");
             StartCoroutine(ShakeLerp(curve));   
         }
         /// <summary>
@@ -39,7 +38,7 @@ namespace Managers.Camera
         /// </summary>
         /// <param name="force"></param>
         /// <param name="duration"></param>
-        public void Shake(float force, float duration)
+        public void Shake(float force = 20f, float duration = 0.35f)
         {
             AnimationCurve newCurve = new AnimationCurve();
             newCurve.AddKey(0, force);
@@ -50,14 +49,15 @@ namespace Managers.Camera
         IEnumerator ShakeLerp(AnimationCurve curve)
         {
             float timer = 0;
-            while(timer <= 1)
+            float duration = curve[curve.length - 1].time;
+            while (timer < duration)
             {
                 timer += Time.deltaTime;
+                timer = Mathf.Clamp(timer, 0, duration);
                 perlin.m_AmplitudeGain = curve.Evaluate(timer);
                 Debug.Log(timer);
                 yield return null;
             }
-
         }
 
         public void LookAt()

@@ -1,4 +1,5 @@
 using System;
+using Managers.Camera;
 using Players.Physics_Based_Character_Controller;
 using Tiles;
 using UnityEngine;
@@ -43,7 +44,8 @@ namespace Players
 
         public void HandleInput()
         {
-            //_heightBuffer.JumpPressed();
+            Debug.Log("default movement, do nothing for MVP");
+            CameraManager.Main.Shake(20f, 0.35f);
             _physicsBasedCharacterController.JumpPressed();
         }
     }
