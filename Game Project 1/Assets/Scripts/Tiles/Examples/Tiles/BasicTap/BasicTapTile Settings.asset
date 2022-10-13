@@ -15,7 +15,7 @@ MonoBehaviour:
   _description: 
   BeginEffectAudio: {fileID: 0}
   EndEffectAudio: {fileID: 0}
-  HandleInputAudio: {fileID: 0}
+  HandleInputAudio: {fileID: 8300000, guid: cf54b862f90fba44d8a515a88df2f46b, type: 3}
   BeginEffectSprite: {fileID: 0}
   IsIndefinite: 0
   MiscellaneousAudioClips: []

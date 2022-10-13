@@ -20,11 +20,13 @@ namespace Tiles.Examples
 
         public override void BeginEffect()
         {
+            
             if (IsActive) { return; }
             IsActive = true;
 
             Debug.Log("Who taps first begin event");
-            
+            base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudion and activate BeginEffectSprite.
+
             StartCoroutine(Cooldown(_countdownTime));
         }
         
@@ -65,7 +67,7 @@ namespace Tiles.Examples
 
                 Debug.Log("Player" + playerId + " gained" + pointsToWinner + " points!");
                 
-                FindObjectOfType<UIHandler>().SetEffectText((_countdownTime-_cooldownTimer).ToString("0.0#"));
+                FindObjectOfType<UIHandler>().SetEffectText((_countdownTime-_cooldownTimer).ToString("WHO TAP FIRST! \n 0.0#"));
                 EndEffect();
             }
         }

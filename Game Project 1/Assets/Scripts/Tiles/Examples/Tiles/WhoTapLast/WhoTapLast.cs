@@ -69,7 +69,7 @@ namespace Tiles.Examples
             while (timer > 0)
             {
                 timer -= Time.deltaTime;
-                FindObjectOfType<UIHandler>().SetEffectText(timer.ToString("0.0#"));  
+                FindObjectOfType<UIHandler>().SetEffectText(timer.ToString("WHO TAP LAST! \n 0.0#"));  
                 yield return null;
             }
 

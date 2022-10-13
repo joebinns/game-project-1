@@ -51,7 +51,7 @@ namespace Tiles.Examples
             while (timer > 0)
             {
                 timer -= Time.deltaTime;
-                FindObjectOfType<UIHandler>().SetEffectText(timer.ToString("0.0#"));  
+                FindObjectOfType<UIHandler>().SetEffectText(timer.ToString("RAPID TAP! \n 0.0#"));  
                 yield return null;
             }
 

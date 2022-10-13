@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Don't Tap Tile Settings
   m_EditorClassIdentifier: 
   _description: 
-  BeginEffectAudio: {fileID: 0}
+  BeginEffectAudio: {fileID: 8300000, guid: b434720ca8b047d4291ed9f2ae6652da, type: 3}
   EndEffectAudio: {fileID: 0}
   HandleInputAudio: {fileID: 0}
   BeginEffectSprite: {fileID: 0}

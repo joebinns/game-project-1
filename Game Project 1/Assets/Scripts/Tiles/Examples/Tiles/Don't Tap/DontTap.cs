@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers.Audio;
 using Managers.Points;
+using UI;
 using UnityEngine;
 
 namespace Tiles
@@ -19,6 +20,9 @@ namespace Tiles
 
         private void Update()
         {
+            
+            FindObjectOfType<UIHandler>().SetEffectText("DON'T TAP!!");
+
             if (_cooldownFinished)
             {
                 EndEffect();
@@ -38,8 +42,6 @@ namespace Tiles
             // UI Manager change sprite to _sprite
 
             StartCoroutine(Cooldown(timer));
-
-            Debug.Log("Don't Tap Tile in effect");
         }
         
         public override void EndEffect()
@@ -51,8 +53,6 @@ namespace Tiles
             base.EndEffect();
             
             // UI Manager change sprite to null
-            
-            Debug.Log("Don't Tap Tile no longer in effect");
         }
 
         public override void HandleInput(int playerId)

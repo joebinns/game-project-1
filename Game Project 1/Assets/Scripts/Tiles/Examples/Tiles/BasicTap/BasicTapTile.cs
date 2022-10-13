@@ -36,8 +36,6 @@ namespace Tiles
             // UI Manager change sprite to _sprite
 
             StartCoroutine(Cooldown(timer));
-
-            Debug.Log("Basic Tap Tile in effect");
         }
         
         public override void EndEffect()
@@ -50,7 +48,6 @@ namespace Tiles
             
             // UI Manager change sprite to null
             
-            Debug.Log("Basic Tap Tile no longer in effect");
         }
 
         public override void HandleInput(int playerId)
