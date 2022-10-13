@@ -16,8 +16,8 @@ namespace Tiles
         public AudioClip BeginEffectAudio;
         public AudioClip EndEffectAudio;
         public AudioClip HandleInputAudio;
-        //public Sprite BeginEffectSprite;
         public EffectAnimation EffectAnimation = EffectAnimation.None;
+        public string BeginEffectText;
         public bool IsIndefinite;
         
         [Header("Advanced")]

@@ -20,9 +20,6 @@ namespace Tiles
 
         private void Update()
         {
-            
-            FindObjectOfType<UIHandler>().SetEffectText("DON'T TAP!!");
-
             if (_cooldownFinished)
             {
                 EndEffect();

@@ -27,7 +27,7 @@ namespace Tiles
 
             var uIHandler = FindObjectOfType<UIHandler>();
             uIHandler.ActivateEffectCanvas();
-            //uIHandler.SetEffectSprite(TileSettings.BeginEffectSprite);
+            uIHandler.SetEffectText(TileSettings.BeginEffectText);
             uIHandler.SetEffectAnimation(TileSettings.EffectAnimation);
         }
 

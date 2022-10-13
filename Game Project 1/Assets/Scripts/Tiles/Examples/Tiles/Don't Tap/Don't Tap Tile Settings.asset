@@ -16,8 +16,10 @@ MonoBehaviour:
   BeginEffectAudio: {fileID: 8300000, guid: b434720ca8b047d4291ed9f2ae6652da, type: 3}
   EndEffectAudio: {fileID: 0}
   HandleInputAudio: {fileID: 0}
-  BeginEffectSprite: {fileID: 0}
+  EffectAnimation: 0
+  BeginEffectText: DON'T TAP!!!
   IsIndefinite: 1
   MiscellaneousAudioClips: []
   MiscellaneousSprites: []
   DeactivateCanvasDelay: 0
+  EffectColor: {r: 1, g: 1, b: 1, a: 1}
