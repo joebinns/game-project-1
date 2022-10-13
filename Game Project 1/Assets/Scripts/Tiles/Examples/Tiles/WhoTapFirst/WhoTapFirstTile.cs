@@ -50,6 +50,7 @@ namespace Tiles.Examples
 
         public override void HandleInput(int playerId)
         {
+            Debug.Log(playerId);
             if (!_cooldownFinished)
             {
                 // Play HandleInputAudio
