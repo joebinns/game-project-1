@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers.Audio;
+using Managers.Points;
 using UnityEngine;
 
 namespace Tiles
@@ -10,6 +11,9 @@ namespace Tiles
     public class DontTap : Tile
     {
 
+        [SerializeField] private float timer = 3f;
+        [SerializeField] private int pointsToRemove = -100;
+        
         private bool _cooldownFinished;
         private bool[] _playerPressed;
 
@@ -30,7 +34,7 @@ namespace Tiles
 
             // UI Manager change sprite to _sprite
 
-            StartCoroutine(Cooldown(3f));
+            StartCoroutine(Cooldown(timer));
 
             Debug.Log("Don't Tap Tile in effect");
         }
@@ -49,7 +53,9 @@ namespace Tiles
         {
             if (!_cooldownFinished && !_playerPressed[playerId])
             {
-                Debug.Log("Player"+playerId+" tapped! You lost 100 points!");
+                PointsManager.GainPoints(playerId, pointsToRemove);
+
+                Debug.Log("Player"+playerId+" tapped! You lost " + pointsToRemove + " points!");
                 //Remove points from playerId
                 _playerPressed[playerId] = true;
             }
