@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Managers.Audio;
 using Managers.Points;
@@ -8,15 +9,26 @@ namespace Tiles.Examples
 {
     public class WhoTapLast : Tile
     {
-        private float t = 3f;
+        [SerializeField] private float t = 3f;
+        private bool _cooldownFinished;
+
+        private bool _hasEnded;
         
         private float _player0Time, _player1Time;
-    
+
+
+        private void Start()
+        {
+            _player0Time = t;
+            _player1Time = t;
+        }
+
         private void Update()
         {
-            if (t <= 0)
+            if (_cooldownFinished && _hasEnded == false)
             {
                 EndEffect();
+                _hasEnded = true;
             }
         }
     
@@ -31,10 +43,12 @@ namespace Tiles.Examples
         {
             if (_player0Time < _player1Time)
             {
+                Debug.Log("Player0 gained 100 points!");
                 PointsManager.GainPoints(0, 100);
             }
-            else
+            else if (_player1Time < _player0Time)
             {
+                Debug.Log("Player1 gained 100 points!");
                 PointsManager.GainPoints(1, 100);
             }
 
@@ -44,13 +58,14 @@ namespace Tiles.Examples
     
         private IEnumerator Cooldown()
         {
-            while (t >= 0)
+            while (t > 0)
             {
                 t -= Time.deltaTime;
                 FindObjectOfType<UIHandler>().SetEffectText(t.ToString("0.0#"));  
                 yield return null;
             }
-    
+
+            _cooldownFinished = true;
             yield return null;
         }
             
