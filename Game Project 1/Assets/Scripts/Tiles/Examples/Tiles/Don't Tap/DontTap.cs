@@ -6,6 +6,8 @@ using Managers.Camera;
 using Managers.Points;
 using UI;
 using UnityEngine;
+using Managers.Camera;
+using Players.Physics_Based_Character_Controller;
 
 namespace Tiles
 {
@@ -55,6 +57,11 @@ namespace Tiles
 
         public override void HandleInput(int playerId)
         {
+            base.HandleInput(playerId);
+            
+            CameraManager.Main.Shake(5f, 0.35f);
+            FindObjectOfType<PlayerManager>().Players[playerId].GetComponent<PhysicsBasedCharacterController>().JumpPressed();
+            
             if (!_cooldownFinished && !_playerPressed[playerId])
             {
                 PointsManager.GainPoints(playerId, pointsToRemove);
