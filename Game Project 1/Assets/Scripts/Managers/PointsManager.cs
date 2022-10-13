@@ -40,11 +40,11 @@ namespace Managers.Points
             switch (playerIndex)
             {
                 case 0:
-                    p1Points -= points;
+                    p1Points -= Mathf.Clamp(points, 0, 100000);
                     break;
 
                 case 1:
-                    p2Points -= points;
+                    p2Points -= Mathf.Clamp(points, 0, 100000);
                     break;
 
                 default:
