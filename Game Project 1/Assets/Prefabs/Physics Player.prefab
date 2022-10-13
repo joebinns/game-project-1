@@ -203,10 +203,10 @@ MonoBehaviour:
   _terrainLayer:
     serializedVersion: 2
     m_Bits: 1
-  _rideHeight: 1.75
+  _rideHeight: 2
   _rayToGroundLength: 3
-  _rideSpringStrength: 50
-  _rideSpringDamper: 5
+  _rideSpringStrength: 200
+  _rideSpringDamper: 10
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
   _characterLookDirection: 0
   _uprightSpringStrength: 40

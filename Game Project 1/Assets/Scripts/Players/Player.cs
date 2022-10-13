@@ -44,7 +44,8 @@ namespace Players
 
         public void HandleInput()
         {
-            Debug.Log("default movement, do nothing for MVP");
+            _physicsBasedCharacterController.JumpPressed();
+            Debug.Log("default movement (jump)");
         }
     }
 }
