@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers.Camera;
 using Managers.Points;
+using Players.Physics_Based_Character_Controller;
 using UnityEngine;
 
 namespace Tiles
@@ -52,6 +54,11 @@ namespace Tiles
 
         public override void HandleInput(int playerId)
         {
+            base.HandleInput(playerId);
+            
+            CameraManager.Main.Shake(5f, 0.35f);
+            FindObjectOfType<PlayerManager>().Players[playerId].GetComponent<PhysicsBasedCharacterController>().JumpPressed();
+
             if (!_cooldownFinished && !_playerPressed[playerId])
             {
                 PointsManager.GainPoints(playerId, pointsToWinner);

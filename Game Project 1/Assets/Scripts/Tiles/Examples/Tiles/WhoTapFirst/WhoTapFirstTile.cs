@@ -24,7 +24,6 @@ namespace Tiles.Examples
             if (IsActive) { return; }
             IsActive = true;
 
-            Debug.Log("Who taps first begin event");
             base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudion and activate BeginEffectSprite.
 
             StartCoroutine(Cooldown(_countdownTime));
@@ -35,7 +34,6 @@ namespace Tiles.Examples
             if (!IsActive) { return; }
             IsActive = false;
             
-            Debug.Log("Who taps first ends event");
             
             // Call this method as the tile's last piece of logic!
             base.EndEffect(); // Redirect inputs back to player, play EndEffectAudio and deactivate effect sprite.
@@ -46,6 +44,7 @@ namespace Tiles.Examples
             _cooldownTimer = duration;
             while (_cooldownTimer > 0)
             {
+                FindObjectOfType<UIHandler>().SetEffectText((_countdownTime-_cooldownTimer).ToString("WHO TAP FIRST! \n"));
                 _cooldownTimer -= Time.deltaTime;
                 yield return null;
             }
@@ -67,7 +66,6 @@ namespace Tiles.Examples
 
                 Debug.Log("Player" + playerId + " gained" + pointsToWinner + " points!");
                 
-                FindObjectOfType<UIHandler>().SetEffectText((_countdownTime-_cooldownTimer).ToString("WHO TAP FIRST! \n 0.0#"));
                 EndEffect();
             }
         }

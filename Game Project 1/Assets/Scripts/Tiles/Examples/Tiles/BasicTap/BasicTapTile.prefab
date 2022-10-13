@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8753504297300927578}
   - component: {fileID: 8208969195551982134}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3296085582425460629}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.02, y: 2.36, z: -5.76}
+  m_LocalPosition: {x: -0.02, y: 1.34, z: -5.76}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileSettings: {fileID: 11400000, guid: d5ca6e47a4e21f5499ccd13a5d8f7628, type: 2}
+  IsActive: 0
   timer: 1
   pointsToWinner: 50
 --- !u!1 &7457838764135670743
@@ -290,11 +291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313478884947211483, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_Size.z
-      value: 2.3107872
+      value: 5.7571793
       objectReference: {fileID: 0}
     - target: {fileID: 3313478884947211483, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_Center.z
-      value: -4.4895496
+      value: -2.675702
       objectReference: {fileID: 0}
     - target: {fileID: 7005230131422438196, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_RootOrder
@@ -310,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7005230131422438196, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: 7005230131422438196, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_LocalRotation.w

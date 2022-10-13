@@ -45,8 +45,6 @@ namespace Players
         public void HandleInput()
         {
             Debug.Log("default movement, do nothing for MVP");
-            CameraManager.Main.Shake(20f, 0.35f);
-            _physicsBasedCharacterController.JumpPressed();
         }
     }
 }
