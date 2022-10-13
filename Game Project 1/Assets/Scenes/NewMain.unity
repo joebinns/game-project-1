@@ -423,10 +423,10 @@ MonoBehaviour:
   m_RotationMode: 0
   m_UpdateMethod: 2
   m_Targets:
-  - target: {fileID: 0}
+  - target: {fileID: 752702627}
     weight: 1
     radius: 1
-  - target: {fileID: 0}
+  - target: {fileID: 1314160347}
     weight: 1
     radius: 1
 --- !u!1 &705507993
@@ -612,6 +612,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a078b86d83ea345a987800ad16e4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &752702627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5097693694609957745, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+  m_PrefabInstance: {fileID: 752702620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1143427565
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +818,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a078b86d83ea345a987800ad16e4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1314160347 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5097693694609957745, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+  m_PrefabInstance: {fileID: 1314160340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1628633462
 GameObject:
   m_ObjectHideFlags: 0
