@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Managers.Audio;
 using Managers.Points;
@@ -8,15 +9,28 @@ namespace Tiles.Examples
 {
     public class WhoTapLast : Tile
     {
-        private float t = 3f;
+        [SerializeField] private float timer = 3f;
+        [SerializeField] private int pointsToWinner = 100;
+        
+        private bool _cooldownFinished;
+
+        private bool _hasEnded;
         
         private float _player0Time, _player1Time;
-    
+
+
+        private void Start()
+        {
+            _player0Time = timer;
+            _player1Time = timer;
+        }
+
         private void Update()
         {
-            if (t <= 0)
+            if (_cooldownFinished && _hasEnded == false)
             {
                 EndEffect();
+                _hasEnded = true;
             }
         }
     
@@ -31,11 +45,13 @@ namespace Tiles.Examples
         {
             if (_player0Time < _player1Time)
             {
-                PointsManager.GainPoints(0, 100);
+                Debug.Log("Player0 gained " + pointsToWinner + " points!");
+                PointsManager.GainPoints(0, pointsToWinner);
             }
-            else
+            else if (_player1Time < _player0Time)
             {
-                PointsManager.GainPoints(1, 100);
+                Debug.Log("Player1 gained " + pointsToWinner + " points!");
+                PointsManager.GainPoints(1, pointsToWinner);
             }
 
             // Call this method as the tile's last piece of logic!
@@ -44,28 +60,29 @@ namespace Tiles.Examples
     
         private IEnumerator Cooldown()
         {
-            while (t >= 0)
+            while (timer > 0)
             {
-                t -= Time.deltaTime;
-                FindObjectOfType<UIHandler>().SetEffectText(t.ToString("0.0#"));  
+                timer -= Time.deltaTime;
+                FindObjectOfType<UIHandler>().SetEffectText(timer.ToString("0.0#"));  
                 yield return null;
             }
-    
+
+            _cooldownFinished = true;
             yield return null;
         }
             
         public override void HandleInput(int playerId)
         {
-            if (t > 0)
+            if (timer > 0)
             {
                 switch (playerId)
                 {
                     case 0:
-                        _player0Time = t;
+                        _player0Time = timer;
                         break;
                     
                     case 1:
-                        _player1Time = t;
+                        _player1Time = timer;
                         break;
                 }
             }
