@@ -9,9 +9,12 @@ namespace Tiles.Examples
 {
     public class WhoTapFirstTile : Tile
     {
-        private bool _cooldownFinished = false;
-        private float cooldownTimer;
+        
         [SerializeField] private float _countdownTime = 3f;
+        [SerializeField] private int pointsToWinner = 100;
+        
+        private bool _cooldownFinished = false;
+        private float _cooldownTimer;
 
         public override void BeginEffect()
         {
@@ -33,10 +36,10 @@ namespace Tiles.Examples
 
         private IEnumerator Cooldown(float duration)
         {
-            cooldownTimer = duration;
-            while (cooldownTimer > 0)
+            _cooldownTimer = duration;
+            while (_cooldownTimer > 0)
             {
-                cooldownTimer -= Time.deltaTime;
+                _cooldownTimer -= Time.deltaTime;
                 yield return null;
             }
             
@@ -52,11 +55,11 @@ namespace Tiles.Examples
                 // Play HandleInputAudio
                 base.HandleInput(playerId);
 
-                PointsManager.GainPoints(playerId, 1000);
+                PointsManager.GainPoints(playerId, pointsToWinner);
                 
-                Debug.Log("Player" + playerId + " gained 1000 points!");
+                Debug.Log("Player" + playerId + " gained" + pointsToWinner + " points!");
                 
-                FindObjectOfType<UIHandler>().SetEffectText((_countdownTime-cooldownTimer).ToString("0.0#"));
+                FindObjectOfType<UIHandler>().SetEffectText((_countdownTime-_cooldownTimer).ToString("0.0#"));
                 EndEffect();
             }
         }
