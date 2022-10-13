@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,8 @@ namespace Tiles
         public AudioClip BeginEffectAudio;
         public AudioClip EndEffectAudio;
         public AudioClip HandleInputAudio;
-        public Sprite BeginEffectSprite;
+        //public Sprite BeginEffectSprite;
+        public EffectAnimation EffectAnimation = EffectAnimation.None;
         public bool IsIndefinite;
         
         [Header("Advanced")]
