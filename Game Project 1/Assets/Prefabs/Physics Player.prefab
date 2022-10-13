@@ -283,11 +283,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _moveForceScale: {x: 1, y: 0, z: 1}
-  _jumpForceFactor: 12.5
+  _jumpForceFactor: 20
   _riseGravityFactor: 5
   _fallGravityFactor: 10
-  _jumpBuffer: 0.15
-  _coyoteTime: 0.25
+  _lowJumpFactor: 12.5
+  _jumpBuffer: 0.05
+  _coyoteTime: 0.1
 --- !u!114 &311547958509225728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +304,7 @@ MonoBehaviour:
   LocalEquilibriumScale: {x: 0, y: 0, z: 0}
   _constantVolume: 1
   _oscillator: {fileID: 1143284042572879517}
-  _conversion: 0.15
+  _conversion: 0.1
 --- !u!1 &8836825449483042409
 GameObject:
   m_ObjectHideFlags: 0

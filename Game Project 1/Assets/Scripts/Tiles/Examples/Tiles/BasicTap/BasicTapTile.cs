@@ -57,7 +57,7 @@ namespace Tiles
             base.HandleInput(playerId);
             
             CameraManager.Main.Shake(5f, 0.35f);
-            FindObjectOfType<PlayerManager>().Players[playerId].GetComponent<PhysicsBasedCharacterController>().JumpPressed();
+            //FindObjectOfType<PlayerManager>().Players[playerId].GetComponent<PhysicsBasedCharacterController>().JumpPressed();
 
             if (!_cooldownFinished && !_playerPressed[playerId])
             {

@@ -2,6 +2,7 @@ using System;
 using Players;
 using Tiles;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Inputs
 {
@@ -32,13 +33,13 @@ namespace Inputs
             _currentTile = tile;
         }
 
-        public void RedirectInput()
+        public void RedirectInput(InputAction.CallbackContext context)
         {
             switch (_currentTile)
             {
                 case null:
                     // Go ahead with regular player inputs
-                    _player.HandleInput();
+                    _player.HandleInput(context);
                     break;
                 default:
                     // Redirect inputs to current tiles effect

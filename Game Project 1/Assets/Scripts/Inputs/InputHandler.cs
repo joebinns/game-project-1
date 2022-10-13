@@ -11,16 +11,16 @@ namespace Inputs
         
         public void InputPlayerOne(InputAction.CallbackContext context)
         {
-            if (!context.performed) { return; }
+            //if (!context.performed) { return; }
 
-            _playerInputs[0].RedirectInput();
+            _playerInputs[0].RedirectInput(context);
         }
         
         public void InputPlayerTwo(InputAction.CallbackContext context)
         {
-            if (!context.performed) { return; }
+            //if (!context.performed) { return; }
             
-            _playerInputs[1].RedirectInput();
+            _playerInputs[1].RedirectInput(context);
         }
 
     }

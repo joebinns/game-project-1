@@ -3,6 +3,7 @@ using Managers.Camera;
 using Players.Physics_Based_Character_Controller;
 using Tiles;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Players
 {
@@ -42,9 +43,10 @@ namespace Players
             trigger.TriggerExited();
         }
 
-        public void HandleInput()
+        public void HandleInput(InputAction.CallbackContext context)
         {
-            _physicsBasedCharacterController.JumpPressed();
+            //_physicsBasedCharacterController.JumpPressed();
+            _physicsBasedCharacterController.JumpInputAction(context);
             Debug.Log("default movement (jump)");
         }
     }
