@@ -36,6 +36,9 @@ namespace Tiles.Examples
     
         public override void BeginEffect()
         {
+            if (IsActive) { return; }
+            IsActive = true;
+            
             base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudion and activate BeginEffectSprite.
                 
             StartCoroutine(Cooldown());
@@ -43,6 +46,9 @@ namespace Tiles.Examples
             
         public override void EndEffect()
         {
+            if (!IsActive) { return; }
+            IsActive = false;
+            
             if (_player0Time < _player1Time)
             {
                 Debug.Log("Player0 gained " + pointsToWinner + " points!");

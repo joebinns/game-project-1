@@ -55,7 +55,6 @@ namespace Managers.Camera
                 timer += Time.deltaTime;
                 timer = Mathf.Clamp(timer, 0, duration);
                 perlin.m_AmplitudeGain = curve.Evaluate(timer);
-                Debug.Log(timer);
                 yield return null;
             }
         }

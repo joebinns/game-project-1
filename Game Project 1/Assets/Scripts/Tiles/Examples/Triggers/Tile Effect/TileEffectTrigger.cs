@@ -1,6 +1,6 @@
 using Tiles;
 
-namespace Examples.Triggers
+namespace Tiles.Examples.Triggers
 {
     public class TileEffectTrigger : TileTrigger
     {

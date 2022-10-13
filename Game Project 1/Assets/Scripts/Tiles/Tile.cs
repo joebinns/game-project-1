@@ -9,6 +9,7 @@ namespace Tiles
     public class Tile : MonoBehaviour
     {
         public TileSettings TileSettings;
+        public bool IsActive;
 
         public static event Action<Tile> OnBeginEffect;
         public static event Action<Tile> OnEndEffect;
@@ -33,7 +34,7 @@ namespace Tiles
         {
             // Subscribe inputs back to player
             OnEndEffect?.Invoke(null);
-            
+
             // Play EndEffectAudio and deactivate effect canvas
             if (TileSettings.EndEffectAudio != null)
             {

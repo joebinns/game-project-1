@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Tiles;
 using UnityEngine;
 
-namespace Examples.Triggers
+namespace Tiles.Examples.Triggers
 {
     public class IndefiniteTrigger : TileTrigger
     {
