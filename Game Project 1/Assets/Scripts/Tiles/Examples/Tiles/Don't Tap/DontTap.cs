@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers.Audio;
+using Managers.Camera;
 using Managers.Points;
 using UI;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Tiles
     {
 
         [SerializeField] private float timer = 3f;
-        [SerializeField] private int pointsToRemove = -100;
+        [SerializeField] private int pointsToRemove = -500;
         
         private bool _cooldownFinished;
         private bool[] _playerPressed;
@@ -54,7 +55,7 @@ namespace Tiles
             if (!_cooldownFinished && !_playerPressed[playerId])
             {
                 PointsManager.GainPoints(playerId, pointsToRemove);
-
+                CameraManager.Main.Shake(20f, 0.1f);
                 Debug.Log("Player"+playerId+" tapped! You lost " + pointsToRemove + " points!");
                 //Remove points from playerId
                 _playerPressed[playerId] = true;

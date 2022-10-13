@@ -47,6 +47,8 @@ namespace Tiles.Examples
         {
             if (!_cooldownFinished)
             {
+                CameraManager.Main.Shake(20f, 0.1f);
+
                 // Play HandleInputAudio
                 base.HandleInput(playerId);
 
