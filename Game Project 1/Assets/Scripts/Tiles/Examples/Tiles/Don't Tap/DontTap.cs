@@ -61,7 +61,6 @@ namespace Tiles
             while (t > 0)
             {
                 t -= Time.deltaTime;
-                //Debug.Log(t);
                 //Update UI
                 yield return null;
             }
