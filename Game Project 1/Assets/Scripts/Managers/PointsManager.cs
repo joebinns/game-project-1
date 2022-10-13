@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Managers.Points
@@ -38,11 +39,11 @@ namespace Managers.Points
         {
             switch (playerIndex)
             {
-                case 1:
+                case 0:
                     p1Points -= points;
                     break;
 
-                case 2:
+                case 1:
                     p2Points -= points;
                     break;
 
@@ -61,10 +62,10 @@ namespace Managers.Points
         {
             switch (playerIndex)
             {
-                case 1:
+                case 0:
                     return p1Points;
 
-                case 2:
+                case 1:
                     return p2Points;
 
                 default:
