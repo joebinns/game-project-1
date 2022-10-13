@@ -25,9 +25,27 @@ namespace UI
             _effectCanvas.enabled = false;
         }
         
+        /*
         public void SetEffectSprite(Sprite sprite)
         {
             _effectImage.sprite = sprite;
+        }
+        */
+
+        public void SetEffectAnimation(EffectAnimation effectAnimation)
+        {
+            switch (effectAnimation)
+            {
+                case EffectAnimation.None:
+                    _effectImage.GetComponent<Animator>().Play("None");
+                    break;
+                case EffectAnimation.SlowLeftButtonClick:
+                    _effectImage.GetComponent<Animator>().Play("Slow Left Button Click");
+                    break;
+                case EffectAnimation.FastLeftButtonClickLooped:
+                    _effectImage.GetComponent<Animator>().Play("Fast Left Button Click Looped");
+                    break;
+            }
         }
 
         public void SetEffectText(string text)
@@ -47,5 +65,12 @@ namespace UI
                 _pointsTexts[i].text = PointsManager.GetPoints(i).ToString();
             }
         }
+    }
+
+    public enum EffectAnimation
+    {
+        None,
+        SlowLeftButtonClick,
+        FastLeftButtonClickLooped
     }
 }
