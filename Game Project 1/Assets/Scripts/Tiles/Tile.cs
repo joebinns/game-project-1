@@ -61,7 +61,7 @@ namespace Tiles
         {
             RoadGenerator roadGen = FindObjectOfType<RoadGenerator>();
             
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
             
             roadGen.RemoveActiveTile(this.gameObject);
             roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
