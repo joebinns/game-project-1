@@ -848,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generationMode: 0
   roadSpeed: 20
-  tilesUntilEnd: 10
+  tilesUntilEnd: 30
   shouldGenerate: 0
   tilesToGenerate:
   - {fileID: 133372203712121623, guid: bdc562e42bbce524bbe419c97ca92e9d, type: 3}
@@ -1018,6 +1018,50 @@ PrefabInstance:
     - target: {fileID: 474643355477927500, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474643355546689582, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474643355546689582, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474643355546689582, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396147688537356937, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396147688537356937, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396147688537356937, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396147688537356937, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371884858251171123, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371884858251171123, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371884858251171123, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371884858251171123, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a617bf8d17fdfcc41a18accf4597473b, type: 3}
