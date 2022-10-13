@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Managers.Points;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -27,5 +28,11 @@ public class GameOverManager : MonoBehaviour
             loserNameTxt.text = "Player1";
             loserPointsTxt.text = GameSettings.Instance.player1Points.ToString();
         }
+    }
+
+    public void SwitchToMain()
+    {
+        GameSettings.Instance.ResetPoints();
+        GameSettings.Instance.SwitchScene(0);
     }
 }

@@ -63,6 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileSettings: {fileID: 11400000, guid: df7052e6fbec6b349a307a61b475955d, type: 2}
+  IsActive: 0
+  timer: 3
+  pointsToWinner: 100
 --- !u!1 &3949422825787498805
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +256,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: faf5f302dbf195d43b6d96950d4945b1, type: 2}
+  - {fileID: 2100000, guid: 47e62b24a8f9dfd47920e48412e0168b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
