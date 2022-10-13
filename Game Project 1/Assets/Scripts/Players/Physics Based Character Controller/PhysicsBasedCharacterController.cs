@@ -356,12 +356,7 @@ namespace Players.Physics_Based_Character_Controller
             }
         }
 
-        public void MakeInputsNull()
-        {
-            _moveContext = Vector2.zero;
-            _jumpInput = Vector3.zero;
-        }
-    
+        /*
         /// <summary>
         /// Reads the player movement input.
         /// </summary>
@@ -369,6 +364,12 @@ namespace Players.Physics_Based_Character_Controller
         public void MoveInputAction(InputAction.CallbackContext context)
         {
             _moveContext = context.ReadValue<Vector2>();
+        }
+        */
+
+        public void Move(Vector2 move)
+        {
+            _moveContext = move;
         }
 
         /// <summary>

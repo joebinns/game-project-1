@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 5097693695641468744}
   - component: {fileID: 6186791440806929522}
   - component: {fileID: 311547958509225728}
+  - component: {fileID: 6293033746184358199}
   m_Layer: 0
   m_Name: Physics Player
   m_TagString: Untagged
@@ -208,7 +209,7 @@ MonoBehaviour:
   _rideSpringStrength: 200
   _rideSpringDamper: 10
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
-  _characterLookDirection: 0
+  _characterLookDirection: 2
   _uprightSpringStrength: 40
   _uprightSpringDamper: 5
   _aimingInput: {x: 0, y: 0, z: 0}
@@ -305,6 +306,20 @@ MonoBehaviour:
   _constantVolume: 1
   _oscillator: {fileID: 1143284042572879517}
   _conversion: 0.1
+--- !u!114 &6293033746184358199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5097693694439654186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c5455da1f749245af916b19a6dbe03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rates: {x: 2, y: 0.4}
+  _magnitudes: {x: 0.125, y: 0}
 --- !u!1 &8836825449483042409
 GameObject:
   m_ObjectHideFlags: 0

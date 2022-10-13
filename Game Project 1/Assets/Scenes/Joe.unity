@@ -636,6 +636,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _rates.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _rates.y
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8716588938107540031, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -920,9 +932,9 @@ PrefabInstance:
       propertyPath: ID
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _rideHeight
-      value: 2
+    - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _rates.x
+      value: 2.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
