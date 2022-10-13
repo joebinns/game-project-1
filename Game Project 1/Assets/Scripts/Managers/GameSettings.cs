@@ -1,4 +1,5 @@
 
+using Managers.Points;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,6 +36,7 @@ public class GameSettings : MonoBehaviour
 
     public void ResetPoints()
     {
+        PointsManager.ResetPoints();
         player1Points = 0;
         player2Points = 0;
     }

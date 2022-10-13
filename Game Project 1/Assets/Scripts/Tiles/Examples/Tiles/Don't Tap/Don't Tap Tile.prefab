@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: faf5f302dbf195d43b6d96950d4945b1, type: 2}
+  - {fileID: 2100000, guid: 47e62b24a8f9dfd47920e48412e0168b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -289,6 +289,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileSettings: {fileID: 11400000, guid: 73cd9e54dfca25849a601983fb6844fe, type: 2}
+  IsActive: 0
+  timer: 3
+  pointsToRemove: -100
 --- !u!1001 &2042098237044622201
 PrefabInstance:
   m_ObjectHideFlags: 0
