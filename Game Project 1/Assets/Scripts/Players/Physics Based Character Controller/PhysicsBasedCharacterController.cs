@@ -114,6 +114,8 @@ namespace Players.Physics_Based_Character_Controller
             if (lookDirectionOption == LookDirectionOptions.Velocity || lookDirectionOption == LookDirectionOptions.Acceleration)
             {
                 Vector3 velocity = _rb.velocity;
+                velocity.z += 5f;
+                velocity.x *= -1f;
                 velocity.y = 0f;
                 if (lookDirectionOption == LookDirectionOptions.Velocity)
                 {

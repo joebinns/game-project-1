@@ -148,7 +148,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!136 &5097693695641468751
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -160,9 +160,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.125, z: 0}
 --- !u!114 &5097693695641468748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,19 +204,19 @@ MonoBehaviour:
   _terrainLayer:
     serializedVersion: 2
     m_Bits: 1
-  _rideHeight: 2
-  _rayToGroundLength: 3
+  _rideHeight: 3
+  _rayToGroundLength: 4
   _rideSpringStrength: 200
   _rideSpringDamper: 10
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
-  _characterLookDirection: 2
-  _uprightSpringStrength: 40
+  _characterLookDirection: 0
+  _uprightSpringStrength: 10
   _uprightSpringDamper: 5
   _aimingInput: {x: 0, y: 0, z: 0}
   _maxSpeed: 8
   _acceleration: 200
   _maxAccelForce: 150
-  _leanFactor: 0.25
+  _leanFactor: 1
   _accelerationFactorFromDot:
     serializedVersion: 2
     m_Curve:
@@ -305,7 +305,7 @@ MonoBehaviour:
   LocalEquilibriumScale: {x: 0, y: 0, z: 0}
   _constantVolume: 1
   _oscillator: {fileID: 1143284042572879517}
-  _conversion: 0.1
+  _conversion: 0.05
 --- !u!114 &6293033746184358199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,8 +368,8 @@ MonoBehaviour:
   LocalEquilibriumPosition: {x: 0, y: 0, z: 0}
   ForceScaleDefault: {x: 1, y: 1, z: 1}
   ForceScale: {x: 0, y: 0, z: 0}
-  _stiffness: 100
-  _damper: 2
+  _stiffness: 200
+  _damper: 10
   _mass: 1
 --- !u!1001 &2498129308403134032
 PrefabInstance:
