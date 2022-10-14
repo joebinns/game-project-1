@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
     public Transform target;
+    
     void Update()
     {
         target.position = transform.position;
