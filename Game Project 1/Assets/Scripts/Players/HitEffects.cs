@@ -1,19 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utilities;
 
-public class FlashMaterial : MonoBehaviour
+public class HitEffects : MonoBehaviour
 {
     [SerializeField] private Material _flashMaterial;
     [SerializeField] private List<Transform> _renderers;
-    
+
+    private List<Vector3> _renderersDefaultLocalScales = new List<Vector3>();
     private List<Transform> _allRenderers = new List<Transform>();
     private const float FLASH_DURATION = 0.25f;
 
-    public void FlashMaterials()
+    private void Awake()
+    {
+        for (int i=0; i < _renderers.Count; i++)
+        {
+            _renderersDefaultLocalScales.Add(_renderers[i].transform.localScale);
+        }
+    }
+
+    public void Play()
     {
         StartCoroutine(FlashMaterialCoroutine(_flashMaterial));
+        StartCoroutine(FlashRendererSize(1.35f));
     }
     
     private IEnumerator FlashMaterialCoroutine(Material material)
@@ -23,6 +34,21 @@ public class FlashMaterial : MonoBehaviour
         yield return new WaitForSeconds(FLASH_DURATION);
 
         RestoreDefaultMaterials();
+    }
+    
+    private IEnumerator FlashRendererSize(float size) // TODO: Change this to an eased in-out lerp
+    {
+        for (int i = 0; i < _renderers.Count; i++)
+        {
+            _renderers[i].localScale = _renderersDefaultLocalScales[i] * size;
+        }
+
+        yield return new WaitForSeconds(FLASH_DURATION);
+
+        for (int i = 0; i < _renderers.Count; i++)
+        {
+            _renderers[i].localScale = _renderersDefaultLocalScales[i];
+        }
     }
 
     public void RestoreDefaultMaterials()

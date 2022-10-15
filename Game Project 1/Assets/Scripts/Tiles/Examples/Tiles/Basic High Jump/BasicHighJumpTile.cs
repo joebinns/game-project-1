@@ -24,7 +24,7 @@ namespace Tiles.Examples
         {
             base.EffectFail(player);
             
-            player.GetComponent<FlashMaterial>().FlashMaterials();
+            player.GetComponent<HitEffects>().Play();
         }
 
         public override void HandleInput(Player player)
