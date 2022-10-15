@@ -211,12 +211,12 @@ MonoBehaviour:
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
   _characterLookDirection: 0
   _uprightSpringStrength: 10
-  _uprightSpringDamper: 5
+  _uprightSpringDamper: 2
   _aimingInput: {x: 0, y: 0, z: 0}
   _maxSpeed: 8
   _acceleration: 200
   _maxAccelForce: 150
-  _leanFactor: 1
+  _leanFactor: 2
   _accelerationFactorFromDot:
     serializedVersion: 2
     m_Curve:
