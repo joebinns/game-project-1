@@ -1472,7 +1472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: 0.000000027902953, y: 4.58819, z: 9.659261}
+  m_LocalPosition: {x: 0.000000027903067, y: 4.58819, z: 9.659261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 752702627}
   _axesToFollowPosition: 000101
-  _offsetPosition: {x: 0, y: 1, z: 0}
+  _offsetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1231044769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: 0.000000027902953, y: 4.58819, z: 9.659261}
+  m_LocalPosition: {x: 0.000000027903067, y: 4.58819, z: 9.659261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2295,4 +2295,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1314160347}
   _axesToFollowPosition: 000101
-  _offsetPosition: {x: 0, y: 1, z: 0}
+  _offsetPosition: {x: 0, y: 0, z: 0}
