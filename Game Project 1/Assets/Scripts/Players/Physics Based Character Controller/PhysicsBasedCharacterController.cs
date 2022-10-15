@@ -31,7 +31,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _rideSpringDamper = 5f; // rideSpringDampener: dampener of spring. (?)
         [SerializeField] private Oscillator _squashAndStretchOcillator;
 
-
+        
         public enum LookDirectionOptions { Velocity, Acceleration, MoveInput, Aiming };
         private Quaternion _uprightTargetRot = Quaternion.identity; // Adjust y value to match the desired direction to face.
         private Vector3 _lastYLookAt;
@@ -49,8 +49,8 @@ namespace Players.Physics_Based_Character_Controller
         private float _maxAccelForceFactor = 1f;
         /*
         private Vector3 _m_GoalVel = Vector3.zero;
-        */
         public Vector3 _aimingInput = Vector3.zero;
+        */
         
 
         /*
@@ -125,6 +125,7 @@ namespace Players.Physics_Based_Character_Controller
             return grounded;
         }
 
+        /*
         /// <summary>
         /// Gets the look desired direction for the character to look.
         /// The method for determining the look direction is depends on the lookDirectionOption.
@@ -164,6 +165,7 @@ namespace Players.Physics_Based_Character_Controller
             }
             return lookDirection;
         }
+        */
 
         private bool _prevGrounded = false;
         /// <summary>
@@ -218,7 +220,8 @@ namespace Players.Physics_Based_Character_Controller
                 MaintainHeight(rayHit);
             }
 
-            Vector3 lookDirection = GetLookDirection(_characterLookDirection);
+            //Vector3 lookDirection = GetLookDirection(_characterLookDirection);
+            var lookDirection = Vector3.forward;
             MaintainUpright(lookDirection, rayHit);
 
             _prevGrounded = grounded;
@@ -332,7 +335,7 @@ namespace Players.Physics_Based_Character_Controller
                 }
             }
         }
-
+        
         /// <summary>
         /// Adds torque to the character to keep the character upright, acting as a torsional oscillator (i.e. vertically flipped pendulum).
         /// </summary>

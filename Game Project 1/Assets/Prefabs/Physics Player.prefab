@@ -121,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5097693694439654186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalPosition: {x: 2, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -160,7 +160,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 3
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -0.125, z: 0}
 --- !u!114 &5097693695641468748
@@ -204,7 +204,7 @@ MonoBehaviour:
   _terrainLayer:
     serializedVersion: 2
     m_Bits: 1
-  _defaultRideHeight: 3
+  _defaultRideHeight: 2
   _rayToGroundLength: 6
   _rideSpringStrength: 200
   _rideSpringDamper: 10
@@ -220,7 +220,7 @@ MonoBehaviour:
   _lowJumpFactor: 12.5
   _jumpBuffer: 0.05
   _coyoteTime: 0.1
-  _rideHeightJump: 6
+  _rideHeightJump: 5
   _transitionDurationJump: 0.25
   _rideHeightCrouch: 1.5
   _transitionDurationCrouch: 0.25
