@@ -8,7 +8,7 @@ public class FollowTransform : MonoBehaviour
     [SerializeField] private List<bool> _axesToFollowPosition = new List<bool>(3);
     [SerializeField] private Vector3 _offsetPosition;
     
-    void Update()
+    void FixedUpdate()
     {
         var position = transform.position;
         for (int i = 0; i < _axesToFollowPosition.Count; i++)

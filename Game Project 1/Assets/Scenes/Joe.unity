@@ -744,10 +744,10 @@ MonoBehaviour:
   m_Targets:
   - target: {fileID: 1179961986}
     weight: 1
-    radius: 1
+    radius: 2
   - target: {fileID: 2100827953}
     weight: 1
-    radius: 1
+    radius: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,10 +937,6 @@ PrefabInstance:
     - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _rayToGroundLength
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _alternativeRideHeight
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _offset
@@ -1471,15 +1467,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
-  m_LocalRotation: {x: 0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: 0.000000027903067, y: 4.58819, z: 9.659261}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
+  m_LocalPosition: {x: -0.000000038069402, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1754163435}
   m_Father: {fileID: 359771668}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 15, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 180, z: 0}
 --- !u!114 &1143427568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2054,8 +2050,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
-  m_LocalRotation: {x: -0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: 0.000000027903067, y: 4.58819, z: 9.659261}
+  m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
+  m_LocalPosition: {x: -0.000000038069402, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2178,21 +2174,21 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_ScreenY: 0.65
+  m_CameraDistance: 12
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 0.3
+  m_SoftZoneHeight: 0.9
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: -0.16499996
   m_CenterOnActivate: 1
   m_GroupFramingMode: 1
   m_AdjustmentMode: 1
-  m_GroupFramingSize: 0.3
-  m_MaxDollyIn: 1
+  m_GroupFramingSize: 0.25
+  m_MaxDollyIn: 0
   m_MaxDollyOut: 15
   m_MinimumDistance: 1
   m_MaximumDistance: 15
