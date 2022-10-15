@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using Players;
 
 namespace Tiles.Examples
@@ -22,6 +23,8 @@ namespace Tiles.Examples
         public override void EffectFail(Player player)
         {
             base.EffectFail(player);
+            
+            player.GetComponent<FlashMaterial>().FlashMaterials();
         }
 
         public override void HandleInput(Player player)
