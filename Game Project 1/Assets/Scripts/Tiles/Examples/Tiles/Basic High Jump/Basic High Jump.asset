@@ -21,7 +21,7 @@ MonoBehaviour:
   HandleInputAudio: {fileID: 0}
   EffectSuccessAudio: {fileID: 0}
   EffectSuccessPoints: 100
-  EffectFailAudio: {fileID: 8300000, guid: e3d345260e8a0674a9281a2fb7fd9a75, type: 3}
+  EffectFailAudio: {fileID: 0}
   EffectFailPoints: -10
   EndEffectAudio: {fileID: 0}
   DeactivateCanvasDelay: 0

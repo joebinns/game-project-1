@@ -272,6 +272,7 @@ MonoBehaviour:
   _renderers:
   - {fileID: 4776283078906232159}
   - {fileID: 1292122877575138034}
+  _ouchSound: {fileID: 8300000, guid: e3d345260e8a0674a9281a2fb7fd9a75, type: 3}
 --- !u!1 &8836825449483042409
 GameObject:
   m_ObjectHideFlags: 0

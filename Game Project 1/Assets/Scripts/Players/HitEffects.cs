@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers.Audio;
+using Managers.Camera;
 using UnityEngine;
 using Utilities;
 
@@ -8,6 +10,7 @@ public class HitEffects : MonoBehaviour
 {
     [SerializeField] private Material _flashMaterial;
     [SerializeField] private List<Transform> _renderers;
+    [SerializeField] private AudioClip _ouchSound;
 
     private List<Vector3> _renderersDefaultLocalScales = new List<Vector3>();
     private List<Transform> _allRenderers = new List<Transform>();
@@ -23,8 +26,10 @@ public class HitEffects : MonoBehaviour
 
     public void Play()
     {
+        AudioManager.PlaySound(_ouchSound);
         StartCoroutine(FlashMaterialCoroutine(_flashMaterial));
         StartCoroutine(FlashRendererSize(1.35f));
+        CameraManager.Main.Shake(20f, FLASH_DURATION);
     }
     
     private IEnumerator FlashMaterialCoroutine(Material material)

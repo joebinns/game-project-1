@@ -33,6 +33,7 @@ namespace Managers.Camera
         {
             StartCoroutine(ShakeLerp(curve));   
         }
+        
         /// <summary>
         /// add a camera shake linearly
         /// </summary>
