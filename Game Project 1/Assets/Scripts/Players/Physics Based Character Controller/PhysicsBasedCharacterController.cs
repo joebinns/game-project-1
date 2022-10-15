@@ -39,7 +39,7 @@ namespace Players.Physics_Based_Character_Controller
         private Vector3 _platformInitRot;
         private bool didLastRayHit;
 
-        [Header("Upright Spring:")]
+        [Header("Upright Spring: (NOTE this is somewhat obsolete now. Check MovementNoise.cs)")]
         [SerializeField] public LookDirectionOptions _characterLookDirection = LookDirectionOptions.Velocity;
         [SerializeField] private float _uprightSpringStrength = 40f;
         [SerializeField] private float _uprightSpringDamper = 5f;
@@ -47,10 +47,14 @@ namespace Players.Physics_Based_Character_Controller
         private Vector3 _moveInput;
         private float _speedFactor = 1f;
         private float _maxAccelForceFactor = 1f;
+        /*
         private Vector3 _m_GoalVel = Vector3.zero;
+        */
         public Vector3 _aimingInput = Vector3.zero;
+        
 
-        [Header("Movement:")]
+        /*
+        [Header("Movement: (NOTE this is obsolete now. Check MovementNoise.cs)")]
         [SerializeField] private float _maxSpeed = 8f;
         [SerializeField] private float _acceleration = 200f;
         [SerializeField] private float _maxAccelForce = 150f;
@@ -58,6 +62,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private AnimationCurve _accelerationFactorFromDot;
         [SerializeField] private AnimationCurve _maxAccelerationForceFactorFromDot;
         [SerializeField] private Vector3 _moveForceScale = new Vector3(1f, 0f, 1f);
+        */
         
         public enum MovementOptions { HoldForHighJump, HoldForRideHeightJump, HoldForRideHeightCrouch };
         private Vector3 _jumpInput;
