@@ -3,6 +3,7 @@ using System.Collections;
 using System.Net;
 using Managers.Camera;
 using Managers.Points;
+using Players;
 using UnityEngine;
 using UI;
 using Unity.VisualScripting;
@@ -46,19 +47,19 @@ namespace Tiles.Examples
             EndEffect();
         }
 
-        public override void HandleInput(int playerId)
+        public override void HandleInput(Player player)
         {
-            Debug.Log(playerId);
+            Debug.Log(player.ID);
             if (!_cooldownFinished)
             {
                 CameraManager.Main.Shake(20f, 0.1f);
 
                 // Play HandleInputAudio
-                base.HandleInput(playerId);
+                base.HandleInput(player);
 
-                PointsManager.GainPoints(playerId, pointsToWinner);
+                PointsManager.GainPoints(player.ID, pointsToWinner);
 
-                Debug.Log("Player" + playerId + " gained" + pointsToWinner + " points!");
+                Debug.Log("Player" + player.ID + " gained" + pointsToWinner + " points!");
                 
                 EndEffect();
             }

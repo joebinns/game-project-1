@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers.Camera;
 using Managers.Points;
+using Players;
 using Players.Physics_Based_Character_Controller;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ namespace Tiles
 {
     public class BasicTapTile : Tile
     {
-        
         [SerializeField] private float timer = 1f;
         [SerializeField] private int pointsToWinner = 50;
         
@@ -43,20 +43,20 @@ namespace Tiles
             base.EndEffect();
         }
 
-        public override void HandleInput(int playerId)
+        public override void HandleInput(Player player)
         {
-            base.HandleInput(playerId);
+            base.HandleInput(player);
             
             CameraManager.Main.Shake(5f, 0.35f);
             //FindObjectOfType<PlayerManager>().Players[playerId].GetComponent<PhysicsBasedCharacterController>().JumpPressed();
 
-            if (!_cooldownFinished && !_playerPressed[playerId])
+            if (!_cooldownFinished && !_playerPressed[player.ID])
             {
-                PointsManager.GainPoints(playerId, pointsToWinner);
+                PointsManager.GainPoints(player.ID, pointsToWinner);
 
-                Debug.Log("Player"+playerId+" avoided the obstacle and gained " + pointsToWinner + " points!");
+                Debug.Log("Player"+ player.ID +" avoided the obstacle and gained " + pointsToWinner + " points!");
                 //Remove points from playerId
-                _playerPressed[playerId] = true;
+                _playerPressed[player.ID] = true;
             }
         }
         

@@ -23,25 +23,25 @@ namespace Players
         private void OnTriggerEnter(Collider other)
         {
             var trigger = other.transform.GetComponent<TileTrigger>();
-            if (!trigger) { Debug.LogWarning("Trigger is not a TileTrigger."); return; }
+            if (!trigger) { return; }
             
-            trigger.TriggerEntered();
+            trigger.TriggerEntered(this);
         }
         
         private void OnTriggerStay(Collider other)
         {
             var trigger = other.transform.GetComponent<TileTrigger>();
-            if (!trigger) { Debug.LogWarning("Trigger is not a TileTrigger."); return; }
+            if (!trigger) { return; }
 
-            trigger.TriggerStayed();
+            trigger.TriggerStayed(this);
         }
         
         private void OnTriggerExit(Collider other)
         {
             var trigger = other.transform.GetComponent<TileTrigger>();
-            if (!trigger) { Debug.LogWarning("Trigger is not a TileTrigger."); return; }
+            if (!trigger) { return; }
 
-            trigger.TriggerExited();
+            trigger.TriggerExited(this);
         }
 
         public void HandleInput(InputAction.CallbackContext context)

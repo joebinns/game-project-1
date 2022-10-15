@@ -4,6 +4,7 @@ using UnityEngine;
 using Managers.Audio;
 using Managers.Camera;
 using Managers.Points;
+using Players;
 using UI;
 
 namespace Tiles.Examples
@@ -55,15 +56,15 @@ namespace Tiles.Examples
         }
         
         
-        public override void HandleInput(int playerId)
+        public override void HandleInput(Player player)
         {
             // Play HandleInputAudio
-            base.HandleInput(playerId);
+            base.HandleInput(player);
 
             if (!_cooldownFinished)
             {
-                Debug.Log("Player"+playerId+" gained " + pointsPerTap + " points!");
-                PointsManager.GainPoints(playerId, pointsPerTap);
+                Debug.Log("Player"+player.ID+" gained " + pointsPerTap + " points!");
+                PointsManager.GainPoints(player.ID, pointsPerTap);
                 CameraManager.Main.Shake(5f, 0.35f);
             }
             

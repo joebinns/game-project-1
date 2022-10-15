@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using Managers.Audio;
+using Managers.Points;
+using Players;
 using UI;
 using UnityEngine;
 
@@ -9,11 +11,19 @@ namespace Tiles
     public class Tile : MonoBehaviour
     {
         public TileSettings TileSettings;
-        public bool IsActive;
+        [HideInInspector] public bool IsActive;
 
         public static event Action<Tile> OnBeginEffect;
         public static event Action<Tile> OnEndEffect;
 
+        private void Start()
+        {
+            if (TileSettings.IsIndefinite)
+            {
+                FindObjectOfType<RoadGenerator>().generationMode = RoadGenerator.GenerationModes.Indefinite;
+            }
+        }
+        
         public virtual void BeginEffect()
         {
             IsActive = true;
@@ -61,6 +71,27 @@ namespace Tiles
                 StartCoroutine(WaitToDestroy());
             }
         }
+        
+        public virtual void HandleInput(Player player)
+        {
+            // Play HandleInputAudio
+            if (TileSettings.HandleInputAudio != null)
+            {
+                AudioManager.PlaySound(TileSettings.HandleInputAudio);
+            }
+        }
+
+        public virtual void EffectSuccess(Player player)
+        {
+            AudioManager.PlaySound(TileSettings.EffectSuccessAudio);
+            PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints);
+        }
+
+        public virtual void EffectFail(Player player)
+        {
+            AudioManager.PlaySound(TileSettings.EffectFailAudio);
+            PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints);
+        }
 
         private void DeactivateCanvas()
         {
@@ -76,23 +107,6 @@ namespace Tiles
             roadGen.RemoveActiveTile(this.gameObject);
             roadGen.generationMode = RoadGenerator.GenerationModes.Normal;
             roadGen.DestroyQueue.Enqueue(this.gameObject);
-        }
-        
-        private void Awake()
-        {
-            if (TileSettings.IsIndefinite)
-            {
-                FindObjectOfType<RoadGenerator>().generationMode = RoadGenerator.GenerationModes.Indefinite;
-            }
-        }
-
-        public virtual void HandleInput(int playerId)
-        {
-            // Play HandleInputAudio
-            if (TileSettings.HandleInputAudio != null)
-            {
-                AudioManager.PlaySound(TileSettings.HandleInputAudio);
-            }
         }
     }
 }

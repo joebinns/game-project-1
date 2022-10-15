@@ -1,28 +1,22 @@
+using Managers.Audio;
 using Players;
-using Tiles;
 
 namespace Tiles.Examples.Triggers
 {
-    public class TileEffectTrigger : TileTrigger
+    public class ObstacleTileTrigger : TileTrigger
     {
+        // TODO: Devise some way that individual obstacles in a tile can't assign success AND fail to a single player
+        
         public override void TriggerEntered(Player player)
         {
             base.TriggerEntered(player);
             
-            if (!Tile.IsActive)
-            {
-                Tile.BeginEffect();
-            }
+            Tile.EffectFail(player);
         }
     
         public override void TriggerExited(Player player)
         {
             base.TriggerExited(player);
-            
-            if (Tile.IsActive)
-            {
-                Tile.EndEffect();
-            }
         }
     }
 }

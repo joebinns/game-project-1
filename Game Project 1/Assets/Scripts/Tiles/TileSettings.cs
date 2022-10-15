@@ -13,20 +13,34 @@ namespace Tiles
         [Tooltip("A short descriptor for the behaviour of this tile.")]
         [SerializeField] protected string _description;
 
-        [Header("Basic")]
-        public AudioClip BeginEffectAudio;
-        public AudioClip EndEffectAudio;
-        public AudioClip HandleInputAudio;
-        public EffectAnimation EffectAnimation = EffectAnimation.None;
+        [Header("Options")]
         public PhysicsBasedCharacterController.MovementOptions MovementOption =
             PhysicsBasedCharacterController.MovementOptions.HoldForHighJump;
-        public string BeginEffectText;
         public bool IsIndefinite;
+
+        [Header("Begin Effect")]
+        public AudioClip BeginEffectAudio;
+        public string BeginEffectText;
+        public EffectAnimation EffectAnimation = EffectAnimation.None;
         
+        [Header("Handle Input")]
+        public AudioClip HandleInputAudio;
+        
+        [Header("Effect Success")]
+        public AudioClip EffectSuccessAudio;
+        public int EffectSuccessPoints;
+        
+        [Header("Effect Fail")]
+        public AudioClip EffectFailAudio;
+        public int EffectFailPoints;
+        
+        [Header("End Effect")]
+        public AudioClip EndEffectAudio;
+        public float DeactivateCanvasDelay = 0f;
+
         [Header("Advanced")]
         public List<AudioClip> MiscellaneousAudioClips;
         public List<Sprite> MiscellaneousSprites;
-        public float DeactivateCanvasDelay = 0f;
         public Color EffectColor = Color.white;
     }
 }

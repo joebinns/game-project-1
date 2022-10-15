@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Managers.Audio;
 using Managers.Points;
+using Players;
 using UnityEngine;
 using UI;
 
@@ -71,11 +72,11 @@ namespace Tiles.Examples
             yield return null;
         }
             
-        public override void HandleInput(int playerId)
+        public override void HandleInput(Player player)
         {
             if (timer > 0)
             {
-                switch (playerId)
+                switch (player.ID)
                 {
                     case 0:
                         _player0Time = timer;

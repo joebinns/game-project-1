@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Players;
 using Tiles;
 using UnityEngine;
 
@@ -7,18 +8,17 @@ namespace Tiles.Examples.Triggers
 {
     public class IndefiniteTrigger : TileTrigger
     {
-        public override void TriggerEntered()
+        public override void TriggerEntered(Player player)
         {
-            base.TriggerEntered();
-
-            var tile = transform.parent.GetComponent<Tile>();
-            if (!tile.IsActive)
+            base.TriggerEntered(player);
+            
+            if (!Tile.IsActive)
             {
-                transform.parent.GetComponent<Tile>().BeginEffect();
+                Tile.BeginEffect();
             }
         }
     
-        public override void TriggerExited()
+        public override void TriggerExited(Player player)
         {
         }
     } 

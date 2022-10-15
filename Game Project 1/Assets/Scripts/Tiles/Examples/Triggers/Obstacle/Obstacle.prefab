@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &188147548564113744
+--- !u!1001 &4996910292145986816
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,11 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_Name
-      value: Tile Effect Trigger Variant
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415901493194096011, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415901493194096011, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
+      propertyPath: m_Size.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7182111668813064804, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_RootOrder
@@ -25,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182111668813064804, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7182111668813064804, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -13.75
       objectReference: {fileID: 0}
     - target: {fileID: 7182111668813064804, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -61,20 +69,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
---- !u!1 &3042216047716593454 stripped
+--- !u!1 &7925463696841603966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
-  m_PrefabInstance: {fileID: 188147548564113744}
+  m_PrefabInstance: {fileID: 4996910292145986816}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3210299771456607075
+--- !u!114 &90764171215037706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3042216047716593454}
+  m_GameObject: {fileID: 7925463696841603966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb1ced085495a464483c3444f2cfc86f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4724dd582c014384086ab6d4db57a95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

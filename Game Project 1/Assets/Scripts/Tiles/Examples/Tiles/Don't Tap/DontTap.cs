@@ -7,6 +7,7 @@ using Managers.Points;
 using UI;
 using UnityEngine;
 using Managers.Camera;
+using Players;
 using Players.Physics_Based_Character_Controller;
 
 namespace Tiles
@@ -49,20 +50,20 @@ namespace Tiles
             // UI Manager change sprite to null
         }
 
-        public override void HandleInput(int playerId)
+        public override void HandleInput(Player player)
         {
-            base.HandleInput(playerId);
+            base.HandleInput(player);
             
             CameraManager.Main.Shake(5f, 0.35f);
             //FindObjectOfType<PlayerManager>().Players[playerId].GetComponent<PhysicsBasedCharacterController>().JumpPressed();
             
-            if (!_cooldownFinished && !_playerPressed[playerId])
+            if (!_cooldownFinished && !_playerPressed[player.ID])
             {
-                PointsManager.RemovePoints(playerId, pointsToRemove);
+                PointsManager.RemovePoints(player.ID, pointsToRemove);
                 CameraManager.Main.Shake(20f, 0.1f);
-                Debug.Log("Player"+playerId+" tapped! You lost " + pointsToRemove + " points!");
+                Debug.Log("Player"+player.ID+" tapped! You lost " + pointsToRemove + " points!");
                 //Remove points from playerId
-                _playerPressed[playerId] = true;
+                _playerPressed[player.ID] = true;
             }
         }
         
