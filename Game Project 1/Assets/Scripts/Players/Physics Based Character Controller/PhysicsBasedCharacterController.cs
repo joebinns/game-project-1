@@ -225,15 +225,12 @@ namespace Players.Physics_Based_Character_Controller
             _timeSinceJump += Time.fixedDeltaTime;
             _timeSinceJumpPressed += Time.fixedDeltaTime;
             _timeSinceJumpReleased += Time.fixedDeltaTime;
-            if (_movementOption == MovementOptions.None)
+            if (_movementOption != MovementOptions.HoldForHighJump)
             {
-                CharacterJump(Vector3.zero, grounded, rayHit);
+                _jumpInput = Vector3.zero;
             }
-            if (_movementOption == MovementOptions.HoldForHighJump)
-            {
-                CharacterJump(_jumpInput, grounded, rayHit);
-            }
-            else if (_movementOption == MovementOptions.HoldForRideHeightJump)
+            CharacterJump(_jumpInput, grounded, rayHit); 
+            if (_movementOption == MovementOptions.HoldForRideHeightJump)
             {
                 RideHeightJump(_jumpInput);
             }
@@ -531,6 +528,11 @@ namespace Players.Physics_Based_Character_Controller
                     }
                     
                 }
+            }
+
+            if (_movementOption != MovementOptions.HoldForHighJump)
+            {
+                return;
             }
 
             if (_timeSinceJumpPressed < _jumpBuffer)

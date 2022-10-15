@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a05e5f39a2ba00469071b489d782266, type: 3}
-  m_Name: Basic High Jump
+  m_Name: Basic Jump
   m_EditorClassIdentifier: 
   _description: 
   MovementOption: 1

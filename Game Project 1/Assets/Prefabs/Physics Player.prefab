@@ -223,7 +223,7 @@ MonoBehaviour:
   _rideHeightJump: 5
   _rideHeightJumpRayToGroundLength: 6
   _transitionDurationJump: 0.15
-  _rideHeightCrouch: 1.5
+  _rideHeightCrouch: 1
   _transitionDurationCrouch: 0.05
 --- !u!114 &311547958509225728
 MonoBehaviour:

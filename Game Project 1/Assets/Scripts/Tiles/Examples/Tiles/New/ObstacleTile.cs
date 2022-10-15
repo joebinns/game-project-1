@@ -3,7 +3,7 @@ using Players;
 
 namespace Tiles.Examples
 {
-    public class BasicHighJumpTile : Tile
+    public class ObstacleTile : Tile
     {
         public override void BeginEffect()
         {
