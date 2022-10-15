@@ -291,8 +291,10 @@ MonoBehaviour:
   _lowJumpFactor: 12.5
   _jumpBuffer: 0.05
   _coyoteTime: 0.1
-  _alternativeRideHeight: 6.5
-  _transitionDuration: 0.25
+  _rideHeightJump: 6
+  _transitionDurationJump: 0.25
+  _rideHeightCrouch: 1.5
+  _transitionDurationCrouch: 0.25
 --- !u!114 &311547958509225728
 MonoBehaviour:
   m_ObjectHideFlags: 0

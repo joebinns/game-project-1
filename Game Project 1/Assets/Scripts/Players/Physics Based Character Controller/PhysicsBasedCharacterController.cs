@@ -59,7 +59,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private AnimationCurve _maxAccelerationForceFactorFromDot;
         [SerializeField] private Vector3 _moveForceScale = new Vector3(1f, 0f, 1f);
         
-        public enum JumpOptions { HoldForHighJump, HoldForHighRideHeight };
+        public enum JumpOptions { HoldForHighJump, HoldForRideHeightJump, HoldForRideHeightCrouch };
         private Vector3 _jumpInput;
         private float _timeSinceJumpPressed = 0f;
         private float _timeSinceJumpReleased = 0f;
@@ -77,9 +77,12 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _lowJumpFactor = 2.5f;
         [SerializeField] private float _jumpBuffer = 0.15f; // Note, jumpBuffer shouldn't really exceed the time of the jump.
         [SerializeField] private float _coyoteTime = 0.25f;
-        [Header("Hold for High Ride Height:")]
-        [SerializeField] private float _alternativeRideHeight = 3f;
-        [SerializeField] private float _transitionDuration = 0.25f;
+        [Header("Hold for Ride Height Jump:")]
+        [SerializeField] private float _rideHeightJump = 3f;
+        [SerializeField] private float _transitionDurationJump = 0.25f;
+        [Header("Hold for Ride Height Crouch:")]
+        [SerializeField] private float _rideHeightCrouch = 3f;
+        [SerializeField] private float _transitionDurationCrouch = 0.25f;
 
         private void Awake()
         {
@@ -194,9 +197,13 @@ namespace Players.Physics_Based_Character_Controller
             {
                 CharacterJump(_jumpInput, grounded, rayHit);
             }
-            else if (_jumpOption == JumpOptions.HoldForHighRideHeight)
+            else if (_jumpOption == JumpOptions.HoldForRideHeightJump)
             {
-                RideHeightJump(_jumpInput, rayHit);
+                RideHeightJump(_jumpInput);
+            }
+            else if (_jumpOption == JumpOptions.HoldForRideHeightCrouch)
+            {
+                RideHeightCrouch(_jumpInput);
             }
 
             if (rayHitGround && _shouldMaintainHeight)
@@ -505,9 +512,9 @@ namespace Players.Physics_Based_Character_Controller
             }
         }
 
-        private void RideHeightJump(Vector3 jumpInput, RaycastHit rayHit)
+        private void ChangeRideHeight(float input, float alternativeRideHeight, float duration)
         {
-            var rideHeight = (jumpInput.y * _alternativeRideHeight) + ((1 - jumpInput.y) * _defaultRideHeight);
+            var rideHeight = (input * _rideHeight) + ((1 - input) * _defaultRideHeight);
             float t;
             if (_timeSinceJumpPressed < _timeSinceJumpReleased)
             {
@@ -515,10 +522,20 @@ namespace Players.Physics_Based_Character_Controller
             }
             else
             {
-                t = _transitionDuration - _timeSinceJumpReleased;
+                t = duration - _timeSinceJumpReleased;
             }
-            rideHeight = Mathf.Lerp(_defaultRideHeight, _alternativeRideHeight, t / _transitionDuration); // TODO: Change this to some easing function, if we stick with this type of jump.
+            rideHeight = Mathf.Lerp(_defaultRideHeight, alternativeRideHeight, t / duration); // TODO: Change this to some easing function, if we stick with this type of jump.
             _rideHeight = rideHeight;
+        }
+        
+        private void RideHeightJump(Vector3 jumpInput)
+        {
+            ChangeRideHeight(jumpInput.y, _rideHeightJump, _transitionDurationJump);
+        }
+        
+        private void RideHeightCrouch(Vector3 jumpInput)
+        {
+            ChangeRideHeight(jumpInput.y, _rideHeightCrouch, _transitionDurationCrouch);
         }
     }
 }
