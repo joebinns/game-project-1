@@ -16,15 +16,21 @@ namespace Tiles
 
         public virtual void BeginEffect()
         {
+            IsActive = true;
+            
             // Subscribe inputs to this tile's effect
             OnBeginEffect?.Invoke(this);
 
-            // Play BeginEffectAudio and activate effect canvas
+            // Switch movement options
+            FindObjectOfType<PlayerManager>().SwitchAllMovementOptions(TileSettings.MovementOption);
+
+            // Play BeginEffectAudio
             if (TileSettings.BeginEffectAudio != null)
             {
                 AudioManager.PlaySound(TileSettings.BeginEffectAudio);
             }
 
+            // Activate effect canvas
             var uIHandler = FindObjectOfType<UIHandler>();
             uIHandler.ActivateEffectCanvas();
             uIHandler.SetEffectText(TileSettings.BeginEffectText);
@@ -33,9 +39,14 @@ namespace Tiles
 
         public virtual void EndEffect()
         {
+            IsActive = false;
+            
             // Subscribe inputs back to player
             OnEndEffect?.Invoke(null);
 
+            // Reset movement options
+            FindObjectOfType<PlayerManager>().ResetAllMovementOptions();
+            
             // Play EndEffectAudio and deactivate effect canvas
             if (TileSettings.EndEffectAudio != null)
             {

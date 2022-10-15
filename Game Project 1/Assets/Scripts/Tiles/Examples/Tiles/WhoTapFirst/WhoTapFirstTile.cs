@@ -20,10 +20,6 @@ namespace Tiles.Examples
 
         public override void BeginEffect()
         {
-            
-            if (IsActive) { return; }
-            IsActive = true;
-
             base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudion and activate BeginEffectSprite.
 
             StartCoroutine(Cooldown(_countdownTime));
@@ -31,10 +27,6 @@ namespace Tiles.Examples
         
         public override void EndEffect()
         {
-            if (!IsActive) { return; }
-            IsActive = false;
-            
-            
             // Call this method as the tile's last piece of logic!
             base.EndEffect(); // Redirect inputs back to player, play EndEffectAudio and deactivate effect sprite.
         }

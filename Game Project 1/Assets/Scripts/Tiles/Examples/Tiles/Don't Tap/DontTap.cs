@@ -31,9 +31,6 @@ namespace Tiles
 
         public override void BeginEffect()
         {
-            if (IsActive) { return; }
-            IsActive = true;
-            
             // Redirect inputs to this tile
             base.BeginEffect();
 
@@ -46,9 +43,6 @@ namespace Tiles
         
         public override void EndEffect()
         {
-            if (!IsActive) { return; }
-            IsActive = false;
-            
             // Redirect inputs back to player
             base.EndEffect();
             

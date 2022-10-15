@@ -8,14 +8,22 @@ namespace Tiles.Examples.Triggers
         {
             base.TriggerEntered();
         
-            transform.parent.GetComponent<Tile>().BeginEffect();
+            var tile = transform.parent.GetComponent<Tile>();
+            if (!tile.IsActive)
+            {
+                transform.parent.GetComponent<Tile>().BeginEffect();
+            }
         }
     
         public override void TriggerExited()
         {
             base.TriggerExited();
         
-            transform.parent.GetComponent<Tile>().EndEffect();
+            var tile = transform.parent.GetComponent<Tile>();
+            if (tile.IsActive)
+            {
+                transform.parent.GetComponent<Tile>().EndEffect();
+            }
         }
     }
 }

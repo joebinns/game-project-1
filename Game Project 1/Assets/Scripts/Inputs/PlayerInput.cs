@@ -35,12 +35,15 @@ namespace Inputs
 
         public void RedirectInput(InputAction.CallbackContext context)
         {
+            _player.HandleInput(context); // Always do some player movement
             switch (_currentTile)
             {
+                /*
                 case null:
                     // Go ahead with regular player inputs
                     _player.HandleInput(context);
                     break;
+                */
                 default:
                     // Redirect inputs to current tiles effect
                     _currentTile.HandleInput(_player.ID);

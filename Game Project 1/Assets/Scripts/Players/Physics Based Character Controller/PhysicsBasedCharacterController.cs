@@ -64,7 +64,8 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private Vector3 _moveForceScale = new Vector3(1f, 0f, 1f);
         */
         
-        public enum MovementOptions { HoldForHighJump, HoldForRideHeightJump, HoldForRideHeightCrouch };
+        public enum MovementOptions { None, HoldForHighJump, HoldForRideHeightJump, HoldForRideHeightCrouch };
+        private MovementOptions _defaultMovementOption;
         private Vector3 _jumpInput;
         private float _timeSinceJumpPressed = 0f;
         private float _timeSinceJumpReleased = 0f;
@@ -92,6 +93,7 @@ namespace Players.Physics_Based_Character_Controller
         private void Awake()
         {
             _rideHeight = _defaultRideHeight;
+            _defaultMovementOption = _movementOption;
         }
 
         /// <summary>
@@ -402,18 +404,18 @@ namespace Players.Physics_Based_Character_Controller
         {
             _moveContext = context.ReadValue<Vector2>();
         }
-        */
 
         public void Move(Vector2 move)
         {
             _moveContext = move;
         }
+        */
 
         /// <summary>
         /// Reads the player jump input.
         /// </summary>
         /// <param name="context">The jump input's context.</param>
-        public void JumpInputAction(InputAction.CallbackContext context)
+        public void InputAction(InputAction.CallbackContext context)
         {
             float jumpContext = context.ReadValue<float>();
             _jumpInput = new Vector3(0, jumpContext, 0);
@@ -422,11 +424,20 @@ namespace Players.Physics_Based_Character_Controller
             {
                 _timeSinceJumpPressed = 0f;
             }
-
             if (context.canceled)
             {
                 _timeSinceJumpReleased = 0f;
             }
+        }
+
+        public void SetMovementOption(MovementOptions movementOption)
+        {
+            _movementOption = movementOption;
+        }
+
+        public void ResetMovementOption()
+        {
+            _movementOption = _defaultMovementOption;
         }
 
         /*

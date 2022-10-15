@@ -12,8 +12,9 @@ namespace Players
         public int ID;
         //private HeightBuffer _heightBuffer;
         private PhysicsBasedCharacterController _physicsBasedCharacterController;
+        public PhysicsBasedCharacterController PhysicsBasedCharacterController => _physicsBasedCharacterController;
 
-        private void Awake()
+            private void Awake()
         {
             //_heightBuffer = GetComponent<HeightBuffer>();
             _physicsBasedCharacterController = GetComponent<PhysicsBasedCharacterController>();
@@ -45,7 +46,7 @@ namespace Players
 
         public void HandleInput(InputAction.CallbackContext context)
         {
-            _physicsBasedCharacterController.JumpInputAction(context);
+            _physicsBasedCharacterController.InputAction(context);
         }
     }
 }
