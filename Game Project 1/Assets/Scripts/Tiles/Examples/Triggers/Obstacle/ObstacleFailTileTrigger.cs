@@ -1,16 +1,18 @@
-using Managers.Audio;
+using System.Collections.Generic;
 using Players;
+using UnityEngine;
 
 namespace Tiles.Examples.Triggers
 {
-    public class ObstacleTileTrigger : TileTrigger
+    public class ObstacleFailTileTrigger : TileTrigger
     {
-        // TODO: Devise some way that individual obstacles in a tile can't assign success AND fail to a single player
-        
+        [HideInInspector] public List<Player> PlayersThatFailed = new List<Player>();
+
         public override void TriggerEntered(Player player)
         {
             base.TriggerEntered(player);
             
+            PlayersThatFailed.Add(player);
             Tile.EffectFail(player);
         }
     

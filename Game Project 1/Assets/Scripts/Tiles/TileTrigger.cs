@@ -14,7 +14,7 @@ namespace Tiles
 
         private void Awake()
         {
-            Tile = transform.parent.GetComponent<Tile>();
+            Tile = GetComponentInParent<Tile>();
         }
 
         public virtual void TriggerEntered(Player player)
