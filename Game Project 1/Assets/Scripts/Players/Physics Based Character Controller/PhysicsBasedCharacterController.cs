@@ -22,11 +22,12 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private LayerMask _terrainLayer;
 
         private float _rideHeight; // rideHeight: desired distance to ground (Note, this is distance from the original raycast position (currently centre of transform)).
+        private float _rayToGroundLength; // rayToGroundLength: max distance of raycast to ground (Note, this should be greater than the rideHeight).
         private bool _shouldMaintainHeight = true;
 
         [Header("Height Spring:")]
         [SerializeField] private float _defaultRideHeight = 1.75f;
-        [SerializeField] private float _rayToGroundLength = 3f; // rayToGroundLength: max distance of raycast to ground (Note, this should be greater than the rideHeight).
+        [SerializeField] private float _defaultRayToGroundLength = 3f; 
         [SerializeField] public float _rideSpringStrength = 50f; // rideSpringStrength: strength of spring. (?)
         [SerializeField] private float _rideSpringDamper = 5f; // rideSpringDampener: dampener of spring. (?)
         [SerializeField] private Oscillator _squashAndStretchOcillator;
@@ -85,6 +86,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _coyoteTime = 0.25f;
         [Header("Hold for Ride Height Jump:")]
         [SerializeField] private float _rideHeightJump = 3f;
+        [SerializeField] private float _rideHeightJumpRayToGroundLength = 4f;
         [SerializeField] private float _transitionDurationJump = 0.25f;
         [Header("Hold for Ride Height Crouch:")]
         [SerializeField] private float _rideHeightCrouch = 3f;
@@ -93,6 +95,7 @@ namespace Players.Physics_Based_Character_Controller
         private void Awake()
         {
             _rideHeight = _defaultRideHeight;
+            _rayToGroundLength = _defaultRayToGroundLength;
             _defaultMovementOption = _movementOption;
         }
 
@@ -167,6 +170,25 @@ namespace Players.Physics_Based_Character_Controller
         }
         */
 
+        private void Update()
+        {
+            switch (_movementOption)
+            {
+                case MovementOptions.None:
+                    _rayToGroundLength = _defaultRayToGroundLength;
+                    break;  
+                case MovementOptions.HoldForHighJump:
+                    _rayToGroundLength = _defaultRayToGroundLength;
+                    break;
+                case MovementOptions.HoldForRideHeightJump:
+                    _rayToGroundLength = _rideHeightJumpRayToGroundLength;
+                    break;
+                case MovementOptions.HoldForRideHeightCrouch:
+                    _rayToGroundLength = _defaultRayToGroundLength;
+                    break;
+            }
+        }
+
         private bool _prevGrounded = false;
         /// <summary>
         /// Determines and plays the appropriate character sounds, particle effects, then calls the appropriate methods to move and float the character.
@@ -200,8 +222,13 @@ namespace Players.Physics_Based_Character_Controller
 
             //CharacterMove(_moveInput, rayHit);
             
+            _timeSinceJump += Time.fixedDeltaTime;
             _timeSinceJumpPressed += Time.fixedDeltaTime;
             _timeSinceJumpReleased += Time.fixedDeltaTime;
+            if (_movementOption == MovementOptions.None)
+            {
+                CharacterJump(Vector3.zero, grounded, rayHit);
+            }
             if (_movementOption == MovementOptions.HoldForHighJump)
             {
                 CharacterJump(_jumpInput, grounded, rayHit);
@@ -423,9 +450,12 @@ namespace Players.Physics_Based_Character_Controller
             float jumpContext = context.ReadValue<float>();
             _jumpInput = new Vector3(0, jumpContext, 0);
 
-            if (context.started) // button down
+            if (_movementOption != MovementOptions.None)
             {
-                _timeSinceJumpPressed = 0f;
+                if (context.started) // button down
+                {
+                    _timeSinceJumpPressed = 0f;
+                }
             }
             if (context.canceled)
             {
@@ -439,8 +469,8 @@ namespace Players.Physics_Based_Character_Controller
         }
 
         public void ResetMovementOption()
-        {
-            _movementOption = _defaultMovementOption;
+        { 
+            SetMovementOption(_defaultMovementOption);
         }
 
         /*
@@ -476,7 +506,6 @@ namespace Players.Physics_Based_Character_Controller
         /// <param name="rayHit">The rayHit towards the platform.</param>
         private void CharacterJump(Vector3 jumpInput, bool grounded, RaycastHit rayHit)
         {
-            _timeSinceJump += Time.fixedDeltaTime;
             if (_rb.velocity.y < 0)
             {
                 _shouldMaintainHeight = true;
