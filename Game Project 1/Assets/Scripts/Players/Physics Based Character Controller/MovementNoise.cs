@@ -6,29 +6,49 @@ public class MovementNoise : MonoBehaviour
 {
     [SerializeField] private Vector2 _rates = new Vector2(1.5f, 1.5f);
     [SerializeField] private Vector2 _magnitudes = new Vector2(0.15f, 0.15f);
-    
+    [SerializeField] private Vector3 _torqueMagnitudes = new Vector3(0.1f, 0.1f, 0.1f);
+
+    private RoadGenerator _roadGenerator;
     private PhysicsBasedCharacterController _physicsBasedCharacterController;
     private Vector2 _offsets;
     private float _t;
+    private Vector3 _defaultPosition;
+    private Rigidbody _rb;
 
     private void Awake()
     {
         _t = 0f;
+        _roadGenerator = FindObjectOfType<RoadGenerator>();
         _physicsBasedCharacterController = GetComponent<PhysicsBasedCharacterController>();
-        _offsets = new Vector2(Random.Range(0, Mathf.PI), Random.Range(0, Mathf.PI));
+        _rb = GetComponent<Rigidbody>();
+        //_offsets = new Vector2(Random.Range(0, Mathf.PI), Random.Range(0, Mathf.PI));
+        _offsets = Vector2.zero;
+        _defaultPosition = transform.position;
     }
 
     private void Update()
     {
         _t += Time.deltaTime;
-        // Lerp rate from 0 to _rate as _t goes from 0 to _offset (To try to mitigate the player oscillating away from the desired centre)
-        var magnitudeX = Mathf.Lerp(0f, _magnitudes.x, _t / _offsets.x);
-        var magnitudeY = Mathf.Lerp(0f, _magnitudes.y, _t / _offsets.y);
+        //_roadGenerator.roadSpeed = Mathf.Lerp(5f ,_roadGenerator.maxRoadSpeed , _t * 0.02f);
+        
+        var magnitudeX = Mathf.Lerp(_magnitudes.x * 0.25f, _magnitudes.x, 1f - (_roadGenerator.roadSpeed / _roadGenerator.maxRoadSpeed));
+        var magnitudeY = _magnitudes.y;
         var magnitude = new Vector2(magnitudeX, magnitudeY);
-        var moveX = magnitude.x * Mathf.Sin((_t + _offsets.x) * _rates.x);
-        var moveY = magnitude.y * Mathf.Sin((_t + _offsets.y) * _rates.y);
-        var move = new Vector2(moveX, moveY);
-        //this.GetComponent<Rigidbody>().MovePosition(new Vector3(move.x, 0, move.y));
-        _physicsBasedCharacterController.Move(move); // TODO: Due to the oscillation drifting away from the desired centre, try just moving the player tranform position directly
+
+        var rateX = Mathf.Lerp(_rates.x * 0.25f, _rates.x, (_roadGenerator.roadSpeed / _roadGenerator.maxRoadSpeed));
+        var rateY = _rates.y;
+        var rate = new Vector2(rateX, rateY);
+            
+        var moveX = magnitude.x * Mathf.Sin((_t + _offsets.x) * rate.x);
+        var moveY = magnitude.y * Mathf.Sin((_t + _offsets.y) * rate.y);
+        var move = new Vector3(moveX, moveY, 0f);
+        
+        var playerPosition = new Vector3(_defaultPosition.x, this.GetComponent<Rigidbody>().position.y, _defaultPosition.z);
+        var playerPositionWithNoise = new Vector3(playerPosition.x + move.x, playerPosition.y, playerPosition.z + move.y);
+        _rb.MovePosition(playerPositionWithNoise);
+        
+        var torque = -Vector3.Cross(move, _rb.transform.forward);
+        torque = new Vector3(torque.x * _torqueMagnitudes.x, torque.y * _torqueMagnitudes.y, torque.y * _torqueMagnitudes.z);
+        _rb.AddTorque(torque);
     }
 }

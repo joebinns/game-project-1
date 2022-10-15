@@ -209,7 +209,7 @@ MonoBehaviour:
   _rideSpringStrength: 200
   _rideSpringDamper: 10
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
-  _characterLookDirection: 0
+  _characterLookDirection: 1
   _uprightSpringStrength: 10
   _uprightSpringDamper: 2
   _aimingInput: {x: 0, y: 0, z: 0}
@@ -284,7 +284,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _moveForceScale: {x: 1, y: 0, z: 1}
-  _jumpOption: 0
+  _movementOption: 0
   _jumpForceFactor: 20
   _riseGravityFactor: 5
   _fallGravityFactor: 10
@@ -323,8 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c5455da1f749245af916b19a6dbe03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rates: {x: 2, y: 1}
-  _magnitudes: {x: 0.125, y: 0}
+  _rates: {x: 1.8, y: 0.5}
+  _magnitudes: {x: 0.5, y: 0.5}
+  _torqueMagnitudes: {x: 0.25, y: 0.15, z: 0.5}
 --- !u!1 &8836825449483042409
 GameObject:
   m_ObjectHideFlags: 0

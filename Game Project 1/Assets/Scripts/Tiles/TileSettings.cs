@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Players.Physics_Based_Character_Controller;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ namespace Tiles
         public AudioClip EndEffectAudio;
         public AudioClip HandleInputAudio;
         public EffectAnimation EffectAnimation = EffectAnimation.None;
+        public PhysicsBasedCharacterController.MovementOptions MovementOption =
+            PhysicsBasedCharacterController.MovementOptions.HoldForHighJump;
         public string BeginEffectText;
         public bool IsIndefinite;
         

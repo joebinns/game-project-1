@@ -59,7 +59,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private AnimationCurve _maxAccelerationForceFactorFromDot;
         [SerializeField] private Vector3 _moveForceScale = new Vector3(1f, 0f, 1f);
         
-        public enum JumpOptions { HoldForHighJump, HoldForRideHeightJump, HoldForRideHeightCrouch };
+        public enum MovementOptions { HoldForHighJump, HoldForRideHeightJump, HoldForRideHeightCrouch };
         private Vector3 _jumpInput;
         private float _timeSinceJumpPressed = 0f;
         private float _timeSinceJumpReleased = 0f;
@@ -69,7 +69,7 @@ namespace Players.Physics_Based_Character_Controller
         private bool _isJumping = false;
 
         [Header("Jump:")]
-        [SerializeField] private JumpOptions _jumpOption = JumpOptions.HoldForHighJump;
+        [SerializeField] private MovementOptions _movementOption = MovementOptions.HoldForHighJump;
         [Header("Hold for High Jump:")]
         [SerializeField] private float _jumpForceFactor = 10f;
         [SerializeField] private float _riseGravityFactor = 5f;
@@ -130,7 +130,7 @@ namespace Players.Physics_Based_Character_Controller
             if (lookDirectionOption == LookDirectionOptions.Velocity || lookDirectionOption == LookDirectionOptions.Acceleration)
             {
                 Vector3 velocity = _rb.velocity;
-                velocity.z += 5f;
+                velocity.z += FindObjectOfType<RoadGenerator>().roadSpeed / 6f;
                 velocity.x *= -1f;
                 velocity.y = 0f;
                 if (lookDirectionOption == LookDirectionOptions.Velocity)
@@ -189,19 +189,19 @@ namespace Players.Physics_Based_Character_Controller
                 _timeSinceUngrounded += Time.fixedDeltaTime;
             }
 
-            CharacterMove(_moveInput, rayHit);
+            //CharacterMove(_moveInput, rayHit);
             
             _timeSinceJumpPressed += Time.fixedDeltaTime;
             _timeSinceJumpReleased += Time.fixedDeltaTime;
-            if (_jumpOption == JumpOptions.HoldForHighJump)
+            if (_movementOption == MovementOptions.HoldForHighJump)
             {
                 CharacterJump(_jumpInput, grounded, rayHit);
             }
-            else if (_jumpOption == JumpOptions.HoldForRideHeightJump)
+            else if (_movementOption == MovementOptions.HoldForRideHeightJump)
             {
                 RideHeightJump(_jumpInput);
             }
-            else if (_jumpOption == JumpOptions.HoldForRideHeightCrouch)
+            else if (_movementOption == MovementOptions.HoldForRideHeightCrouch)
             {
                 RideHeightCrouch(_jumpInput);
             }
@@ -424,6 +424,7 @@ namespace Players.Physics_Based_Character_Controller
             }
         }
 
+        /*
         /// <summary>
         /// Apply forces to move the character up to a maximum acceleration, with consideration to acceleration graphs.
         /// </summary>
@@ -446,6 +447,7 @@ namespace Players.Physics_Based_Character_Controller
             neededAccel = Vector3.ClampMagnitude(neededAccel, maxAccel);
             _rb.AddForceAtPosition(Vector3.Scale(neededAccel * _rb.mass, _moveForceScale), transform.position + new Vector3(0f, transform.localScale.y * _leanFactor, 0f)); // Using AddForceAtPosition in order to both move the player and cause the play to lean in the direction of input.
         }
+        */
 
         /// <summary>
         /// Apply force to cause the character to perform a single jump, including coyote time and a jump input buffer.
