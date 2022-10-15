@@ -45,9 +45,7 @@ namespace Players
 
         public void HandleInput(InputAction.CallbackContext context)
         {
-            //_physicsBasedCharacterController.JumpPressed();
             _physicsBasedCharacterController.JumpInputAction(context);
-            Debug.Log("default movement (jump)");
         }
     }
 }

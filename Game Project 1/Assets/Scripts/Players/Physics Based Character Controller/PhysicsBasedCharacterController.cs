@@ -423,13 +423,6 @@ namespace Players.Physics_Based_Character_Controller
                 _timeSinceJumpReleased = 0f;
             }
         }
-        
-        /*
-        public void JumpPressed()
-        {
-            _timeSinceJumpPressed = 0f;
-        }
-        */
 
         /// <summary>
         /// Apply forces to move the character up to a maximum acceleration, with consideration to acceleration graphs.
