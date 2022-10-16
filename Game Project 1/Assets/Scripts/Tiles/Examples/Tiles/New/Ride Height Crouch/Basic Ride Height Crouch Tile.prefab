@@ -666,6 +666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Effect Trigger Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3042216047716593454, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3313478884947211483, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_Size.y
       value: 16

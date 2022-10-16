@@ -156,7 +156,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RoadMetallic: 0.53
-    - _Seed: 0
+    - _Seed: 0.42
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

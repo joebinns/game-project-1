@@ -3,6 +3,7 @@ using Oscillators;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utilities;
+using static Players.Physics_Based_Character_Controller.PhysicsBasedCharacterController;
 
 namespace Players.Physics_Based_Character_Controller
 {
@@ -91,6 +92,8 @@ namespace Players.Physics_Based_Character_Controller
         [Header("Hold for Ride Height Crouch:")]
         [SerializeField] private float _rideHeightCrouch = 3f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
+        [Header("IK")]
+        [SerializeField] private DelayFollow delayFollow;
 
         private void Awake()
         {
@@ -452,7 +455,12 @@ namespace Players.Physics_Based_Character_Controller
                 if (context.started) // button down
                 {
                     _timeSinceJumpPressed = 0f;
+
+                    if (_movementOption == MovementOptions.HoldForRideHeightCrouch)
+                        delayFollow.offset -= Vector3.up * 0.5f;
                 }
+                if(context.canceled)
+                    delayFollow.offset = delayFollow.RestoreOffset();
             }
             if (context.canceled)
             {
@@ -468,6 +476,7 @@ namespace Players.Physics_Based_Character_Controller
         public void ResetMovementOption()
         { 
             SetMovementOption(_defaultMovementOption);
+
         }
 
         /*
@@ -576,11 +585,13 @@ namespace Players.Physics_Based_Character_Controller
         private void RideHeightJump(Vector3 jumpInput)
         {
             ChangeRideHeight(jumpInput.y, _rideHeightJump, _transitionDurationJump);
+
         }
-        
+
         private void RideHeightCrouch(Vector3 jumpInput)
         {
             ChangeRideHeight(jumpInput.y, _rideHeightCrouch, _transitionDurationCrouch);
+
         }
     }
 }

@@ -226,6 +226,7 @@ MonoBehaviour:
   _transitionDurationJump: 0.15
   _rideHeightCrouch: 1
   _transitionDurationCrouch: 0.05
+  delayFollow: {fileID: 4605004468068803450}
 --- !u!114 &311547958509225728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a66e1f9d19251348bb9a003dae393ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashMaterial: {fileID: 2100000, guid: 7627eecafde7eaa48abbf0d24b1610ec, type: 2}
   _renderers:
   - {fileID: 4776283078906232159}
   - {fileID: 1292122877575138034}

@@ -2,8 +2,6 @@ using UnityEngine;
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 namespace Managers.Camera
 {
@@ -11,6 +9,8 @@ namespace Managers.Camera
     {
         static CinemachineVirtualCamera vcam;
         static CinemachineBasicMultiChannelPerlin perlin;
+
+        public float currentDefaultShake;
         public static CameraManager Main { get; private set; }
         private void Awake()
         {
@@ -43,7 +43,7 @@ namespace Managers.Camera
         {
             AnimationCurve newCurve = new AnimationCurve();
             newCurve.AddKey(0, force);
-            newCurve.AddKey(duration, 0);
+            newCurve.AddKey(duration, currentDefaultShake);
             Shake(newCurve);
         }
 

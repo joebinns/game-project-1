@@ -13,8 +13,12 @@ public class RoadGenerator : MonoBehaviour
     }
     
     public GenerationModes generationMode;
-    
-    public float roadSpeed = 2.5f;
+
+
+    public float roadSpeed;
+    public float RoadSpeed { get { return roadSpeed; } set { SpeedVFX.Speed(roadSpeed); roadSpeed = value; } }
+
+    public float maxRoadSpeed = 100f;
 
     public int tilesUntilEnd = 50;
 
