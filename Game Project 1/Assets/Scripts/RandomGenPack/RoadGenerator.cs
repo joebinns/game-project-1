@@ -8,7 +8,8 @@ public class RoadGenerator : MonoBehaviour
     public enum GenerationModes
     {
         Normal,
-        Indefinite
+        Indefinite,
+        Tunnel
     }
     
     public GenerationModes generationMode;
@@ -24,7 +25,7 @@ public class RoadGenerator : MonoBehaviour
     [SerializeField] private Camera mainCam;
 
     [SerializeField] private GameObject startTile, endTile;
-    [SerializeField] private GameObject[] indefiniteTiles;
+    [SerializeField] private GameObject[] indefiniteTiles, tunnelTiles;
 
     private GameObject _lastGeneratedTile;
 
@@ -59,6 +60,11 @@ public class RoadGenerator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             generationMode = GenerationModes.Indefinite;
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            generationMode = GenerationModes.Tunnel;
         }
         
         foreach (GameObject tile in _activeTileList)
@@ -122,6 +128,18 @@ public class RoadGenerator : MonoBehaviour
                 tilePicker = Random.Range(0, indefiniteTiles.Length);
                 //Set the tile to be generated
                 tileToGenerate = indefiniteTiles[tilePicker];
+                //Generate the tile
+                _lastGeneratedTile = Instantiate(tileToGenerate, _lastGeneratedTile.GetComponent<TileInfo>().endPoint.position, Quaternion.identity);
+                _activeTileList.Add(_lastGeneratedTile);
+                
+                break;
+                
+            case GenerationModes.Tunnel:
+            
+                //Pick a number within the tile-array range
+                tilePicker = Random.Range(0, tunnelTiles.Length);
+                //Set the tile to be generated
+                tileToGenerate = tunnelTiles[tilePicker];
                 //Generate the tile
                 _lastGeneratedTile = Instantiate(tileToGenerate, _lastGeneratedTile.GetComponent<TileInfo>().endPoint.position, Quaternion.identity);
                 _activeTileList.Add(_lastGeneratedTile);
