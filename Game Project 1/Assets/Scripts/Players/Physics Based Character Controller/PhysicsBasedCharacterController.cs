@@ -29,7 +29,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _defaultRideHeight = 1.75f;
         [SerializeField] private float _defaultRayToGroundLength = 3f; 
         [SerializeField] public float _rideSpringStrength = 50f; // rideSpringStrength: strength of spring. (?)
-        [SerializeField] private float _rideSpringDamper = 5f; // rideSpringDampener: dampener of spring. (?)
+        [SerializeField] public float _rideSpringDamper = 5f; // rideSpringDampener: dampener of spring. (?)
         [SerializeField] private Oscillator _squashAndStretchOcillator;
 
         

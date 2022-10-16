@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 311547958509225728}
   - component: {fileID: 6293033746184358199}
   - component: {fileID: 1480355016133334015}
+  - component: {fileID: 3634003757542973386}
   m_Layer: 0
   m_Name: Physics Player
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!136 &5097693695641468751
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: -0.125, z: 0}
+  m_Center: {x: 0, y: 0.1, z: -0.075}
 --- !u!114 &5097693695641468748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rates: {x: 1.8, y: 0.5}
-  _magnitudes: {x: 0.5, y: 0.5}
+  _magnitudes: {x: 0.5, y: 0}
   _torqueMagnitudes: {x: 0.25, y: 0.15, z: 0.5}
 --- !u!114 &1480355016133334015
 MonoBehaviour:
@@ -273,6 +274,22 @@ MonoBehaviour:
   - {fileID: 4776283078906232159}
   - {fileID: 1292122877575138034}
   _ouchSound: {fileID: 8300000, guid: e3d345260e8a0674a9281a2fb7fd9a75, type: 3}
+--- !u!114 &3634003757542973386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5097693694439654186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430e4bb132f70da4a8e6fd087cae46f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minRideSpringStrength: 100
+  _maxRideSpringStrength: 1000
+  _minRideSpringDamper: 2
+  _maxRideSpringDamper: 50
 --- !u!1 &8836825449483042409
 GameObject:
   m_ObjectHideFlags: 0
