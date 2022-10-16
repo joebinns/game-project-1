@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minRideSpringStrength: 100
   _maxRideSpringStrength: 1000
-  _minRideSpringDamper: 2
+  _minRideSpringDamper: 0.5
   _maxRideSpringDamper: 50
 --- !u!1 &8836825449483042409
 GameObject:

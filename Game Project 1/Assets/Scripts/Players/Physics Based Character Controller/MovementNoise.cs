@@ -9,6 +9,7 @@ public class MovementNoise : MonoBehaviour
     [SerializeField] private Vector3 _torqueMagnitudes = new Vector3(0.1f, 0.1f, 0.1f);
 
     private RoadGenerator _roadGenerator;
+    private SpeedSelector _speedSelector;
     private PhysicsBasedCharacterController _physicsBasedCharacterController;
     private Vector2 _offsets;
     private float _t;
@@ -19,6 +20,7 @@ public class MovementNoise : MonoBehaviour
     {
         _t = 0f;
         _roadGenerator = FindObjectOfType<RoadGenerator>();
+        _speedSelector = FindObjectOfType<SpeedSelector>();
         _physicsBasedCharacterController = GetComponent<PhysicsBasedCharacterController>();
         _rb = GetComponent<Rigidbody>();
         //_offsets = new Vector2(Random.Range(0, Mathf.PI), Random.Range(0, Mathf.PI));
@@ -30,11 +32,11 @@ public class MovementNoise : MonoBehaviour
     {
         _t += Time.deltaTime;
 
-        var magnitudeX = Mathf.Lerp(_magnitudes.x * 0.25f, _magnitudes.x, 1f - (_roadGenerator.roadSpeed / _roadGenerator.maxRoadSpeed));
+        var magnitudeX = Mathf.Lerp(_magnitudes.x * 0.25f, _magnitudes.x, 1f - (_roadGenerator.roadSpeed / _speedSelector.MaxSpeed));
         var magnitudeY = _magnitudes.y;
         var magnitude = new Vector2(magnitudeX, magnitudeY);
 
-        var rateX = Mathf.Lerp(_rates.x * 0.25f, _rates.x, (_roadGenerator.roadSpeed / _roadGenerator.maxRoadSpeed));
+        var rateX = Mathf.Lerp(_rates.x * 0.25f, _rates.x, (_roadGenerator.roadSpeed / _speedSelector.MaxSpeed));
         var rateY = _rates.y;
         var rate = new Vector2(rateX, rateY);
             

@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class SpeedSelector : MonoBehaviour
 {
+    public float MinSpeed;
+    public float MaxSpeed;
+    [SerializeField] private float _rateOfIncrease;
+    
     private RoadGenerator _roadGenerator;
     private float _t;
 
@@ -16,6 +20,6 @@ public class SpeedSelector : MonoBehaviour
     void Update()
     {
         _t += Time.deltaTime;
-        _roadGenerator.roadSpeed = Mathf.Lerp(5f ,_roadGenerator.maxRoadSpeed , _t * 0.02f);
+        _roadGenerator.roadSpeed = Mathf.Lerp(MinSpeed , MaxSpeed, _t * _rateOfIncrease);
     }
 }

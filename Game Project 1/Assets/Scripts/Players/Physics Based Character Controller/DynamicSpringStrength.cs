@@ -12,17 +12,19 @@ public class DynamicSpringStrength : MonoBehaviour
     [SerializeField] private float _maxRideSpringDamper;
     
     private RoadGenerator _roadGenerator;
+    private SpeedSelector _speedSelector;
     private PhysicsBasedCharacterController _physicsBasedCharacterController;
     
     private void Awake()
     {
         _roadGenerator = FindObjectOfType<RoadGenerator>();
+        _speedSelector = FindObjectOfType<SpeedSelector>();
         _physicsBasedCharacterController = GetComponent<PhysicsBasedCharacterController>();
     }
 
     private void Update()
     {
-        var t = Mathf.Pow(_roadGenerator.roadSpeed / _roadGenerator.maxRoadSpeed, 2f);
+        var t = Mathf.Pow(_roadGenerator.roadSpeed / _speedSelector.MaxSpeed, 2f);
         var rideSpringStrength = Mathf.Lerp(_minRideSpringStrength, _maxRideSpringStrength, t);
         var rideSpringDamper = Mathf.Lerp(_minRideSpringDamper, _maxRideSpringDamper, t);
         _physicsBasedCharacterController._rideSpringStrength = rideSpringStrength;

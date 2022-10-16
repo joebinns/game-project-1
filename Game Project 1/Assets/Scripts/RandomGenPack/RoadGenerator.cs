@@ -14,7 +14,6 @@ public class RoadGenerator : MonoBehaviour
     public GenerationModes generationMode;
     
     public float roadSpeed = 2.5f;
-    public float maxRoadSpeed = 100f;
 
     public int tilesUntilEnd = 50;
 
