@@ -32,11 +32,11 @@ public class MovementNoise : MonoBehaviour
     {
         _t += Time.deltaTime;
 
-        var magnitudeX = Mathf.Lerp(_magnitudes.x * 0.25f, _magnitudes.x, 1f - (_roadGenerator.roadSpeed / _speedSelector.MaxSpeed));
+        var magnitudeX = Mathf.Lerp(_magnitudes.x * 0.25f, _magnitudes.x, 1f - (_roadGenerator.roadSpeed / _speedSelector.AbsoluteMaxSpeed));
         var magnitudeY = _magnitudes.y;
         var magnitude = new Vector2(magnitudeX, magnitudeY);
 
-        var rateX = Mathf.Lerp(_rates.x * 0.25f, _rates.x, (_roadGenerator.roadSpeed / _speedSelector.MaxSpeed));
+        var rateX = Mathf.Lerp(_rates.x * 0.25f, _rates.x, (_roadGenerator.roadSpeed / _speedSelector.AbsoluteMaxSpeed));
         var rateY = _rates.y;
         var rate = new Vector2(rateX, rateY);
             

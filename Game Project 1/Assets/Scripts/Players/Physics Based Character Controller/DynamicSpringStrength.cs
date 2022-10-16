@@ -24,7 +24,7 @@ public class DynamicSpringStrength : MonoBehaviour
 
     private void Update()
     {
-        var t = Mathf.Pow(_roadGenerator.roadSpeed / _speedSelector.MaxSpeed, 2f);
+        var t = Mathf.Pow(_roadGenerator.roadSpeed / _speedSelector.AbsoluteMaxSpeed, 2f);
         var rideSpringStrength = Mathf.Lerp(_minRideSpringStrength, _maxRideSpringStrength, t);
         var rideSpringDamper = Mathf.Lerp(_minRideSpringDamper, _maxRideSpringDamper, t);
         _physicsBasedCharacterController._rideSpringStrength = rideSpringStrength;
