@@ -26,6 +26,7 @@ public class SpeedSelector : MonoBehaviour
     private void Awake()
     {
         _roadGenerator = this.GetComponent<RoadGenerator>();
+        _roadGenerator.roadSpeed = (int)_speedMode;
     }
 
     private IEnumerator TransitionSpeedMode(SpeedMode a, SpeedMode b)
@@ -45,8 +46,8 @@ public class SpeedSelector : MonoBehaviour
 public enum SpeedMode
 {
     Stop = 0,
-    Low = 20,
-    Medium = 40,
-    High = 60,
+    Low = 25,
+    Medium = 33,
+    High = 40,
     GodSpeed = 200
 }

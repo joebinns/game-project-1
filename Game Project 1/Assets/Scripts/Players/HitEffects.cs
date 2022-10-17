@@ -15,19 +15,19 @@ public class HitEffects : MonoBehaviour
 
     public void Play()
     {
-        AudioManager.PlaySound(_ouchSound);
+        /*AudioManager.PlaySound(_ouchSound);
         StartCoroutine(FlashMaterialCoroutine());
-        CameraManager.Main.Shake(20f, FLASH_DURATION);
+        CameraManager.Main.Shake(20f, FLASH_DURATION);*/
     }
     
     private IEnumerator FlashMaterialCoroutine()
     {
-        foreach (Renderer renderer in _renderers)
+        /*foreach (Renderer renderer in _renderers)
             renderer.materials[1].SetFloat("_Alpha", 1);
-
+*/
         yield return new WaitForSeconds(FLASH_DURATION);
-
+/*
         foreach (Renderer renderer in _renderers)
-            renderer.materials[1].SetFloat("_Alpha", 0);
+            renderer.materials[1].SetFloat("_Alpha", 0);*/
     }
 }
