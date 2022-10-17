@@ -26,7 +26,7 @@ public class SpeedSelector : MonoBehaviour
     private void Awake()
     {
         _roadGenerator = this.GetComponent<RoadGenerator>();
-        _roadGenerator.roadSpeed = (int)_speedMode;
+        StartCoroutine(TransitionSpeedMode(SpeedMode.Stop, _speedMode));
     }
 
     private IEnumerator TransitionSpeedMode(SpeedMode a, SpeedMode b)
