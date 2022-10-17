@@ -6,18 +6,18 @@
             "id": "9b438509-42d9-4214-9253-1e9aee9096ff",
             "actions": [
                 {
-                    "name": "Left Button",
+                    "name": "Left Button Hold",
                     "type": "Button",
-                    "id": "04725fcf-336a-4b42-b980-afb5bb707d29",
+                    "id": "d702f3c3-2f8c-4463-822d-df566ab99878",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Right Button",
+                    "name": "Right Button Hold",
                     "type": "Button",
-                    "id": "450e0c03-2904-4e61-a1eb-f4c3a901c5ae",
+                    "id": "2980ceba-932a-4fb2-854a-f2f15312901b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -27,45 +27,45 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "92e5e103-e49d-448c-b15d-501431271429",
+                    "id": "4cd43fb5-a9a3-4ca5-89f1-fcf7cd654e3b",
                     "path": "<Keyboard>/a",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Left Button",
+                    "action": "Left Button Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "2730850f-077b-470b-bcd5-d19a74aa4661",
+                    "id": "fd234027-a1e7-419d-a723-98b79874cae8",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Left Button",
+                    "action": "Left Button Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "572c1234-af2e-44c8-9217-ea5ad9b08527",
+                    "id": "cb8fc3be-6b4f-4eb4-bedf-8c053490726d",
                     "path": "<Keyboard>/d",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Right Button",
+                    "action": "Right Button Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "284033bc-6514-4763-8d2f-2ba82e1a0d72",
+                    "id": "8d821e2b-c168-4e7b-aaa8-237f13d5f4dc",
                     "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Right Button",
+                    "action": "Right Button Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

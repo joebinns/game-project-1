@@ -1,4 +1,5 @@
 using System;
+using Inputs;
 using Managers.Camera;
 using Players.Physics_Based_Character_Controller;
 using Tiles;
@@ -44,9 +45,16 @@ namespace Players
             trigger.TriggerExited(this);
         }
 
-        public void HandleInput(InputAction.CallbackContext context)
+        public void HandleInput(OneFitsAllInput input)
         {
-            _physicsBasedCharacterController.InputAction(context);
+            if (input.InputType == InputType.Tap)
+            {
+                _physicsBasedCharacterController.JumpInput(input.Context);
+            }
+            else if (input.InputType == InputType.Hold)
+            {
+                _physicsBasedCharacterController.CrouchInput(input.Context);
+            }
         }
     }
 }

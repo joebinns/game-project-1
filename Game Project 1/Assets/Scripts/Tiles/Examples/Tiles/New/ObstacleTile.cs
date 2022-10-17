@@ -1,4 +1,5 @@
 using DG.Tweening.Core.Easing;
+using Inputs;
 using Players;
 
 namespace Tiles.Examples
@@ -27,9 +28,9 @@ namespace Tiles.Examples
             player.GetComponent<HitEffects>().Play();
         }
 
-        public override void HandleInput(Player player)
+        public override void HandleInput(Player player, OneFitsAllInput input)
         {
-            base.HandleInput(player);
+            base.HandleInput(player, input);
         }
     }
 }

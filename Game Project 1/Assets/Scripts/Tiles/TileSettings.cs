@@ -15,7 +15,7 @@ namespace Tiles
 
         [Header("Options")]
         public PhysicsBasedCharacterController.MovementOptions MovementOption =
-            PhysicsBasedCharacterController.MovementOptions.HoldForHighJump;
+            PhysicsBasedCharacterController.MovementOptions.Default;
         public bool IsIndefinite;
 
         [Header("Begin Effect")]
