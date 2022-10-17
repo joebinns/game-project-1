@@ -5,29 +5,29 @@ using UnityEngine.VFX;
 
 public class DestructMesh : MonoBehaviour
 {
-    public VisualEffect vfx;
-    Material[] mats;
+    VisualEffect vfx;
+    Material mat;
+    Mesh mesh;
     private void Awake()
     {
-        mats = GetComponent<Renderer>().materials;
+        vfx = GetComponent<VisualEffect>();
+        mat = transform.parent.GetComponent<Renderer>().material;
+        mesh = transform.parent.GetComponent<MeshFilter>().mesh;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
-            Destruct(2);
+            Destruct();
     }
 
-    public void Destruct(float PlanePositionZ)
+    public void Destruct()
     {
         Debug.Log("test");
-        vfx.SetVector4("Color", new Vector4(mats[0].GetColor("_Color").r, mats[0].GetColor("_Color").g, mats[0].GetColor("_Color").b, 1));
-        vfx.SetVector3("PlanePosition", Vector3.forward * PlanePositionZ);
+        vfx.SetVector4("Color", new Vector4(mat.GetColor("_Color").r, mat.GetColor("_Color").g, mat.GetColor("_Color").b, 1));
+        vfx.SetMesh("Mesh", mesh);
         vfx.Play();
 
-        foreach(Material mat in mats)
-        {
-            mat.SetVector("_Plane_Position", Vector3.forward * PlanePositionZ);
-        }
+        transform.parent.GetComponent<MeshRenderer>().enabled = false;
     }
 }
