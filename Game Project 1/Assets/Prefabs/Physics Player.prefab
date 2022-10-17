@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a078b86d83ea345a987800ad16e4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holdTime: 0.1
 --- !u!114 &6186791440806929522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,8 +220,8 @@ MonoBehaviour:
   _fallGravityFactor: 10
   _jumpBuffer: 0.05
   _coyoteTime: 0.1
-  _rideHeightCrouch: 1
-  _transitionDurationCrouch: 0.05
+  _rideHeightCrouch: 1.5
+  _transitionDurationCrouch: 0
   delayFollow: {fileID: 4605004468068803450}
 --- !u!114 &311547958509225728
 MonoBehaviour:
