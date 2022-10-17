@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 3092903038821800233}
   - component: {fileID: 2867043850228506772}
   - component: {fileID: 4892738959073719085}
-  - component: {fileID: 8873340398216101348}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -115,19 +114,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8873340398216101348
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458978689744684305}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2985738463849284443
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2386703811089708517}
   - component: {fileID: 2173718468180080090}
+  - component: {fileID: 1956902803378233541}
   m_Layer: 0
   m_Name: Tile_Easy_06
   m_TagString: Untagged
@@ -187,6 +174,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPoint: {fileID: 6339597322618404494}
+--- !u!114 &1956902803378233541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985738463849284443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a4e3d84b17f594ba4d7799672def87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TileSettings: {fileID: 11400000, guid: 377da238964e8c044812974338e54fd3, type: 2}
+  IsActive: 0
 --- !u!1 &5771009609802115838
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +199,6 @@ GameObject:
   - component: {fileID: 5688159980708896303}
   - component: {fileID: 7365948386362315812}
   - component: {fileID: 2881051045667971103}
-  - component: {fileID: 8214963341925338674}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -271,19 +271,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8214963341925338674
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771009609802115838}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6038669375620876744
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +282,6 @@ GameObject:
   - component: {fileID: 4653743963733094885}
   - component: {fileID: 5138814795733195327}
   - component: {fileID: 7608760896753703350}
-  - component: {fileID: 4438205632836823597}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -368,19 +354,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4438205632836823597
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6038669375620876744}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8469948226761644693
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +365,6 @@ GameObject:
   - component: {fileID: 8449822949921839898}
   - component: {fileID: 2180933228478045464}
   - component: {fileID: 3568769594646666280}
-  - component: {fileID: 8719842269312247613}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -465,19 +437,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8719842269312247613
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469948226761644693}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &319619257465653734
 PrefabInstance:
   m_ObjectHideFlags: 0

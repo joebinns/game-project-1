@@ -17,6 +17,7 @@ namespace Tiles.Examples.Triggers
 
             onFail.Invoke();
             PlayersThatFailed.Add(player);
+            Debug.Log(player);
             Tile.EffectFail(player);
         }
     
