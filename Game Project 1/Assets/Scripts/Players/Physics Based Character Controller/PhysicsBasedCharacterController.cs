@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Oscillators;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -417,7 +418,7 @@ namespace Players.Physics_Based_Character_Controller
             }
         }
 
-        private void ChangeRideHeight(float input, float alternativeRideHeight, float duration)
+        private void ChangeRideHeight(float input, float alternativeRideHeight, float duration) // Change this to coroutine
         {
             var rideHeight = (input * _rideHeight) + ((1 - input) * _defaultRideHeight);
             float t;
@@ -436,6 +437,15 @@ namespace Players.Physics_Based_Character_Controller
         private void RideHeightCrouch(Vector3 jumpInput)
         {
             ChangeRideHeight(jumpInput.y, _rideHeightCrouch, _transitionDurationCrouch);
+
+            if (_rideHeight == _rideHeightCrouch)
+            {
+                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
+            }
+            else
+            {
+                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
+            }
         }
     }
 }

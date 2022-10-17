@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class DynamicSpringStrength : MonoBehaviour
 {
+    public bool ShouldSpringBeStiff = false;
+    
     [SerializeField] private float _minRideSpringStrength;
     [SerializeField] private float _maxRideSpringStrength;
     [SerializeField] private float _minRideSpringDamper;
@@ -24,10 +26,17 @@ public class DynamicSpringStrength : MonoBehaviour
 
     private void Update()
     {
+        if (ShouldSpringBeStiff)
+        {
+            _physicsBasedCharacterController._rideSpringStrength = _maxRideSpringStrength;
+            _physicsBasedCharacterController._rideSpringDamper = _maxRideSpringDamper;
+            return;
+        }
+
         var t = Mathf.Pow(_roadGenerator.roadSpeed / _speedSelector.PlayerCollisionMaxCalibratedSpeed, 2f);
-        var rideSpringStrength = Mathf.Lerp(_minRideSpringStrength, _maxRideSpringStrength, t);
-        var rideSpringDamper = Mathf.Lerp(_minRideSpringDamper, _maxRideSpringDamper, t);
-        _physicsBasedCharacterController._rideSpringStrength = rideSpringStrength;
-        _physicsBasedCharacterController._rideSpringDamper = rideSpringDamper;
+        var springStrength = Mathf.Lerp(_minRideSpringStrength, _maxRideSpringStrength, t);
+        var springDamper = Mathf.Lerp(_minRideSpringDamper, _maxRideSpringDamper, t);
+        _physicsBasedCharacterController._rideSpringStrength = springStrength;
+        _physicsBasedCharacterController._rideSpringDamper = springDamper;
     }
 }
