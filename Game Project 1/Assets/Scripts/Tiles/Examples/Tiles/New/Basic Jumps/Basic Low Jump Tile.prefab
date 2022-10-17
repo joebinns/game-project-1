@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: debris (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
 --- !u!4 &6499692955486527022 stripped
@@ -328,6 +332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: debris (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
 --- !u!4 &6437862591900326780 stripped
@@ -345,6 +353,10 @@ PrefabInstance:
     - target: {fileID: 3042216047716593454, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_Name
       value: Tile Effect Trigger Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042216047716593454, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3313478884947211483, guid: a20557f68cfcba04f8ae822c7cdba68b, type: 3}
       propertyPath: m_Size.y
@@ -476,6 +488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5411962223955940371, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5537438409344208870, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
       propertyPath: m_Size.y
       value: 10
@@ -483,6 +499,14 @@ PrefabInstance:
     - target: {fileID: 5753204553013058975, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753204553013058975, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151756290060782761, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
@@ -501,6 +525,10 @@ PrefabInstance:
     - target: {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
       propertyPath: m_Name
       value: SpawnTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1119473045497800482, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
       propertyPath: m_RootOrder
@@ -617,6 +645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: debris (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
 --- !u!4 &1643810209388549633 stripped
@@ -682,6 +714,10 @@ PrefabInstance:
     - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
       propertyPath: m_Name
       value: debris (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
@@ -749,6 +785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: debris
       objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
 --- !u!4 &559018820204030008 stripped
@@ -815,6 +855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: debris (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
 --- !u!4 &856956101941540311 stripped
@@ -880,6 +924,10 @@ PrefabInstance:
     - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
       propertyPath: m_Name
       value: debris (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
@@ -951,6 +999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5753204553013058975, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
 --- !u!4 &7580676217361219674 stripped
@@ -1016,6 +1068,10 @@ PrefabInstance:
     - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
       propertyPath: m_Name
       value: debris (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}

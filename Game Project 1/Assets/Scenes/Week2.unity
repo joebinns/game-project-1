@@ -461,7 +461,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 249064276}
-  - component: {fileID: 249064275}
   - component: {fileID: 249064274}
   m_Layer: 0
   m_Name: Input Handler
@@ -497,9 +496,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 249064275}
-        m_TargetAssemblyTypeName: Inputs.InputHandler, Assembly-CSharp
-        m_MethodName: InputPlayerOne
+      - m_Target: {fileID: 752702621}
+        m_TargetAssemblyTypeName: Inputs.PlayerInput, Assembly-CSharp
+        m_MethodName: InputHold
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -509,13 +508,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 04725fcf-336a-4b42-b980-afb5bb707d29
-    m_ActionName: Game/Left Button[/Keyboard/a]
+    m_ActionId: d702f3c3-2f8c-4463-822d-df566ab99878
+    m_ActionName: Game/Left Button Tap1[/Keyboard/a]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 249064275}
-        m_TargetAssemblyTypeName: Inputs.InputHandler, Assembly-CSharp
-        m_MethodName: InputPlayerTwo
+      - m_Target: {fileID: 1314160341}
+        m_TargetAssemblyTypeName: Inputs.PlayerInput, Assembly-CSharp
+        m_MethodName: InputHold
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -525,28 +524,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 450e0c03-2904-4e61-a1eb-f4c3a901c5ae
-    m_ActionName: Game/Right Button[/Keyboard/d]
+    m_ActionId: 2980ceba-932a-4fb2-854a-f2f15312901b
+    m_ActionName: Game/Right Button Tap1[/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &249064275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249064273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb709773119e3d4c91e38512e7c80d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerInputs:
-  - {fileID: 752702621}
-  - {fileID: 1314160341}
 --- !u!4 &249064276
 Transform:
   m_ObjectHideFlags: 0
@@ -925,10 +909,6 @@ PrefabInstance:
     - target: {fileID: 5097693694609957745, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097693695641468750, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5261071377239795685, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: m_IsActive
@@ -1460,7 +1440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000038313814, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000038324174, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1715,8 +1695,6 @@ MonoBehaviour:
   shouldGenerate: 0
   tilesToGenerate:
   - {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
-  - {fileID: 133372203712121623, guid: a51e7b2c87b6f3b4e92e5cfd3ed36c54, type: 3}
-  - {fileID: 133372203712121623, guid: bdc562e42bbce524bbe419c97ca92e9d, type: 3}
   mainCam: {fileID: 1628633466}
   startTile: {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
   endTile: {fileID: 133372203712121623, guid: 9f4546cddfffff042a63e0b4ecfe849e, type: 3}
@@ -1876,10 +1854,6 @@ PrefabInstance:
     - target: {fileID: 5097693695641468748, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: ID
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097693695641468750, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _rates.x
@@ -2064,7 +2038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000038313814, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000038324174, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inputs;
 using Managers.Audio;
 using Managers.Camera;
 using Managers.Points;
@@ -50,9 +51,9 @@ namespace Tiles
             // UI Manager change sprite to null
         }
 
-        public override void HandleInput(Player player)
+        public override void HandleInput(Player player, OneFitsAllInput input)
         {
-            base.HandleInput(player);
+            base.HandleInput(player, input);
             
             CameraManager.Main.Shake(5f, 0.35f);
             //FindObjectOfType<PlayerManager>().Players[playerId].GetComponent<PhysicsBasedCharacterController>().JumpPressed();

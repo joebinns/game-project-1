@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Net;
+using Inputs;
 using Managers.Camera;
 using Managers.Points;
 using Players;
@@ -47,7 +48,7 @@ namespace Tiles.Examples
             EndEffect();
         }
 
-        public override void HandleInput(Player player)
+        public override void HandleInput(Player player, OneFitsAllInput input)
         {
             Debug.Log(player.ID);
             if (!_cooldownFinished)
@@ -55,7 +56,7 @@ namespace Tiles.Examples
                 CameraManager.Main.Shake(20f, 0.1f);
 
                 // Play HandleInputAudio
-                base.HandleInput(player);
+                base.HandleInput(player, input);
 
                 PointsManager.GainPoints(player.ID, pointsToWinner);
 

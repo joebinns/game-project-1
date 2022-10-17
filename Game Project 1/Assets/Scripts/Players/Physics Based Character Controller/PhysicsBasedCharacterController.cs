@@ -1,9 +1,7 @@
-using System;
 using Oscillators;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utilities;
-using static Players.Physics_Based_Character_Controller.PhysicsBasedCharacterController;
 
 namespace Players.Physics_Based_Character_Controller
 {
@@ -49,46 +47,33 @@ namespace Players.Physics_Based_Character_Controller
         private Vector3 _moveInput;
         private float _speedFactor = 1f;
         private float _maxAccelForceFactor = 1f;
-        /*
-        private Vector3 _m_GoalVel = Vector3.zero;
-        public Vector3 _aimingInput = Vector3.zero;
-        */
-        
 
-        /*
-        [Header("Movement: (NOTE this is obsolete now. Check MovementNoise.cs)")]
-        [SerializeField] private float _maxSpeed = 8f;
-        [SerializeField] private float _acceleration = 200f;
-        [SerializeField] private float _maxAccelForce = 150f;
-        [SerializeField] private float _leanFactor = 0.25f;
-        [SerializeField] private AnimationCurve _accelerationFactorFromDot;
-        [SerializeField] private AnimationCurve _maxAccelerationForceFactorFromDot;
-        [SerializeField] private Vector3 _moveForceScale = new Vector3(1f, 0f, 1f);
-        */
-        
-        public enum MovementOptions { None, HoldForHighJump, HoldForRideHeightJump, HoldForRideHeightCrouch };
-        private MovementOptions _defaultMovementOption;
+        public enum MovementOptions { None, Default };
         private Vector3 _jumpInput;
         private float _timeSinceJumpPressed = 0f;
         private float _timeSinceJumpReleased = 0f;
+        private float _timeSinceCrouchPressed = 0f;
+        private float _timeSinceCrouchReleased = 0f;
         private float _timeSinceUngrounded = 0f;
         private float _timeSinceJump = 0f;
         private bool _jumpReady = true;
         private bool _isJumping = false;
 
         [Header("Jump:")]
-        [SerializeField] private MovementOptions _movementOption = MovementOptions.HoldForHighJump;
+        [SerializeField] private MovementOptions _movementOption = MovementOptions.Default;
         [Header("Hold for High Jump:")]
         [SerializeField] private float _jumpForceFactor = 10f;
         [SerializeField] private float _riseGravityFactor = 5f;
         [SerializeField] private float _fallGravityFactor = 10f; // typically > 1f (i.e. 5f).
-        [SerializeField] private float _lowJumpFactor = 2.5f;
+        //[SerializeField] private float _lowJumpFactor = 2.5f;
         [SerializeField] private float _jumpBuffer = 0.15f; // Note, jumpBuffer shouldn't really exceed the time of the jump.
         [SerializeField] private float _coyoteTime = 0.25f;
+        /*
         [Header("Hold for Ride Height Jump:")]
         [SerializeField] private float _rideHeightJump = 3f;
         [SerializeField] private float _rideHeightJumpRayToGroundLength = 4f;
         [SerializeField] private float _transitionDurationJump = 0.25f;
+        */
         [Header("Hold for Ride Height Crouch:")]
         [SerializeField] private float _rideHeightCrouch = 3f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
@@ -99,7 +84,6 @@ namespace Players.Physics_Based_Character_Controller
         {
             _rideHeight = _defaultRideHeight;
             _rayToGroundLength = _defaultRayToGroundLength;
-            _defaultMovementOption = _movementOption;
         }
 
         /// <summary>
@@ -130,69 +114,8 @@ namespace Players.Physics_Based_Character_Controller
             }
             return grounded;
         }
-
-        /*
-        /// <summary>
-        /// Gets the look desired direction for the character to look.
-        /// The method for determining the look direction is depends on the lookDirectionOption.
-        /// </summary>
-        /// <param name="lookDirectionOption">The factor which determines the look direction: velocity, acceleration or moveInput.</param>
-        /// <returns>The desired look direction.</returns>
-        private Vector3 GetLookDirection(LookDirectionOptions lookDirectionOption)
-        {
-            Vector3 lookDirection = Vector3.zero;
-            if (lookDirectionOption == LookDirectionOptions.Velocity || lookDirectionOption == LookDirectionOptions.Acceleration)
-            {
-                Vector3 velocity = _rb.velocity;
-                velocity.z += FindObjectOfType<RoadGenerator>().roadSpeed / 6f;
-                velocity.x *= -1f;
-                velocity.y = 0f;
-                if (lookDirectionOption == LookDirectionOptions.Velocity)
-                {
-                    lookDirection = velocity;
-                }
-                else if (lookDirectionOption == LookDirectionOptions.Acceleration)
-                {
-                    Vector3 deltaVelocity = velocity - _previousVelocity;
-                    _previousVelocity = velocity;
-                    Vector3 acceleration = deltaVelocity / Time.fixedDeltaTime;
-                    lookDirection = acceleration;
-                }
-            }
-            else if (lookDirectionOption == LookDirectionOptions.MoveInput)
-            {
-                lookDirection = _moveInput;
-            }
-            else if (lookDirectionOption == LookDirectionOptions.Aiming)
-            {
-                var theta = _aimingInput.x;
-                var phi = Mathf.Atan2(_lastYLookAt.x, _lastYLookAt.z);
-                lookDirection = new Vector3(Mathf.Sin(theta + phi), _aimingInput.y, Mathf.Cos(theta + phi));
-            }
-            return lookDirection;
-        }
-        */
-
-        private void Update()
-        {
-            switch (_movementOption)
-            {
-                case MovementOptions.None:
-                    _rayToGroundLength = _defaultRayToGroundLength;
-                    break;  
-                case MovementOptions.HoldForHighJump:
-                    _rayToGroundLength = _defaultRayToGroundLength;
-                    break;
-                case MovementOptions.HoldForRideHeightJump:
-                    _rayToGroundLength = _rideHeightJumpRayToGroundLength;
-                    break;
-                case MovementOptions.HoldForRideHeightCrouch:
-                    _rayToGroundLength = _defaultRayToGroundLength;
-                    break;
-            }
-        }
-
-        private bool _prevGrounded = false;
+        
+        
         /// <summary>
         /// Determines and plays the appropriate character sounds, particle effects, then calls the appropriate methods to move and float the character.
         /// </summary>
@@ -209,7 +132,7 @@ namespace Players.Physics_Based_Character_Controller
             SetPlatform(rayHit);
 
             bool grounded = CheckIfGrounded(rayHitGround, rayHit);
-            if (grounded == true)
+            if (grounded)
             {
                 _timeSinceUngrounded = 0f;
 
@@ -228,16 +151,10 @@ namespace Players.Physics_Based_Character_Controller
             _timeSinceJump += Time.fixedDeltaTime;
             _timeSinceJumpPressed += Time.fixedDeltaTime;
             _timeSinceJumpReleased += Time.fixedDeltaTime;
-            if (_movementOption != MovementOptions.HoldForHighJump)
-            {
-                _jumpInput = Vector3.zero;
-            }
-            CharacterJump(_jumpInput, grounded, rayHit); 
-            if (_movementOption == MovementOptions.HoldForRideHeightJump)
-            {
-                RideHeightJump(_jumpInput);
-            }
-            else if (_movementOption == MovementOptions.HoldForRideHeightCrouch)
+            _timeSinceCrouchPressed += Time.fixedDeltaTime;
+            _timeSinceCrouchReleased += Time.fixedDeltaTime;
+            CharacterJump(grounded, rayHit); 
+            if (_movementOption == MovementOptions.Default)
             {
                 RideHeightCrouch(_jumpInput);
             }
@@ -250,8 +167,6 @@ namespace Players.Physics_Based_Character_Controller
             //Vector3 lookDirection = GetLookDirection(_characterLookDirection);
             var lookDirection = Vector3.forward;
             MaintainUpright(lookDirection, rayHit);
-
-            _prevGrounded = grounded;
         }
 
         /// <summary>
@@ -425,46 +340,23 @@ namespace Players.Physics_Based_Character_Controller
             }
         }
 
-        /*
-        /// <summary>
-        /// Reads the player movement input.
-        /// </summary>
-        /// <param name="context">The move input's context.</param>
-        public void MoveInputAction(InputAction.CallbackContext context)
+        public void JumpInput(InputAction.CallbackContext context)
         {
-            _moveContext = context.ReadValue<Vector2>();
+            _timeSinceJumpPressed = 0f;
+            _timeSinceJumpReleased = 0f;
         }
-
-        public void Move(Vector2 move)
+        
+        public void CrouchInput(InputAction.CallbackContext context)
         {
-            _moveContext = move;
-        }
-        */
-
-        /// <summary>
-        /// Reads the player jump input.
-        /// </summary>
-        /// <param name="context">The jump input's context.</param>
-        public void InputAction(InputAction.CallbackContext context)
-        {
-            float jumpContext = context.ReadValue<float>();
-            _jumpInput = new Vector3(0, jumpContext, 0);
-
-            if (_movementOption != MovementOptions.None)
+            if (context.performed)
             {
-                if (context.started) // button down
-                {
-                    _timeSinceJumpPressed = 0f;
-
-                    if (_movementOption == MovementOptions.HoldForRideHeightCrouch)
-                        delayFollow.offset -= Vector3.up * 0.5f;
-                }
-                if(context.canceled)
-                    delayFollow.offset = delayFollow.RestoreOffset();
+                _timeSinceCrouchPressed = 0f;
+                _jumpInput = new Vector3(0f, 1f, 0f);
             }
             if (context.canceled)
             {
-                _timeSinceJumpReleased = 0f;
+                _timeSinceCrouchReleased = 0f;
+                _jumpInput = new Vector3(0f, 0f, 0f);
             }
         }
 
@@ -475,34 +367,8 @@ namespace Players.Physics_Based_Character_Controller
 
         public void ResetMovementOption()
         { 
-            SetMovementOption(_defaultMovementOption);
-
+            SetMovementOption(MovementOptions.Default);
         }
-
-        /*
-        /// <summary>
-        /// Apply forces to move the character up to a maximum acceleration, with consideration to acceleration graphs.
-        /// </summary>
-        /// <param name="moveInput">The player movement input.</param>
-        /// <param name="rayHit">The rayHit towards the platform.</param>
-        private void CharacterMove(Vector3 moveInput, RaycastHit rayHit)
-        {
-            Vector3 m_UnitGoal = moveInput;
-            Vector3 unitVel = _m_GoalVel.normalized;
-            float velDot = Vector3.Dot(m_UnitGoal, unitVel);
-            float accel = _acceleration * _accelerationFactorFromDot.Evaluate(velDot);
-            Vector3 goalVel = m_UnitGoal * _maxSpeed * _speedFactor;
-            Vector3 otherVel = Vector3.zero;
-            Rigidbody hitBody = rayHit.rigidbody;
-            _m_GoalVel = Vector3.MoveTowards(_m_GoalVel,
-                goalVel,
-                accel * Time.fixedDeltaTime);
-            Vector3 neededAccel = (_m_GoalVel - _rb.velocity) / Time.fixedDeltaTime;
-            float maxAccel = _maxAccelForce * _maxAccelerationForceFactorFromDot.Evaluate(velDot) * _maxAccelForceFactor;
-            neededAccel = Vector3.ClampMagnitude(neededAccel, maxAccel);
-            _rb.AddForceAtPosition(Vector3.Scale(neededAccel * _rb.mass, _moveForceScale), transform.position + new Vector3(0f, transform.localScale.y * _leanFactor, 0f)); // Using AddForceAtPosition in order to both move the player and cause the play to lean in the direction of input.
-        }
-        */
 
         /// <summary>
         /// Apply force to cause the character to perform a single jump, including coyote time and a jump input buffer.
@@ -510,7 +376,7 @@ namespace Players.Physics_Based_Character_Controller
         /// <param name="jumpInput">The player jump input.</param>
         /// <param name="grounded">Whether or not the player is considered grounded.</param>
         /// <param name="rayHit">The rayHit towards the platform.</param>
-        private void CharacterJump(Vector3 jumpInput, bool grounded, RaycastHit rayHit)
+        private void CharacterJump(bool grounded, RaycastHit rayHit)
         {
             if (_rb.velocity.y < 0)
             {
@@ -530,16 +396,10 @@ namespace Players.Physics_Based_Character_Controller
                     {
                         _rb.AddForce(_gravitationalForce * (_riseGravityFactor - 1f));
                     }
-                    if (jumpInput == Vector3.zero)
-                    {
-                        // Impede the jump height to achieve a low jump.
-                        _rb.AddForce(_gravitationalForce * (_lowJumpFactor - 1f));
-                    }
-                    
                 }
             }
 
-            if (_movementOption != MovementOptions.HoldForHighJump)
+            if (_movementOption == MovementOptions.None)
             {
                 return;
             }
@@ -570,28 +430,21 @@ namespace Players.Physics_Based_Character_Controller
         {
             var rideHeight = (input * _rideHeight) + ((1 - input) * _defaultRideHeight);
             float t;
-            if (_timeSinceJumpPressed < _timeSinceJumpReleased)
+            if (_timeSinceCrouchPressed < _timeSinceCrouchReleased)
             {
-                t = _timeSinceJumpPressed;
+                t = _timeSinceCrouchPressed;
             }
             else
             {
-                t = duration - _timeSinceJumpReleased;
+                t = duration - _timeSinceCrouchReleased;
             }
             rideHeight = Mathf.Lerp(_defaultRideHeight, alternativeRideHeight, t / duration); // TODO: Change this to some easing function, if we stick with this type of jump.
             _rideHeight = rideHeight;
-        }
-        
-        private void RideHeightJump(Vector3 jumpInput)
-        {
-            ChangeRideHeight(jumpInput.y, _rideHeightJump, _transitionDurationJump);
-
         }
 
         private void RideHeightCrouch(Vector3 jumpInput)
         {
             ChangeRideHeight(jumpInput.y, _rideHeightCrouch, _transitionDurationCrouch);
-
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Inputs;
 using Managers.Audio;
 using Managers.Points;
 using Players;
@@ -72,7 +73,7 @@ namespace Tiles.Examples
             yield return null;
         }
             
-        public override void HandleInput(Player player)
+        public override void HandleInput(Player player, OneFitsAllInput input)
         {
             if (timer > 0)
             {

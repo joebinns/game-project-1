@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Inputs;
 using UnityEngine;
 using Managers.Audio;
 using Managers.Camera;
@@ -56,10 +57,10 @@ namespace Tiles.Examples
         }
         
         
-        public override void HandleInput(Player player)
+        public override void HandleInput(Player player, OneFitsAllInput input)
         {
             // Play HandleInputAudio
-            base.HandleInput(player);
+            base.HandleInput(player, input);
 
             if (!_cooldownFinished)
             {
