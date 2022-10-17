@@ -206,7 +206,6 @@ MonoBehaviour:
   _terrainLayer:
     serializedVersion: 2
     m_Bits: 1
-  _rideHeight: 0
   _defaultRideHeight: 2.5
   _defaultRayToGroundLength: 7
   _rideSpringStrength: 200
@@ -216,10 +215,10 @@ MonoBehaviour:
   _uprightSpringStrength: 10
   _uprightSpringDamper: 2
   _movementOption: 1
-  _rideHeightJump: 6
-  _transitionDurationJumpIn: 0.25
-  _transitionDurationJumpOut: 0.15
-  _rideHeightCrouch: 1.5
+  _jumpRideHeight: 6
+  _transitionDurationJumpRise: 0.25
+  _transitionDurationJumpFall: 0.15
+  _crouchRideHeight: 1.5
   _transitionDurationCrouch: 0.1
   delayFollow: {fileID: 4605004468068803450}
 --- !u!114 &311547958509225728

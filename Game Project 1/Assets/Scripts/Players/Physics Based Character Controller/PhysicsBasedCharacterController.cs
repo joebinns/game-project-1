@@ -21,7 +21,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private bool _adjustInputsToCameraAngle = false;
         [SerializeField] private LayerMask _terrainLayer;
 
-        public float _rideHeight; // rideHeight: desired distance to ground (Note, this is distance from the original raycast position (currently centre of transform)).
+        private float _rideHeight; // rideHeight: desired distance to ground (Note, this is distance from the original raycast position (currently centre of transform)).
         private float _rayToGroundLength; // rayToGroundLength: max distance of raycast to ground (Note, this should be greater than the rideHeight).
         private bool _shouldMaintainHeight = true;
 
@@ -45,26 +45,18 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _uprightSpringStrength = 40f;
         [SerializeField] private float _uprightSpringDamper = 5f;
 
-        private Vector3 _moveInput;
-        private float _speedFactor = 1f;
-        private float _maxAccelForceFactor = 1f;
-
         public enum MovementOptions { None, Default };
-        private Vector3 _jumpInput;
-        private float _timeSinceJump = 0f;
-        private bool _jumpReady = true;
-        private bool _isJumping = false;
-        private bool grounded = true;
+        private bool _grounded = true;
 
         [Header("Jump:")]
         [SerializeField] private MovementOptions _movementOption = MovementOptions.Default;
 
         [Header("Tap for Ride Height Jump:")]
-        [SerializeField] private float _rideHeightJump = 4f;
+        [SerializeField] private float _jumpRideHeight = 4f;
         [SerializeField] private float _transitionDurationJumpRise = 0.25f;
         [SerializeField] private float _transitionDurationJumpFall = 0.15f;
         [Header("Hold for Ride Height Crouch:")]
-        [SerializeField] private float _rideHeightCrouch = 2f;
+        [SerializeField] private float _crouchRideHeight = 2f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
         [Header("IK")]
         [SerializeField] private DelayFollow delayFollow;
@@ -110,17 +102,10 @@ namespace Players.Physics_Based_Character_Controller
         /// </summary>
         private void FixedUpdate()
         {
-            _moveInput = new Vector3(_moveContext.x, 0, _moveContext.y);
-
-            if (_adjustInputsToCameraAngle)
-            {
-                _moveInput = AdjustInputToFaceCamera(_moveInput);
-            }
-
             (bool rayHitGround, RaycastHit rayHit) = RaycastToGround();
             SetPlatform(rayHit);
 
-            grounded = CheckIfGrounded(rayHitGround, rayHit);
+            _grounded = CheckIfGrounded(rayHitGround, rayHit);
             
             if (rayHitGround && _shouldMaintainHeight)
             {
@@ -169,7 +154,7 @@ namespace Players.Physics_Based_Character_Controller
             Vector3 oscillationForce = springForce * Vector3.down;
             _rb.AddForce(maintainHeightForce);
             _squashAndStretchOcillator.ApplyForce(oscillationForce);
-            //Debug.DrawLine(transform.position, transform.position + (_rayDir * springForce), Color.yellow);
+            Debug.DrawLine(transform.position, transform.position + (_rayDir * springForce), Color.yellow);
 
             // Apply force to objects beneath
             if (hitBody != null)
@@ -271,17 +256,6 @@ namespace Players.Physics_Based_Character_Controller
         }
 
         /// <summary>
-        /// Adjusts the input, so that the movement matches input regardless of camera rotation.
-        /// </summary>
-        /// <param name="moveInput">The player movement input.</param>
-        /// <returns>The camera corrected movement input.</returns>
-        private Vector3 AdjustInputToFaceCamera(Vector3 moveInput)
-        {
-            float facing = UnityEngine.Camera.main.transform.eulerAngles.y;
-            return (Quaternion.Euler(0, facing, 0) * moveInput);
-        }
-
-        /// <summary>
         /// Set the transform parent to be the result of RaycastToGround.
         /// If the raycast didn't hit, then unset the transform parent.
         /// </summary>
@@ -302,10 +276,10 @@ namespace Players.Physics_Based_Character_Controller
 
         public void JumpInput(InputAction.CallbackContext context)
         {
-            if (context.canceled & grounded)
+            if (context.canceled & _grounded)
             {
-                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _rideHeightJump, _transitionDurationJumpRise));
-                StartCoroutine(TransitionRideHeightDelayed(_rideHeightJump, _defaultRideHeight, _transitionDurationJumpFall,
+                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _jumpRideHeight, _transitionDurationJumpRise));
+                StartCoroutine(TransitionRideHeightDelayed(_jumpRideHeight, _defaultRideHeight, _transitionDurationJumpFall,
                     _transitionDurationJumpRise));
             }
         }
@@ -314,11 +288,11 @@ namespace Players.Physics_Based_Character_Controller
         {
             if (context.performed)
             {
-                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _rideHeightCrouch, _transitionDurationCrouch));
+                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
             }
             if (context.canceled)
             {
-                StartCoroutine(TransitionRideHeight(_rideHeightCrouch, _defaultRideHeight, _transitionDurationCrouch));
+                StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
             }
         }
 
@@ -341,7 +315,6 @@ namespace Players.Physics_Based_Character_Controller
                 t += Time.deltaTime;
                 _rideHeight = Mathf.Lerp(a , b, t * (1f / duration)); // TODO: Change this to some easing function.
                 yield return null;
-                Debug.Log(_rideHeight);
             }
             _rideHeight = b;
             Debug.Log(_rideHeight);
