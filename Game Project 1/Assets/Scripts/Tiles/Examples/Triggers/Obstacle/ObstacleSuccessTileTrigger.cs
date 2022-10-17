@@ -19,6 +19,7 @@ namespace Tiles.Examples.Triggers
 
             if (_obstacleFailTileTrigger.PlayersThatFailed.Contains(player)) { return; }
             
+            Debug.Log(player);
             Tile.EffectSuccess(player);
         }
     }

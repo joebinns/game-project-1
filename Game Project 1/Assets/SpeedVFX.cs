@@ -19,7 +19,6 @@ public class SpeedVFX : MonoBehaviour
 
     public static void Speed(float speed)
     {
-        Debug.Log(speed);
         speedLines.SetFloat("SpawnRate", speed > 34 ? Mathf.Lerp(0,200, (speed - 34) / 75) * 8: 0);
         speedLines.SetFloat("Alpha", Mathf.Lerp(0,1, speed / 75));
         speedLines.SetFloat("SpeedMultiplier", speed * 0.10f);
