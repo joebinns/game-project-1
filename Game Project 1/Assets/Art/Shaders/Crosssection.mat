@@ -47,7 +47,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Active: 1
-    - _Disable_Wonk: 1
+    - _Disable_Wonk: 0
     - _EdgeWidth: 0.04
     - _EndPos: -34.3
     - _NoiseScale: 58.8

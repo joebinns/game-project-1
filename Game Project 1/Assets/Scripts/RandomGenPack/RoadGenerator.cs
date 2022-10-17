@@ -16,7 +16,6 @@ public class RoadGenerator : MonoBehaviour
 
 
     public float roadSpeed;
-    public float RoadSpeed { get { return roadSpeed; } set { SpeedVFX.Speed(roadSpeed); roadSpeed = value; } }
 
     public float maxRoadSpeed = 100f;
 

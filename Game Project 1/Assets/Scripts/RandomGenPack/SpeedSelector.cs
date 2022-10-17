@@ -26,7 +26,7 @@ public class SpeedSelector : MonoBehaviour
     private void Awake()
     {
         _roadGenerator = this.GetComponent<RoadGenerator>();
-        _roadGenerator.roadSpeed = (int)_speedMode;
+        StartCoroutine(TransitionSpeedMode(SpeedMode.Stop, _speedMode));
     }
 
     private IEnumerator TransitionSpeedMode(SpeedMode a, SpeedMode b)
@@ -38,6 +38,7 @@ public class SpeedSelector : MonoBehaviour
             _t = Mathf.Clamp(_t, 0f, _transitionDuration);
             var speed = Mathf.Lerp((float)(int)a , (float)(int)b, _t * (1f / _transitionDuration));
             _roadGenerator.roadSpeed = speed;
+            SpeedVFX.Speed(speed);
             yield return null;
         }
     }

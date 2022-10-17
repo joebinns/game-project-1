@@ -490,7 +490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411962223955940371, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537438409344208870, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
       propertyPath: m_Size.y
@@ -506,7 +506,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151756290060782761, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7358560976572322435, guid: 2eff562485062194cbf516d861cd96df, type: 3}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Destruct
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DestructMesh, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
@@ -738,10 +766,6 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5914388876670460731, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914388876670460731, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.55
       objectReference: {fileID: 0}
@@ -784,10 +808,6 @@ PrefabInstance:
     - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
       propertyPath: m_Name
       value: debris
-      objectReference: {fileID: 0}
-    - target: {fileID: 7903211422670690023, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e29dfb44b64b145ab9d5e1661ed115, type: 3}
@@ -1002,6 +1022,34 @@ PrefabInstance:
     - target: {fileID: 5753204553013058975, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Destruct
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DestructMesh, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229088917305797368, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08339b82edf5fc419fa4f4023a727f3, type: 3}
