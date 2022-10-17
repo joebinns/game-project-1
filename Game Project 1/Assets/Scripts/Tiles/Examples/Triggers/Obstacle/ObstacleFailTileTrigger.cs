@@ -15,7 +15,7 @@ namespace Tiles.Examples.Triggers
         {
             base.TriggerEntered(player);
 
-           // onFail.Invoke();
+            onFail.Invoke();
             PlayersThatFailed.Add(player);
             Tile.EffectFail(player);
         }

@@ -854,14 +854,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1100019083}
     m_Modifications:
-    - target: {fileID: 1920040072279085128, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3775691314155463823, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1bdb5e68444dda44b8e628f294e48021, type: 2}
     - target: {fileID: 5097693694439654186, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: m_Name
       value: Physics Player 1
@@ -906,10 +898,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5261071377239795685, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _jumpOption
       value: 1
@@ -918,10 +906,6 @@ PrefabInstance:
       propertyPath: _offset
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8716588938107540031, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6405010c0c1b4834485419bd81bd3158, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
 --- !u!114 &752702621 stripped
@@ -1562,7 +1546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000003849312, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000039790628, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1842,7 +1826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c05f5fd42d28ac4a81cbe98d6c7a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedMode: 33
+  _speedMode: 25
   _transitionDuration: 2
   PlayerCollisionMaxCalibratedSpeed: 100
 --- !u!1 &1272158631
@@ -2165,7 +2149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000003849312, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000039790628, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2265,7 +2249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 4
+  m_AmplitudeGain: 0
   m_FrequencyGain: 10
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1754163439
