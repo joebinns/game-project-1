@@ -206,8 +206,9 @@ MonoBehaviour:
   _terrainLayer:
     serializedVersion: 2
     m_Bits: 1
+  _rideHeight: 0
   _defaultRideHeight: 2.5
-  _defaultRayToGroundLength: 3.5
+  _defaultRayToGroundLength: 7
   _rideSpringStrength: 200
   _rideSpringDamper: 10
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
@@ -215,13 +216,11 @@ MonoBehaviour:
   _uprightSpringStrength: 10
   _uprightSpringDamper: 2
   _movementOption: 1
-  _jumpForceFactor: 20
-  _riseGravityFactor: 5
-  _fallGravityFactor: 10
-  _jumpBuffer: 0.05
-  _coyoteTime: 0.1
+  _rideHeightJump: 6
+  _transitionDurationJumpIn: 0.25
+  _transitionDurationJumpOut: 0.15
   _rideHeightCrouch: 1.5
-  _transitionDurationCrouch: 0
+  _transitionDurationCrouch: 0.1
   delayFollow: {fileID: 4605004468068803450}
 --- !u!114 &311547958509225728
 MonoBehaviour:
@@ -266,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430e4bb132f70da4a8e6fd087cae46f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShouldSpringBeStiff: 0
   _minRideSpringStrength: 100
   _maxRideSpringStrength: 1000
   _minRideSpringDamper: 5

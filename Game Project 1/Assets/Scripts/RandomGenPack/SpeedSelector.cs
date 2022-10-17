@@ -35,7 +35,6 @@ public class SpeedSelector : MonoBehaviour
         while (_t < _transitionDuration)
         {
             _t += Time.deltaTime;
-            _t = Mathf.Clamp(_t, 0f, _transitionDuration);
             var speed = Mathf.Lerp((float)(int)a , (float)(int)b, _t * (1f / _transitionDuration));
             _roadGenerator.roadSpeed = speed;
             SpeedVFX.Speed(speed);

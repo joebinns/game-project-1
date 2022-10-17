@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using Oscillators;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using Utilities;
 
 namespace Players.Physics_Based_Character_Controller
@@ -21,7 +21,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private bool _adjustInputsToCameraAngle = false;
         [SerializeField] private LayerMask _terrainLayer;
 
-        private float _rideHeight; // rideHeight: desired distance to ground (Note, this is distance from the original raycast position (currently centre of transform)).
+        public float _rideHeight; // rideHeight: desired distance to ground (Note, this is distance from the original raycast position (currently centre of transform)).
         private float _rayToGroundLength; // rayToGroundLength: max distance of raycast to ground (Note, this should be greater than the rideHeight).
         private bool _shouldMaintainHeight = true;
 
@@ -51,25 +51,20 @@ namespace Players.Physics_Based_Character_Controller
 
         public enum MovementOptions { None, Default };
         private Vector3 _jumpInput;
-        private float _timeSinceJumpPressed = 0f;
-        private float _timeSinceJumpReleased = 0f;
-        private float _timeSinceCrouchPressed = 0f;
-        private float _timeSinceCrouchReleased = 0f;
-        private float _timeSinceUngrounded = 0f;
         private float _timeSinceJump = 0f;
         private bool _jumpReady = true;
         private bool _isJumping = false;
+        private bool grounded = true;
 
         [Header("Jump:")]
         [SerializeField] private MovementOptions _movementOption = MovementOptions.Default;
-        [Header("Hold for High Jump:")]
-        [SerializeField] private float _jumpForceFactor = 10f;
-        [SerializeField] private float _riseGravityFactor = 5f;
-        [SerializeField] private float _fallGravityFactor = 10f; // typically > 1f (i.e. 5f).
-        [SerializeField] private float _jumpBuffer = 0.15f; // Note, jumpBuffer shouldn't really exceed the time of the jump.
-        [SerializeField] private float _coyoteTime = 0.25f;
+
+        [Header("Tap for Ride Height Jump:")]
+        [SerializeField] private float _rideHeightJump = 4f;
+        [SerializeField] private float _transitionDurationJumpRise = 0.25f;
+        [SerializeField] private float _transitionDurationJumpFall = 0.15f;
         [Header("Hold for Ride Height Crouch:")]
-        [SerializeField] private float _rideHeightCrouch = 3f;
+        [SerializeField] private float _rideHeightCrouch = 2f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
         [Header("IK")]
         [SerializeField] private DelayFollow delayFollow;
@@ -100,7 +95,7 @@ namespace Players.Physics_Based_Character_Controller
             bool grounded;
             if (rayHitGround == true)
             {
-                grounded = rayHit.distance <= _rideHeight * 1.3f; // 1.3f allows for greater leniancy (as the value will oscillate about the rideHeight).
+                grounded = rayHit.distance <= _defaultRideHeight * 1.3f; // 1.3f allows for greater leniancy (as the value will oscillate about the rideHeight).
             }
             else
             {
@@ -125,38 +120,13 @@ namespace Players.Physics_Based_Character_Controller
             (bool rayHitGround, RaycastHit rayHit) = RaycastToGround();
             SetPlatform(rayHit);
 
-            bool grounded = CheckIfGrounded(rayHitGround, rayHit);
-            if (grounded)
-            {
-                _timeSinceUngrounded = 0f;
-
-                if (_timeSinceJump > 0.2f)
-                {
-                    _isJumping = false;
-                }
-            }
-            else
-            {
-                _timeSinceUngrounded += Time.fixedDeltaTime;
-            }
+            grounded = CheckIfGrounded(rayHitGround, rayHit);
             
-            _timeSinceJump += Time.fixedDeltaTime;
-            _timeSinceJumpPressed += Time.fixedDeltaTime;
-            _timeSinceJumpReleased += Time.fixedDeltaTime;
-            _timeSinceCrouchPressed += Time.fixedDeltaTime;
-            _timeSinceCrouchReleased += Time.fixedDeltaTime;
-            CharacterJump(grounded, rayHit); 
-            if (_movementOption == MovementOptions.Default)
-            {
-                RideHeightCrouch(_jumpInput);
-            }
-
             if (rayHitGround && _shouldMaintainHeight)
             {
                 MaintainHeight(rayHit);
             }
-
-            //Vector3 lookDirection = GetLookDirection(_characterLookDirection);
+            
             var lookDirection = Vector3.forward;
             MaintainUpright(lookDirection, rayHit);
         }
@@ -298,8 +268,6 @@ namespace Players.Physics_Based_Character_Controller
             float rotRadians = rotDegrees * Mathf.Deg2Rad;
 
             _rb.AddTorque((rotAxis * (rotRadians * _uprightSpringStrength)) - (_rb.angularVelocity * _uprightSpringDamper));
-        
-        
         }
 
         /// <summary>
@@ -334,21 +302,23 @@ namespace Players.Physics_Based_Character_Controller
 
         public void JumpInput(InputAction.CallbackContext context)
         {
-            _timeSinceJumpPressed = 0f;
-            _timeSinceJumpReleased = 0f;
+            if (context.canceled & grounded)
+            {
+                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _rideHeightJump, _transitionDurationJumpRise));
+                StartCoroutine(TransitionRideHeightDelayed(_rideHeightJump, _defaultRideHeight, _transitionDurationJumpFall,
+                    _transitionDurationJumpRise));
+            }
         }
         
         public void CrouchInput(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _timeSinceCrouchPressed = 0f;
-                _jumpInput = new Vector3(0f, 1f, 0f);
+                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _rideHeightCrouch, _transitionDurationCrouch));
             }
             if (context.canceled)
             {
-                _timeSinceCrouchReleased = 0f;
-                _jumpInput = new Vector3(0f, 0f, 0f);
+                StartCoroutine(TransitionRideHeight(_rideHeightCrouch, _defaultRideHeight, _transitionDurationCrouch));
             }
         }
 
@@ -362,90 +332,26 @@ namespace Players.Physics_Based_Character_Controller
             SetMovementOption(MovementOptions.Default);
         }
 
-        /// <summary>
-        /// Apply force to cause the character to perform a single jump, including coyote time and a jump input buffer.
-        /// </summary>
-        /// <param name="jumpInput">The player jump input.</param>
-        /// <param name="grounded">Whether or not the player is considered grounded.</param>
-        /// <param name="rayHit">The rayHit towards the platform.</param>
-        private void CharacterJump(bool grounded, RaycastHit rayHit)
+        private IEnumerator TransitionRideHeight(float a, float b, float duration)
         {
-            if (_rb.velocity.y < 0)
+            var t = 0f;
+            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
+            while (t < duration)
             {
-                _shouldMaintainHeight = true;
-                _jumpReady = true;
-                if (!grounded)
-                {
-                    // Increase downforce for a sudden plummet.
-                    _rb.AddForce(_gravitationalForce * (_fallGravityFactor - 1f)); // Hmm... this feels a bit weird. I want a reactive jump, but I don't want it to dive all the time...
-                }
+                t += Time.deltaTime;
+                _rideHeight = Mathf.Lerp(a , b, t * (1f / duration)); // TODO: Change this to some easing function.
+                yield return null;
+                Debug.Log(_rideHeight);
             }
-            else if (_rb.velocity.y > 0)
-            {
-                if (!grounded)
-                {
-                    if (_isJumping)
-                    {
-                        _rb.AddForce(_gravitationalForce * (_riseGravityFactor - 1f));
-                    }
-                }
-            }
-
-            if (_movementOption == MovementOptions.None)
-            {
-                return;
-            }
-
-            if (_timeSinceJumpPressed < _jumpBuffer)
-            {
-                if (_timeSinceUngrounded < _coyoteTime)
-                {
-                    if (_jumpReady)
-                    {
-                        _jumpReady = false;
-                        _shouldMaintainHeight = false;
-                        _isJumping = true;
-                        _rb.velocity = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z); // Cheat fix... (see comment below when adding force to rigidbody).
-                        if (rayHit.distance != 0) // i.e. if the ray has hit
-                        {
-                            _rb.position = new Vector3(_rb.position.x, _rb.position.y - (rayHit.distance - _rideHeight), _rb.position.z);
-                        }
-                        _rb.AddForce(Vector3.up * _jumpForceFactor, ForceMode.Impulse); // This does not work very consistently... Jump height is affected by initial y velocity and y position relative to RideHeight... Want to adopt a fancier approach (more like PlayerMovement). A cheat fix to ensure consistency has been issued above...
-                        _timeSinceJumpPressed = _jumpBuffer; // So as to not activate further jumps, in the case that the player lands before the jump timer surpasses the buffer.
-                        _timeSinceJump = 0f;
-                    }
-                }
-            }
+            _rideHeight = b;
+            Debug.Log(_rideHeight);
+            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
         }
-
-        private void ChangeRideHeight(float input, float alternativeRideHeight, float duration) // Change this to coroutine
+        
+        private IEnumerator TransitionRideHeightDelayed(float a, float b, float duration, float delay)
         {
-            var rideHeight = (input * _rideHeight) + ((1 - input) * _defaultRideHeight);
-            float t;
-            if (_timeSinceCrouchPressed < _timeSinceCrouchReleased)
-            {
-                t = _timeSinceCrouchPressed;
-            }
-            else
-            {
-                t = duration - _timeSinceCrouchReleased;
-            }
-            rideHeight = Mathf.Lerp(_defaultRideHeight, alternativeRideHeight, t / duration); // TODO: Change this to some easing function, if we stick with this type of jump.
-            _rideHeight = rideHeight;
-        }
-
-        private void RideHeightCrouch(Vector3 jumpInput)
-        {
-            ChangeRideHeight(jumpInput.y, _rideHeightCrouch, _transitionDurationCrouch);
-
-            if (_rideHeight == _rideHeightCrouch)
-            {
-                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
-            }
-            else
-            {
-                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
-            }
+            yield return new WaitForSeconds(delay);
+            yield return TransitionRideHeight(a, b, duration);
         }
     }
 }
