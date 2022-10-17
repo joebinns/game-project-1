@@ -65,15 +65,8 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _jumpForceFactor = 10f;
         [SerializeField] private float _riseGravityFactor = 5f;
         [SerializeField] private float _fallGravityFactor = 10f; // typically > 1f (i.e. 5f).
-        //[SerializeField] private float _lowJumpFactor = 2.5f;
         [SerializeField] private float _jumpBuffer = 0.15f; // Note, jumpBuffer shouldn't really exceed the time of the jump.
         [SerializeField] private float _coyoteTime = 0.25f;
-        /*
-        [Header("Hold for Ride Height Jump:")]
-        [SerializeField] private float _rideHeightJump = 3f;
-        [SerializeField] private float _rideHeightJumpRayToGroundLength = 4f;
-        [SerializeField] private float _transitionDurationJump = 0.25f;
-        */
         [Header("Hold for Ride Height Crouch:")]
         [SerializeField] private float _rideHeightCrouch = 3f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
@@ -145,8 +138,6 @@ namespace Players.Physics_Based_Character_Controller
             {
                 _timeSinceUngrounded += Time.fixedDeltaTime;
             }
-
-            //CharacterMove(_moveInput, rayHit);
             
             _timeSinceJump += Time.fixedDeltaTime;
             _timeSinceJumpPressed += Time.fixedDeltaTime;

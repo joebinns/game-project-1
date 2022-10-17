@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Players;
 using Tiles;
+using Unity.VisualScripting.InputSystem;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,8 +11,6 @@ namespace Inputs
 {
     public class PlayerInput : MonoBehaviour
     {
-        [SerializeField] private float _holdTime = 1f;
-        
         private Player _player;
         private Tile _currentTile;
         private bool _doesHoldRegister = false;
@@ -19,10 +18,6 @@ namespace Inputs
         private void Awake()
         {
             _player = GetComponent<Player>();
-            
-            // TODO: Get default hold time automatically...
-            //InputSettings.defaultHoldTime;
-            //Debug.Log(GetComponent<UnityEngine.InputSystem.PlayerInput>()..defaultHoldTime);
         }
         
         private void OnEnable()
@@ -41,15 +36,7 @@ namespace Inputs
         {
             _currentTile = tile;
         }
-        
-        /*
-        public void InputTap(InputAction.CallbackContext context)
-        {
-            if (context.started) { StartCoroutine(CheckIfHoldRegisters()); }
-            if (context.canceled & !_doesHoldRegister) { RedirectInput(new OneFitsAllInput(context, InputType.Tap)); }
-        }
-        */
-        
+
         public void InputHold(InputAction.CallbackContext context)
         {
             if (context.started)
@@ -65,15 +52,6 @@ namespace Inputs
 
             RedirectInput(new OneFitsAllInput(context, _doesHoldRegister ? InputType.Hold : InputType.Tap));
         }
-        
-        /*
-        private IEnumerator CheckIfHoldRegisters()
-        {
-            _doesHoldRegister = false;
-            yield return new WaitForSeconds(_holdTime);
-            _doesHoldRegister = true;
-        }
-        */
 
         public void RedirectInput(OneFitsAllInput input)
         {
@@ -102,7 +80,6 @@ namespace Inputs
         public InputAction.CallbackContext Context { get; }
         public InputType InputType { get; }
     }
-    
 
     public enum InputType
     {
