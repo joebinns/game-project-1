@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a05e5f39a2ba00469071b489d782266, type: 3}
-  m_Name: 3.Starting
+  m_Name: RapidTapSettings
   m_EditorClassIdentifier: 
   _description: 
   MovementOption: 0
@@ -20,9 +20,9 @@ MonoBehaviour:
   EffectAnimation: 0
   HandleInputAudio: {fileID: 0}
   EffectSuccessAudio: {fileID: 0}
-  EffectSuccessPoints: 50
+  EffectSuccessPoints: 10
   EffectFailAudio: {fileID: 0}
-  EffectFailPoints: -10
+  EffectFailPoints: 0
   EndEffectAudio: {fileID: 0}
   DeactivateCanvasDelay: 0
   MiscellaneousAudioClips: []

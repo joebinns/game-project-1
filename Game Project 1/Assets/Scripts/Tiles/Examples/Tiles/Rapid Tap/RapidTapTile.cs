@@ -25,6 +25,7 @@ namespace Tiles.Examples
             if (_cooldownFinished && _hasEnded == false)
             {
                 EndEffect();
+                FindObjectOfType<SpeedSelector>().SpeedMode = SpeedMode.Low;
                 _hasEnded = true;
             }        
         }
@@ -32,6 +33,8 @@ namespace Tiles.Examples
         public override void BeginEffect()
         {
             base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudio and activate BeginEffectSprite.
+
+            FindObjectOfType<SpeedSelector>().SpeedMode = SpeedMode.Medium;
             
             StartCoroutine(Cooldown());
         }
