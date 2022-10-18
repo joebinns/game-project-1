@@ -54,9 +54,6 @@ namespace Players.Physics_Based_Character_Controller
         [Header("Tap for Ride Height Jump:")]
         [SerializeField] private AnimationCurve _jumpRiseCurve;
         [SerializeField] private AnimationCurve _jumpFallCurve;
-        [SerializeField] private float _jumpRideHeight = 4f;
-        [SerializeField] private float _transitionDurationJumpRise = 0.25f;
-        [SerializeField] private float _transitionDurationJumpFall = 0.15f;
         [Header("Hold for Ride Height Crouch:")]
         [SerializeField] private float _crouchRideHeight = 2f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
