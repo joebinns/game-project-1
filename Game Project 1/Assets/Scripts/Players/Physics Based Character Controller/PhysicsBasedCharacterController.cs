@@ -48,6 +48,7 @@ namespace Players.Physics_Based_Character_Controller
         public enum MovementOptions { None, Default };
         private bool _grounded = true;
         private RaycastHit _rayHit;
+        private bool _isJumping = false;
 
         [Header("Jump:")]
         [SerializeField] private MovementOptions _movementOption = MovementOptions.Default;
@@ -281,12 +282,7 @@ namespace Players.Physics_Based_Character_Controller
             
             if (context.canceled & _grounded & !_isJumping)
             {
-                // get initial position-y
-                //var initialPositionY = _rb.position.y;
-                var initialPositionY = _rayHit.point.y + _defaultRideHeight; // be consistent with the initial position, for consistent jump heights
-                
-                StartCoroutine(EvaluateCurve(_jumpRiseCurve, initialPositionY));
-                StartCoroutine(EvaluateCurveDelayed(_jumpFallCurve, initialPositionY, _jumpRiseCurve[_jumpRiseCurve.length - 1].time));
+                StartCoroutine(Jump());
             }
         }
         
@@ -329,7 +325,74 @@ namespace Players.Physics_Based_Character_Controller
             _rideHeight = b;
             GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
         }
+
+        private IEnumerator Jump()
+        {
+            _isJumping = true;
+            var initialPositionY = _rayHit.point.y + _defaultRideHeight;
+            yield return StartCoroutine(JumpRise(initialPositionY));
+            var finalRisePositionY = _rb.position.y;
+            yield return StartCoroutine(JumpFall(finalRisePositionY)); // start falling from wherever the rise finished
+            _isJumping = false;
+        }
         
+        private IEnumerator JumpRise(float displacementY)
+        {
+            var curve = _jumpRiseCurve;
+            var duration = curve[curve.length - 1].time;
+            var t = 0f;
+            while (t < duration)
+            {
+                t += Time.fixedDeltaTime;
+                
+                var position = _rb.position;
+                position.y = displacementY + curve.Evaluate(t);
+                _rb.position = position;
+                
+                if (_shouldCancelJumpRise)
+                {
+                    _shouldCancelJumpRise = false;
+                    yield break;
+                }
+
+                yield return new WaitForFixedUpdate();
+            }
+        }
+        
+        private IEnumerator JumpFall(float displacementY)
+        {
+            var curve = _jumpFallCurve;
+            var duration = curve[curve.length - 1].time;
+            var t = 0f;
+            while (t < duration)
+            {
+                t += Time.fixedDeltaTime;
+                
+                var position = _rb.position;
+                position.y = displacementY + curve.Evaluate(t);
+                _rb.position = position;
+
+                if (_grounded)
+                {
+                    yield break;
+                }
+
+                yield return new WaitForFixedUpdate();
+            }
+            
+            // Continue falling along the same trajectory, until _grounded
+            var velocityY = curve.Differentiate(curve[curve.length - 1].time);
+            while (!_grounded)
+            {
+                var position = _rb.position;
+                position.y += velocityY * Time.fixedDeltaTime;
+                _rb.position = position;
+
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
+        /*
         private IEnumerator EvaluateCurve(AnimationCurve curve, float displacement = 0f, bool stopIfGrounded = false)
         {
             var t = 0f;
@@ -350,6 +413,10 @@ namespace Players.Physics_Based_Character_Controller
                 
                 // if _grounded & velocity < 0 (on fall curve), then stop coroutine...
                 if (stopIfGrounded & _grounded)
+                {
+                    yield break;
+                }
+                if (!stopIfGrounded & _shouldCancelJumpRise)
                 {
                     yield break;
                 }
@@ -378,23 +445,34 @@ namespace Players.Physics_Based_Character_Controller
                 velocity.y += velocityY;
                 _rb.velocity = velocity;
                 */
+        /*
             }
         }
-        
+        */
+        /*
         private IEnumerator TransitionRideHeightDelayed(float a, float b, float duration, float delay)
         {
             yield return new WaitForSeconds(delay);
             yield return TransitionRideHeight(a, b, duration);
         }
-
-        private bool _isJumping = false;
+        */
         
+        /*
         private IEnumerator EvaluateCurveDelayed(AnimationCurve curve, float displacement, float delay)
         {
             _isJumping = true;
+            _shouldCancelJumpRise = false;
             yield return new WaitForSeconds(delay);
             yield return EvaluateCurve(curve, displacement, true);
             _isJumping = false;
+        }
+        */
+
+        private bool _shouldCancelJumpRise = false;
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            _shouldCancelJumpRise = true;
         }
     }
 }
