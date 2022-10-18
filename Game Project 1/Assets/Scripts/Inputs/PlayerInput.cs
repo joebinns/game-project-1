@@ -55,7 +55,6 @@ namespace Inputs
 
         public void RedirectInput(OneFitsAllInput input)
         {
-            //Debug.Log(input);
             _player.HandleInput(input);
             switch (_currentTile)
             {

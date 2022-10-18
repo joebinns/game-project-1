@@ -207,7 +207,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _defaultRideHeight: 2.5
-  _defaultRayToGroundLength: 3.5
+  _defaultRayToGroundLength: 7
   _rideSpringStrength: 200
   _rideSpringDamper: 10
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
@@ -215,13 +215,59 @@ MonoBehaviour:
   _uprightSpringStrength: 10
   _uprightSpringDamper: 2
   _movementOption: 1
-  _jumpForceFactor: 20
-  _riseGravityFactor: 5
-  _fallGravityFactor: 10
-  _jumpBuffer: 0.05
-  _coyoteTime: 0.1
-  _rideHeightCrouch: 1.5
-  _transitionDurationCrouch: 0
+  _jumpRiseCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 8.575945
+      outSlope: 8.575945
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04657048
+    - serializedVersion: 3
+      time: 0.4
+      value: 2
+      inSlope: 0.18261994
+      outSlope: 0.18261994
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14853105
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _jumpFallCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: -5.605081
+      outSlope: -5.605081
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07456743
+    - serializedVersion: 3
+      time: 0.125
+      value: 0
+      inSlope: -19.900385
+      outSlope: -19.900385
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.053785045
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _jumpRideHeight: 6
+  _transitionDurationJumpRise: 0.25
+  _transitionDurationJumpFall: 0.15
+  _crouchRideHeight: 1.5
+  _transitionDurationCrouch: 0.1
   delayFollow: {fileID: 4605004468068803450}
 --- !u!114 &311547958509225728
 MonoBehaviour:
@@ -266,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430e4bb132f70da4a8e6fd087cae46f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShouldSpringBeStiff: 0
   _minRideSpringStrength: 100
   _maxRideSpringStrength: 1000
   _minRideSpringDamper: 5
