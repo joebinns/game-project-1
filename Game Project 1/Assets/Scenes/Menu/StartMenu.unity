@@ -5258,6 +5258,12 @@ MonoBehaviour:
   player2Points: 0
   p1Materials: []
   p2Materials: []
+  p1HelmMat: {fileID: 0}
+  p2HelmMat: {fileID: 0}
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  p1Helm: {fileID: 0}
+  p2Helm: {fileID: 0}
 --- !u!4 &831291569
 Transform:
   m_ObjectHideFlags: 0
@@ -14454,7 +14460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -14462,7 +14468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -14502,11 +14508,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 348.14966
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
