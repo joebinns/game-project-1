@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_Name
-      value: ObstacleFail 1
+      value: Obstacle Fail
       objectReference: {fileID: 0}
     - target: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_Layer
@@ -87,3 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayersThatFailed: []
+  onFail:
+    m_PersistentCalls:
+      m_Calls: []

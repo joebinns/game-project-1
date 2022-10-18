@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Tiles.Examples.Triggers
 {
-    public class ObstacleFailTileTrigger : TileTrigger
+    public class FailTileTrigger : TileTrigger
     {
         [HideInInspector] public List<Player> PlayersThatFailed = new List<Player>();
 
@@ -17,7 +17,6 @@ namespace Tiles.Examples.Triggers
 
             onFail.Invoke();
             PlayersThatFailed.Add(player);
-            Debug.Log(player);
             Tile.EffectFail(player);
         }
     

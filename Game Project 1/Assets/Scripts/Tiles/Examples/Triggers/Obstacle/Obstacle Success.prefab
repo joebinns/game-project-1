@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_Name
-      value: ObstacleSuccess
+      value: Obstacle Success
       objectReference: {fileID: 0}
     - target: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
       propertyPath: m_Layer
@@ -74,7 +74,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2928589156590659198, guid: 1a2c736b2c68740409a3481c0f108d0e, type: 3}
   m_PrefabInstance: {fileID: 4996910292145986816}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &90764171215037706
+--- !u!114 &3096800452980367678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,3 +86,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1797c1251bc7f41af50f2537d70566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _failTileTrigger: {fileID: 0}
