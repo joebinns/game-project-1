@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1787134695174984519
+--- !u!114 &-1195014954394127256
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
-  m_Shader: {fileID: -6465566751694194690, guid: 9b8aad8def5af7f48b2c4c4d2865a46b, type: 3}
+  m_Name: DebrisBase 2
+  m_Shader: {fileID: -6465566751694194690, guid: 3a081800f01865749914d17be0ab4d85, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -85,31 +85,11 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_282dc5e9d82b4f84b20cfcb74ea2431a_Texture_1:
-        m_Texture: {fileID: 2800000, guid: ed45e808f7a886f42a02a40374295762, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_68bccc1645704b02bc8d4e6d76e8ef5b_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 07ea740c4cf0e6b42b9cba9706c711b1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_b83b84694e034a1d991469e766be6f64_Texture_1:
-        m_Texture: {fileID: 2800000, guid: fe65be7524eda8f4a85e0da29156c51f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d785e7d260084a59851edc8c56e0ff5c_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 163bc9033a907df4a937f1a03fbe317d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Smoothness:
-        m_Texture: {fileID: 2800000, guid: 163bc9033a907df4a937f1a03fbe317d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _roadMask:
+    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -137,47 +117,51 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Disable_Wonk: 0
-    - _Dissolve: 0
-    - _DonePos: 5
+    - _Disable_Wonk: 1
     - _DstBlend: 0
     - _EdgeWidth: 0.04
     - _EndPos: 24.65
     - _EnvironmentReflections: 1
-    - _FadeInDuration: -40
-    - _FadeInPos: -50
-    - _GlossMapScale: 0
-    - _Glossiness: 0
-    - _GlossyReflections: 0
+    - _FadeonCamera: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _Metallic: 0
-    - _NoiseScale: 58.8
+    - _Mode: 0
+    - _NoiseScale: 9.22
     - _OcclusionStrength: 1
     - _Offset: 27.74
-    - _Parallax: 0.005
+    - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RoadMetallic: 0.53
+    - _RoadMetallic: 0.654
     - _Seed: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
+    - _Smoothness_Amount: 0
     - _SpecularHighlights: 1
-    - _Speed: 10
     - _SrcBlend: 1
     - _StartPos: -92.46
+    - _Strenght: 0.82
     - _Surface: 0
-    - _Wonk: 0
+    - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _dissolve: 0
+    - _end: 0
+    - _fade: 0.19
     - _metallic_Amount: 0
-    - _offset: 0
+    - _metallic_Amount_1: 0.07
+    - _metallic_Amount_2: 0.07
+    - _metallic_Amount_3: 0.07
+    - _metallic_Amount_4: 0.07
+    - _start: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0, g: 0.65196705, b: 1, a: 1}
+    - _BaseColor: {r: 0.30088764, g: 0.31402802, b: 0.36665964, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeColor: {r: 2.828427, g: 2.828427, b: 2.828427, a: 0}
-    - _EmissionColor: {r: 0.5189164, g: 5.052607, b: 6.964404, a: 1}
-    - _Seed_1: {r: 100, g: 2, b: 0, a: 0}
+    - _EmissionColor: {r: 1.1973484, g: 6.6819763, b: 9.849155, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _test: {r: 1, g: 1, b: 0, a: 0}
+    - _screen_center: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
