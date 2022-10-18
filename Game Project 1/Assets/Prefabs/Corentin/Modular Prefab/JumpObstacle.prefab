@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 7382622822353525867}
   - component: {fileID: 2516670622284934684}
   - component: {fileID: 2353415560013427073}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: JumpObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2221822690735181938}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
