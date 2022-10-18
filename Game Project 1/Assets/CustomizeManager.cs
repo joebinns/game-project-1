@@ -1,12 +1,24 @@
 
+using System;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
 public class CustomizeManager : MonoBehaviour
 {
+    [SerializeField] private GameObject player1Model, player2Model, p1Helm, p2Helm;
+    
     [SerializeField] private GameObject p1CustomizeObj, p2CustomizeObj;
-    [SerializeField] private Button startGameBtn;
+    [SerializeField] private Button startGameBtn, backToMainBtn;
+
+    public Material[] helmetColorMats, jacketMats, pantMats, shoeMats, skinMats;
+    public GameObject[] helmetModels, hoverboardModels;
+
+    public int p1HelmColorCounter, p1JacketCounter, p1PantCounter, p1ShoeCounter, p1SkinCounter, p1HelmModelCounter, p1HoverboardCounter;
+    public int p2HelmColorCounter, p2JacketCounter, p2PantCounter, p2ShoeCounter, p2SkinCounter, p2HelmModelCounter, p2HoverboardCounter;
+
+    public Material p1HelmColor, p1Jacket, p1Pant, p1Shoe, p1Skin, p2HelmColor, p2Jacket, p2Pant, p2Shoe, p2Skin;
+    public GameObject p1HelmModel, p1Hoverboard, p2HelmModel, p2Hoverboard;
     
     private RectTransform _p1Transform, _p2Transform;
     private Vector3 _p1Origin, _p2Origin, _p1Lowered, _p2Lowered;
@@ -15,6 +27,9 @@ public class CustomizeManager : MonoBehaviour
 
     private void Awake()
     {
+        ResetPlayerCustomization();
+        ApplyMaterials();
+        
         _p1CustomizeOpen = false;
         _p2CustomizeOpen = false;
     }
@@ -89,11 +104,422 @@ public class CustomizeManager : MonoBehaviour
         if (_p1CustomizeOpen == false && _p2CustomizeOpen == false)
         {
             startGameBtn.interactable = true;
+            backToMainBtn.interactable = true;
         }
 
         else
         {
             startGameBtn.interactable = false;
+            backToMainBtn.interactable = false;
         }
     }
+
+    public void ChangeLook(string customSettings)
+    {
+        char[] settingsArray = customSettings.ToCharArray();
+
+        switch (settingsArray[0])
+        {
+            //Helmet Color
+            case '0':
+
+                switch (settingsArray[1])
+                {
+                    //Player 1 customize change
+                    case '1':
+
+                        p1HelmColorCounter++;
+                        if (p1HelmColorCounter == helmetColorMats.Length)
+                        {
+                            p1HelmColorCounter = 0;
+                        }
+
+                        p1HelmColor = helmetColorMats[p1HelmColorCounter];
+
+                        break;
+                    
+                    //Player2 customize change
+                    case '2':
+
+                        p2HelmColorCounter++;
+                        if (p2HelmColorCounter == helmetColorMats.Length)
+                        {
+                            p2HelmColorCounter = 0;
+                        }
+
+                        p2HelmColor = helmetColorMats[p2HelmColorCounter];
+                        
+                        break;
+                }
+                
+                break;
+            
+            //Helmet Model
+            case '1':
+
+                switch (settingsArray[1])
+                {
+                    //Player 1 customize change
+                    case '1':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p1HelmModelCounter++;
+                            if (p1HelmModelCounter == helmetModels.Length)
+                            {
+                                p1HelmModelCounter = 0;
+                            }
+
+                            p1HelmModel = helmetModels[p1HelmModelCounter];
+                        }
+
+                        else
+                        {
+                            p1HelmModelCounter--;
+                            if (p1HelmModelCounter < 0)
+                            {
+                                p1HelmModelCounter = helmetModels.Length - 1;
+                            }
+
+                            p1HelmModel = helmetModels[p1HelmModelCounter];
+                        }
+                        
+                        break;
+                    
+                    //Player2 customize change
+                    case '2':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p2HelmModelCounter++;
+                            if (p2HelmModelCounter == helmetModels.Length)
+                            {
+                                p2HelmModelCounter = 0;
+                            }
+
+                            p2HelmModel = helmetModels[p2HelmModelCounter];
+                        }
+
+                        else
+                        {
+                            p2HelmModelCounter--;
+                            if (p2HelmModelCounter < 0)
+                            {
+                                p2HelmModelCounter = helmetModels.Length - 1;
+                            }
+
+                            p2HelmModel = helmetModels[p2HelmModelCounter];
+                        }
+                        
+                        break;
+                }
+                
+                break;
+            
+            //Jacket
+            case '2':
+
+                switch (settingsArray[1])
+                {
+                    //Player 1 customize change
+                    case '1':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p1JacketCounter++;
+                            if (p1JacketCounter == jacketMats.Length)
+                            {
+                                p1JacketCounter = 0;
+                            }
+
+                            p1Jacket = jacketMats[p1JacketCounter];
+                        }
+
+                        else
+                        {
+                            p1JacketCounter--;
+                            if (p1JacketCounter < 0)
+                            {
+                                p1JacketCounter = jacketMats.Length - 1;
+                            }
+
+                            p1Jacket = jacketMats[p1JacketCounter];
+                        }
+                        
+                        break;
+                    
+                    //Player2 customize change
+                    case '2':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p2JacketCounter++;
+                            if (p2JacketCounter == jacketMats.Length)
+                            {
+                                p2JacketCounter = 0;
+                            }
+
+                            p2Jacket = jacketMats[p2JacketCounter];
+                        }
+
+                        else
+                        {
+                            p2JacketCounter--;
+                            if (p2JacketCounter < 0)
+                            {
+                                p2JacketCounter = jacketMats.Length - 1;
+                            }
+
+                            p2Jacket = jacketMats[p2JacketCounter];
+                        }
+                        
+                        break;
+                }
+                
+                break;
+            
+            //Pants
+            case '3':
+
+                switch (settingsArray[1])
+                {
+                    //Player 1 customize change
+                    case '1':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p1PantCounter++;
+                            if (p1PantCounter == pantMats.Length)
+                            {
+                                p1PantCounter = 0;
+                            }
+
+                            p1Pant = pantMats[p1PantCounter];
+                        }
+
+                        else
+                        {
+                            p1PantCounter--;
+                            if (p1PantCounter < 0)
+                            {
+                                p1PantCounter = pantMats.Length - 1;
+                            }
+
+                            p1Pant = pantMats[p1PantCounter];
+                        }
+                        
+                        break;
+                    
+                    //Player2 customize change
+                    case '2':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p2PantCounter++;
+                            if (p2PantCounter == pantMats.Length)
+                            {
+                                p2PantCounter = 0;
+                            }
+
+                            p2Pant = pantMats[p2PantCounter];
+                        }
+
+                        else
+                        {
+                            p2PantCounter--;
+                            if (p2PantCounter < 0)
+                            {
+                                p2PantCounter = pantMats.Length - 1;
+                            }
+
+                            p2Pant = pantMats[p2PantCounter];
+                        }
+                        
+                        break;
+                }
+                
+                break;
+            
+            //Shoes
+            case '4':
+
+                switch (settingsArray[1])
+                {
+                    //Player 1 customize change
+                    case '1':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p1ShoeCounter++;
+                            if (p1ShoeCounter == shoeMats.Length)
+                            {
+                                p1ShoeCounter = 0;
+                            }
+
+                            p1Shoe = shoeMats[p1ShoeCounter];
+                        }
+
+                        else
+                        {
+                            p1ShoeCounter--;
+                            if (p1ShoeCounter < 0)
+                            {
+                                p1ShoeCounter = shoeMats.Length - 1;
+                            }
+
+                            p1Shoe = shoeMats[p1ShoeCounter];
+                        }
+
+                        break;
+
+                    //Player2 customize change
+                    case '2':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p2ShoeCounter++;
+                            if (p2ShoeCounter == shoeMats.Length)
+                            {
+                                p2ShoeCounter = 0;
+                            }
+
+                            p2Shoe = shoeMats[p2ShoeCounter];
+                        }
+
+                        else
+                        {
+                            p2ShoeCounter--;
+                            if (p2ShoeCounter < 0)
+                            {
+                                p2ShoeCounter = shoeMats.Length - 1;
+                            }
+
+                            p2Shoe = shoeMats[p2ShoeCounter];
+                        }
+
+                        break;
+                }
+
+                break;
+
+            //Skin
+            case '5':
+
+                switch (settingsArray[1])
+                {
+                    //Player 1 customize change
+                    case '1':
+
+                        break;
+                    
+                    //Player2 customize change
+                    case '2':
+
+                        break;
+                }
+                
+                break;
+            
+            //Hoverboard
+            case '6':
+
+                switch (settingsArray[1])
+                {
+                    //Player 1 customize change
+                    case '1':
+
+                        break;
+                    
+                    //Player2 customize change
+                    case '2':
+
+                        break;
+                }
+                
+                break;
+        }
+        
+        ApplyMaterials();
+    }
+
+    public void ResetPlayerCustomization()
+    {
+        p1HelmColorCounter = 0;
+        p1HelmModelCounter = 0;
+        p1JacketCounter = 0;
+        p1PantCounter = 0;
+        p1ShoeCounter = 0;
+        p1SkinCounter = 0;
+        p1HoverboardCounter = 0;
+        
+        p2HelmColorCounter = 0;
+        p2HelmModelCounter = 0;
+        p2JacketCounter = 0;
+        p2PantCounter = 0;
+        p2ShoeCounter = 0;
+        p2SkinCounter = 0;
+        p2HoverboardCounter = 0;
+        
+        
+        //changing the actual materials back to default
+
+        p1HelmColor = helmetColorMats[0];
+        p1Jacket = jacketMats[0];
+        p1Pant = pantMats[0];
+        p1Shoe = shoeMats[0];
+        
+        p2HelmColor = helmetColorMats[0];
+        p2Jacket = jacketMats[0];
+        p2Pant = pantMats[0];
+        p2Shoe = shoeMats[0];
+
+    }
+
+    public void ApplyMaterials()
+    {
+        player1Model.GetComponent<MeshRenderer>().materials = GetPlayerMats(1);
+        player2Model.GetComponent<MeshRenderer>().materials = GetPlayerMats(2);
+
+        p1Helm.GetComponent<MeshRenderer>().material = p1HelmColor;
+        p2Helm.GetComponent<MeshRenderer>().material = p2HelmColor;
+    }
+
+    private Material[] GetPlayerMats(int playerID)
+    {
+        Material[] toReturn = new Material[6];
+        
+        switch (playerID)
+        {
+            case 1:
+                //Antenna
+                toReturn[0] = p1HelmColor;
+                //Jacket
+                toReturn[1] = p1Jacket;
+                toReturn[2] = p1Jacket;
+                //Shoes
+                toReturn[3] = p1Shoe;
+                //Pants
+                toReturn[4] = p1Pant;
+                //Jacket
+                toReturn[5] = p1Jacket;
+                break;
+            
+            case 2:
+                //Antenna
+                toReturn[0] = p2HelmColor;
+                //Jacket
+                toReturn[1] = p2Jacket;
+                toReturn[2] = p2Jacket;
+                //Shoes
+                toReturn[3] = p2Shoe;
+                //Pants
+                toReturn[4] = p2Pant;
+                //Jacket
+                toReturn[5] = p2Jacket;
+                break;
+        }
+
+        return toReturn;
+    }
+
 }
