@@ -24,8 +24,9 @@ public class DestructMesh : MonoBehaviour
     public void Destruct()
     {
         Debug.Log("test");
-        vfx.SetVector4("Color", new Vector4(mat.GetColor("_Color").r, mat.GetColor("_Color").g, mat.GetColor("_Color").b, 1));
+       // vfx.SetVector4("Color", new Vector4(mat.GetColor("_Color").r, mat.GetColor("_Color").g, mat.GetColor("_Color").b, 1));
         vfx.SetMesh("Mesh", mesh);
+        vfx.SetVector3("collider plane pos", transform.position + (Vector3.down * 1));
         vfx.Play();
 
         transform.parent.GetComponent<MeshRenderer>().enabled = false;
