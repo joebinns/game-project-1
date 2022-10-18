@@ -130,17 +130,19 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
+    - _Change_Speed: 0.1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Disable_Wonk: 0
     - _Dissolve: 0
     - _DonePos: 5
     - _DstBlend: 0
     - _EdgeWidth: 0.04
-    - _EndPos: -34.3
+    - _EndPos: 24.65
     - _EnvironmentReflections: 1
     - _FadeInDuration: -40
     - _FadeInPos: -50
@@ -156,7 +158,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RoadMetallic: 0.53
-    - _Seed: 0.42
+    - _Seed: 0.6
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

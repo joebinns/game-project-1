@@ -48,7 +48,6 @@ namespace Tiles.Examples
             while (timer > 0)
             {
                 timer -= Time.deltaTime;
-                FindObjectOfType<UIHandler>().SetEffectText(timer.ToString("RAPID TAP! \n 0.0#"));  
                 yield return null;
             }
 
@@ -64,8 +63,7 @@ namespace Tiles.Examples
 
             if (!_cooldownFinished)
             {
-                Debug.Log("Player"+player.ID+" gained " + pointsPerTap + " points!");
-                PointsManager.GainPoints(player.ID, pointsPerTap);
+                base.EffectSuccess(player);
                 CameraManager.Main.Shake(5f, 0.35f);
             }
             

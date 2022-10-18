@@ -19,10 +19,10 @@ public class SpeedVFX : MonoBehaviour
 
     public static void Speed(float speed)
     {
-        speedLines.SetFloat("SpawnRate", speed > 35 ? speed * 20:0);
+        speedLines.SetFloat("SpawnRate", speed > 34 ? Mathf.Lerp(0,200, (speed - 34) / 75) * 8: 0);
         speedLines.SetFloat("Alpha", Mathf.Lerp(0,1, speed / 75));
-        speedLines.SetFloat("SpeedMultiplier", speed * 0.15f);
-        CameraManager.Main.currentDefaultShake = Mathf.Lerp(.2f, 4, (speed - 35) / 75);
-        Debug.Log("setting Speed");
+        speedLines.SetFloat("SpeedMultiplier", speed * 0.10f);
+        speedLines.SetFloat("Radius", speed > 75 ? 0.5f:1);
+        CameraManager.Main.CurrentDefaultShake = Mathf.Lerp(0, 4, (speed - 25) / 75);
     }
 }

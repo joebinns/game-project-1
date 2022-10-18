@@ -527,7 +527,7 @@ MonoBehaviour:
     m_ActionId: 2980ceba-932a-4fb2-854a-f2f15312901b
     m_ActionName: Game/Right Button Tap1[/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -1440,7 +1440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000038323485, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000003833086, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1714,10 +1714,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c05f5fd42d28ac4a81cbe98d6c7a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartSpeed: 10
-  StopSpeed: 35
-  AbsoluteMaxSpeed: 100
-  _rateOfIncrease: 0.1
+  _speedMode: 25
+  _transitionDuration: 2
+  PlayerCollisionMaxCalibratedSpeed: 100
 --- !u!1 &1272158631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,7 +2037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000038323485, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000003833086, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

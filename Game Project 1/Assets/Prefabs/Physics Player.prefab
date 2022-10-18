@@ -106,8 +106,8 @@ GameObject:
   - component: {fileID: 6186791440806929522}
   - component: {fileID: 311547958509225728}
   - component: {fileID: 6293033746184358199}
-  - component: {fileID: 1480355016133334015}
   - component: {fileID: 3634003757542973386}
+  - component: {fileID: 8976874769282600484}
   m_Layer: 0
   m_Name: Physics Player
   m_TagString: Untagged
@@ -150,7 +150,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!136 &5097693695641468751
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a078b86d83ea345a987800ad16e4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holdTime: 0.15
 --- !u!114 &6186791440806929522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +207,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _defaultRideHeight: 2.5
-  _defaultRayToGroundLength: 3.5
+  _defaultRayToGroundLength: 7
   _rideSpringStrength: 200
   _rideSpringDamper: 10
   _squashAndStretchOcillator: {fileID: 1143284042572879517}
@@ -216,13 +215,59 @@ MonoBehaviour:
   _uprightSpringStrength: 10
   _uprightSpringDamper: 2
   _movementOption: 1
-  _jumpForceFactor: 20
-  _riseGravityFactor: 5
-  _fallGravityFactor: 10
-  _jumpBuffer: 0.05
-  _coyoteTime: 0.1
-  _rideHeightCrouch: 1
-  _transitionDurationCrouch: 0.05
+  _jumpRiseCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 8.575945
+      outSlope: 8.575945
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04657048
+    - serializedVersion: 3
+      time: 0.4
+      value: 2
+      inSlope: 0.18261994
+      outSlope: 0.18261994
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14853105
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _jumpFallCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: -5.605081
+      outSlope: -5.605081
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07456743
+    - serializedVersion: 3
+      time: 0.125
+      value: 0
+      inSlope: -19.900385
+      outSlope: -19.900385
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.053785045
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _jumpRideHeight: 6
+  _transitionDurationJumpRise: 0.25
+  _transitionDurationJumpFall: 0.15
+  _crouchRideHeight: 1.5
+  _transitionDurationCrouch: 0.1
   delayFollow: {fileID: 4605004468068803450}
 --- !u!114 &311547958509225728
 MonoBehaviour:
@@ -255,22 +300,6 @@ MonoBehaviour:
   _rates: {x: 1.8, y: 0.5}
   _magnitudes: {x: 0.5, y: 0}
   _torqueMagnitudes: {x: 0.25, y: 0.15, z: 0.5}
---- !u!114 &1480355016133334015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5097693694439654186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a66e1f9d19251348bb9a003dae393ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderers:
-  - {fileID: 4776283078906232159}
-  - {fileID: 1292122877575138034}
-  _ouchSound: {fileID: 8300000, guid: e3d345260e8a0674a9281a2fb7fd9a75, type: 3}
 --- !u!114 &3634003757542973386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,10 +312,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430e4bb132f70da4a8e6fd087cae46f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShouldSpringBeStiff: 0
   _minRideSpringStrength: 100
   _maxRideSpringStrength: 1000
-  _minRideSpringDamper: 2
+  _minRideSpringDamper: 5
   _maxRideSpringDamper: 50
+--- !u!114 &8976874769282600484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5097693694439654186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a66e1f9d19251348bb9a003dae393ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 3775691314155463823}
+  - {fileID: 8716588938107540031}
+  _ouchSound: {fileID: 0}
 --- !u!1 &8836825449483042409
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,9 +416,17 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1643480025437031135, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643480025437031135, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1bdb5e68444dda44b8e628f294e48021, type: 2}
+    - target: {fileID: 1643480025437031135, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31bbdf91b0a71a449af8f6051ff10eed, type: 2}
     - target: {fileID: 3595629609941739418, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0073
@@ -562,9 +616,17 @@ PrefabInstance:
       value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 6511264060194143343, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511264060194143343, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6405010c0c1b4834485419bd81bd3158, type: 2}
+    - target: {fileID: 6511264060194143343, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31bbdf91b0a71a449af8f6051ff10eed, type: 2}
     - target: {fileID: 6655137522693645386, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.00000003492459
@@ -857,6 +919,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e9cf14fd47bb3428cec3fd9ee84797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!137 &3775691314155463823 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1643480025437031135, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
+  m_PrefabInstance: {fileID: 2498129308403134032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4776283078906232159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6981678355417813775, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
@@ -899,6 +966,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e9cf14fd47bb3428cec3fd9ee84797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!137 &8716588938107540031 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6511264060194143343, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
+  m_PrefabInstance: {fileID: 2498129308403134032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8903150043017457458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6423668630542827874, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}

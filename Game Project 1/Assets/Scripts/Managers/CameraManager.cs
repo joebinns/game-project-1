@@ -11,6 +11,7 @@ namespace Managers.Camera
         static CinemachineBasicMultiChannelPerlin perlin;
 
         public float currentDefaultShake;
+        public float CurrentDefaultShake { get { return currentDefaultShake; } set { currentDefaultShake = value; perlin.m_AmplitudeGain = value; } }
         public static CameraManager Main { get; private set; }
         private void Awake()
         {
