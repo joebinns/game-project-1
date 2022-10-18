@@ -23,22 +23,22 @@ public class HitEffects : MonoBehaviour
     private IEnumerator FlashMaterialCoroutine()
     {
         foreach (Renderer renderer in _renderers)
-            renderer.materials[1].SetFloat("_Alpha", 1);
+            renderer.materials[renderer.materials.Length-1].SetFloat("_Alpha", 1);
 
         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
         foreach (Renderer renderer in _renderers)
-            renderer.materials[1].SetFloat("_Alpha", 0);
+            renderer.materials[renderer.materials.Length-1].SetFloat("_Alpha", 0);
 
         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
         foreach (Renderer renderer in _renderers)
-            renderer.materials[1].SetFloat("_Alpha", 1);
+            renderer.materials[renderer.materials.Length - 1].SetFloat("_Alpha", 1);
 
         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
 
         foreach (Renderer renderer in _renderers)
-            renderer.materials[1].SetFloat("_Alpha", 0);
+            renderer.materials[renderer.materials.Length - 1].SetFloat("_Alpha", 0);
     }
 }
