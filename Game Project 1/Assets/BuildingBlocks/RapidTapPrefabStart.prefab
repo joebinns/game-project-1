@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileSettings: {fileID: 11400000, guid: 73ed9aad08206034b9279647bfc73f04, type: 2}
   IsActive: 0
-  timer: 100
+  timer: 1
   pointsPerTap: 10
 --- !u!1001 &4509824051706678329
 PrefabInstance:
