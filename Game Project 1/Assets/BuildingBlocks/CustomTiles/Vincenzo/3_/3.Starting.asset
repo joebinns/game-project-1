@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a05e5f39a2ba00469071b489d782266, type: 3}
-  m_Name: 3.
+  m_Name: 3.Starting
   m_EditorClassIdentifier: 
   _description: 
-  MovementOption: 1
+  MovementOption: 0
   IsIndefinite: 0
   BeginEffectAudio: {fileID: 0}
   BeginEffectText: 
   EffectAnimation: 0
   HandleInputAudio: {fileID: 0}
   EffectSuccessAudio: {fileID: 0}
-  EffectSuccessPoints: 0
+  EffectSuccessPoints: 50
   EffectFailAudio: {fileID: 0}
-  EffectFailPoints: 0
+  EffectFailPoints: -10
   EndEffectAudio: {fileID: 0}
   DeactivateCanvasDelay: 0
   MiscellaneousAudioClips: []
