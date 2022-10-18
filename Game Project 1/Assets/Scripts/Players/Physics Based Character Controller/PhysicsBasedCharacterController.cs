@@ -52,6 +52,8 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private MovementOptions _movementOption = MovementOptions.Default;
 
         [Header("Tap for Ride Height Jump:")]
+        [SerializeField] private AnimationCurve _jumpRiseCurve;
+        [SerializeField] private AnimationCurve _jumpFallCurve;
         [SerializeField] private float _jumpRideHeight = 4f;
         [SerializeField] private float _transitionDurationJumpRise = 0.25f;
         [SerializeField] private float _transitionDurationJumpFall = 0.15f;
@@ -278,9 +280,8 @@ namespace Players.Physics_Based_Character_Controller
         {
             if (context.canceled & _grounded)
             {
-                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _jumpRideHeight, _transitionDurationJumpRise));
-                StartCoroutine(TransitionRideHeightDelayed(_jumpRideHeight, _defaultRideHeight, _transitionDurationJumpFall,
-                    _transitionDurationJumpRise));
+                StartCoroutine(EvaluateCurve(_jumpRiseCurve));
+                StartCoroutine(EvaluateCurveDelayed(_jumpFallCurve, _jumpRiseCurve[_jumpRiseCurve.length - 1].time));
             }
         }
         
@@ -306,7 +307,7 @@ namespace Players.Physics_Based_Character_Controller
             SetMovementOption(MovementOptions.Default);
         }
 
-        private IEnumerator TransitionRideHeight(float a, float b, float duration)
+        private IEnumerator TransitionRideHeight(float a, float b, float duration) // Apply to transform directly (without spring), read from curve.
         {
             var t = 0f;
             GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
@@ -317,7 +318,20 @@ namespace Players.Physics_Based_Character_Controller
                 yield return null;
             }
             _rideHeight = b;
-            Debug.Log(_rideHeight);
+            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
+        }
+        
+        private IEnumerator EvaluateCurve(AnimationCurve curve)
+        {
+            var t = 0f;
+            var duration = curve[curve.length - 1].time;
+            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                _rideHeight = _defaultRideHeight + curve.Evaluate(t);
+                yield return null;
+            }
             GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
         }
         
@@ -325,6 +339,12 @@ namespace Players.Physics_Based_Character_Controller
         {
             yield return new WaitForSeconds(delay);
             yield return TransitionRideHeight(a, b, duration);
+        }
+        
+        private IEnumerator EvaluateCurveDelayed(AnimationCurve curve, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            yield return EvaluateCurve(curve);
         }
     }
 }

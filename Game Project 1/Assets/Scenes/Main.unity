@@ -914,6 +914,26 @@ PrefabInstance:
       propertyPath: _riseGravityFactor
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _animationCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _animationCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _animationCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _animationCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _animationCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _offset
       value: 0
@@ -1558,7 +1578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000041650004, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000044443475, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1813,8 +1833,6 @@ MonoBehaviour:
   shouldGenerate: 0
   tilesToGenerate:
   - {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
-  - {fileID: 133372203712121623, guid: a51e7b2c87b6f3b4e92e5cfd3ed36c54, type: 3}
-  - {fileID: 133372203712121623, guid: bdc562e42bbce524bbe419c97ca92e9d, type: 3}
   mainCam: {fileID: 1628633466}
   startTile: {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
   endTile: {fileID: 133372203712121623, guid: 9f4546cddfffff042a63e0b4ecfe849e, type: 3}
@@ -2157,7 +2175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000041650004, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000044443475, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2257,7 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.8
+  m_AmplitudeGain: 0
   m_FrequencyGain: 10
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1754163439
