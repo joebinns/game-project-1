@@ -275,6 +275,8 @@ namespace Players.Physics_Based_Character_Controller
 
         public void JumpInput(InputAction.CallbackContext context)
         {
+            if (_movementOption != MovementOptions.Default) { return; }
+            
             if (context.canceled & _grounded)
             {
                 StartCoroutine(EvaluateCurve(_jumpRiseCurve));
@@ -284,14 +286,18 @@ namespace Players.Physics_Based_Character_Controller
         
         public void CrouchInput(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
-            }
             if (context.canceled)
             {
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
             }
+            
+            if (_movementOption != MovementOptions.Default) { return; }
+            
+            if (context.performed)
+            {
+                StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
+            }
+
         }
 
         public void SetMovementOption(MovementOptions movementOption)
