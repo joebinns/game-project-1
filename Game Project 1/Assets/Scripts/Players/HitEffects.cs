@@ -15,7 +15,7 @@ public class HitEffects : MonoBehaviour
 
     public void Play()
     {
-        AudioManager.PlaySound(_ouchSound);
+        //AudioManager.Instance.PlaySound(_ouchSound);
         StartCoroutine(FlashMaterialCoroutine());
         CameraManager.Main.Shake(20f, FLASH_DURATION);
     }

@@ -1,66 +1,170 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using FMODUnity;
+using FMOD;
+using FMODUnityResonance;
+using static UnityEditor.Profiling.RawFrameDataView;
+using static Cinemachine.AxisState;
+using TMPro;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace Managers.Audio
 {
-[RequireComponent(typeof(AudioSource))]
-public class AudioManager : MonoBehaviour
-{
-    private static AudioSource audioSource;
-
-    [Range(0,1)]
-    public static float mainVolume = 1;
-
-    private void Awake()
+    [RequireComponent(typeof(AudioSource))]
+    public class AudioManager : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.volume = mainVolume;
+        public static AudioManager Instance;
+
+        private FMOD.Studio.EventInstance instance;
+        public FMODUnity.EventReference fmodEvent;
+
+        [SerializeProperty("Parameter")]
+        public Parameters _parameter = Parameters.Default;
+        public Parameters Parameter
+        {
+            get => _parameter;
+            set
+            {
+                ChangeParameter(value);
+            }
+        }
+
+
+        private AudioSource audioSource;
+
+        //[Range(0, 1)]
+        //public float mainVolume = 1;
+
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(this);
+            }
+            Instance = this;
+
+            //audioSource = GetComponent<AudioSource>();
+           // audioSource.volume = mainVolume;
+        }
+
+        private void Start()
+        {
+            instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+            instance.start();
+        }
+
+        private IEnumerator FadeParameterCoroutine(Parameters parameter, float a, float b, float duration)
+        {
+            var t = 0f;
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                var value = Mathf.Lerp(a, b, t);
+                instance.setParameterByName(ParameterToString(parameter), value);
+                yield return null;
+            }
+        }
+
+        private void FadeParameter(Parameters parameter, float endValue)
+        {
+            float parameterStart;
+            float transitionDuration = 1f;
+            instance.getParameterByName(ParameterToString(parameter), out parameterStart);
+            StartCoroutine(FadeParameterCoroutine(parameter, parameterStart, endValue, transitionDuration));
+        }
+
+        public void ChangeParameter(Parameters parameter)
+        {
+            switch (parameter)
+            {
+                case Parameters.Default:
+                    FadeParameter(Parameters.Warp, 0f);
+                    FadeParameter(Parameters.RapidTap, 0f);
+                    break;
+                case Parameters.Warp:
+                    FadeParameter(Parameters.Warp, 1f);
+                    FadeParameter(Parameters.RapidTap, 0f);
+                    break;
+                case Parameters.RapidTap:
+                    FadeParameter(Parameters.Warp, 0f);
+                    FadeParameter(Parameters.RapidTap, 1f);
+                    break;
+            }
+            _parameter = parameter;
+        }
+
+        private string ParameterToString(Parameters parameter)
+        {
+            string str = "";
+            switch (parameter)
+            {
+                case Parameters.Default:
+                    str = "";
+                    break;
+                case Parameters.Warp:
+                    str = "Warp";
+                    break;
+                case Parameters.RapidTap:
+                    str = "Rapid tap";
+                    break;
+            }
+            return str;
+        }
+
+
+        public void PlaySound()
+        {
+            //RuntimeManager.PlayOneShot();
+        }
+
+        /// <summary>
+        /// play an audio clip
+        /// </summary>
+        /// <param name="clip">AudioClip</param>
+        //public void PlaySound(AudioClip clip)
+        //{
+        //    audioSource.pitch = 1;
+        //    audioSource.PlayOneShot(clip);
+        //}
+
+        /// <summary>
+        /// play an audio clip with a random pitch (0.9-1.1)
+        /// </summary>
+        /// <param name="clip">AudioClip</param>
+        //public void PlaySoundRandomPitch(AudioClip clip)
+        //{
+        //    audioSource.pitch = UnityEngine.Random.Range(.9f, 1.1f);
+        //    audioSource.PlayOneShot(clip);
+        //}
+
+        /// <summary>
+        /// play an audio clip with volume
+        /// </summary>
+        /// <param name="clip">AudioClip</param>
+        /// <param name="volumeScale">AudioClip</param>
+        //public void PlaySound(AudioClip clip, float volumeScale)
+        //{
+        //    audioSource.pitch = 1;
+        //    audioSource.PlayOneShot(clip, volumeScale);
+        //}
+
+        /// <summary>
+        /// play an audio clip with a random pitch (0.9-1.1) with volume
+        /// </summary>
+        /// <param name="clip">AudioClip</param>
+        /// <param name="volumeScale">AudioClip</param>
+        //public void PlaySoundRandomPitch(AudioClip clip, float volumeScale)
+        //{
+        //    audioSource.pitch = UnityEngine.Random.Range(.9f, 1.1f);
+        //    audioSource.PlayOneShot(clip, volumeScale);
+        //}
     }
-
-
-
-
-    /// <summary>
-    /// play an audio clip
-    /// </summary>
-    /// <param name="clip">AudioClip</param>
-    public static void PlaySound(AudioClip clip)
+    public enum Parameters
     {
-        audioSource.pitch = 1;
-        audioSource.PlayOneShot(clip);
+        Default,
+        Warp,
+        RapidTap
     }
-
-    /// <summary>
-    /// play an audio clip with a random pitch (0.9-1.1)
-    /// </summary>
-    /// <param name="clip">AudioClip</param>
-    public static void PlaySoundRandomPitch(AudioClip clip)
-    {
-        audioSource.pitch = Random.Range(.9f, 1.1f);
-        audioSource.PlayOneShot(clip);
-    }
-
-    /// <summary>
-    /// play an audio clip with volume
-    /// </summary>
-    /// <param name="clip">AudioClip</param>
-    /// <param name="volumeScale">AudioClip</param>
-    public static void PlaySound(AudioClip clip, float volumeScale)
-    {
-        audioSource.pitch = 1;
-        audioSource.PlayOneShot(clip, volumeScale);
-    }
-
-    /// <summary>
-    /// play an audio clip with a random pitch (0.9-1.1) with volume
-    /// </summary>
-    /// <param name="clip">AudioClip</param>
-    /// <param name="volumeScale">AudioClip</param>
-    public static void PlaySoundRandomPitch(AudioClip clip, float volumeScale)
-    {
-        audioSource.pitch = Random.Range(.9f, 1.1f);
-        audioSource.PlayOneShot(clip, volumeScale);
-    }
-}
 }
