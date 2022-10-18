@@ -1440,7 +1440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000003833086, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000003868147, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed693b1231aed4cb9dcdc318e76efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationMode: 0
+  generationMode: 1
   roadSpeed: 10
   maxRoadSpeed: 100
   tilesUntilEnd: 500
@@ -1699,7 +1699,7 @@ MonoBehaviour:
   startTile: {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
   endTile: {fileID: 133372203712121623, guid: 9f4546cddfffff042a63e0b4ecfe849e, type: 3}
   indefiniteTiles:
-  - {fileID: 133372203712121623, guid: dccab89f0c7af9348aab9508b4826adc, type: 3}
+  - {fileID: 2985738463849284443, guid: c1de07d3556d5f543a8667622f3cbc19, type: 3}
   tunnelTiles:
   - {fileID: 133372203712121623, guid: 16603fb6dba717745a15ecef911a92ab, type: 3}
 --- !u!114 &1231044772
@@ -2037,7 +2037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000003833086, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000003868147, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
