@@ -62,13 +62,13 @@ VisualEffect:
         m_Overridden: 1
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 0, y: 0.9667962, z: 10.432951, w: 0}
+      - m_Value: {x: 10.432951, y: 1.2583748, z: 0, w: 0}
         m_Name: Color
         m_Overridden: 1
-      - m_Value: {x: 13.149394, y: 13.149394, z: 13.149394, w: 0}
+      - m_Value: {x: 0.4392157, y: 2.2588236, z: 4, w: 0}
         m_Name: Energy Color
         m_Overridden: 1
-      - m_Value: {x: 2.3300426, y: 5.7537785, z: 9.082411, w: 0}
+      - m_Value: {x: 9.082411, y: 3.6746883, z: 2.3775942, w: 0}
         m_Name: FlashColor
         m_Overridden: 1
     m_Uint:
@@ -82,7 +82,10 @@ VisualEffect:
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 2800000, guid: 3541c3b349555cc4eb3d53a705d288c3, type: 3}
+        m_Name: Texture
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &1464729793394169120
