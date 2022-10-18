@@ -906,22 +906,6 @@ PrefabInstance:
       propertyPath: _jumpForceFactor
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpFallCurve.m_Curve.Array.data[1].time
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpFallCurve.m_Curve.Array.data[0].value
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpFallCurve.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpRiseCurve.m_Curve.Array.data[1].value
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _offset
       value: 0
@@ -1566,7 +1550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000007053721, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000007221148, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1985,22 +1969,6 @@ PrefabInstance:
       propertyPath: _jumpForceFactor
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpFallCurve.m_Curve.Array.data[1].time
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpRiseCurve.m_Curve.Array.data[1].time
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpFallCurve.m_Curve.Array.data[0].value
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
-      propertyPath: _jumpRiseCurve.m_Curve.Array.data[1].value
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _rates.x
       value: -2.2
@@ -2184,7 +2152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000007053721, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000007221148, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

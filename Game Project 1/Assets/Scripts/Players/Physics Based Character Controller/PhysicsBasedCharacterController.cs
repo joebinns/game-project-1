@@ -338,7 +338,7 @@ namespace Players.Physics_Based_Character_Controller
             //GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
             while (t < duration)
             {
-                t += Time.deltaTime;
+                t += Time.fixedDeltaTime;
 
                 //_rideHeight = _defaultRideHeight + curve.Evaluate(t);
                 
@@ -346,6 +346,7 @@ namespace Players.Physics_Based_Character_Controller
                 var position = _rb.position;
                 position.y = displacement + curve.Evaluate(t);
                 _rb.position = position;
+                
                 
                 // if _grounded & velocity < 0 (on fall curve), then stop coroutine...
                 if (stopIfGrounded & _grounded)
@@ -356,6 +357,28 @@ namespace Players.Physics_Based_Character_Controller
                 yield return new WaitForFixedUpdate();
             }
             //GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
+            
+            // While still in the air, continue along the end of the fall curve
+            if (stopIfGrounded)
+            {
+                var velocityY = curve.Differentiate(curve[curve.length - 1].time);
+                while (!_grounded)
+                {
+                    var position = _rb.position;
+                    position.y += velocityY * Time.fixedDeltaTime;
+                    _rb.position = position;
+
+                    yield return new WaitForFixedUpdate();
+                }
+                
+
+                /* // JANKY!!! WHYYY
+                var velocityY = curve.Differentiate(curve[curve.length - 1].time);
+                var velocity = _rb.velocity;
+                velocity.y += velocityY;
+                _rb.velocity = velocity;
+                */
+            }
         }
         
         private IEnumerator TransitionRideHeightDelayed(float a, float b, float duration, float delay)
