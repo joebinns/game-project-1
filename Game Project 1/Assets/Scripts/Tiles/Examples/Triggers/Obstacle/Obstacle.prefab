@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2806705659457877860, guid: 4fb766278b88ae9409836cead88d07e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2806705659457877860, guid: 4fb766278b88ae9409836cead88d07e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3096800452980367678, guid: 4fb766278b88ae9409836cead88d07e2, type: 3}
+      propertyPath: _failTileTrigger
+      value: 
+      objectReference: {fileID: 6229088917305797368}
     - target: {fileID: 7925463696841603966, guid: 4fb766278b88ae9409836cead88d07e2, type: 3}
       propertyPath: m_Name
       value: Obstacle Success
