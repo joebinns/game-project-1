@@ -47,6 +47,7 @@ namespace Players.Physics_Based_Character_Controller
 
         public enum MovementOptions { None, Default };
         private bool _grounded = true;
+        private RaycastHit _rayHit;
 
         [Header("Jump:")]
         [SerializeField] private MovementOptions _movementOption = MovementOptions.Default;
@@ -86,7 +87,7 @@ namespace Players.Physics_Based_Character_Controller
             bool grounded;
             if (rayHitGround == true)
             {
-                grounded = rayHit.distance <= _defaultRideHeight * 1.3f; // 1.3f allows for greater leniancy (as the value will oscillate about the rideHeight).
+                grounded = rayHit.distance <= _defaultRideHeight * 1.1f; // 1.1f allows for greater leniancy (as the value will oscillate about the rideHeight).
             }
             else
             {
@@ -105,8 +106,9 @@ namespace Players.Physics_Based_Character_Controller
             SetPlatform(rayHit);
 
             _grounded = CheckIfGrounded(rayHitGround, rayHit);
+            _rayHit = rayHit;
             
-            if (rayHitGround && _shouldMaintainHeight)
+            if (rayHitGround & _shouldMaintainHeight & !_isJumping)
             {
                 MaintainHeight(rayHit);
             }
@@ -277,10 +279,14 @@ namespace Players.Physics_Based_Character_Controller
         {
             if (_movementOption != MovementOptions.Default) { return; }
             
-            if (context.canceled & _grounded)
+            if (context.canceled & _grounded & !_isJumping)
             {
-                StartCoroutine(EvaluateCurve(_jumpRiseCurve));
-                StartCoroutine(EvaluateCurveDelayed(_jumpFallCurve, _jumpRiseCurve[_jumpRiseCurve.length - 1].time));
+                // get initial position-y
+                //var initialPositionY = _rb.position.y;
+                var initialPositionY = _rayHit.point.y + _defaultRideHeight; // be consistent with the initial position, for consistent jump heights
+                
+                StartCoroutine(EvaluateCurve(_jumpRiseCurve, initialPositionY));
+                StartCoroutine(EvaluateCurveDelayed(_jumpFallCurve, initialPositionY, _jumpRiseCurve[_jumpRiseCurve.length - 1].time));
             }
         }
         
@@ -324,18 +330,32 @@ namespace Players.Physics_Based_Character_Controller
             GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
         }
         
-        private IEnumerator EvaluateCurve(AnimationCurve curve)
+        private IEnumerator EvaluateCurve(AnimationCurve curve, float displacement = 0f, bool stopIfGrounded = false)
         {
             var t = 0f;
+
             var duration = curve[curve.length - 1].time;
-            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
+            //GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
             while (t < duration)
             {
                 t += Time.deltaTime;
-                _rideHeight = _defaultRideHeight + curve.Evaluate(t);
-                yield return null;
+
+                //_rideHeight = _defaultRideHeight + curve.Evaluate(t);
+                
+                // set y-transform, for jumping over edges
+                var position = _rb.position;
+                position.y = displacement + curve.Evaluate(t);
+                _rb.position = position;
+                
+                // if _grounded & velocity < 0 (on fall curve), then stop coroutine...
+                if (stopIfGrounded & _grounded)
+                {
+                    yield break;
+                }
+
+                yield return new WaitForFixedUpdate();
             }
-            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
+            //GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
         }
         
         private IEnumerator TransitionRideHeightDelayed(float a, float b, float duration, float delay)
@@ -343,11 +363,15 @@ namespace Players.Physics_Based_Character_Controller
             yield return new WaitForSeconds(delay);
             yield return TransitionRideHeight(a, b, duration);
         }
+
+        private bool _isJumping = false;
         
-        private IEnumerator EvaluateCurveDelayed(AnimationCurve curve, float delay)
+        private IEnumerator EvaluateCurveDelayed(AnimationCurve curve, float displacement, float delay)
         {
+            _isJumping = true;
             yield return new WaitForSeconds(delay);
-            yield return EvaluateCurve(curve);
+            yield return EvaluateCurve(curve, displacement, true);
+            _isJumping = false;
         }
     }
 }
