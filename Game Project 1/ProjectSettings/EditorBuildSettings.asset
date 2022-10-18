@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/StartMenu.unity
     guid: 8202a4a8cf893674bb1bd0ec23c05d40
   - enabled: 1
-    path: Assets/Scenes/Week1.unity
-    guid: 95ce5d55124bc8143bc9dde9c7698137
+    path: Assets/Scenes/CarlTests.unity
+    guid: 5a80f15ba6d29c3468b085fcec440767
   - enabled: 1
     path: Assets/Scenes/Menu/GameOverMenu.unity
     guid: e793b3a5d423e644bbdc1815991a67f3

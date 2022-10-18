@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CustomizeManager : MonoBehaviour
 {
+    [SerializeField] private Material hitMat;
+    
     [SerializeField] private GameObject player1Model, player2Model, p1Helm, p2Helm;
     
     [SerializeField] private GameObject p1CustomizeObj, p2CustomizeObj;
@@ -28,8 +30,7 @@ public class CustomizeManager : MonoBehaviour
     private void Awake()
     {
         ResetPlayerCustomization();
-        ApplyMaterials();
-        
+
         _p1CustomizeOpen = false;
         _p2CustomizeOpen = false;
     }
@@ -49,6 +50,8 @@ public class CustomizeManager : MonoBehaviour
 
         _p1Transform.position = _p1Lowered;
         _p2Transform.position = _p2Lowered;
+        
+        ApplyMaterials();
     }
 
     public void ChangeP1State()
@@ -482,11 +485,17 @@ public class CustomizeManager : MonoBehaviour
 
         p1Helm.GetComponent<MeshRenderer>().material = p1HelmColor;
         p2Helm.GetComponent<MeshRenderer>().material = p2HelmColor;
+
+        GameSettings.Instance.p1Materials = GetPlayerMats(1);
+        GameSettings.Instance.p2Materials = GetPlayerMats(2);
+
+        GameSettings.Instance.p1HelmMat = p1HelmColor;
+        GameSettings.Instance.p2HelmMat = p2HelmColor;
     }
 
     private Material[] GetPlayerMats(int playerID)
     {
-        Material[] toReturn = new Material[6];
+        Material[] toReturn = new Material[7];
         
         switch (playerID)
         {
@@ -502,6 +511,9 @@ public class CustomizeManager : MonoBehaviour
                 toReturn[4] = p1Pant;
                 //Jacket
                 toReturn[5] = p1Jacket;
+                
+                //HitEffectMat
+                toReturn[6] = hitMat;
                 break;
             
             case 2:
@@ -516,6 +528,9 @@ public class CustomizeManager : MonoBehaviour
                 toReturn[4] = p2Pant;
                 //Jacket
                 toReturn[5] = p2Jacket;
+                
+                //HitEffectMat
+                toReturn[6] = hitMat;
                 break;
         }
 
