@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class LerpTrigger : MonoBehaviour
 {
-    [SerializeField] SplineLerp startLerp;
+    [SerializeField] SplineLerp splineLerp;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        startLerp = other.GetComponent<SplineLerp>(shouldLerp);
+        splineLerp.StartLerp();
 
 
     }

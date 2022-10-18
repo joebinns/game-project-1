@@ -610,9 +610,9 @@ MonoBehaviour:
   - {fileID: 2750824395009820726}
   - {fileID: 6898762607173366050}
   objectToLerp: {fileID: 3567243826265497002}
-  lerpSpeed: 0.382
+  lerpSpeed: 1.788
   shouldLerp: 0
-  shouldDrawAnchorLines: 1
+  shouldDrawAnchorLines: 0
   activeLerpMode: 0
 --- !u!1 &3864044071775743494
 GameObject:
@@ -1535,7 +1535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505ed6d2df4ccb944a14fdead78acd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLerp: {fileID: 0}
+  splineLerp: {fileID: 8374435586541569667}
 --- !u!1001 &6773672895278421438
 PrefabInstance:
   m_ObjectHideFlags: 0
