@@ -33,7 +33,7 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 0
+    x: -0
     y: -434
     width: 6039
     height: 2091
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614637}
   - {fileID: 8926484042661614638}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: scale
   Composition: 2
   AlphaComposition: 0
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614725}
   - {fileID: 8926484042661614726}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: scale
   Composition: 2
   AlphaComposition: 0
@@ -4810,7 +4810,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614792}
   - {fileID: 8926484042661614793}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: scale
   Composition: 2
   AlphaComposition: 0
