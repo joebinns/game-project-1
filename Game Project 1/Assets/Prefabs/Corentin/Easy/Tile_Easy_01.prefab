@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 7428203024216608468}
   - component: {fileID: 1673839222359962157}
   m_Layer: 0
-  m_Name: Easy_01
+  m_Name: Tile_Easy_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
