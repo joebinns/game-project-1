@@ -99,7 +99,7 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
                 EventSuccess.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints, player.transform.position);
+            PointsManager.ChangePoints(player, TileSettings.EffectSuccessPoints);
 
         }
         //
@@ -114,7 +114,7 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
                 PlayFailButton2.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints, player.transform.position);
+            PointsManager.ChangePoints(player, TileSettings.EffectFailPoints);
             player.GetComponent<HitEffects>().Play();
 
         }
