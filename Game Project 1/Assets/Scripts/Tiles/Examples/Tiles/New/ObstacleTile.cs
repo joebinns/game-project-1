@@ -25,7 +25,6 @@ namespace Tiles.Examples
         {
             base.EffectFail(player);
             
-            player.GetComponent<HitEffects>().Play();
         }
 
         public override void HandleInput(Player player, OneFitsAllInput input)

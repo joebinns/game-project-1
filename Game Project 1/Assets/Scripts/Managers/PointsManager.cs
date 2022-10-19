@@ -12,7 +12,7 @@ namespace Managers.Points
         /// </summary>
         /// <param name="playerIndex">the player to send points to, 1-2</param>
         /// <param name="points">the amount</param>
-        public static void GainPoints(int playerIndex, int points)
+        public static void GainPoints(int playerIndex, int points, Vector3 position)
         {
             switch (playerIndex)
             {
@@ -28,6 +28,8 @@ namespace Managers.Points
                     Debug.LogError($"No player with index {playerIndex}. cannot give points");
                     break;
             }
+
+           // FloatingTextManager.SpawnText(points.ToString(), position + Vector3.back * 2, 1, 1, Color.red);
         }
 
         /// <summary>

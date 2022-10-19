@@ -34,6 +34,7 @@ namespace Tiles
             }
         }
         
+
         public virtual void BeginEffect()
         {
             IsActive = true;
@@ -91,6 +92,7 @@ namespace Tiles
             }
         }
 
+        // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
         public virtual void EffectSuccess(Player player)
         {
             if (TileSettings.EffectSuccessAudio != null)
@@ -98,9 +100,10 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
                 EventSuccess.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints);
+            PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints, player.transform.position);
         }
 
+        // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
         public virtual void EffectFail(Player player)
         {
             if (TileSettings.EffectFailAudio != null)
@@ -108,7 +111,9 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
                 PlayFailButton2.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints);
+            PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints, player.transform.position);
+            player.GetComponent<HitEffects>().Play();
+
         }
 
         private void DeactivateCanvas()

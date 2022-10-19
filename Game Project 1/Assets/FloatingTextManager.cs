@@ -21,6 +21,12 @@ public class FloatingTextManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+            SpawnText("test", Vector3.zero, 1, 1, Color.red);
+    }
+
     static FloatingText GetText()
     {
         FloatingText text = textPool[0];
