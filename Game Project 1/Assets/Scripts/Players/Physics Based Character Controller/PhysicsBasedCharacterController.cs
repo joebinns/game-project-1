@@ -19,6 +19,9 @@ namespace Players.Physics_Based_Character_Controller
 
         //Sound
         FMOD.Studio.EventInstance PlayJumpSound;
+        FMOD.Studio.EventInstance PlayCrouchSound;
+        FMOD.Studio.EventInstance PlayCrouchStopSound;
+        FMOD.Studio.EventInstance PlayHoverSoundLoop;
 
         [Header("Other:")]
         [SerializeField] private bool _adjustInputsToCameraAngle = false;
@@ -70,6 +73,9 @@ namespace Players.Physics_Based_Character_Controller
             _rideHeight = _defaultRideHeight;
             _rayToGroundLength = _defaultRayToGroundLength;
             PlayJumpSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverJump");
+            PlayCrouchSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverCrouch");
+            PlayCrouchStopSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverCrouchEnd");
+            PlayHoverSoundLoop = FMODUnity.RuntimeManager.CreateInstance("event:/HoverSoundLoop");
         }
 
         /// <summary>
@@ -77,6 +83,7 @@ namespace Players.Physics_Based_Character_Controller
         /// </summary>
         private void Start()
         {
+            PlayHoverSoundLoop.start();
             _rb = GetComponent<Rigidbody>();
             _gravitationalForce = Physics.gravity * _rb.mass;
         }
@@ -287,6 +294,7 @@ namespace Players.Physics_Based_Character_Controller
             if (context.canceled & _grounded & !_isJumping)
             {
                 PlayJumpSound.start();
+                PlayHoverSoundLoop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 StartCoroutine(Jump());
             }
         }
@@ -296,6 +304,8 @@ namespace Players.Physics_Based_Character_Controller
             if (context.canceled)
             {
                 // Stop crouching
+                PlayCrouchStopSound.start();
+                PlayCrouchSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
             }
             
@@ -304,6 +314,7 @@ namespace Players.Physics_Based_Character_Controller
             if (context.performed)
             {
                 // Start crouching
+                PlayCrouchSound.start();
                 StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
             }
 
@@ -341,6 +352,7 @@ namespace Players.Physics_Based_Character_Controller
             var finalRisePositionY = _rb.position.y;
             yield return StartCoroutine(JumpFall(finalRisePositionY)); // start falling from wherever the rise finished
             _isJumping = false;
+            PlayHoverSoundLoop.start();
         }
         
         private IEnumerator JumpRise(float displacementY)

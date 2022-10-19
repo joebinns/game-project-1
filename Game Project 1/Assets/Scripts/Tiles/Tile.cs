@@ -6,6 +6,8 @@ using Managers.Points;
 using Players;
 using UI;
 using UnityEngine;
+using FMOD;
+using FMODUnity;
 
 namespace Tiles
 {
@@ -16,7 +18,14 @@ namespace Tiles
 
         public static event Action<Tile> OnBeginEffect;
         public static event Action<Tile> OnEndEffect;
+        private FMOD.Studio.EventInstance PlayFailButton2;
+        private FMOD.Studio.EventInstance EventSuccess;
 
+        private void Awake()
+        {
+            PlayFailButton2 = FMODUnity.RuntimeManager.CreateInstance("event:/FailButton2");
+            EventSuccess = FMODUnity.RuntimeManager.CreateInstance("event:/EventStart");
+        }
         private void Start()
         {
             if (TileSettings.IsIndefinite)
@@ -87,6 +96,7 @@ namespace Tiles
             if (TileSettings.EffectSuccessAudio != null)
             {
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
+                EventSuccess.start();
             }
             PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints);
         }
@@ -96,6 +106,7 @@ namespace Tiles
             if (TileSettings.EffectFailAudio != null)
             {
                 //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
+                PlayFailButton2.start();
             }
             PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints);
         }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using FMODUnity;
 using Managers.Audio;
 using Managers.Camera;
+using Players.Physics_Based_Character_Controller;
 using UnityEngine;
 using UnityEngine.VFX;
 using Utilities;
@@ -15,11 +16,16 @@ public class HitEffects : MonoBehaviour
 
     [SerializeField] private const float FLASH_DURATION = 0.25f;
 
-    FMOD.Studio.EventInstance PlayOuchSound;
+    private PhysicsBasedCharacterController characterController;
+
+    private FMOD.Studio.EventInstance PlayOuchSound;
+    private FMOD.Studio.EventInstance PlayHoverCrashSound;
 
     private void Awake()
     {
+        characterController = GetComponent<PhysicsBasedCharacterController>();
         PlayOuchSound = FMODUnity.RuntimeManager.CreateInstance("event:/PlayerOuch1");
+        PlayHoverCrashSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverCrash2");
     }
 
     private void Update()
@@ -33,7 +39,9 @@ public class HitEffects : MonoBehaviour
     {
         if (_ouchSound != null)
         {
-            AudioManager.PlaySound(_ouchSound);
+            //AudioManager.Instance.PlaySound(_ouchSound);
+            PlayHoverCrashSound.start();
+            //characterController.PlayHoverSoundLoop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
         if (_renderers.Count <= 0)
         {
