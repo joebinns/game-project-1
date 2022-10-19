@@ -11,14 +11,124 @@ using Utilities;
 
 public class HitEffects : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    ///     HI! hello....
+    ///     if youre reading this. don't
+    ///     alt + f out of this script
+    ///     dont look at it
+    ///     its not here
+    ///     
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    ///             dont scroll down 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    ///         ...... go away
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// </summary>
     [SerializeField] private SkinnedMeshRenderer _body;
     [SerializeField] private MeshRenderer _hemlet;
     [SerializeField] private AudioClip _ouchSound;
 
-    public Material[] defaultMat0;
-    public Material[] defaultMatHurt;
-    public Material[] defaulthelmet;
-    public Material[] defaulthelmetHurt;
+    private Material[] body;
+    private Material[] bodyhardcodedFUCK;
+    private Material[] bodyHurt;
+    private Material[] defaulthelmet;
+    private Material[] defaulthelmetHurt;
 
     public Material hurtmaterial;
 
@@ -35,18 +145,19 @@ public class HitEffects : MonoBehaviour
         PlayOuchSound = FMODUnity.RuntimeManager.CreateInstance("event:/PlayerOuch1");
         PlayHoverCrashSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverCrash2");
 
-        defaultMat0 = _body.materials;
+        body = _body.materials;
+        bodyhardcodedFUCK = _body.materials;
         defaulthelmet = _hemlet.materials;
 
-        
-        defaultMatHurt = defaultMat0;
+
+        bodyHurt = body;
         defaulthelmetHurt = _hemlet.materials;
 
-       /* for (int i = 0; i < defaultMatHurt.Length; i++)
+
+        for (int i = 0; i < bodyHurt.Length; i++)
         {
-            defaultMatHurt[i] = hurtmaterial;
+            bodyHurt[i] = hurtmaterial;
         }
-       */
 
         for (int i = 0; i < defaulthelmetHurt.Length; i++)
         {
@@ -62,6 +173,7 @@ public class HitEffects : MonoBehaviour
             //characterController.PlayHoverSoundLoop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
 
+       
         StartCoroutine(FlashMaterialCoroutine());
 
         //CameraManager.Main.Shake(20f, FLASH_DURATION);
@@ -69,22 +181,22 @@ public class HitEffects : MonoBehaviour
 
     private IEnumerator FlashMaterialCoroutine()
     {
-        _body.materials = defaultMatHurt;
+        _body.materials = bodyHurt;
         _hemlet.materials = defaulthelmetHurt;
 
         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
-        _body.materials = defaultMat0;
+        _body.materials = bodyhardcodedFUCK;
         _hemlet.materials = defaulthelmet;
 
         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
-        _body.materials = defaultMatHurt;
+        _body.materials = bodyHurt;
         _hemlet.materials = defaulthelmetHurt;
 
         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
-        _body.materials = defaultMat0;
+        _body.materials = bodyhardcodedFUCK;
         _hemlet.materials = defaulthelmet;
         /* foreach(Material mat in _body.materials)
          _body.materials[_body.materials.Length-1].SetFloat("_Alpha", 1);
