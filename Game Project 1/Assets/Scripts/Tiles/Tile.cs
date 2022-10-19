@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Inputs;
+using Managers.Audio;
 using Managers.Points;
 using Players;
 using UI;
@@ -34,6 +35,7 @@ namespace Tiles
 
         public virtual void BeginEffect()
         {
+            Debug.Log("BeginEffect");
             IsActive = true;
             
             // Subscribe inputs to this tile's effect
@@ -45,6 +47,7 @@ namespace Tiles
             // Play BeginEffectAudio
             if (TileSettings.BeginEffectAudio != null)
             {
+                AudioManager.Instance.ChangeParameter(TileSettings.BeginEffectAudio);
                 //AudioManager.Instance.PlaySound(TileSettings.BeginEffectAudio);
             }
 
@@ -57,6 +60,7 @@ namespace Tiles
 
         public virtual void EndEffect()
         {
+            Debug.Log("EndEffect");
             IsActive = false;
             
             // Subscribe inputs back to player
@@ -68,6 +72,7 @@ namespace Tiles
             // Play EndEffectAudio and deactivate effect canvas
             if (TileSettings.EndEffectAudio != null)
             {
+                AudioManager.Instance.ChangeParameter(TileSettings.EndEffectAudio);
                 //AudioManager.Instance.PlaySound(TileSettings.EndEffectAudio);
             }
             

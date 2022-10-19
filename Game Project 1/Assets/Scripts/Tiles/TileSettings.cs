@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Managers.Audio;
 using Players.Physics_Based_Character_Controller;
 using UI;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace Tiles
         public bool IsIndefinite;
 
         [Header("Begin Effect")]
-        public AudioClip BeginEffectAudio;
+        public Parameters BeginEffectAudio;
         public string BeginEffectText;
         public EffectAnimation EffectAnimation = EffectAnimation.None;
         
@@ -35,7 +36,7 @@ namespace Tiles
         public int EffectFailPoints;
         
         [Header("End Effect")]
-        public AudioClip EndEffectAudio;
+        public Parameters EndEffectAudio;
         public float DeactivateCanvasDelay = 0f;
 
         [Header("Advanced")]
