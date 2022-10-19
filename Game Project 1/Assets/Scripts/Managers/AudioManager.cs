@@ -17,8 +17,10 @@ namespace Managers.Audio
     {
         public static AudioManager Instance;
 
-        private FMOD.Studio.EventInstance instance;
+        public FMOD.Studio.EventInstance instance;
         public FMODUnity.EventReference fmodEvent;
+
+        FMOD.Studio.EventInstance PlayHoverSound;
 
         [SerializeProperty("Parameter")]
         public Parameters _parameter = Parameters.Default;
@@ -39,6 +41,8 @@ namespace Managers.Audio
 
         private void Awake()
         {
+            PlayHoverSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverSound");
+
             if (Instance != null)
             {
                 Destroy(this);
@@ -51,6 +55,7 @@ namespace Managers.Audio
 
         private void Start()
         {
+            PlayHoverSound.start();
             instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
             instance.start();
         }
