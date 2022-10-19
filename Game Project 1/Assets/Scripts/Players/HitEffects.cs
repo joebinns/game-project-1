@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using Managers.Audio;
 using Managers.Camera;
 using UnityEngine;
+using UnityEngine.VFX;
 using Utilities;
 
 public class HitEffects : MonoBehaviour
@@ -13,6 +15,20 @@ public class HitEffects : MonoBehaviour
 
     [SerializeField] private const float FLASH_DURATION = 0.25f;
 
+    FMOD.Studio.EventInstance PlayOuchSound;
+
+    private void Awake()
+    {
+        PlayOuchSound = FMODUnity.RuntimeManager.CreateInstance("event:/PlayerOuch1");
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            PlayOuchSound.start();
+        }
+    }
     public void Play()
     {
         if (_ouchSound != null)

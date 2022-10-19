@@ -38,7 +38,7 @@ namespace Tiles
             // Play BeginEffectAudio
             if (TileSettings.BeginEffectAudio != null)
             {
-                AudioManager.PlaySound(TileSettings.BeginEffectAudio);
+                //AudioManager.Instance.PlaySound(TileSettings.BeginEffectAudio);
             }
 
             // Activate effect canvas
@@ -61,7 +61,7 @@ namespace Tiles
             // Play EndEffectAudio and deactivate effect canvas
             if (TileSettings.EndEffectAudio != null)
             {
-                AudioManager.PlaySound(TileSettings.EndEffectAudio);
+                //AudioManager.Instance.PlaySound(TileSettings.EndEffectAudio);
             }
             
             Invoke("DeactivateCanvas", TileSettings.DeactivateCanvasDelay);
@@ -78,7 +78,7 @@ namespace Tiles
             // Play HandleInputAudio
             if (TileSettings.HandleInputAudio != null)
             {
-                AudioManager.PlaySound(TileSettings.HandleInputAudio);
+                //AudioManager.Instance.PlaySound(TileSettings.HandleInputAudio);
             }
         }
 
@@ -86,7 +86,7 @@ namespace Tiles
         {
             if (TileSettings.EffectSuccessAudio != null)
             {
-                AudioManager.PlaySound(TileSettings.EffectSuccessAudio);
+                //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
             }
             PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints);
         }
@@ -95,7 +95,7 @@ namespace Tiles
         {
             if (TileSettings.EffectFailAudio != null)
             {
-                AudioManager.PlaySound(TileSettings.EffectFailAudio);
+                //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
             }
             PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints);
         }

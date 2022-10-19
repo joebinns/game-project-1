@@ -17,6 +17,9 @@ namespace Players.Physics_Based_Character_Controller
         private Vector3 _previousVelocity = Vector3.zero;
         private Vector2 _moveContext;
 
+        //Sound
+        FMOD.Studio.EventInstance PlayJumpSound;
+
         [Header("Other:")]
         [SerializeField] private bool _adjustInputsToCameraAngle = false;
         [SerializeField] private LayerMask _terrainLayer;
@@ -66,6 +69,7 @@ namespace Players.Physics_Based_Character_Controller
         {
             _rideHeight = _defaultRideHeight;
             _rayToGroundLength = _defaultRayToGroundLength;
+            PlayJumpSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverJump");
         }
 
         /// <summary>
@@ -282,6 +286,7 @@ namespace Players.Physics_Based_Character_Controller
             
             if (context.canceled & _grounded & !_isJumping)
             {
+                PlayJumpSound.start();
                 StartCoroutine(Jump());
             }
         }
@@ -290,6 +295,7 @@ namespace Players.Physics_Based_Character_Controller
         {
             if (context.canceled)
             {
+                // Stop crouching
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
             }
             
@@ -297,6 +303,7 @@ namespace Players.Physics_Based_Character_Controller
             
             if (context.performed)
             {
+                // Start crouching
                 StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
             }
 
