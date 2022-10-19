@@ -133,8 +133,15 @@ namespace Players.Physics_Based_Character_Controller
             
             Jump();
             
+            var velocity = _rb.velocity;
+            velocity.x = 0f;
+            velocity.z = 0f;
+            _rb.velocity = velocity;
+            
             var lookDirection = Vector3.forward;
             MaintainUpright(lookDirection, rayHit);
+            
+            Debug.Log(_rb.velocity);
         }
 
         /// <summary>
