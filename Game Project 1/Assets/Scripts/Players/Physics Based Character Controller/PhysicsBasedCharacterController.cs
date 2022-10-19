@@ -390,8 +390,13 @@ namespace Players.Physics_Based_Character_Controller
             {
                 _jumpTimer += Time.fixedDeltaTime;
 
+                //var position = _rb.position;
+                //position.y = displacementY + curve.Evaluate(_jumpTimer);
+                
+                var velocityY = curve.Differentiate(_jumpTimer);
                 var position = _rb.position;
-                position.y = displacementY + curve.Evaluate(_jumpTimer);
+                position.y += velocityY * Time.fixedDeltaTime;
+
                 _rb.MovePosition(position);
             }
             else
@@ -415,8 +420,13 @@ namespace Players.Physics_Based_Character_Controller
             {
                 _jumpTimer += Time.fixedDeltaTime;
 
+                //var position = _rb.position;
+                //position.y = displacementY + curve.Evaluate(_jumpTimer);
+                
+                var velocityY = curve.Differentiate(_jumpTimer);
                 var position = _rb.position;
-                position.y = displacementY + curve.Evaluate(_jumpTimer);
+                position.y += velocityY * Time.fixedDeltaTime;
+                
                 _rb.MovePosition(position);
             }
             else
