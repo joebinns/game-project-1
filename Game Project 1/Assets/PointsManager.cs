@@ -17,9 +17,10 @@ namespace Managers.Points
         {
             if (Instance != null)
             {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
 
         /// <summary>
