@@ -20,9 +20,9 @@ MonoBehaviour:
   EffectAnimation: 0
   HandleInputAudio: {fileID: 0}
   EffectSuccessAudio: {fileID: 0}
-  EffectSuccessPoints: 100
+  EffectSuccessPoints: 50
   EffectFailAudio: {fileID: 0}
-  EffectFailPoints: -100
+  EffectFailPoints: -10
   EndEffectAudio: {fileID: 0}
   DeactivateCanvasDelay: 0
   MiscellaneousAudioClips: []

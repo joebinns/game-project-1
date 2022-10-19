@@ -18,10 +18,10 @@ namespace Players.Physics_Based_Character_Controller
         private Vector2 _moveContext;
 
         //Sound
-        FMOD.Studio.EventInstance PlayJumpSound;
-        FMOD.Studio.EventInstance PlayCrouchSound;
-        FMOD.Studio.EventInstance PlayCrouchStopSound;
-        FMOD.Studio.EventInstance PlayHoverSoundLoop;
+        private FMOD.Studio.EventInstance PlayJumpSound;
+        private FMOD.Studio.EventInstance PlayCrouchSound;
+        private FMOD.Studio.EventInstance PlayCrouchStopSound;
+        public FMOD.Studio.EventInstance PlayHoverSoundLoop;
 
         [Header("Other:")]
         [SerializeField] private bool _adjustInputsToCameraAngle = false;

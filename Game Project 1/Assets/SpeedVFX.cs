@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.VFX;
 using Cinemachine;
 using Managers.Camera;
+using Players.Physics_Based_Character_Controller;
 
 public class SpeedVFX : MonoBehaviour
 {
     static VisualEffect speedLines;
+    
 
 
     private void Awake()
