@@ -33,7 +33,7 @@ public class HitEffects : MonoBehaviour
     {
         if (_ouchSound != null)
         {
-            AudioManager.PlaySound(_ouchSound);
+            //AudioManager.Instance.PlaySound(_ouchSound);
         }
         if (_renderers.Count <= 0)
         {
