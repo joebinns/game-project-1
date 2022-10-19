@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8593993443346701619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverBoost2
+  m_EditorClassIdentifier: 
+  Path: event:/HoverBoost2
+  Guid:
+    Data1: -1838558554
+    Data2: 1086592314
+    Data3: -872432970
+    Data4: -2050568583
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3308
+--- !u!114 &-7944126686835461225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lazer
+  m_EditorClassIdentifier: 
+  Path: event:/Lazer
+  Guid:
+    Data1: 911180396
+    Data2: 1177649922
+    Data3: 405382548
+    Data4: 1962149928
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12392
 --- !u!114 &-6554528235618694490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,7 +80,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1959
+  Length: 1920
+--- !u!114 &-6288710453139277034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverBoost1
+  m_EditorClassIdentifier: 
+  Path: event:/HoverBoost1
+  Guid:
+    Data1: -173664325
+    Data2: 1262995659
+    Data3: -284353374
+    Data4: 1528543748
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3304
 --- !u!114 &-6253373804542689624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +135,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1567
+--- !u!114 &-5944589822800659322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverCrash
+  m_EditorClassIdentifier: 
+  Path: event:/HoverCrash
+  Guid:
+    Data1: 931056889
+    Data2: 1177067277
+    Data3: 1058600604
+    Data4: -1341532525
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2250
 --- !u!114 &-5451992607147207980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +186,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-3519521038025914261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverCrouch
+  m_EditorClassIdentifier: 
+  Path: event:/HoverCrouch
+  Guid:
+    Data1: 2031096273
+    Data2: 1234937986
+    Data3: 409196176
+    Data4: -986546598
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8673
 --- !u!114 &-2529400956486955948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +240,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 6504
+--- !u!114 &-2202905642624503001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverCrouchEnd
+  m_EditorClassIdentifier: 
+  Path: event:/HoverCrouchEnd
+  Guid:
+    Data1: -590414880
+    Data2: 1275105974
+    Data3: 1240762773
+    Data4: 1974581392
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 906
 --- !u!114 &-1561500008929414204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,12 +327,24 @@ MonoBehaviour:
   - {fileID: -6253373804542689624}
   - {fileID: 452950704730356788}
   - {fileID: 916755140349767361}
+  - {fileID: -8593993443346701619}
+  - {fileID: -6288710453139277034}
+  - {fileID: 2894022016700102058}
+  - {fileID: 8014702303012106371}
+  - {fileID: 6974427894326638905}
+  - {fileID: -7944126686835461225}
+  - {fileID: 9201998618207488338}
+  - {fileID: -3519521038025914261}
+  - {fileID: 7260099682852152168}
+  - {fileID: -2202905642624503001}
+  - {fileID: -5944589822800659322}
+  - {fileID: 8173183060784429173}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8515841330935706552}
   StringsBanks:
   - {fileID: 4435246354229623429}
-  cacheTime: 638017736128111400
+  cacheTime: 638017865734294694
   cacheVersion: 131593
 --- !u!114 &452950704730356788
 MonoBehaviour:
@@ -276,7 +450,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 6500
+  Length: 6460
 --- !u!114 &2231631127871752540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +477,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1985
+  Length: 1946
 --- !u!114 &2595281851630927475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +531,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1985
+  Length: 1956
+--- !u!114 &2894022016700102058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverCrash2
+  m_EditorClassIdentifier: 
+  Path: event:/HoverCrash2
+  Guid:
+    Data1: -1183699200
+    Data2: 1094354792
+    Data3: 141991605
+    Data4: 1990685229
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2325
 --- !u!114 &3344370743959233262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +639,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 5500
+  Length: 5427
 --- !u!114 &4435246354229623429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,10 +655,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638017736128111400
+  lastModified: 638017865734294694
   FileSizes:
   - Name: 
-    Value: 1524
+    Value: 2030
   Exists: 1
 --- !u!114 &6279010969455320036
 MonoBehaviour:
@@ -485,7 +686,61 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1959
+  Length: 1925
+--- !u!114 &6974427894326638905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverCrashSign 2
+  m_EditorClassIdentifier: 
+  Path: event:/HoverCrashSign 2
+  Guid:
+    Data1: -356489123
+    Data2: 1332430643
+    Data3: 1914642087
+    Data4: -1531090491
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2403
+--- !u!114 &7260099682852152168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spaceship
+  m_EditorClassIdentifier: 
+  Path: event:/Spaceship
+  Guid:
+    Data1: 378173404
+    Data2: 1147644115
+    Data3: -1365227093
+    Data4: 2027572023
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14149
 --- !u!114 &7359509254370435209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +796,61 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4806
+  Length: 2000
+--- !u!114 &8014702303012106371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverCrashSign
+  m_EditorClassIdentifier: 
+  Path: event:/HoverCrashSign
+  Guid:
+    Data1: -1048059867
+    Data2: 1247215269
+    Data3: -609067904
+    Data4: -542915100
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2309
+--- !u!114 &8173183060784429173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/HoverSoundLoop
+  m_EditorClassIdentifier: 
+  Path: event:/HoverSoundLoop
+  Guid:
+    Data1: -1309130586
+    Data2: 1272924284
+    Data3: -1856842577
+    Data4: -1798031302
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000
 --- !u!114 &8515841330935706552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +866,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638017736128091772
+  lastModified: 638017865734274945
   FileSizes: []
   Exists: 1
 --- !u!114 &8954293768259128050
@@ -586,4 +895,31 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1985
+  Length: 1951
+--- !u!114 &9201998618207488338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lazer2
+  m_EditorClassIdentifier: 
+  Path: event:/Lazer2
+  Guid:
+    Data1: -2054696557
+    Data2: 1213516934
+    Data3: -617533043
+    Data4: -2062223355
+  Banks:
+  - {fileID: 8515841330935706552}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9394
