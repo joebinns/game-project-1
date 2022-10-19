@@ -8,7 +8,7 @@ namespace Managers.Points
         private static int p1Points, p2Points;
 
         /// <summary>
-        /// add points to a specified player
+        /// add points to a specifdied player
         /// </summary>
         /// <param name="playerIndex">the player to send points to, 1-2</param>
         /// <param name="points">the amount</param>
@@ -29,7 +29,7 @@ namespace Managers.Points
                     break;
             }
 
-           // FloatingTextManager.SpawnText(points.ToString(), position + Vector3.back * 2, 1, 1, Color.red);
+            // FloatingTextManager.SpawnText(points.ToString(), position + Vector3.back * 2, 1, 1, Color.red);
         }
 
         /// <summary>

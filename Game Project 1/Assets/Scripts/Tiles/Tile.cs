@@ -92,6 +92,7 @@ namespace Tiles
         // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
         public virtual void EffectSuccess(Player player)
         {
+            Debug.Log("success");
             if (TileSettings.EffectSuccessAudio != null)
             {
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
@@ -99,10 +100,13 @@ namespace Tiles
             }
             PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints, player.transform.position);
         }
+        //
 
         // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
         public virtual void EffectFail(Player player)
         {
+            Debug.Log("fail");
+
             if (TileSettings.EffectFailAudio != null)
             {
                 //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
