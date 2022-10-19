@@ -2806,6 +2806,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1426869746150314609, guid: b616f88784c83084f83e29156e4b48b5, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426869746150314609, guid: b616f88784c83084f83e29156e4b48b5, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426869746150314609, guid: b616f88784c83084f83e29156e4b48b5, type: 3}
+      propertyPath: onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6818563136513576898, guid: b616f88784c83084f83e29156e4b48b5, type: 3}
       propertyPath: m_Name
       value: Obst high half (4)
