@@ -1,15 +1,12 @@
 using System;
-using System.Collections;
 using Players;
 using Tiles;
-using Unity.VisualScripting.InputSystem;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Inputs
 {
-    public class PlayerInput : MonoBehaviour
+    public class PlayersInput : MonoBehaviour
     {
         private Player _player;
         private Tile _currentTile;
