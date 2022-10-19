@@ -375,6 +375,7 @@ MonoBehaviour:
   _body: {fileID: 3775691314155463823}
   _hemlet: {fileID: 3943145387776189398}
   _ouchSound: {fileID: 0}
+  hurtmaterial: {fileID: 2100000, guid: ce7022c9758e02d458af18b3fcf4aa09, type: 2}
 --- !u!114 &9088493947722397082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1446779767100722566, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1446779767100722566, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -490,7 +491,7 @@ PrefabInstance:
       objectReference: {fileID: -3619236962600208606, guid: 55058e38d383d76409704bf25ab4afb7, type: 3}
     - target: {fileID: 1643480025437031135, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1643480025437031135, guid: 563fb3ca09a0d6246981d667a7102f0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
