@@ -42,7 +42,7 @@ public class GameSettings : MonoBehaviour
 
     public void ResetPoints()
     {
-        PointsManager.ResetPoints();
+        PointsManager.Instance.ResetPoints();
         player1Points = 0;
         player2Points = 0;
     }

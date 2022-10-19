@@ -65,7 +65,7 @@ namespace UI
         {
             for (int i = 0; i < _pointsTexts.Count; i++)
             {
-                _pointsTexts[i].text = PointsManager.GetPoints(i).ToString();
+                _pointsTexts[i].text = PointsManager.Instance.GetPoints(i).ToString();
             }
         }
     }
