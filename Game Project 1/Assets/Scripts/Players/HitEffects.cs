@@ -17,7 +17,7 @@ public class HitEffects : MonoBehaviour
     {
         AudioManager.PlaySound(_ouchSound);
         StartCoroutine(FlashMaterialCoroutine());
-        CameraManager.Main.Shake(20f, FLASH_DURATION);
+        //CameraManager.Main.Shake(20f, FLASH_DURATION); // Remove screenshake on hit, since it is confusing for two players
     }
 
     private IEnumerator FlashMaterialCoroutine()
