@@ -5,26 +5,13 @@ using UnityEngine;
 
 public class BoardLeveler : MonoBehaviour
 {
-    // raycast down to ground from front and back
-    
-    // compare raycast distances 
-    
-    // calculate torque to apply to equalize distances
-    
-    // apply torque
-    
-    // ... ORRRR ... (trying this first)
-    
-    // raycast to ground to get point
-    
-    // set collider to have that position
-    
+    [SerializeField] private float _rayToGroundLength = 10f;
+    [SerializeField] private float _torqueMagnitude = 3f;
     [SerializeField] private LayerMask _terrainLayer;
     [SerializeField] private Transform _raySourceFront;
     [SerializeField] private Transform _raySourceBack;
     private readonly Vector3 _rayDir = Vector3.down;
     private Rigidbody _rb;
-    private float _rayToGroundLength;
 
     private void Awake()
     {
@@ -39,7 +26,7 @@ public class BoardLeveler : MonoBehaviour
         if (!rayFrontHitGround | !rayBackHitGround) { return; }
 
         var deltaDistance = rayFrontHit.distance - rayBackHit.distance;
-        var torque = new Vector3(deltaDistance, 0f, 0f);
+        var torque = new Vector3(-deltaDistance, 0f, 0f) * _torqueMagnitude;
         _rb.AddTorque(torque, ForceMode.Force);
     }
     
