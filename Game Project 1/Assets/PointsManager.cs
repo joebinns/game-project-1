@@ -18,10 +18,16 @@ namespace Managers.Points
             {
                 case 0:
                     p1Points += points;
+
+                    FloatingTextManager.Instance.SpawnText(points.ToString(), position + Vector3.right * 5 + Vector3.up * 3, 1, 1, Color.white);
+
                     break;
 
                 case 1:
                     p2Points += points;
+
+                    FloatingTextManager.Instance.SpawnText(points.ToString(), position + Vector3.right * -5 + Vector3.up * 3, 1, 1, Color.white);
+
                     break;
 
                 default:
@@ -29,7 +35,7 @@ namespace Managers.Points
                     break;
             }
 
-            // FloatingTextManager.SpawnText(points.ToString(), position + Vector3.back * 2, 1, 1, Color.red);
+
         }
 
         /// <summary>

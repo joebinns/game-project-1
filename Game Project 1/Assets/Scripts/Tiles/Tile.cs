@@ -5,6 +5,7 @@ using Managers.Points;
 using Players;
 using UI;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Tiles
 {
@@ -99,6 +100,7 @@ namespace Tiles
                 EventSuccess.start();
             }
             PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints, player.transform.position);
+
         }
         //
 

@@ -15,6 +15,9 @@ public class HitEffects : MonoBehaviour
     [SerializeField] private MeshRenderer _hemlet;
     [SerializeField] private AudioClip _ouchSound;
 
+    private Material[] defaultMat0;
+    private Material[] defaulthelmet;
+
     [SerializeField] private const float FLASH_DURATION = 0.25f;
 
     private PhysicsBasedCharacterController characterController;
@@ -27,6 +30,8 @@ public class HitEffects : MonoBehaviour
         characterController = GetComponent<PhysicsBasedCharacterController>();
         PlayOuchSound = FMODUnity.RuntimeManager.CreateInstance("event:/PlayerOuch1");
         PlayHoverCrashSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverCrash2");
+
+        defaultMat0 = _body
     }
     public void Play()
     {
@@ -45,27 +50,34 @@ public class HitEffects : MonoBehaviour
     private IEnumerator FlashMaterialCoroutine()
     {
 
-        _body.materials[_body.materials.Length-1].SetFloat("_Alpha", 1);
-        _hemlet.materials[_hemlet.materials.Length-1].SetFloat("_Alpha", 1);
 
         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
-        _body.materials[_body.materials.Length - 1].SetFloat("_Alpha", 0);
-        _hemlet.materials[_hemlet.materials.Length - 1].SetFloat("_Alpha", 0);
+        /* foreach(Material mat in _body.materials)
+         _body.materials[_body.materials.Length-1].SetFloat("_Alpha", 1);
+         _hemlet.materials[_hemlet.materials.Length-1].SetFloat("_Alpha", 1);
+
+         yield return new WaitForSeconds(FLASH_DURATION / 3);
+
+         foreach (Material mat in _body.materials)
+             _body.materials[_body.materials.Length - 1].SetFloat("_Alpha", 0);
+         _hemlet.materials[_hemlet.materials.Length - 1].SetFloat("_Alpha", 0);
 
 
-        yield return new WaitForSeconds(FLASH_DURATION / 3);
+         yield return new WaitForSeconds(FLASH_DURATION / 3);
 
-        _body.materials[_body.materials.Length - 1].SetFloat("_Alpha", 1);
-        _hemlet.materials[_hemlet.materials.Length - 1].SetFloat("_Alpha", 1);
-
-
-        yield return new WaitForSeconds(FLASH_DURATION / 3);
-
-        _body.materials[_body.materials.Length - 1].SetFloat("_Alpha", 0);
-        _hemlet.materials[_hemlet.materials.Length - 1].SetFloat("_Alpha", 0);
+         foreach (Material mat in _body.materials)
+             _body.materials[_body.materials.Length - 1].SetFloat("_Alpha", 1);
+         _hemlet.materials[_hemlet.materials.Length - 1].SetFloat("_Alpha", 1);
 
 
+         yield return new WaitForSeconds(FLASH_DURATION / 3);
+
+         foreach (Material mat in _body.materials)
+             _body.materials[_body.materials.Length - 1].SetFloat("_Alpha", 0);
+         _hemlet.materials[_hemlet.materials.Length - 1].SetFloat("_Alpha", 0);
+
+         */
 
     }
 }
