@@ -394,10 +394,13 @@ namespace Players.Physics_Based_Character_Controller
                 //position.y = displacementY + curve.Evaluate(_jumpTimer);
                 
                 var velocityY = curve.Differentiate(_jumpTimer);
-                var position = _rb.position;
-                position.y += velocityY * Time.fixedDeltaTime;
-
-                _rb.MovePosition(position);
+                //var position = _rb.position;
+                //position.y += velocityY * Time.fixedDeltaTime;
+                
+                //_rb.MovePosition(position);
+                var velocity = _rb.velocity;
+                velocity.y = velocityY;
+                _rb.velocity = velocity;
             }
             else
             {
@@ -424,18 +427,25 @@ namespace Players.Physics_Based_Character_Controller
                 //position.y = displacementY + curve.Evaluate(_jumpTimer);
                 
                 var velocityY = curve.Differentiate(_jumpTimer);
-                var position = _rb.position;
-                position.y += velocityY * Time.fixedDeltaTime;
+                //var position = _rb.position;
+                //position.y += velocityY * Time.fixedDeltaTime;
                 
-                _rb.MovePosition(position);
+                //_rb.MovePosition(position);
+                var velocity = _rb.velocity;
+                velocity.y = velocityY;
+                _rb.velocity = velocity;
             }
             else
             {
                 // Continue falling along the same trajectory, until _grounded
                 var velocityY = curve.Differentiate(curve[curve.length - 1].time);
-                var position = _rb.position;
-                position.y += velocityY * Time.fixedDeltaTime;
-                _rb.MovePosition(position);
+                //var position = _rb.position;
+                //position.y += velocityY * Time.fixedDeltaTime;
+                
+                //_rb.MovePosition(position);
+                var velocity = _rb.velocity;
+                velocity.y = velocityY;
+                _rb.velocity = velocity;
             }
         }
         
