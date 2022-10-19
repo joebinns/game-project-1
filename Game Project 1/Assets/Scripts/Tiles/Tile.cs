@@ -1,13 +1,10 @@
 using System;
 using System.Collections;
 using Inputs;
-using Managers.Audio;
 using Managers.Points;
 using Players;
 using UI;
 using UnityEngine;
-using FMOD;
-using FMODUnity;
 
 namespace Tiles
 {
