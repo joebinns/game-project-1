@@ -39,7 +39,7 @@ public class HitEffects : MonoBehaviour
         {
             StartCoroutine(FlashMaterialCoroutine());
         }
-        CameraManager.Main.Shake(20f, FLASH_DURATION);
+        //CameraManager.Main.Shake(20f, FLASH_DURATION);
     }
 
     private IEnumerator FlashMaterialCoroutine()
