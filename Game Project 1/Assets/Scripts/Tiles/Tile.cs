@@ -84,13 +84,19 @@ namespace Tiles
 
         public virtual void EffectSuccess(Player player)
         {
-            AudioManager.PlaySound(TileSettings.EffectSuccessAudio);
+            if (TileSettings.EffectSuccessAudio != null)
+            {
+                AudioManager.PlaySound(TileSettings.EffectSuccessAudio);
+            }
             PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints);
         }
 
         public virtual void EffectFail(Player player)
         {
-            AudioManager.PlaySound(TileSettings.EffectFailAudio);
+            if (TileSettings.EffectFailAudio != null)
+            {
+                AudioManager.PlaySound(TileSettings.EffectFailAudio);
+            }
             PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints);
         }
 

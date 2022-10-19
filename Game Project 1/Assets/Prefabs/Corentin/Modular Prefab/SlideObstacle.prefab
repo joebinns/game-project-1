@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1797c1251bc7f41af50f2537d70566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _failTileTrigger: {fileID: 0}
+  _failTileTrigger: {fileID: 5147413460914334219}
 --- !u!1 &6830305971073031532
 GameObject:
   m_ObjectHideFlags: 0
