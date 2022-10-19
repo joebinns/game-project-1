@@ -49,6 +49,7 @@ namespace Players
         {
             if (input.InputType == InputType.Tap)
             {
+                _physicsBasedCharacterController.CrouchInput(input.Context);
                 _physicsBasedCharacterController.JumpInput(input.Context);
             }
             else if (input.InputType == InputType.Hold)

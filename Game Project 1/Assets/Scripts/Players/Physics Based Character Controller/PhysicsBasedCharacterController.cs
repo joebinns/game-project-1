@@ -147,8 +147,6 @@ namespace Players.Physics_Based_Character_Controller
             
             var lookDirection = Vector3.forward;
             MaintainUpright(lookDirection, rayHit);
-            
-            Debug.Log(_rb.velocity);
         }
 
         /// <summary>
@@ -323,6 +321,8 @@ namespace Players.Physics_Based_Character_Controller
         
         public void CrouchInput(InputAction.CallbackContext context)
         {
+            Debug.Log(context);
+            
             if (context.canceled)
             {
                 // Stop crouching
@@ -333,7 +333,7 @@ namespace Players.Physics_Based_Character_Controller
             
             if (_movementOption != MovementOptions.Default) { return; }
             
-            if (context.performed)
+            if (context.started)
             {
                 // Start crouching
                 PlayCrouchSound.start();
