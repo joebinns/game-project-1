@@ -15,6 +15,7 @@ public class CustomizeManager : MonoBehaviour
 
     public Material[] helmetColorMats, jacketMats, pantMats, shoeMats, skinMats;
     public GameObject[] helmetModels, hoverboardModels;
+    public GameObject[] p1HoverBoardsInScene, p2HoverBoardsInScene;
 
     public int p1HelmColorCounter, p1JacketCounter, p1PantCounter, p1ShoeCounter, p1SkinCounter, p1HelmModelCounter, p1HoverboardCounter;
     public int p2HelmColorCounter, p2JacketCounter, p2PantCounter, p2ShoeCounter, p2SkinCounter, p2HelmModelCounter, p2HoverboardCounter;
@@ -50,8 +51,38 @@ public class CustomizeManager : MonoBehaviour
 
         _p1Transform.position = _p1Lowered;
         _p2Transform.position = _p2Lowered;
+
+        foreach (GameObject hoverboard in p1HoverBoardsInScene)
+        {
+         hoverboard.SetActive(false);
+
+             if (hoverboard == p1HoverBoardsInScene[0])
+             {
+                 hoverboard.SetActive(true);
+             }
+         
+        }
         
+        foreach (GameObject hoverboard in p2HoverBoardsInScene)
+        {
+            hoverboard.SetActive(false);
+
+            if (hoverboard == p2HoverBoardsInScene[0])
+            {
+                hoverboard.SetActive(true);
+            }
+         
+        }
+
+        p1Hoverboard = hoverboardModels[0];
+        p2Hoverboard = hoverboardModels[0];
+
+        //Take back when helmets are in
+        /*p1Helm = helmetModels[0];
+        p2Helm = helmetModels[0];*/
+
         ApplyMaterials();
+        ApplyModels();
     }
 
     public void ChangeP1State()
@@ -431,10 +462,90 @@ public class CustomizeManager : MonoBehaviour
                     //Player 1 customize change
                     case '1':
 
+                        if (customSettings[2] == '1')
+                        {
+                            p1HoverboardCounter++;
+                            if (p1HoverboardCounter == hoverboardModels.Length)
+                            {
+                                p1HoverboardCounter = 0;
+                            }
+
+                            p1Hoverboard = hoverboardModels[p1HoverboardCounter];
+
+                            foreach (GameObject hoverboard in p1HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p1HoverBoardsInScene[p1HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            p1HoverboardCounter--;
+                            if (p1HoverboardCounter < 0)
+                            {
+                                p1HoverboardCounter = hoverboardModels.Length - 1;
+                            }
+
+                            p1Hoverboard = hoverboardModels[p1HoverboardCounter];
+                            
+                            foreach (GameObject hoverboard in p1HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p1HoverBoardsInScene[p1HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
+
                         break;
-                    
+
                     //Player2 customize change
                     case '2':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p2HoverboardCounter++;
+                            if (p2HoverboardCounter == hoverboardModels.Length)
+                            {
+                                p2HoverboardCounter = 0;
+                            }
+
+                            p2Hoverboard = hoverboardModels[p2HoverboardCounter];
+
+                            foreach (GameObject hoverboard in p2HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p2HoverBoardsInScene[p2HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            p2HoverboardCounter--;
+                            if (p2HoverboardCounter < 0)
+                            {
+                                p2HoverboardCounter = hoverboardModels.Length - 1;
+                            }
+
+                            p2Hoverboard = hoverboardModels[p2HoverboardCounter];
+                            
+                            foreach (GameObject hoverboard in p2HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p2HoverBoardsInScene[p2HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
 
                         break;
                 }
@@ -443,6 +554,7 @@ public class CustomizeManager : MonoBehaviour
         }
         
         ApplyMaterials();
+        ApplyModels();
     }
 
     public void ResetPlayerCustomization()
@@ -491,6 +603,11 @@ public class CustomizeManager : MonoBehaviour
 
         GameSettings.Instance.p1HelmMat = p1HelmColor;
         GameSettings.Instance.p2HelmMat = p2HelmColor;
+    }
+
+    public void ApplyModels()
+    {
+        GameSettings.Instance.ApplyPlayerObjects(p1Hoverboard, p2Hoverboard, p1Helm, p2Helm);
     }
 
     private Material[] GetPlayerMats(int playerID)
