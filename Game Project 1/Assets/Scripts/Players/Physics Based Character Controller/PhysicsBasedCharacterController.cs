@@ -353,7 +353,6 @@ namespace Players.Physics_Based_Character_Controller
             switch (movementState)
             {
                 case MovementStates.None:
-                    _isJumping = false;
                     break;
                 case MovementStates.JumpRise:
                     _jumpTimer = 0f;
@@ -393,7 +392,7 @@ namespace Players.Physics_Based_Character_Controller
 
                 var position = _rb.position;
                 position.y = displacementY + curve.Evaluate(_jumpTimer);
-                _rb.position = position;
+                _rb.MovePosition(position);
             }
             else
             {
@@ -405,6 +404,7 @@ namespace Players.Physics_Based_Character_Controller
         {
             if (_grounded)
             {
+                _isJumping = false;
                 MovementState = MovementStates.None;
                 return;
             }
@@ -417,16 +417,15 @@ namespace Players.Physics_Based_Character_Controller
 
                 var position = _rb.position;
                 position.y = displacementY + curve.Evaluate(_jumpTimer);
-                _rb.position = position;
+                _rb.MovePosition(position);
             }
-            
-            // Continue falling along the same trajectory, until _grounded
-            var velocityY = curve.Differentiate(curve[curve.length - 1].time);
-            if (_jumpTimer >= duration)
+            else
             {
+                // Continue falling along the same trajectory, until _grounded
+                var velocityY = curve.Differentiate(curve[curve.length - 1].time);
                 var position = _rb.position;
                 position.y += velocityY * Time.fixedDeltaTime;
-                _rb.position = position;
+                _rb.MovePosition(position);
             }
         }
         

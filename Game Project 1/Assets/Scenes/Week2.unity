@@ -259,7 +259,6 @@ MonoBehaviour:
       Data4: -883313272
     Path: event:/Music Event
   _parameter: 0
-  mainVolume: 1
 --- !u!4 &2548065
 Transform:
   m_ObjectHideFlags: 0
@@ -981,6 +980,18 @@ PrefabInstance:
       propertyPath: _jumpOption
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _jumpFallCurve.m_Curve.Array.data[0].inSlope
+      value: -0.42277113
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _jumpFallCurve.m_Curve.Array.data[0].outSlope
+      value: -0.42277113
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186791440806929522, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+      propertyPath: _jumpFallCurve.m_Curve.Array.data[0].outWeight
+      value: 0.061203323
+      objectReference: {fileID: 0}
     - target: {fileID: 6293033746184358199, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
       propertyPath: _offset
       value: 0
@@ -1503,7 +1514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000003834679, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000038348688, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1842,7 +1853,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
 --- !u!114 &1272158634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,7 +2102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.00000003834679, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.000000038348688, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
