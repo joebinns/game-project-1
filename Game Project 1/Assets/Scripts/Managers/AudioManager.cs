@@ -72,13 +72,14 @@ namespace Managers.Audio
                 instance.setParameterByName(ParameterToString(parameter), value);
                 yield return null;
             }
+            instance.setParameterByName(ParameterToString(parameter), b);
         }
 
         
         private void FadeParameter(Parameters parameter, float endValue)
         {
             float parameterStart;
-            float transitionDuration = 1f;
+            float transitionDuration = 0.5f;
             instance.getParameterByName(ParameterToString(parameter), out parameterStart);
 
             StartCoroutine(FadeParameterCoroutine(parameter, parameterStart, endValue, transitionDuration));

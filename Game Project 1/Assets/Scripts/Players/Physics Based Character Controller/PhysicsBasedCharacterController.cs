@@ -314,7 +314,6 @@ namespace Players.Physics_Based_Character_Controller
             if (context.canceled & _grounded & !_isJumping)
             {
                 PlayJumpSound.start();
-                PlayHoverSoundLoop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 MovementState = MovementStates.JumpRise;
             }
         }
