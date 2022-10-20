@@ -166,7 +166,7 @@ Material:
     - _SrcBlend: 1
     - _StartPos: -92.46
     - _Surface: 0
-    - _Wonk: 0
+    - _Wonk: 0.575
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _dissolve: 0

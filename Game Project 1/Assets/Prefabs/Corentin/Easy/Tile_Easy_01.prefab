@@ -1138,6 +1138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1159437321101911280, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6337637787503934288, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2115,6 +2119,10 @@ PrefabInstance:
     - target: {fileID: 1159437321101911280, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
       propertyPath: m_Name
       value: BonusPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159437321101911280, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6337637787503934288, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
       propertyPath: m_RootOrder

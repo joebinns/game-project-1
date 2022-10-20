@@ -160,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4310c0890cb95de4eb9dd0ab1ba2e7e6, type: 2}
+  - {fileID: 2100000, guid: d20d9851ef3a6df4fbf7851c336773c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -579,7 +579,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d20d9851ef3a6df4fbf7851c336773c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -993,6 +993,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4011222306146304692}
     m_Modifications:
+    - target: {fileID: 279654674932278615, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
+    - target: {fileID: 1348673232644417540, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
     - target: {fileID: 4460524648720184588, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1015,7 +1023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460524648720184588, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.81
+      value: 12.8
       objectReference: {fileID: 0}
     - target: {fileID: 4460524648720184588, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1049,10 +1057,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4647900036354213062, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
     - target: {fileID: 5457749863605027504, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
       propertyPath: m_Name
       value: LaserJumpObstacle 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5618347218310270319, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 608ecc161ca9d2644a2038f4b8d5748d, type: 3}
 --- !u!4 &1614928208509863235 stripped
@@ -1070,6 +1086,10 @@ PrefabInstance:
     - target: {fileID: 1159437321101911280, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
       propertyPath: m_Name
       value: BonusPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159437321101911280, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6337637787503934288, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
       propertyPath: m_RootOrder
@@ -1525,6 +1545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1159437321101911280, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6337637787503934288, guid: 791f9f4e70da3f444afaebecb64178b0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1843,6 +1867,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4011222306146304692}
     m_Modifications:
+    - target: {fileID: 279654674932278615, guid: ed6a6d20cc8d6ad418b6fa71887ed2c7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
+    - target: {fileID: 1348673232644417540, guid: ed6a6d20cc8d6ad418b6fa71887ed2c7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
     - target: {fileID: 4460524648720184588, guid: ed6a6d20cc8d6ad418b6fa71887ed2c7, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1891,10 +1923,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4647900036354213062, guid: ed6a6d20cc8d6ad418b6fa71887ed2c7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
     - target: {fileID: 5457749863605027504, guid: ed6a6d20cc8d6ad418b6fa71887ed2c7, type: 3}
       propertyPath: m_Name
       value: LargeLaserJumpObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 5618347218310270319, guid: ed6a6d20cc8d6ad418b6fa71887ed2c7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5783f6c404a964bacbe41576f87e1c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6a6d20cc8d6ad418b6fa71887ed2c7, type: 3}
 --- !u!4 &6935280019570900132 stripped
