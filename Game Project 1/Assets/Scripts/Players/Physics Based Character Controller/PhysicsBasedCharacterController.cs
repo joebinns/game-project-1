@@ -484,7 +484,7 @@ namespace Players.Physics_Based_Character_Controller
                 _rb.velocity = velocity;
             }
         }
-        
+
         /*
         private IEnumerator JumpCoroutine()
         {
@@ -553,7 +553,11 @@ namespace Players.Physics_Based_Character_Controller
             }
         }
         */
-
+        private void OnDestroy()
+        {
+            Debug.Log("Destroyed");
+            PlayHoverSoundLoop.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
 
         private void OnCollisionEnter(Collision collision)
         {

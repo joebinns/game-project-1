@@ -120,6 +120,11 @@ namespace Managers.Audio
             return str;
         }
 
+        private void OnDestroy()
+        {
+            Debug.Log("Destroyed");
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
 
         public void PlaySound()
         {
