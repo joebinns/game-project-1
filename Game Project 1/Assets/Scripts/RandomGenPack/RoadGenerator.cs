@@ -43,7 +43,7 @@ public class RoadGenerator : MonoBehaviour
         _lastGeneratedTile = Instantiate(startTile, Vector3.zero, Quaternion.identity);
         _activeTileList.Add(_lastGeneratedTile);
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 5; i++)
         {
             GenerateNextTile();
         }
