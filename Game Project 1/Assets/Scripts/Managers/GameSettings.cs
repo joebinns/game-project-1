@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameSettings : MonoBehaviour
 {
+    public GameObject finalPlayer1, finalPlayer2;
+    
     public static GameSettings Instance;
 
     public int player1Points, player2Points;
@@ -47,6 +49,12 @@ public class GameSettings : MonoBehaviour
         player2Points = 0;
     }
 
+    public void SetFinalPlayers(GameObject p1, GameObject p2)
+    {
+        finalPlayer1 = p1;
+        finalPlayer2 = p2;
+    }
+    
     public void SwitchScene(int sceneBuildID)
     {
         SceneManager.LoadScene(sceneBuildID);

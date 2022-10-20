@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayManager : MonoBehaviour
 {
+    
     [SerializeField] private GameObject player1RendererObj, player2RendererObj, player1HelmRenderer, player2HelmRenderer, p1HoverboardObj, p2HoverboardObj, p1DetailObj, p2DetailObj;
 
     private void Awake()
