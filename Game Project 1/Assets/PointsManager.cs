@@ -29,19 +29,23 @@ namespace Managers.Points
         /// </summary>
         /// <param name="playerIndex">the player to send points to, 1-2</param>
         /// <param name="points">the amount</param>
-        public void ChangePoints(Player player, int points, MultiplierChange multiplierChange)
+        public void ChangePoints(Player player, int points, MultiplierMode multiplierMode)
         {
-            if (multiplierChange == MultiplierChange.Reset)
+            if (multiplierMode == MultiplierMode.Reset)
             {
                 _consecutiveGains[player.ID] = 0;
             }
 
-            int multipliedPoints;
-            multipliedPoints = (int)((float)points * (1f + 0.1f * _consecutiveGains[player.ID]));
+            int multipliedPoints = points;
+            if (multiplierMode != MultiplierMode.None)
+            {
+                multipliedPoints = (int)(multipliedPoints * (1f + 0.1f * _consecutiveGains[player.ID]));
+            }
+            
             //multipliedPoints = MathsUtils.RoundOff(multipliedPoints); // Round points to nearest 10.
             _points[player.ID] += multipliedPoints;
 
-            if (multiplierChange == MultiplierChange.Increment)
+            if (multiplierMode == MultiplierMode.Increment)
             {
                 _consecutiveGains[player.ID]++;
             }
@@ -69,8 +73,11 @@ namespace Managers.Points
             }
             var text = "<size=" + (textSize).ToString() + ">" + multipliedPoints.ToString();
             var position = Vector3.zero;
-            //position = (UnityEngine.Random.insideUnitSphere + (Vector3.one * 0.5f * textSide)) * 1.5f;
-            position = player.transform.position + Vector3.right * textSide * 2f + Vector3.up * 1.5f;
+            if (multiplierMode == MultiplierMode.None)
+            {
+                position = (UnityEngine.Random.insideUnitSphere + (Vector3.one * 0.5f * textSide)) * 1.5f;
+            }
+            position += player.transform.position + Vector3.right * textSide * 2f + Vector3.up * 1.5f;
             FloatingTextManager.Instance.SpawnText(text, position, (1f + 0.1f * _consecutiveGains[player.ID]), 1, Color.white);
         }
 
@@ -103,7 +110,7 @@ namespace Managers.Points
     }
 }
 
-public enum MultiplierChange
+public enum MultiplierMode
 {
     None,
     Reset,
