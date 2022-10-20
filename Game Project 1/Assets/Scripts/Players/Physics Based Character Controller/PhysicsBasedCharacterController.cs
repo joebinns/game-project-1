@@ -79,7 +79,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _crouchRideHeight = 2f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
         [Header("IK")]
-        [SerializeField] private DelayFollow delayFollow;
+        [SerializeField] private DelayFollow _delayFollow;
 
         private void Awake()
         {
@@ -321,14 +321,17 @@ namespace Players.Physics_Based_Character_Controller
         
         public void CrouchInput(InputAction.CallbackContext context)
         {
-            Debug.Log(context);
-            
             if (context.canceled)
             {
                 // Stop crouching
                 PlayCrouchStopSound.start();
                 PlayCrouchSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
+                /*
+                var crouchIK = _delayFollow.offset;
+                crouchIK.y = 0f;
+                _delayFollow.offset = crouchIK;
+                */
             }
             
             if (_movementOption != MovementOptions.Default) { return; }
@@ -338,8 +341,13 @@ namespace Players.Physics_Based_Character_Controller
                 // Start crouching
                 PlayCrouchSound.start();
                 StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
+                /*
+                var crouchIK = _delayFollow.offset;
+                crouchIK.y = -0.75f;
+                _delayFollow.offset = crouchIK;
+                Debug.Log(crouchIK);
+                */
             }
-
         }
 
         public void SetMovementOption(MovementOptions movementOption)

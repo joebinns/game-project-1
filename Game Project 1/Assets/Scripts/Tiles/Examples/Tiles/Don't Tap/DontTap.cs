@@ -60,7 +60,7 @@ namespace Tiles
             
             if (!_cooldownFinished && !_playerPressed[player.ID])
             {
-                PointsManager.Instance.ChangePoints(player, -pointsToRemove);
+                PointsManager.Instance.ChangePoints(player, -pointsToRemove, true);
                 CameraManager.Main.Shake(20f, 0.1f);
                 Debug.Log("Player"+player.ID+" tapped! You lost " + pointsToRemove + " points!");
                 //Remove points from playerId
