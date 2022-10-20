@@ -21,6 +21,7 @@ namespace Managers.Audio
 
         public FMOD.Studio.EventInstance instance;
         public FMOD.Studio.EventInstance fmodEvent;
+
         public static AudioManager Instance;
 
         //public FMODUnity.EventReference _music = "event:/MusicEvent";
@@ -53,7 +54,7 @@ namespace Managers.Audio
             Instance = this;
 
             //audioSource = GetComponent<AudioSource>();
-           // audioSource.volume = mainVolume;
+            // audioSource.volume = mainVolume;
         }
 
         private void Start()
