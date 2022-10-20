@@ -13,13 +13,14 @@ public class CustomizeManager : MonoBehaviour
     [SerializeField] private GameObject p1CustomizeObj, p2CustomizeObj;
     [SerializeField] private Button startGameBtn, backToMainBtn;
 
-    public Material[] helmetColorMats, jacketMats, pantMats, shoeMats, skinMats;
+    public Material[] helmetColorMats, helmDetailColorMats, jacketMats, pantMats, shoeMats, skinMats;
     public GameObject[] helmetModels, hoverboardModels;
+    public GameObject[] p1HoverBoardsInScene, p2HoverBoardsInScene, p1HelmetDetailsInScene, p2HelmetDetailsInScene;
 
     public int p1HelmColorCounter, p1JacketCounter, p1PantCounter, p1ShoeCounter, p1SkinCounter, p1HelmModelCounter, p1HoverboardCounter;
     public int p2HelmColorCounter, p2JacketCounter, p2PantCounter, p2ShoeCounter, p2SkinCounter, p2HelmModelCounter, p2HoverboardCounter;
 
-    public Material p1HelmColor, p1Jacket, p1Pant, p1Shoe, p1Skin, p2HelmColor, p2Jacket, p2Pant, p2Shoe, p2Skin;
+    public Material p1HelmColor, p1DetailColor, p1Jacket, p1Pant, p1Shoe, p1Skin, p2HelmColor, p2DetailColor, p2Jacket, p2Pant, p2Shoe, p2Skin;
     public GameObject p1HelmModel, p1Hoverboard, p2HelmModel, p2Hoverboard;
     
     private RectTransform _p1Transform, _p2Transform;
@@ -50,8 +51,62 @@ public class CustomizeManager : MonoBehaviour
 
         _p1Transform.position = _p1Lowered;
         _p2Transform.position = _p2Lowered;
+
+        foreach (GameObject hoverboard in p1HoverBoardsInScene)
+        {
+         hoverboard.SetActive(false);
+
+             if (hoverboard == p1HoverBoardsInScene[0])
+             {
+                 hoverboard.SetActive(true);
+             }
+         
+        }
         
+        foreach (GameObject hoverboard in p2HoverBoardsInScene)
+        {
+            hoverboard.SetActive(false);
+
+            if (hoverboard == p2HoverBoardsInScene[0])
+            {
+                hoverboard.SetActive(true);
+            }
+         
+        }
+        
+        foreach (GameObject helmet in p1HelmetDetailsInScene)
+        {
+            helmet.SetActive(false);
+
+            if (helmet == p1HelmetDetailsInScene[0])
+            {
+                helmet.SetActive(true);
+            }
+         
+        }
+        
+        foreach (GameObject helmet in p2HelmetDetailsInScene)
+        {
+            helmet.SetActive(false);
+
+            if (helmet == p2HelmetDetailsInScene[0])
+            {
+                helmet.SetActive(true);
+            }
+         
+        }
+
+        p1Hoverboard = hoverboardModels[0];
+        p2Hoverboard = hoverboardModels[0];
+
+        p1HelmModel = helmetModels[0];
+        p2HelmModel = helmetModels[0];
+
+        p1DetailColor = helmDetailColorMats[0];
+        p2DetailColor = helmDetailColorMats[0];
+
         ApplyMaterials();
+        ApplyModels();
     }
 
     public void ChangeP1State()
@@ -138,6 +193,7 @@ public class CustomizeManager : MonoBehaviour
                         }
 
                         p1HelmColor = helmetColorMats[p1HelmColorCounter];
+                        p1DetailColor = helmDetailColorMats[p1HelmColorCounter];
 
                         break;
                     
@@ -151,6 +207,7 @@ public class CustomizeManager : MonoBehaviour
                         }
 
                         p2HelmColor = helmetColorMats[p2HelmColorCounter];
+                        p2DetailColor = helmDetailColorMats[p2HelmColorCounter];
                         
                         break;
                 }
@@ -174,6 +231,15 @@ public class CustomizeManager : MonoBehaviour
                             }
 
                             p1HelmModel = helmetModels[p1HelmModelCounter];
+                            
+                            foreach (GameObject helmet in p1HelmetDetailsInScene)
+                            {
+                                helmet.SetActive(false);
+                                if (helmet == p1HelmetDetailsInScene[p1HelmModelCounter])
+                                {
+                                    helmet.SetActive(true);
+                                }
+                            }
                         }
 
                         else
@@ -185,6 +251,15 @@ public class CustomizeManager : MonoBehaviour
                             }
 
                             p1HelmModel = helmetModels[p1HelmModelCounter];
+                            
+                            foreach (GameObject helmet in p1HelmetDetailsInScene)
+                            {
+                                helmet.SetActive(false);
+                                if (helmet == p1HelmetDetailsInScene[p1HelmModelCounter])
+                                {
+                                    helmet.SetActive(true);
+                                }
+                            }
                         }
                         
                         break;
@@ -201,6 +276,15 @@ public class CustomizeManager : MonoBehaviour
                             }
 
                             p2HelmModel = helmetModels[p2HelmModelCounter];
+                            
+                            foreach (GameObject helmet in p2HelmetDetailsInScene)
+                            {
+                                helmet.SetActive(false);
+                                if (helmet == p2HelmetDetailsInScene[p2HelmModelCounter])
+                                {
+                                    helmet.SetActive(true);
+                                }
+                            }
                         }
 
                         else
@@ -212,6 +296,15 @@ public class CustomizeManager : MonoBehaviour
                             }
 
                             p2HelmModel = helmetModels[p2HelmModelCounter];
+                            
+                            foreach (GameObject helmet in p2HelmetDetailsInScene)
+                            {
+                                helmet.SetActive(false);
+                                if (helmet == p2HelmetDetailsInScene[p2HelmModelCounter])
+                                {
+                                    helmet.SetActive(true);
+                                }
+                            }
                         }
                         
                         break;
@@ -431,10 +524,90 @@ public class CustomizeManager : MonoBehaviour
                     //Player 1 customize change
                     case '1':
 
+                        if (customSettings[2] == '1')
+                        {
+                            p1HoverboardCounter++;
+                            if (p1HoverboardCounter == hoverboardModels.Length)
+                            {
+                                p1HoverboardCounter = 0;
+                            }
+
+                            p1Hoverboard = hoverboardModels[p1HoverboardCounter];
+
+                            foreach (GameObject hoverboard in p1HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p1HoverBoardsInScene[p1HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            p1HoverboardCounter--;
+                            if (p1HoverboardCounter < 0)
+                            {
+                                p1HoverboardCounter = hoverboardModels.Length - 1;
+                            }
+
+                            p1Hoverboard = hoverboardModels[p1HoverboardCounter];
+                            
+                            foreach (GameObject hoverboard in p1HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p1HoverBoardsInScene[p1HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
+
                         break;
-                    
+
                     //Player2 customize change
                     case '2':
+
+                        if (customSettings[2] == '1')
+                        {
+                            p2HoverboardCounter++;
+                            if (p2HoverboardCounter == hoverboardModels.Length)
+                            {
+                                p2HoverboardCounter = 0;
+                            }
+
+                            p2Hoverboard = hoverboardModels[p2HoverboardCounter];
+
+                            foreach (GameObject hoverboard in p2HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p2HoverBoardsInScene[p2HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            p2HoverboardCounter--;
+                            if (p2HoverboardCounter < 0)
+                            {
+                                p2HoverboardCounter = hoverboardModels.Length - 1;
+                            }
+
+                            p2Hoverboard = hoverboardModels[p2HoverboardCounter];
+                            
+                            foreach (GameObject hoverboard in p2HoverBoardsInScene)
+                            {
+                                hoverboard.SetActive(false);
+                                if (hoverboard == p2HoverBoardsInScene[p2HoverboardCounter])
+                                {
+                                    hoverboard.SetActive(true);
+                                }
+                            }
+                        }
 
                         break;
                 }
@@ -443,6 +616,7 @@ public class CustomizeManager : MonoBehaviour
         }
         
         ApplyMaterials();
+        ApplyModels();
     }
 
     public void ResetPlayerCustomization()
@@ -486,11 +660,47 @@ public class CustomizeManager : MonoBehaviour
         p1Helm.GetComponent<MeshRenderer>().material = p1HelmColor;
         p2Helm.GetComponent<MeshRenderer>().material = p2HelmColor;
 
+        foreach (GameObject helmetDetail in p1HelmetDetailsInScene)
+        {
+            MeshRenderer helmetDetailRenderer = helmetDetail.GetComponent<MeshRenderer>();
+            if (helmetDetailRenderer != null)
+            {
+                helmetDetailRenderer.material = p1DetailColor;
+            }
+
+            else
+            {
+                helmetDetail.GetComponentInChildren<MeshRenderer>().material = p1DetailColor;
+            }
+        }
+        
+        foreach (GameObject helmetDetail in p2HelmetDetailsInScene)
+        {
+            MeshRenderer helmetDetailRenderer = helmetDetail.GetComponent<MeshRenderer>();
+            if (helmetDetailRenderer != null)
+            {
+                helmetDetailRenderer.material = p2DetailColor;
+            }
+
+            else
+            {
+                helmetDetail.GetComponentInChildren<MeshRenderer>().material = p2DetailColor;
+            }
+        }
+
         GameSettings.Instance.p1Materials = GetPlayerMats(1);
         GameSettings.Instance.p2Materials = GetPlayerMats(2);
 
         GameSettings.Instance.p1HelmMat = p1HelmColor;
         GameSettings.Instance.p2HelmMat = p2HelmColor;
+
+        GameSettings.Instance.p1DetailMat = p1DetailColor;
+        GameSettings.Instance.p2DetailMat = p2DetailColor;
+    }
+
+    public void ApplyModels()
+    {
+        GameSettings.Instance.ApplyPlayerObjects(p1Hoverboard, p2Hoverboard, p1Helm, p2Helm, p1HelmModel, p2HelmModel);
     }
 
     private Material[] GetPlayerMats(int playerID)

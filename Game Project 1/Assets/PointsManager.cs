@@ -1,58 +1,77 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
+using Players;
 using UnityEngine;
+using Utilities;
 
 namespace Managers.Points
 {
-    public static class PointsManager
+    public class PointsManager : MonoBehaviour
     {
-        private static int p1Points, p2Points;
+        public static PointsManager Instance;
+        
+        private int[] _points = new int[2];
+        private int[] _consecutiveGains = new int[2];
+
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(this.gameObject);
+            }
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
 
         /// <summary>
         /// add points to a specifdied player
         /// </summary>
         /// <param name="playerIndex">the player to send points to, 1-2</param>
         /// <param name="points">the amount</param>
-        public static void GainPoints(int playerIndex, int points, Vector3 position)
+        public void ChangePoints(Player player, int points, MultiplierChange multiplierChange)
         {
-            switch (playerIndex)
+            if (multiplierChange == MultiplierChange.Reset)
+            {
+                _consecutiveGains[player.ID] = 0;
+            }
+
+            int multipliedPoints;
+            multipliedPoints = (int)((float)points * (1f + 0.1f * _consecutiveGains[player.ID]));
+            //multipliedPoints = MathsUtils.RoundOff(multipliedPoints); // Round points to nearest 10.
+            _points[player.ID] += multipliedPoints;
+
+            if (multiplierChange == MultiplierChange.Increment)
+            {
+                _consecutiveGains[player.ID]++;
+            }
+            
+            float textSide = 0;
+            switch (player.ID)
             {
                 case 0:
-                    p1Points += points;
+                    textSide = 1f;
                     break;
-
                 case 1:
-                    p2Points += points;
-                    break;
-
-                default:
-                    Debug.LogError($"No player with index {playerIndex}. cannot give points");
+                    textSide = -1f;
                     break;
             }
 
-            // FloatingTextManager.SpawnText(points.ToString(), position + Vector3.back * 2, 1, 1, Color.red);
-        }
-
-        /// <summary>
-        /// subtract points from a specified player
-        /// </summary>
-        /// <param name="playerIndex">the player to remove points from, 1-2</param>
-        /// <param name="points">the amount</param>
-        public static void RemovePoints(int playerIndex, int points)
-        {
-            switch (playerIndex)
+            float textSize = 50f;
+            var maxTextSize = 100f;
+            if (textSize * (1f + 0.1f * _consecutiveGains[player.ID]) < maxTextSize)
             {
-                case 0:
-                    p1Points -= Mathf.Clamp(points, 0, 100000);
-                    break;
-
-                case 1:
-                    p2Points -= Mathf.Clamp(points, 0, 100000);
-                    break;
-
-                default:
-                    Debug.LogError($"No player with index {playerIndex}. cannot remove points");
-                    break;
+                textSize *= (1f + 0.1f * _consecutiveGains[player.ID]);
             }
+            else
+            {
+                textSize = maxTextSize;
+            }
+            var text = "<size=" + (textSize).ToString() + ">" + multipliedPoints.ToString();
+            var position = Vector3.zero;
+            //position = (UnityEngine.Random.insideUnitSphere + (Vector3.one * 0.5f * textSide)) * 1.5f;
+            position = player.transform.position + Vector3.right * textSide * 2f + Vector3.up * 1.5f;
+            FloatingTextManager.Instance.SpawnText(text, position, (1f + 0.1f * _consecutiveGains[player.ID]), 1, Color.white);
         }
 
         /// <summary>
@@ -60,31 +79,33 @@ namespace Managers.Points
         /// </summary>
         /// <param name="playerIndex"></param>
         /// <returns></returns>
-        public static int GetPoints(int playerIndex)
+        public int GetPoints(int playerIndex)
         {
-            switch (playerIndex)
-            {
-                case 0:
-                    return p1Points;
-
-                case 1:
-                    return p2Points;
-
-                default:
-                    Debug.LogError($"No player with index {playerIndex}. cannot get points");
-                    return 0;
-            }
+            return _points[playerIndex];
+        }
+        
+        public float GetPointsMultiplier(int playerIndex)
+        {
+            var pointsMultiplier = (1f + 0.1f * _consecutiveGains[playerIndex]);
+            return pointsMultiplier;
         }
 
         /// <summary>
         /// set both players points to 0
         /// </summary>
-        public static void ResetPoints()
+        public void ResetPoints()
         {
-            p1Points = 0;
-            p2Points = 0;
+            for (int i = 0; i < _points.Length; i++)
+            {
+                _points[i] = 0;
+            }
         }
-
-
     }
+}
+
+public enum MultiplierChange
+{
+    None,
+    Reset,
+    Increment,
 }

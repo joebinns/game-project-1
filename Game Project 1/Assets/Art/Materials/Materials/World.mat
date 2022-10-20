@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4496430579033115998
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: World
+  m_Shader: {fileID: -6465566751694194690, guid: 3a081800f01865749914d17be0ab4d85, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Smoothness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CamOffset: 11.87
+    - _CamRange: 0.1
+    - _ChangeSpeed: 0
+    - _Change_Speed: 0.0001
+    - _ColorOverride: 0
+    - _Cutout_Size: 0.644
+    - _Disable_Wonk: 0
+    - _EdgeWidth: 0.04
+    - _Emission: 0.96
+    - _EndPos: 21.6
+    - _Fade_Speed: 64.71
+    - _FadeonCamera: 0
+    - _Falloff_Size: 0.23
+    - _Float: -44.71
+    - _NoiseScale: 17.7
+    - _Offset: 27.74
+    - _Override_Alpha: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RoadMetallic: 1.43
+    - _Seed: 1
+    - _Smoothness_Amount: 0.07
+    - _Speed: 0.1
+    - _StartPos: -92.46
+    - _Strenght: 6.93
+    - _Wonk: 0
+    - _dissolve: 0
+    - _end: 2
+    - _fade: 0.59
+    - _fresnel: 8.35
+    - _metallic_Amount: 0
+    - _offset: 12.15
+    - _range: 0
+    - _size: -0.249
+    - _start: 19.2
+    m_Colors:
+    - _Color: {r: 0, g: 0.65196705, b: 1, a: 1}
+    - _Cutout_pos: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _EdgeColor: {r: 13.928808, g: 13.928808, b: 13.928808, a: 0}
+    - _EmissionColor: {r: 0.5189164, g: 5.052607, b: 6.964404, a: 1}
+    - _screen_center: {r: 0.5, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []

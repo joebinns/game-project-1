@@ -79,7 +79,7 @@ namespace Players.Physics_Based_Character_Controller
         [SerializeField] private float _crouchRideHeight = 2f;
         [SerializeField] private float _transitionDurationCrouch = 0.25f;
         [Header("IK")]
-        [SerializeField] private DelayFollow delayFollow;
+        [SerializeField] private DelayFollow _delayFollow;
 
         private void Awake()
         {
@@ -321,14 +321,14 @@ namespace Players.Physics_Based_Character_Controller
         
         public void CrouchInput(InputAction.CallbackContext context)
         {
-            Debug.Log(context);
-            
             if (context.canceled)
             {
                 // Stop crouching
                 PlayCrouchStopSound.start();
+                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
                 PlayCrouchSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
+                StartCoroutine(TransitionIKOffset(-0.6f, 0f, _transitionDurationCrouch));
             }
             
             if (_movementOption != MovementOptions.Default) { return; }
@@ -337,9 +337,10 @@ namespace Players.Physics_Based_Character_Controller
             {
                 // Start crouching
                 PlayCrouchSound.start();
+                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
                 StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
+                StartCoroutine(TransitionIKOffset(0f, -0.6f, _transitionDurationCrouch));
             }
-
         }
 
         public void SetMovementOption(MovementOptions movementOption)
@@ -355,7 +356,7 @@ namespace Players.Physics_Based_Character_Controller
         private IEnumerator TransitionRideHeight(float a, float b, float duration) // Apply to transform directly (without spring), read from curve.
         {
             var t = 0f;
-            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
+            
             while (t < duration)
             {
                 t += Time.deltaTime;
@@ -363,7 +364,25 @@ namespace Players.Physics_Based_Character_Controller
                 yield return null;
             }
             _rideHeight = b;
-            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
+            
+        }
+        
+        private IEnumerator TransitionIKOffset(float a, float b, float duration)
+        {
+            var t = 0f;
+            var crouchIK = _delayFollow.offset;
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                
+                crouchIK.y = Mathf.Lerp(a , b, t * (1f / duration));
+                _delayFollow.offset = crouchIK;
+                
+                yield return null;
+            }
+
+            crouchIK.y = b;
+            _delayFollow.offset = crouchIK;
         }
 
         private void SetMovementState(MovementStates movementState)

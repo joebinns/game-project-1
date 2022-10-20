@@ -14,6 +14,7 @@ namespace UI
         [SerializeField] private Image _effectImage;
         [SerializeField] private TMP_Text _effectText;
         [SerializeField] private List<TMP_Text> _pointsTexts;
+        [SerializeField] private List<TMP_Text> _pointsMultiplierTexts;
 
         public void ActivateEffectCanvas()
         {
@@ -58,14 +59,24 @@ namespace UI
 
         private void Update()
         {
-            UpdatePointsText();
+            //UpdatePointsText();
+            UpdatePointsMultiplierText();
         }
 
         public void UpdatePointsText()
         {
             for (int i = 0; i < _pointsTexts.Count; i++)
             {
-                _pointsTexts[i].text = PointsManager.GetPoints(i).ToString();
+                _pointsTexts[i].text = PointsManager.Instance.GetPoints(i).ToString();
+            }
+        }
+        
+        public void UpdatePointsMultiplierText()
+        {
+            for (int i = 0; i < _pointsMultiplierTexts.Count; i++)
+            {
+                //_pointsMultiplierTexts[i].text = "<sup>x</sup>" + PointsManager.Instance.GetPointsMultiplier(i).ToString("F1");
+                _pointsMultiplierTexts[i].text = "<size=75%><b><voffset=.2em>X</voffset></b><size=100%>" + PointsManager.Instance.GetPointsMultiplier(i).ToString("F1");
             }
         }
     }

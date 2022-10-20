@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tile_Easy_09_Settings
   m_EditorClassIdentifier: 
   _description: 
-  MovementOption: 1
+  MovementOption: 0
   IsIndefinite: 0
   BeginEffectAudio: {fileID: 0}
   BeginEffectText: 

@@ -13,7 +13,7 @@ namespace Tiles.Examples
     public class RapidTapTile : Tile
     {
 
-        [SerializeField] private int pointsPerTap = 100;
+        [SerializeField] private int pointsPerTap = 10;
 
 
         public override void BeginEffect()
@@ -22,7 +22,7 @@ namespace Tiles.Examples
 
            // StraightenRoad.Instance.Straighten(1);
 
-            FindObjectOfType<SpeedSelector>().SpeedMode = SpeedMode.Medium;
+            FindObjectOfType<SpeedSelector>().SpeedMode = SpeedMode.High;
             
         }
         
@@ -41,7 +41,7 @@ namespace Tiles.Examples
             // Play HandleInputAudio
             base.HandleInput(player, input);
 
-            base.EffectSuccess(player);
+            base.EffectSuccess(player, MultiplierChange.None);
             CameraManager.Main.Shake(5f, 0.35f);
 
         }

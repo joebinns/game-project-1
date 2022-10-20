@@ -19,7 +19,7 @@ namespace Tiles.Examples.Triggers
             base.TriggerExited(player);
             
             //AudioManager.PlaySound(TileSettings.EffectSuccessAudio);
-            PointsManager.GainPoints(player.ID, _points, player.transform.position);
+            PointsManager.Instance.ChangePoints(player, _points, MultiplierChange.Increment);
         }
     }
 }

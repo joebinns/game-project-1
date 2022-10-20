@@ -59,6 +59,7 @@ namespace Managers.Camera
                 perlin.m_AmplitudeGain = curve.Evaluate(timer);
                 yield return null;
             }
+            perlin.m_AmplitudeGain = 0;
         }
 
         public void LookAt()

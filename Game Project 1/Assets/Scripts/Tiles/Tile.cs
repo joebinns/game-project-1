@@ -6,6 +6,7 @@ using Managers.Points;
 using Players;
 using UI;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Tiles
 {
@@ -95,7 +96,7 @@ namespace Tiles
         }
 
         // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
-        public virtual void EffectSuccess(Player player)
+        public virtual void EffectSuccess(Player player, MultiplierChange multiplierChange = MultiplierChange.Increment)
         {
             Debug.Log("success");
             if (TileSettings.EffectSuccessAudio != null)
@@ -103,7 +104,8 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
                 EventSuccess.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints, player.transform.position);
+            PointsManager.Instance.ChangePoints(player, TileSettings.EffectSuccessPoints, multiplierChange);
+
         }
         //
 
@@ -117,7 +119,7 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
                 PlayFailButton2.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints, player.transform.position);
+            PointsManager.Instance.ChangePoints(player, TileSettings.EffectFailPoints, MultiplierChange.Reset);
             player.GetComponent<HitEffects>().Play();
 
         }
