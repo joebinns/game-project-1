@@ -68,7 +68,7 @@ namespace Managers.Points
                 textSize = maxTextSize;
             }
             var text = "<size=" + (textSize).ToString() + ">" + multipliedPoints.ToString();
-            var position = (UnityEngine.Random.insideUnitSphere - (Vector3.one * 0.5f)) * 1.5f;
+            var position = (UnityEngine.Random.insideUnitSphere + (Vector3.one * 0.5f * textSide)) * 1.5f;
             position += player.transform.position + Vector3.right * textSide * 2f + Vector3.up * 1.5f;
             FloatingTextManager.Instance.SpawnText(text, position, (1f + 0.1f * _consecutiveGains[player.ID]), 1, Color.white);
             }
