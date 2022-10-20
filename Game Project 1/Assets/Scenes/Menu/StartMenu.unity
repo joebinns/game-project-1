@@ -226,11 +226,13 @@ MonoBehaviour:
   p2HelmModelCounter: 0
   p2HoverboardCounter: 0
   p1HelmColor: {fileID: 0}
+  p1DetailColor: {fileID: 0}
   p1Jacket: {fileID: 0}
   p1Pant: {fileID: 0}
   p1Shoe: {fileID: 0}
   p1Skin: {fileID: 0}
   p2HelmColor: {fileID: 0}
+  p2DetailColor: {fileID: 0}
   p2Jacket: {fileID: 0}
   p2Pant: {fileID: 0}
   p2Shoe: {fileID: 0}
@@ -2822,11 +2824,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300982446719951127, guid: 11dd5f607f73f9545a71e0de8e79ebf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 305.03903
+      value: 304.97
       objectReference: {fileID: 0}
     - target: {fileID: 3300982446719951127, guid: 11dd5f607f73f9545a71e0de8e79ebf4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -445.95004
+      value: -445.316
       objectReference: {fileID: 0}
     - target: {fileID: 3300982446719951127, guid: 11dd5f607f73f9545a71e0de8e79ebf4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6333,12 +6335,16 @@ MonoBehaviour:
   p2Materials: []
   p1HelmMat: {fileID: 0}
   p2HelmMat: {fileID: 0}
+  p1DetailMat: {fileID: 0}
+  p2DetailMat: {fileID: 0}
   p1: {fileID: 0}
   p2: {fileID: 0}
   p1Helm: {fileID: 0}
   p2Helm: {fileID: 0}
   p1Hoverboard: {fileID: 0}
   p2Hoverboard: {fileID: 0}
+  p1DetailSlot: {fileID: 0}
+  p2DetailSlot: {fileID: 0}
   p1SelectedBoard: {fileID: 0}
   p2SelectedBoard: {fileID: 0}
   p1SelectedHelm: {fileID: 0}
@@ -13087,11 +13093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300982446719951127, guid: 11dd5f607f73f9545a71e0de8e79ebf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 305.03903
+      value: 304.97
       objectReference: {fileID: 0}
     - target: {fileID: 3300982446719951127, guid: 11dd5f607f73f9545a71e0de8e79ebf4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -445.95004
+      value: -445.306
       objectReference: {fileID: 0}
     - target: {fileID: 3300982446719951127, guid: 11dd5f607f73f9545a71e0de8e79ebf4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17003,7 +17009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -17011,7 +17017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -17051,11 +17057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 348.14966
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093137643832171857, guid: af853f817a82ae843a18bcd8dc1f832f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
