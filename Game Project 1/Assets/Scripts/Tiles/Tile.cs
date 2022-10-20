@@ -47,10 +47,10 @@ namespace Tiles
             // Play BeginEffectAudio
             if (TileSettings.BeginEffectAudio != null)
             {
-                AudioManager.Instance.ChangeParameter(TileSettings.BeginEffectAudio);
-                //AudioManager.Instance.PlaySound(TileSettings.BeginEffectAudio);
+                AudioManager.Instance.Parameter = Parameters.Warp;
+                //udioManager.Instance.PlaySound(TileSettings.BeginEffectAudio);
             }
-
+            
             // Activate effect canvas
             var uIHandler = FindObjectOfType<UIHandler>();
             uIHandler.ActivateEffectCanvas();
@@ -72,7 +72,7 @@ namespace Tiles
             // Play EndEffectAudio and deactivate effect canvas
             if (TileSettings.EndEffectAudio != null)
             {
-                AudioManager.Instance.ChangeParameter(TileSettings.EndEffectAudio);
+                AudioManager.Instance.Parameter = Parameters.Default;
                 //AudioManager.Instance.PlaySound(TileSettings.EndEffectAudio);
             }
             

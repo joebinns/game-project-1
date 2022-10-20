@@ -26,7 +26,7 @@ public class HitEffects : MonoBehaviour
     {
         characterController = GetComponent<PhysicsBasedCharacterController>();
         PlayOuchSound = FMODUnity.RuntimeManager.CreateInstance("event:/PlayerOuch1");
-        PlayHoverCrashSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverCrash2");
+        PlayHoverCrashSound = FMODUnity.RuntimeManager.CreateInstance("event:/PlayerOuch2");
     }
     public void Play()
     {
@@ -38,7 +38,7 @@ public class HitEffects : MonoBehaviour
         }
 
             StartCoroutine(FlashMaterialCoroutine());
-        
+        PlayHoverCrashSound.start();
         //CameraManager.Main.Shake(20f, FLASH_DURATION);
     }
 

@@ -1575,6 +1575,11 @@ namespace FMOD.Studio
             return hasHandle() && FMOD_Studio_EventInstance_IsValid(this.handle);
         }
 
+        public void setParameterValue(string v1, float v2)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 

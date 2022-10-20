@@ -9,16 +9,21 @@ using static UnityEditor.Profiling.RawFrameDataView;
 using static Cinemachine.AxisState;
 using TMPro;
 using static UnityEngine.Rendering.DebugUI;
+using System.Diagnostics;
 
 namespace Managers.Audio
 {
     [RequireComponent(typeof(AudioSource))]
     public class AudioManager : MonoBehaviour
     {
-        public static AudioManager Instance;
+        [FMODUnity.EventRef]
+        public string music = "event:/MusicEvent";
 
         public FMOD.Studio.EventInstance instance;
-        public FMODUnity.EventReference fmodEvent;
+        public FMOD.Studio.EventInstance fmodEvent;
+        public static AudioManager Instance;
+
+        //public FMODUnity.EventReference _music = "event:/MusicEvent";
 
         [SerializeProperty("Parameter")]
         public Parameters _parameter = Parameters.Default;
@@ -27,6 +32,8 @@ namespace Managers.Audio
             get => _parameter;
             set
             {
+                UnityEngine.Debug.Log(value);
+
                 ChangeParameter(value);
             }
         }
@@ -51,7 +58,7 @@ namespace Managers.Audio
 
         private void Start()
         {
-            instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+            instance = RuntimeManager.CreateInstance(music);
             instance.start();
         }
 
@@ -67,16 +74,20 @@ namespace Managers.Audio
             }
         }
 
+        
         private void FadeParameter(Parameters parameter, float endValue)
         {
             float parameterStart;
             float transitionDuration = 1f;
             instance.getParameterByName(ParameterToString(parameter), out parameterStart);
+
             StartCoroutine(FadeParameterCoroutine(parameter, parameterStart, endValue, transitionDuration));
         }
 
         public void ChangeParameter(Parameters parameter)
         {
+            UnityEngine.Debug.Log("changing parameter");
+
             switch (parameter)
             {
                 case Parameters.Default:
