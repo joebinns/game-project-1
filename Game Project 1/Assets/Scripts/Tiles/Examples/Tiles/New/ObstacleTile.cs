@@ -16,9 +16,9 @@ namespace Tiles.Examples
             base.EndEffect();
         }
 
-        public override void EffectSuccess(Player player)
+        public override void EffectSuccess(Player player, bool shouldResetMultiplier)
         {
-            base.EffectSuccess(player);
+            base.EffectSuccess(player, shouldResetMultiplier);
         }
         
         public override void EffectFail(Player player)

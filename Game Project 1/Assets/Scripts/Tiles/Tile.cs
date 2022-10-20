@@ -91,7 +91,7 @@ namespace Tiles
         }
 
         // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
-        public virtual void EffectSuccess(Player player)
+        public virtual void EffectSuccess(Player player, bool shouldResetMultiplier = false)
         {
             Debug.Log("success");
             if (TileSettings.EffectSuccessAudio != null)
@@ -99,7 +99,7 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
                 EventSuccess.start();
             }
-            PointsManager.Instance.ChangePoints(player, TileSettings.EffectSuccessPoints, false);
+            PointsManager.Instance.ChangePoints(player, TileSettings.EffectSuccessPoints, shouldResetMultiplier);
 
         }
         //
