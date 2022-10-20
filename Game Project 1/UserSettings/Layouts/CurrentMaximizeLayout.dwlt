@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 3794
+  controlID: 6213
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 3795
+  controlID: 6214
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 3796
+  controlID: 6215
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: be160000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 587bfeff3aefffffdef1ffffe0f1ffff62f8ffffbc860000f8860000
+      m_ExpandedIDs: 3426faff2e32faff5691faffd891faff0e92faff3292faff6093faff7894faff3099faff1e9afaff5eecfaff0e92fbff587bfeff3aefffffdef1ffffe0f1ffff62f8ffffbc860000f8860000fcad000032ae00004cae0000c4ae000032b000003eb00000d4b00000dcb00000e2b10000ccf40000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -242,7 +242,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 7}
+        m_ClientGUIView: {fileID: 5}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -547,9 +547,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.1355114, y: 0.6597059, z: 1.1850597}
+    m_Target: {x: 16.030153, y: 19.075678, z: 54.26086}
     speed: 2
-    m_Value: {x: 3.1355114, y: 0.6597059, z: 1.1850597}
+    m_Value: {x: 16.030153, y: 19.075678, z: 54.26086}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -596,13 +596,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.22071667, y: -0.36066726, z: 0.08826179, w: -0.9019271}
+    m_Target: {x: 0.05042799, y: -0.9479852, z: 0.19166525, w: 0.24924408}
     speed: 2
-    m_Value: {x: -0.22071011, y: -0.36065656, z: 0.08825917, w: -0.90190035}
+    m_Value: {x: 0.050426047, y: -0.9479487, z: 0.19165787, w: 0.24923448}
   m_Size:
-    m_Target: 6.1210585
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 6.1210585
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -718,7 +718,7 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -748,7 +748,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SearchFilter:
-    m_NameFilter: hit
+    m_NameFilter: physics
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -760,13 +760,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/Materials/Player/Helmets
+    - Assets/Art/Materials
     m_Globs: []
-    m_OriginalText: hit
+    m_OriginalText: physics
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/Materials/Player/Helmets
+  - Assets/Art/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\carl.lindstedt\Documents\GitHub\GameProject1\game-project-1\Game
     Project 1
@@ -774,9 +774,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 0c860000
-    m_LastClickedID: 34316
-    m_ExpandedIDs: 00000000b4850000b6850000b8850000ba850000de8500000e86000000ca9a3b
+    m_SelectedIDs: de850000
+    m_LastClickedID: 34270
+    m_ExpandedIDs: 00000000b4850000b6850000b8850000ba85000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -829,9 +829,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: be160000
-    m_LastClickedInstanceID: 5822
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
