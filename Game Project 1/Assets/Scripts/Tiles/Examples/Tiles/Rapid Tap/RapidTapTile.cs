@@ -41,7 +41,7 @@ namespace Tiles.Examples
             // Play HandleInputAudio
             base.HandleInput(player, input);
 
-            base.EffectSuccess(player, true);
+            base.EffectSuccess(player, MultiplierChange.None);
             CameraManager.Main.Shake(5f, 0.35f);
 
         }

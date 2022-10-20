@@ -29,9 +29,9 @@ namespace Managers.Points
         /// </summary>
         /// <param name="playerIndex">the player to send points to, 1-2</param>
         /// <param name="points">the amount</param>
-        public void ChangePoints(Player player, int points, bool shouldResetMultiplier)
+        public void ChangePoints(Player player, int points, MultiplierChange multiplierChange)
         {
-            if (shouldResetMultiplier)
+            if (multiplierChange == MultiplierChange.Reset)
             {
                 _consecutiveGains[player.ID] = 0;
             }
@@ -41,7 +41,7 @@ namespace Managers.Points
             //multipliedPoints = MathsUtils.RoundOff(multipliedPoints); // Round points to nearest 10.
             _points[player.ID] += multipliedPoints;
 
-            if (!shouldResetMultiplier)
+            if (multiplierChange == MultiplierChange.Increment)
             {
                 _consecutiveGains[player.ID]++;
             }
@@ -68,10 +68,11 @@ namespace Managers.Points
                 textSize = maxTextSize;
             }
             var text = "<size=" + (textSize).ToString() + ">" + multipliedPoints.ToString();
-            var position = (UnityEngine.Random.insideUnitSphere + (Vector3.one * 0.5f * textSide)) * 1.5f;
-            position += player.transform.position + Vector3.right * textSide * 2f + Vector3.up * 1.5f;
+            var position = Vector3.zero;
+            //position = (UnityEngine.Random.insideUnitSphere + (Vector3.one * 0.5f * textSide)) * 1.5f;
+            position = player.transform.position + Vector3.right * textSide * 2f + Vector3.up * 1.5f;
             FloatingTextManager.Instance.SpawnText(text, position, (1f + 0.1f * _consecutiveGains[player.ID]), 1, Color.white);
-            }
+        }
 
         /// <summary>
         /// return the current amount of points the specified player has
@@ -100,4 +101,11 @@ namespace Managers.Points
             }
         }
     }
+}
+
+public enum MultiplierChange
+{
+    None,
+    Reset,
+    Increment,
 }
