@@ -58,7 +58,7 @@ namespace Tiles.Examples
                 // Play HandleInputAudio
                 base.HandleInput(player, input);
 
-                PointsManager.GainPoints(player.ID, pointsToWinner);
+              //  PointsManager.GainPoints(player.ID, pointsToWinner);
 
                 Debug.Log("Player" + player.ID + " gained" + pointsToWinner + " points!");
                 

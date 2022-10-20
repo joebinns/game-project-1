@@ -39,7 +39,6 @@ namespace Inputs
             if (context.started)
             {
                 _doesHoldRegister = false;
-                return;
             }
 
             if (context.performed)
@@ -47,7 +46,7 @@ namespace Inputs
                 _doesHoldRegister = true;
             }
 
-            RedirectInput(new OneFitsAllInput(context, _doesHoldRegister ? InputType.Hold : InputType.Tap));
+            RedirectInput(new OneFitsAllInput(context, _doesHoldRegister | context.started ? InputType.Hold : InputType.Tap));
         }
 
         public void RedirectInput(OneFitsAllInput input)

@@ -1,4 +1,4 @@
-using DG.Tweening.Core.Easing;
+using UnityEngine;
 using Inputs;
 using Players;
 
@@ -24,8 +24,6 @@ namespace Tiles.Examples
         public override void EffectFail(Player player)
         {
             base.EffectFail(player);
-            
-            player.GetComponent<HitEffects>().Play();
         }
 
         public override void HandleInput(Player player, OneFitsAllInput input)

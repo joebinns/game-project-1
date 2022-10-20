@@ -249,6 +249,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0a419d4fe1cc749ae5ec335ce0a638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _parameter: 0
 --- !u!4 &2548065
 Transform:
   m_ObjectHideFlags: 0
@@ -965,6 +973,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7632356122989192197, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
   m_PrefabInstance: {fileID: 752702620}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &752702624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1920040072279085128, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+  m_PrefabInstance: {fileID: 752702620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &752702627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5097693694609957745, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
@@ -1466,7 +1479,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143427565}
   m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000038750365, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000003875094, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1791,7 +1804,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
 --- !u!114 &1272158634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,6 +1907,11 @@ GameObject:
 --- !u!1 &1314160343 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7632356122989192197, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
+  m_PrefabInstance: {fileID: 1314160340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1314160344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1920040072279085128, guid: e5df712dc67ba5946941c891b6e84eaf, type: 3}
   m_PrefabInstance: {fileID: 1314160340}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1314160347 stripped
@@ -2059,7 +2076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628633462}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: -0.000000038750365, y: 9.353432, z: 15.414594}
+  m_LocalPosition: {x: -0.00000003875094, y: 9.353432, z: 15.414594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2237,6 +2254,8 @@ MonoBehaviour:
   player2RendererObj: {fileID: 1314160342}
   player1HelmRenderer: {fileID: 752702623}
   player2HelmRenderer: {fileID: 1314160343}
+  p1HoverboardObj: {fileID: 752702624}
+  p2HoverboardObj: {fileID: 1314160344}
 --- !u!4 &1820994177
 Transform:
   m_ObjectHideFlags: 0

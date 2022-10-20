@@ -53,7 +53,7 @@ namespace Tiles
 
             if (!_cooldownFinished && !_playerPressed[player.ID])
             {
-                PointsManager.GainPoints(player.ID, pointsToWinner);
+               // PointsManager.GainPoints(player.ID, pointsToWinner);
 
                 Debug.Log("Player"+ player.ID +" avoided the obstacle and gained " + pointsToWinner + " points!");
                 //Remove points from playerId

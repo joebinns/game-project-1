@@ -1,13 +1,11 @@
 using System;
 using System.Collections;
 using Inputs;
-using Managers.Audio;
 using Managers.Points;
 using Players;
 using UI;
 using UnityEngine;
-using FMOD;
-using FMODUnity;
+using UnityEngine.UIElements;
 
 namespace Tiles
 {
@@ -34,6 +32,7 @@ namespace Tiles
             }
         }
         
+
         public virtual void BeginEffect()
         {
             IsActive = true;
@@ -91,24 +90,33 @@ namespace Tiles
             }
         }
 
+        // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
         public virtual void EffectSuccess(Player player)
         {
+            Debug.Log("success");
             if (TileSettings.EffectSuccessAudio != null)
             {
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
                 EventSuccess.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectSuccessPoints);
-        }
+            PointsManager.Instance.ChangePoints(player, TileSettings.EffectSuccessPoints, false);
 
+        }
+        //
+
+        // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
         public virtual void EffectFail(Player player)
         {
+            Debug.Log("fail");
+
             if (TileSettings.EffectFailAudio != null)
             {
                 //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
                 PlayFailButton2.start();
             }
-            PointsManager.GainPoints(player.ID, TileSettings.EffectFailPoints);
+            PointsManager.Instance.ChangePoints(player, TileSettings.EffectFailPoints, true);
+            player.GetComponent<HitEffects>().Play();
+
         }
 
         private void DeactivateCanvas()

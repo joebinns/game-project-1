@@ -20,7 +20,7 @@ namespace Tiles.Examples
         {
             base.BeginEffect(); // Redirect inputs to this tile, play BeginEffectAudio and activate BeginEffectSprite.
 
-            StraightenRoad.Instance.Straighten(1);
+           // StraightenRoad.Instance.Straighten(1);
 
             FindObjectOfType<SpeedSelector>().SpeedMode = SpeedMode.Medium;
             
@@ -30,7 +30,7 @@ namespace Tiles.Examples
         {
             FindObjectOfType<SpeedSelector>().SpeedMode = SpeedMode.Low;
 
-            StraightenRoad.Instance.Curve(1);
+            //StraightenRoad.Instance.Curve(1);
             // Call this method as the tile's last piece of logic!
             base.EndEffect(); // Redirect inputs back to player, play EndEffectAudio and deactivate effect sprite.
         }

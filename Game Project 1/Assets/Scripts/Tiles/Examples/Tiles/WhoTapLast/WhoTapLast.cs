@@ -48,12 +48,12 @@ namespace Tiles.Examples
             if (_player0Time < _player1Time)
             {
                 Debug.Log("Player0 gained " + pointsToWinner + " points!");
-                PointsManager.GainPoints(0, pointsToWinner);
+               // PointsManager.GainPoints(0, pointsToWinner);
             }
             else if (_player1Time < _player0Time)
             {
                 Debug.Log("Player1 gained " + pointsToWinner + " points!");
-                PointsManager.GainPoints(1, pointsToWinner);
+               // PointsManager.GainPoints(1, pointsToWinner);
             }
 
             // Call this method as the tile's last piece of logic!

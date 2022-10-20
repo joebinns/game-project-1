@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a05e5f39a2ba00469071b489d782266, type: 3}
+  m_Name: Tile_Medium_05
+  m_EditorClassIdentifier: 
+  _description: 
+  MovementOption: 1
+  IsIndefinite: 0
+  BeginEffectAudio: {fileID: 0}
+  BeginEffectText: 
+  EffectAnimation: 0
+  HandleInputAudio: {fileID: 0}
+  EffectSuccessAudio: {fileID: 0}
+  EffectSuccessPoints: 0
+  EffectFailAudio: {fileID: 0}
+  EffectFailPoints: 0
+  EndEffectAudio: {fileID: 0}
+  DeactivateCanvasDelay: 0
+  MiscellaneousAudioClips: []
+  MiscellaneousSprites: []
+  EffectColor: {r: 1, g: 1, b: 1, a: 1}

@@ -130,14 +130,14 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Change_Speed: 0.0005
+    - _Change_Speed: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Disable_Wonk: 1
+    - _Disable_Wonk: 0
     - _Dissolve: 0
     - _DonePos: 5
     - _DstBlend: 0

@@ -18,7 +18,7 @@ public class FloatingText : MonoBehaviour
     {
         text.text = content;
 
-        text.color = color;
+        //text.color = color;
 
         StartCoroutine(TextMover(speed, duration));
     }
