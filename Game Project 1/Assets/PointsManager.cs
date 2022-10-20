@@ -62,15 +62,19 @@ namespace Managers.Points
             }
 
             float textSize = 50f;
-            var maxTextSize = 100f;
-            if (textSize * (1f + 0.1f * _consecutiveGains[player.ID]) < maxTextSize)
+            if (multiplierMode != MultiplierMode.None)
             {
-                textSize *= (1f + 0.1f * _consecutiveGains[player.ID]);
+                var maxTextSize = 100f;
+                if (textSize * (1f + 0.1f * _consecutiveGains[player.ID]) < maxTextSize)
+                {
+                    textSize *= (1f + 0.1f * _consecutiveGains[player.ID]);
+                }
+                else
+                {
+                    textSize = maxTextSize;
+                }
             }
-            else
-            {
-                textSize = maxTextSize;
-            }
+
             var text = "<size=" + (textSize).ToString() + ">" + multipliedPoints.ToString();
             var position = Vector3.zero;
             if (multiplierMode == MultiplierMode.None)
