@@ -13,7 +13,7 @@ namespace Tiles.Examples
     public class RapidTapTile : Tile
     {
 
-        [SerializeField] private int pointsPerTap = 100;
+        [SerializeField] private int pointsPerTap = 10;
 
 
         public override void BeginEffect()
