@@ -113,5 +113,10 @@ namespace Utilities
 
             return product;
         }
+        
+        public static int RoundOff (this int i)
+        {
+            return ((int)Mathf.Round(i / 10f)) * 10;
+        }
     }
 }
