@@ -157,7 +157,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 0
+      Value: 1
       HasValue: 1
     Logging:
       Value: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
   sourceProjectPath: ../../../FMOD Studio/futureriders_music/futureriders_music.fspro
   sourceBankPath: Assets/FMODBanks/Desktop
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: -2
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
