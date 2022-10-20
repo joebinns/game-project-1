@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000002023E52ED08 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 00000259E19751C8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,4 +18,540 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[WRN] OutputWASAPI::mixerThread                : Starvation detected in WASAPI output buffer!
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC288 : node = 00000259E43EB700
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC438 : node = 00000259E43EB480
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC288
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB810
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 14125
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverboard_start2', format=5, channels=2, frequency=48000, lengthbytes=808256, lengthpcm=3133440, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC288
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC438
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB590
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 14125
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverboard_start2', format=5, channels=2, frequency=48000, lengthbytes=808256, lengthpcm=3133440, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC438
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC0D8 : node = 00000257F6014AA0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F6014BB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC948 : node = 00000257F6014BE0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC948
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F6014CF0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B3F2F1B08)
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :         exinfo->initialseekpostype = 1
+[LOG] SoundI::release                          :         hoverboard_start2 (0000025B452C4228)
+[LOG] SoundI::release                          :         hoverboard_start2 (0000025B0F80D7A8)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B3F2F1CB8)
+[LOG] SoundI::release                          :         hoverboard_start2 (00000257FD0F20F8)
+[LOG] SoundI::release                          :         hoverboard_start2 (0000025B0FBC7948)
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC948
+[LOG] SoundI::release                          : hoverboard_start2 (0000025B35DAC438)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B452C4568)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B0F80E378)
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC0D8)
+[LOG] SoundI::release                          :     hoverduck (00000257FD0F4CD8)
+[LOG] SoundI::release                          :     hoverduck (0000025B0FBC4F18)
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC948)
+[LOG] SoundI::release                          :     hoverduck (0000025B3F65A8D8)
+[LOG] SoundI::release                          :     hoverduck (0000025A2F34BDB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC0D8 : node = 00000259E43EB480
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB590
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC438 : node = 00000257F7926620
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC438
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F7926730
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC438
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC0D8)
+[LOG] SoundI::release                          :     hoverduck (00000257FD0F0BD8)
+[LOG] SoundI::release                          :     hoverduck (0000025B0FBC7438)
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC438)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F9DF8F8)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F1ABC88)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC798 : node = 00000259E43EB480
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC798
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB590
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 14125
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverboard_start2', format=5, channels=2, frequency=48000, lengthbytes=808256, lengthpcm=3133440, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC798
+[LOG] SoundI::release                          : hoverboard_start2 (0000025B35DAC288)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B452C4BE8)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B0F80DCB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025A2F34BC08 : node = 00000259E4894C00
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025A2F34BC08
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E4894D10
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025A2F34BC08
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025A2F34C628 : node = 00000259E4894AC0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025A2F34C628
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E4894BD0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025A2F34C628
+[LOG] SoundI::release                          : hoverduck (0000025A2F34BC08)
+[LOG] SoundI::release                          :     hoverduck (0000025B452C4A48)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F80E018)
+[LOG] SoundI::release                          : hoverduck (0000025A2F34C628)
+[LOG] SoundI::release                          :     hoverduck (0000025A2F8DDDC8)
+[LOG] SoundI::release                          :     hoverduck (0000025B35DAC5E8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B0F1ABC88 : node = 0000025AB206E4F0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B0F1ABC88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000025AB206E600
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B0F1ABC88
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B0F1AC348 : node = 0000025AB206EC70
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B0F1AC348
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000025AB206ED80
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B0F1AC348
+[LOG] SoundI::release                          : hoverduck (0000025B0F1ABC88)
+[LOG] SoundI::release                          :     hoverduck (00000257FD0F47F8)
+[LOG] SoundI::release                          :     hoverduck (0000025B0FBC7438)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC288 : node = 00000259E43EB700
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC288
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB810
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 14125
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverboard_start2', format=5, channels=2, frequency=48000, lengthbytes=808256, lengthpcm=3133440, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC288
+[LOG] SoundI::release                          : hoverboard_start2 (0000025B35DAC798)
+[LOG] SoundI::release                          :     hoverboard_start2 (00000257FD0F5B78)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B0FBC1258)
+[LOG] SoundI::release                          : hoverduck (0000025B0F1AC348)
+[LOG] SoundI::release                          :     hoverduck (0000025B452C4A48)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F80E018)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B0FBC2698 : node = 00000257E08749C0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B0FBC2698
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257E0874AD0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B0FBC2698
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC0D8 : node = 00000259E43EB480
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB590
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SoundI::release                          : hoverduck (0000025B0FBC2698)
+[LOG] SoundI::release                          :     hoverduck (0000025B3F660238)
+[LOG] SoundI::release                          :     hoverduck (0000025A2F34BC08)
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC0D8)
+[LOG] SoundI::release                          :     hoverduck (0000025B3F65A8D8)
+[LOG] SoundI::release                          :     hoverduck (0000025A2F34CE98)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC798 : node = 00000259E43EB480
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC798
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB590
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC798
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC948 : node = 00000257F7926EE0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC948
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F7926FF0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 14125
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverboard_start2', format=5, channels=2, frequency=48000, lengthbytes=808256, lengthpcm=3133440, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC948
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC0D8 : node = 00000257F79269E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F7926AF0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC798)
+[LOG] SoundI::release                          :     hoverduck (00000257FD0F66D8)
+[LOG] SoundI::release                          :     hoverduck (0000025B0FBC46A8)
+[LOG] SoundI::release                          : hoverboard_start2 (0000025B35DAC288)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B452C4BE8)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B0F80DCB8)
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC0D8)
+[LOG] SoundI::release                          :     hoverduck (00000257FD0F3FD8)
+[LOG] SoundI::release                          :     hoverduck (0000025B0FBC7438)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B3F2F1958 : node = 00000257F64AD290
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B3F2F1958
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F64AD3A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B3F2F1958
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC0D8 : node = 00000257F7926B20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F7926C30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SoundI::release                          : hoverduck (0000025B3F2F1958)
+[LOG] SoundI::release                          :     hoverduck (0000025B452C4228)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F80D7A8)
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC0D8)
+[LOG] SoundI::release                          :     hoverduck (0000025B452C4A48)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F80D958)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B0F1ABC88 : node = 00000257F5D3A1F0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B0F1ABC88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F5D3A300
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 14125
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverboard_start2', format=5, channels=2, frequency=48000, lengthbytes=808256, lengthpcm=3133440, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B0F1ABC88
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B0F1AC4F8 : node = 00000257F5D3A0B0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B0F1AC4F8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000257F5D3A1C0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B0F1AC4F8
+[LOG] SoundI::release                          : hoverboard_start2 (0000025B35DAC948)
+[LOG] SoundI::release                          :     hoverboard_start2 (00000257FD0F6D58)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B0FBC2698)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025A2F34BC08 : node = 00000259E4894FC0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025A2F34BC08
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E48950D0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025A2F34BC08
+[LOG] SoundI::release                          : hoverduck (0000025B0F1AC4F8)
+[LOG] SoundI::release                          :     hoverduck (0000025A2F8DDDC8)
+[LOG] SoundI::release                          :     hoverduck (0000025B35DAC798)
+[LOG] SoundI::release                          : hoverduck (0000025A2F34BC08)
+[LOG] SoundI::release                          :     hoverduck (0000025B452C4228)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F80E378)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC0D8 : node = 00000259E43EB480
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB590
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1906
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC0D8
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025B35DAC288 : node = 00000259E43EB700
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025B35DAC288
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E43EB810
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 9298
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverduck', format=5, channels=2, frequency=48000, lengthbytes=133856, lengthpcm=507820, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049591.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025B35DAC288
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC0D8)
+[LOG] SoundI::release                          :     hoverduck (0000025B452C48A8)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F80E018)
+[LOG] SystemI::createSound                     : filename = Assets/FMODBanks/Desktop/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000025A2F34C2C8 : node = 00000259E4894AC0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000025B35DAA6B8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000025A2F34C2C8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODBanks/Desktop/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 19129248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 42240
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000259E4894BD0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 14125
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='hoverboard_start2', format=5, channels=2, frequency=48000, lengthbytes=808256, lengthpcm=3133440, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.047668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000025A2F34C2C8
+[LOG] SoundI::release                          : hoverduck (0000025B35DAC288)
+[LOG] SoundI::release                          :     hoverduck (0000025B452C4D88)
+[LOG] SoundI::release                          :     hoverduck (0000025B0F80D958)
+[LOG] SoundI::release                          : hoverboard_start2 (0000025B0F1ABC88)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025A2F8DD5A8)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B35DAC5E8)
+[LOG] SoundI::release                          : hoverboard_start2 (0000025A2F34C2C8)
+[LOG] SoundI::release                          :     hoverboard_start2 (00000257FD0F44B8)
+[LOG] SoundI::release                          :     hoverboard_start2 (0000025B0FBC2698)
+[LOG] SoundI::release                          :  (0000025B35D557D8)
+[LOG] SoundI::release                          :     hoverkrockmedhoverljud (0000025A2E98CFA8)
+[LOG] SoundI::release                          :  (0000025B35D550A8)
+[LOG] SoundI::release                          :     swoosh (00000259E41740F8)
+[LOG] SoundI::release                          :  (0000025B35D55218)
+[LOG] SoundI::release                          :     event (0000025A2F8DDC28)
+[LOG] SoundI::release                          :  (0000025B35D55668)
+[LOG] SoundI::release                          :     player_fail1 (0000025A2F8DD8E8)
+[LOG] SoundI::release                          :  (0000025B35D55388)
+[LOG] SoundI::release                          :     fail_button_press_02 (00000259E4174918)
+[LOG] SoundI::release                          :  (0000025B35D554F8)
+[LOG] SoundI::release                          :     hoverjumpshort (00000259E4174DF8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
