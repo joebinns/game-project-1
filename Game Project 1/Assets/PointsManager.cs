@@ -82,6 +82,12 @@ namespace Managers.Points
         {
             return _points[playerIndex];
         }
+        
+        public float GetPointsMultiplier(int playerIndex)
+        {
+            var pointsMultiplier = (1f + 0.1f * _consecutiveGains[playerIndex]);
+            return pointsMultiplier;
+        }
 
         /// <summary>
         /// set both players points to 0
