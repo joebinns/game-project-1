@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject customizeHolder;
+    [SerializeField] private GameObject p1Char, p2Char;
+    
     [SerializeField] private float menuSwitchSpeed = 1.5f;
     
     [SerializeField] private GameObject mainMenu, settingsMenu, playMenu;
@@ -39,5 +42,13 @@ public class MainMenuManager : MonoBehaviour
     {
         mainMenu.transform.DOMove(middlePos.position, menuSwitchSpeed);
         playMenu.transform.DOMove(rightPos.position, menuSwitchSpeed);
+    }
+
+    public void StartingGame()
+    {
+        GameSettings.Instance.SetFinalPlayers(p1Char, p2Char);
+
+        p1Char.transform.parent = customizeHolder.transform;
+        p2Char.transform.parent = customizeHolder.transform;
     }
 }
