@@ -1,15 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using System;
+
 using FMODUnity;
-using FMOD;
-using FMODUnityResonance;
-using static UnityEditor.Profiling.RawFrameDataView;
-using static Cinemachine.AxisState;
-using TMPro;
-using static UnityEngine.Rendering.DebugUI;
-using System.Diagnostics;
+
 
 namespace Managers.Audio
 {

@@ -15,15 +15,15 @@ MonoBehaviour:
   _description: 
   MovementOption: 1
   IsIndefinite: 0
-  BeginEffectAudio: {fileID: 0}
+  BeginEffectAudio: 0
   BeginEffectText: 
   EffectAnimation: 0
   HandleInputAudio: {fileID: 0}
   EffectSuccessAudio: {fileID: 0}
-  EffectSuccessPoints: 100
+  EffectSuccessPoints: 50
   EffectFailAudio: {fileID: 0}
-  EffectFailPoints: 30
-  EndEffectAudio: {fileID: 0}
+  EffectFailPoints: 10
+  EndEffectAudio: 0
   DeactivateCanvasDelay: 0
   MiscellaneousAudioClips: []
   MiscellaneousSprites: []

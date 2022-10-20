@@ -137,7 +137,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Disable_Wonk: 1
+    - _Disable_Wonk: 0
     - _Dissolve: 0
     - _DonePos: 5
     - _DstBlend: 0
