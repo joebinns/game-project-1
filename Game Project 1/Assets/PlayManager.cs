@@ -20,10 +20,7 @@ public class PlayManager : MonoBehaviour
 
         GameSettings.Instance.p1DetailSlot = p1DetailObj;
         GameSettings.Instance.p2DetailSlot = p2DetailObj;
-    }
-
-    private void Start()
-    {
+        
         GameSettings.Instance.ApplyPlayerMats();
         GameSettings.Instance.ApplyPlayerThings();
     }

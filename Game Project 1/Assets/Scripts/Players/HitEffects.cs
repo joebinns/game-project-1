@@ -145,6 +145,11 @@ public class HitEffects : MonoBehaviour
         PlayOuchSound = FMODUnity.RuntimeManager.CreateInstance("event:/PlayerOuch1");
         PlayHoverCrashSound = FMODUnity.RuntimeManager.CreateInstance("event:/HoverCrash2");
 
+        
+    }
+
+    private void Start()
+    {
         body = _body.materials;
         bodyhardcodedFUCK = _body.materials;
         defaulthelmet = _hemlet.materials;
@@ -164,6 +169,7 @@ public class HitEffects : MonoBehaviour
             defaulthelmetHurt[i] = hurtmaterial;
         }
     }
+
     public void Play()
     {
         if (_ouchSound != null)
