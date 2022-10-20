@@ -328,7 +328,7 @@ namespace Players.Physics_Based_Character_Controller
                 GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
                 PlayCrouchSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
-                StartCoroutine(TransitionIKOffset(-0.5f, 0f, _transitionDurationCrouch));
+                StartCoroutine(TransitionIKOffset(-0.6f, 0f, _transitionDurationCrouch));
             }
             
             if (_movementOption != MovementOptions.Default) { return; }
@@ -339,7 +339,7 @@ namespace Players.Physics_Based_Character_Controller
                 PlayCrouchSound.start();
                 GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
                 StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
-                StartCoroutine(TransitionIKOffset(0f, -0.5f, _transitionDurationCrouch));
+                StartCoroutine(TransitionIKOffset(0f, -0.6f, _transitionDurationCrouch));
             }
         }
 

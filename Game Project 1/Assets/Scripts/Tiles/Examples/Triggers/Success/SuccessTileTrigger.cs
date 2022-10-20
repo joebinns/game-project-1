@@ -14,7 +14,7 @@ namespace Tiles.Examples.Triggers
         {
             base.TriggerExited(player);
             
-            Tile.EffectSuccess(player, false);
+            Tile.EffectSuccess(player, MultiplierChange.Increment);
         }
     }
 }
