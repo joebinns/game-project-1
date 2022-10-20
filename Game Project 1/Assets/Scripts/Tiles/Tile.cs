@@ -91,7 +91,7 @@ namespace Tiles
         }
 
         // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
-        public virtual void EffectSuccess(Player player, MultiplierChange multiplierChange = MultiplierChange.Increment)
+        public virtual void EffectSuccess(Player player, MultiplierMode multiplierMode = MultiplierMode.Increment)
         {
             Debug.Log("success");
             if (TileSettings.EffectSuccessAudio != null)
@@ -99,7 +99,7 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);
                 EventSuccess.start();
             }
-            PointsManager.Instance.ChangePoints(player, TileSettings.EffectSuccessPoints, multiplierChange);
+            PointsManager.Instance.ChangePoints(player, TileSettings.EffectSuccessPoints, multiplierMode);
 
         }
         //
@@ -114,7 +114,7 @@ namespace Tiles
                 //AudioManager.Instance.PlaySound(TileSettings.EffectFailAudio);
                 PlayFailButton2.start();
             }
-            PointsManager.Instance.ChangePoints(player, TileSettings.EffectFailPoints, MultiplierChange.Reset);
+            PointsManager.Instance.ChangePoints(player, TileSettings.EffectFailPoints, MultiplierMode.Reset);
             player.GetComponent<HitEffects>().Play();
 
         }

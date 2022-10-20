@@ -16,9 +16,9 @@ namespace Tiles.Examples
             base.EndEffect();
         }
 
-        public override void EffectSuccess(Player player, MultiplierChange multiplierChange)
+        public override void EffectSuccess(Player player, MultiplierMode multiplierMode)
         {
-            base.EffectSuccess(player, MultiplierChange.Increment);
+            base.EffectSuccess(player, MultiplierMode.Increment);
         }
         
         public override void EffectFail(Player player)
