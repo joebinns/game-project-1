@@ -6,15 +6,16 @@ using FMODUnity;
 
 public class LaserSound : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public FMOD.Studio.EventInstance laserSound;
+
+    void Awake()
+    {
+        laserSound = FMODUnity.RuntimeManager.CreateInstance("event:/Lazer");
+        laserSound = FMODUnity.RuntimeManager.CreateInstance("event:/Lazer2");
+        laserSound = FMODUnity.RuntimeManager.CreateInstance("event:/Spaceship");
+    }
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        laserSound.start();
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5083695762565611686}
   - component: {fileID: 2294684964252029215}
   - component: {fileID: 1464729793394169120}
+  - component: {fileID: 7850536609182936356}
   m_Layer: 0
   m_Name: VFX_Laser
   m_TagString: Untagged
@@ -128,3 +129,33 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7850536609182936356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748214721122600738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 911180396
+      Data2: 1177649922
+      Data3: 405382548
+      Data4: 1962149928
+    Path: event:/Lazer
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

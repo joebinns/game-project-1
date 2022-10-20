@@ -48,8 +48,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4828895656602056751}
   IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -403,7 +403,7 @@ MonoBehaviour:
   - {fileID: 4828895656602056751}
   StringsBanks:
   - {fileID: 1686733023634695738}
-  cacheTime: 638018781378935845
+  cacheTime: 638018953081509099
   cacheVersion: 131593
 --- !u!114 &426069783452993156
 MonoBehaviour:
@@ -498,7 +498,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638018781378935845
+  lastModified: 638018953081509099
   FileSizes:
   - Name: 
     Value: 2160
@@ -758,7 +758,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638018781378915906
+  lastModified: 638018953081489154
   FileSizes: []
   Exists: 1
 --- !u!114 &5100957636450997998
@@ -863,8 +863,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4828895656602056751}
   IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -998,8 +998,8 @@ MonoBehaviour:
   Banks:
   - {fileID: 4828895656602056751}
   IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
