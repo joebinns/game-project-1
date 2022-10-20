@@ -325,10 +325,10 @@ namespace Players.Physics_Based_Character_Controller
             {
                 // Stop crouching
                 PlayCrouchStopSound.start();
+                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
                 PlayCrouchSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
                 StartCoroutine(TransitionIKOffset(-0.5f, 0f, _transitionDurationCrouch));
-
             }
             
             if (_movementOption != MovementOptions.Default) { return; }
@@ -337,6 +337,7 @@ namespace Players.Physics_Based_Character_Controller
             {
                 // Start crouching
                 PlayCrouchSound.start();
+                GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
                 StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
                 StartCoroutine(TransitionIKOffset(0f, -0.5f, _transitionDurationCrouch));
             }
@@ -355,7 +356,7 @@ namespace Players.Physics_Based_Character_Controller
         private IEnumerator TransitionRideHeight(float a, float b, float duration) // Apply to transform directly (without spring), read from curve.
         {
             var t = 0f;
-            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = true;
+            
             while (t < duration)
             {
                 t += Time.deltaTime;
@@ -363,7 +364,7 @@ namespace Players.Physics_Based_Character_Controller
                 yield return null;
             }
             _rideHeight = b;
-            GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
+            
         }
         
         private IEnumerator TransitionIKOffset(float a, float b, float duration)

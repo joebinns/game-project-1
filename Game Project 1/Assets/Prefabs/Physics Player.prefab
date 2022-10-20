@@ -373,7 +373,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _crouchRideHeight: 1.5
+  _crouchRideHeight: 1.95
   _transitionDurationCrouch: 0.1
   _delayFollow: {fileID: 4605004468068803450}
 --- !u!114 &311547958509225728

@@ -48,6 +48,6 @@ public enum SpeedMode
     Stop = 0,
     Low = 25,
     Medium = 33,
-    High = 40,
+    High = 60,
     GodSpeed = 200
 }

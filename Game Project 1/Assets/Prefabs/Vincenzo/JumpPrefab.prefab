@@ -135,6 +135,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ab5a84f3e7b0241b24a22355a97900, type: 3}
+--- !u!114 &2547546564034886591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7985341325722770735, guid: f9ab5a84f3e7b0241b24a22355a97900, type: 3}
+  m_PrefabInstance: {fileID: 5587583653839578768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4724dd582c014384086ab6d4db57a95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7744078474258911732 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2806705659457877860, guid: f9ab5a84f3e7b0241b24a22355a97900, type: 3}
@@ -203,6 +214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3096800452980367678, guid: 4fb766278b88ae9409836cead88d07e2, type: 3}
+      propertyPath: _failTileTrigger
+      value: 
+      objectReference: {fileID: 2547546564034886591}
     - target: {fileID: 7925463696841603966, guid: 4fb766278b88ae9409836cead88d07e2, type: 3}
       propertyPath: m_Name
       value: Obstacle Success

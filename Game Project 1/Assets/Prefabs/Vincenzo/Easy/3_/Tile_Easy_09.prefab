@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6243409963830759086}
-  - component: {fileID: 1271726184459369550}
   m_Layer: 0
   m_Name: EndingSection
   m_TagString: Untagged
@@ -42,20 +41,6 @@ Transform:
   m_Father: {fileID: 2386703811089708517}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1271726184459369550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53477802632198835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a4e3d84b17f594ba4d7799672def87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TileSettings: {fileID: 11400000, guid: 07da3a7f5db469c4d8a363539c3047ee, type: 2}
-  IsActive: 0
 --- !u!1 &65804797056170453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,7 +1621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3398726217485348485, guid: 7e8513e69a885c742a507e78099de623, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3200006
+      value: 5.94
       objectReference: {fileID: 0}
     - target: {fileID: 3398726217485348485, guid: 7e8513e69a885c742a507e78099de623, type: 3}
       propertyPath: m_LocalPosition.z
