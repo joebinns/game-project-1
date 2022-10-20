@@ -11,8 +11,8 @@ public class GameSettings : MonoBehaviour
     public int player1Points, player2Points;
 
     public Material[] p1Materials, p2Materials;
-    public Material p1HelmMat, p2HelmMat;
-    public GameObject p1, p2, p1Helm, p2Helm, p1Hoverboard, p2Hoverboard;
+    public Material p1HelmMat, p2HelmMat, p1DetailMat, p2DetailMat;
+    public GameObject p1, p2, p1Helm, p2Helm, p1Hoverboard, p2Hoverboard, p1DetailSlot, p2DetailSlot;
     public GameObject p1SelectedBoard, p2SelectedBoard, p1SelectedHelm, p2SelectedHelm;
 
     private void Awake()
@@ -59,14 +59,40 @@ public class GameSettings : MonoBehaviour
 
         p1Helm.GetComponent<Renderer>().material = p1HelmMat;
         p2Helm.GetComponent<Renderer>().material = p2HelmMat;
+
+        Renderer p1renderer = p1SelectedHelm.GetComponent<Renderer>();
+
+        if (p1renderer != null)
+        {
+            p1renderer.material = p1DetailMat;
+        }
+
+        else
+        {
+            p1SelectedHelm.GetComponentInChildren<Renderer>().material = p1DetailMat;
+        }
+        
+        Renderer p2renderer = p2SelectedHelm.GetComponent<Renderer>();
+
+        if (p2renderer != null)
+        {
+            p2renderer.material = p2DetailMat;
+        }
+
+        else
+        {
+            p2SelectedHelm.GetComponentInChildren<Renderer>().material = p2DetailMat;
+        }
     }
 
-    public void ApplyPlayerObjects(GameObject p1hover, GameObject p2hover, GameObject p1helm, GameObject p2helm)
+    public void ApplyPlayerObjects(GameObject p1hover, GameObject p2hover, GameObject p1helm, GameObject p2helm, GameObject p1Detail, GameObject p2Detail)
     {
         p1SelectedBoard = p1hover;
         p2SelectedBoard = p2hover;
         p1SelectedHelm = p1helm;
         p2SelectedHelm = p2helm;
+        p1SelectedHelm = p1Detail;
+        p2SelectedHelm = p2Detail;
     }
 
     public void ApplyPlayerThings()
@@ -89,6 +115,20 @@ public class GameSettings : MonoBehaviour
         newP2Hover.transform.rotation = p2HoverTransform.rotation;
         newP2Hover.transform.localScale = p2HoverTransform.localScale;
 
-        //same for helm here...
+        //Helmet
+        Transform p1HelmetTransform = p1DetailSlot.transform;
+        Transform p2HelmetTransform = p2DetailSlot.transform;
+
+        GameObject newP1Detail = Instantiate(p1SelectedHelm, p1Helm.transform.position, Quaternion.identity);
+        newP1Detail.transform.parent = p1DetailSlot.transform.parent;
+        newP1Detail.transform.position = p1HelmetTransform.position;
+        newP1Detail.transform.rotation = p1HelmetTransform.transform.rotation;
+        newP1Detail.transform.localScale = p1HelmetTransform.transform.localScale;
+        
+        GameObject newP2Detail = Instantiate(p2SelectedHelm, p2Helm.transform.position, Quaternion.identity);
+        newP2Detail.transform.parent = p2DetailSlot.transform.parent;
+        newP2Detail.transform.position = p2HelmetTransform.position;
+        newP2Detail.transform.rotation = p2HelmetTransform.transform.rotation;
+        newP2Detail.transform.localScale = p2HelmetTransform.transform.localScale;
     }
 }
