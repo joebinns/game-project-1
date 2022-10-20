@@ -327,11 +327,8 @@ namespace Players.Physics_Based_Character_Controller
                 PlayCrouchStopSound.start();
                 PlayCrouchSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 StartCoroutine(TransitionRideHeight(_crouchRideHeight, _defaultRideHeight, _transitionDurationCrouch));
-                /*
-                var crouchIK = _delayFollow.offset;
-                crouchIK.y = 0f;
-                _delayFollow.offset = crouchIK;
-                */
+                StartCoroutine(TransitionIKOffset(-0.5f, 0f, _transitionDurationCrouch));
+
             }
             
             if (_movementOption != MovementOptions.Default) { return; }
@@ -341,12 +338,7 @@ namespace Players.Physics_Based_Character_Controller
                 // Start crouching
                 PlayCrouchSound.start();
                 StartCoroutine(TransitionRideHeight(_defaultRideHeight, _crouchRideHeight, _transitionDurationCrouch));
-                /*
-                var crouchIK = _delayFollow.offset;
-                crouchIK.y = -0.75f;
-                _delayFollow.offset = crouchIK;
-                Debug.Log(crouchIK);
-                */
+                StartCoroutine(TransitionIKOffset(0f, -0.5f, _transitionDurationCrouch));
             }
         }
 
@@ -372,6 +364,24 @@ namespace Players.Physics_Based_Character_Controller
             }
             _rideHeight = b;
             GetComponent<DynamicSpringStrength>().ShouldSpringBeStiff = false;
+        }
+        
+        private IEnumerator TransitionIKOffset(float a, float b, float duration)
+        {
+            var t = 0f;
+            var crouchIK = _delayFollow.offset;
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                
+                crouchIK.y = Mathf.Lerp(a , b, t * (1f / duration));
+                _delayFollow.offset = crouchIK;
+                
+                yield return null;
+            }
+
+            crouchIK.y = b;
+            _delayFollow.offset = crouchIK;
         }
 
         private void SetMovementState(MovementStates movementState)
