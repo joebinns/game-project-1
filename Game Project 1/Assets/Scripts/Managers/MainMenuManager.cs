@@ -32,6 +32,11 @@ public class MainMenuManager : MonoBehaviour
         settingsMenu.transform.DOMove(leftPos.position, menuSwitchSpeed);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void MainToPlay()
     {
         mainMenu.transform.DOMove(leftPos.position, menuSwitchSpeed);
