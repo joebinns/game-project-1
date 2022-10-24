@@ -98,7 +98,6 @@ namespace Tiles
         // This method gets galled from the 'ObstacleSuccessTileTrigger' which is the Gameobject trigger in the scene
         public virtual void EffectSuccess(Player player, MultiplierMode multiplierMode = MultiplierMode.Increment)
         {
-            Debug.Log("success");
             if (TileSettings.EffectSuccessAudio != null)
             {
                 //AudioManager.Instance.PlaySound(TileSettings.EffectSuccessAudio);

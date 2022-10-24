@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu/StartMenu.unity
+    path: Assets/Scenes/Menus/StartMenu.unity
     guid: 8202a4a8cf893674bb1bd0ec23c05d40
   - enabled: 1
-    path: Assets/Scenes/Vincenzo.unity
+    path: Assets/Scenes/Game.unity
     guid: 5f82e93c4956da3459ea46e0111f065f
   - enabled: 1
-    path: Assets/Scenes/Menu/GameOverMenu.unity
+    path: Assets/Scenes/Menus/GameOverMenu.unity
     guid: e793b3a5d423e644bbdc1815991a67f3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ddb76cf685e738b45961a05ab07323ee, type: 2}

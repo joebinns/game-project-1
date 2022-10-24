@@ -122,7 +122,6 @@ namespace Managers.Audio
 
         private void OnDestroy()
         {
-            Debug.Log("Destroyed");
             instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
