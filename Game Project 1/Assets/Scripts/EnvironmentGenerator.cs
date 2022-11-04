@@ -30,14 +30,14 @@ public class EnvironmentGenerator : MonoBehaviour
         _lastGeneratedRoadEndPos = firstRoadPos;
         _lastGeneratedBuildingEndPos = firstRoadPos;
         
-        //Generate 100 road pieces
-        for (int i = 0; i < 100; i++)
+        //Generate 200 road pieces
+        for (int i = 0; i < 200; i++)
         {
             GenerateNewRoad();
         }
         
-        //Generate 20 buildings (on each side)
-        for (int i = 0; i < 20; i++)
+        //Generate 25 buildings (on each side)
+        for (int i = 0; i < 25; i++)
         {
             GenerateNewBuildings();
         }

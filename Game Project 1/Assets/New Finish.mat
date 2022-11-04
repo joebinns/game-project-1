@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: New Finish
   m_Shader: {fileID: -6465566751694194690, guid: 9b8aad8def5af7f48b2c4c4d2865a46b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 07ea740c4cf0e6b42b9cba9706c711b1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 190a994e754ad254b85a764fce6f5a27, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -58,7 +58,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emission:
-        m_Texture: {fileID: 2800000, guid: fe65be7524eda8f4a85e0da29156c51f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 244d6064070e4584bb6c2b01ab3bfc4d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -70,7 +70,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic:
-        m_Texture: {fileID: 2800000, guid: ed45e808f7a886f42a02a40374295762, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -102,7 +102,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Smoothness:
-        m_Texture: {fileID: 2800000, guid: 163bc9033a907df4a937f1a03fbe317d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 874e6b90c54c7d146888116171734598, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -142,7 +142,7 @@ Material:
     - _DonePos: 5
     - _DstBlend: 0
     - _EdgeWidth: 0.04
-    - _EndPos: -75
+    - _EndPos: -112.5
     - _EnvironmentReflections: 1
     - _FadeInDuration: -40
     - _FadeInPos: -50
